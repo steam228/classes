@@ -1,0 +1,388 @@
+/**
+ * Hero Header Styles for Zensical
+ * 
+ * Creates a full-width hero image header with transparent navbar overlay,
+ * similar to zensical.org and mkdocs-material landing pages.
+ * 
+ * Usage: Add frontmatter to any page:
+ *   hero_image: path/to/image.jpg
+ *   hero_title: "Optional Title"
+ *   hero_subtitle: "Optional subtitle text"
+ *   hero_height: 60vh (40vh, 50vh, 60vh, 80vh, 100vh)
+ *   hero_overlay: 0.4 (0-1, darkness of overlay)
+ *   hero_align: center (left, center, right)
+ */
+
+/* ==========================================================================
+   CSS Custom Properties
+   ========================================================================== */
+
+:root {
+  --hero-height: 60vh;
+  --hero-overlay-opacity: 0.2;
+  --hero-title-color: #1a1a1a;
+  --hero-subtitle-color: rgba(30, 30, 30, 0.9);
+  --hero-overlay-color: 255, 255, 255; /* White for light theme */
+  --hero-transition-duration: 0.3s;
+}
+
+/* Dark theme overrides */
+[data-md-color-scheme="slate"] {
+  --hero-title-color: #ffffff;
+  --hero-subtitle-color: rgba(255, 255, 255, 0.9);
+  --hero-overlay-color: 0, 0, 0; /* Black for dark theme */
+}
+
+/* ==========================================================================
+   Hero Section Base Styles
+   ========================================================================== */
+
+.md-hero {
+  position: relative;
+  width: 100%;
+  margin-top: calc(-1 * var(--md-header-height, 64px)); /* Pull up behind header */
+  overflow: hidden;
+}
+
+.md-hero__image {
+  position: relative;
+  width: 100%;
+  height: var(--hero-height);
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+  display: flex;
+  align-items: flex-end; /* Push content to bottom */
+  justify-content: flex-start;
+}
+
+/* Theme-dependent overlay for text readability */
+.md-hero__overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(
+    180deg,
+    rgba(var(--hero-overlay-color), 0) 0%,
+    rgba(var(--hero-overlay-color), 0) 50%,
+    rgba(var(--hero-overlay-color), var(--hero-overlay-opacity)) 100%
+  );
+  pointer-events: none;
+}
+
+.md-hero__inner {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  max-width: 61rem; /* Match md-grid max-width */
+  padding: 0 .4rem; /* Match md-header__inner padding */
+  padding-left: calc(.4rem + .2rem + .4rem); /* header padding + button margin + button padding = align with logo */
+  padding-bottom: 10vh; /* 10vh from bottom of hero image */
+  margin: 0 auto;
+}
+
+/* ==========================================================================
+   Hero Content & Typography
+   ========================================================================== */
+
+.md-hero__content {
+  width: 100%;
+  max-width: 800px;
+  text-align: left; /* Always left-aligned with logo */
+}
+
+.md-hero__content--left,
+.md-hero__content--center,
+.md-hero__content--right {
+  text-align: left;
+  margin: 0;
+}
+
+.md-hero__title {
+  color: var(--hero-title-color);
+  font-size: clamp(1.6rem, 4vw, 2.8rem); /* 20% smaller */
+  font-weight: 600; /* SemiBold */
+  line-height: 0.84; /* 30% less than 1.2 */
+  margin: 0 0 0.5rem 0;
+  text-shadow: 0 2px 8px rgba(var(--hero-overlay-color), 0.3);
+}
+
+.md-hero__subtitle {
+  color: var(--hero-subtitle-color);
+  font-size: clamp(0.8rem, 1.6vw, 1.12rem); /* 20% smaller */
+  font-weight: 400; /* Regular */
+  font-style: italic;
+  line-height: 1.05; /* 30% less than 1.5 */
+  margin: 0;
+  text-shadow: 0 1px 4px rgba(var(--hero-overlay-color), 0.3);
+}
+
+/* ==========================================================================
+   Hero Buttons
+   ========================================================================== */
+
+.md-hero__buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.md-hero__content--center .md-hero__buttons {
+  justify-content: center;
+}
+
+.md-hero__content--right .md-hero__buttons {
+  justify-content: flex-end;
+}
+
+.md-hero__buttons .md-button {
+  padding: 0.75rem 1.5rem;
+  font-size: 1rem;
+  font-weight: 600;
+  border-radius: 0.25rem;
+  text-decoration: none;
+  transition: all var(--hero-transition-duration) ease;
+}
+
+.md-hero__buttons .md-button--primary {
+  background: var(--md-primary-fg-color, #4051b5);
+  color: var(--md-primary-bg-color, #ffffff);
+  border: 2px solid var(--md-primary-fg-color, #4051b5);
+}
+
+.md-hero__buttons .md-button--primary:hover {
+  background: transparent;
+  color: #ffffff;
+  border-color: #ffffff;
+}
+
+.md-hero__buttons .md-button--secondary {
+  background: transparent;
+  color: #ffffff;
+  border: 2px solid rgba(255, 255, 255, 0.8);
+}
+
+.md-hero__buttons .md-button--secondary:hover {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: #ffffff;
+}
+
+/* ==========================================================================
+   Transparent Header When Hero Present
+   ========================================================================== */
+
+/* Make header transparent when hero is present */
+html.has-hero .md-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  background: transparent;
+  box-shadow: none;
+  transition: background-color var(--hero-transition-duration) ease,
+              box-shadow var(--hero-transition-duration) ease;
+}
+
+/* Header becomes solid when scrolled */
+html.has-hero .md-header.md-header--scrolled {
+  background: var(--md-default-bg-color, #ffffff);
+  box-shadow: 0 0 0.2rem rgba(0, 0, 0, 0.1),
+              0 0.2rem 0.4rem rgba(0, 0, 0, 0.2);
+}
+
+/* Adjust header text colors for transparent state - Light theme: dark text */
+html.has-hero .md-header:not(.md-header--scrolled) .md-header__title,
+html.has-hero .md-header:not(.md-header--scrolled) .md-header__topic,
+html.has-hero .md-header:not(.md-header--scrolled) .md-header-nav__button {
+  color: var(--hero-title-color);
+  text-shadow: 0 1px 3px rgba(var(--hero-overlay-color), 0.3);
+}
+
+html.has-hero .md-header:not(.md-header--scrolled) .md-logo {
+  filter: none; /* Keep original logo colors */
+}
+
+html.has-hero .md-header:not(.md-header--scrolled) .md-search__icon {
+  color: var(--hero-title-color);
+}
+
+/* Dark mode: white text on transparent header */
+[data-md-color-scheme="slate"] html.has-hero .md-header:not(.md-header--scrolled) .md-header__title,
+[data-md-color-scheme="slate"] html.has-hero .md-header:not(.md-header--scrolled) .md-header__topic,
+[data-md-color-scheme="slate"] html.has-hero .md-header:not(.md-header--scrolled) .md-header-nav__button {
+  color: #ffffff;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+}
+
+[data-md-color-scheme="slate"] html.has-hero .md-header:not(.md-header--scrolled) .md-logo {
+  filter: brightness(0) invert(1);
+}
+
+[data-md-color-scheme="slate"] html.has-hero .md-header:not(.md-header--scrolled) .md-search__icon {
+  color: #ffffff;
+}
+
+/* Dark mode adjustments */
+[data-md-color-scheme="slate"] html.has-hero .md-header.md-header--scrolled {
+  background: var(--md-default-bg-color);
+}
+
+/* ==========================================================================
+   Hero Height Variations
+   ========================================================================== */
+
+html[data-hero-height="40vh"] .md-hero__image {
+  height: 40vh;
+}
+
+html[data-hero-height="50vh"] .md-hero__image {
+  height: 50vh;
+}
+
+html[data-hero-height="60vh"] .md-hero__image {
+  height: 60vh;
+}
+
+html[data-hero-height="80vh"] .md-hero__image {
+  height: 80vh;
+}
+
+html[data-hero-height="100vh"] .md-hero__image {
+  height: 100vh;
+}
+
+/* ==========================================================================
+   Responsive Adjustments
+   ========================================================================== */
+
+/* Tablet and below */
+@media screen and (max-width: 960px) {
+  .md-hero__inner {
+    padding: 0 1.5rem;
+    padding-bottom: 10vh;
+  }
+
+  .md-hero__title {
+    font-size: clamp(1.4rem, 4vw, 2rem);
+  }
+
+  .md-hero__subtitle {
+    font-size: clamp(0.75rem, 1.6vw, 0.95rem);
+  }
+}
+
+/* Mobile */
+@media screen and (max-width: 600px) {
+  .md-hero__image {
+    min-height: 300px;
+  }
+
+  .md-hero__buttons {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .md-hero__content--center .md-hero__buttons,
+  .md-hero__content--right .md-hero__buttons {
+    align-items: stretch;
+  }
+
+  .md-hero__buttons .md-button {
+    text-align: center;
+    width: 100%;
+  }
+}
+
+/* ==========================================================================
+   Page Menu Links (Horizontal Navigation Below Hero)
+   ========================================================================== */
+
+.md-hero__nav {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+
+.md-hero__nav-inner {
+  max-width: var(--md-grid-max-width, 1440px);
+  margin: 0 auto;
+  padding: 0 1.5rem;
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+}
+
+.md-hero__nav-link {
+  color: rgba(255, 255, 255, 0.9);
+  text-decoration: none;
+  padding: 1rem 0;
+  font-size: 0.875rem;
+  font-weight: 500;
+  border-bottom: 2px solid transparent;
+  transition: all var(--hero-transition-duration) ease;
+}
+
+.md-hero__nav-link:hover,
+.md-hero__nav-link--active {
+  color: #ffffff;
+  border-bottom-color: var(--md-primary-fg-color, #4051b5);
+}
+
+@media screen and (max-width: 600px) {
+  .md-hero__nav-inner {
+    gap: 1rem;
+    overflow-x: auto;
+    justify-content: flex-start;
+    padding: 0 1rem;
+  }
+
+  .md-hero__nav-link {
+    white-space: nowrap;
+    font-size: 0.8rem;
+  }
+}
+
+/* ==========================================================================
+   Print Styles
+   ========================================================================== */
+
+@media print {
+  .md-hero {
+    display: none;
+  }
+
+  html.has-hero .md-header {
+    position: static;
+    background: var(--md-default-bg-color, #ffffff);
+  }
+}
+
+/* ==========================================================================
+   Right Side Navigation Panel - Native Zensical Styling
+   ========================================================================== */
+
+/* Let Zensical handle TOC styling natively */
+.md-sidebar--secondary {
+  display: flex !important;
+}
+
+/* Expand TOC sections by default - minimal override */
+.md-nav--secondary .md-nav__toggle ~ .md-nav__list {
+  display: block;
+}
+
+/* Hide right sidebar on small screens */
+@media (max-width: 1219px) {
+  .md-sidebar--secondary {
+    display: none !important;
+  }
+}
+
+
+

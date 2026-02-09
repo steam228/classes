@@ -1,0 +1,66 @@
+{% extends "base.html" %}
+
+{# 
+  Hero Header Template Override for Zensical
+  
+  Adds support for a full-width hero image header on any page.
+  
+  Frontmatter properties:
+    hero_image: path to the hero image (relative to docs folder)
+    hero_title: optional title text to overlay on hero
+    hero_subtitle: optional subtitle text
+    hero_height: optional height (default: 60vh, can be: 40vh, 50vh, 60vh, 80vh, 100vh)
+    hero_overlay: optional overlay opacity (default: 0.4, range 0-1)
+    hero_align: text alignment (default: center, can be: left, center, right)
+#}
+
+{% block extrahead %}
+  {{ super() }}
+  {% if page and page.meta and page.meta.hero_image %}
+  <style>
+    :root {
+      --hero-overlay-opacity: {{ page.meta.hero_overlay | default(0.4) }};
+    }
+  </style>
+  {% endif %}
+{% endblock %}
+
+{% block hero %}
+  {% if page and page.meta and page.meta.hero_image %}
+  <section class="md-hero" data-md-component="hero">
+    <div class="md-hero__image" style="background-image: url('{{ page.meta.hero_image }}');">
+      <div class="md-hero__overlay"></div>
+      <div class="md-hero__inner md-grid">
+        <div class="md-hero__content md-hero__content--{{ page.meta.hero_align | default('center') }}">
+          {% if page.meta.hero_title %}
+          <h1 class="md-hero__title">{{ page.meta.hero_title }}</h1>
+          {% endif %}
+          {% if page.meta.hero_subtitle %}
+          <p class="md-hero__subtitle">{{ page.meta.hero_subtitle }}</p>
+          {% endif %}
+          {% if page.meta.hero_buttons %}
+          <div class="md-hero__buttons">
+            {% for button in page.meta.hero_buttons %}
+            <a href="{{ button.link }}" class="md-button md-button--{{ button.type | default('primary') }}">
+              {{ button.text }}
+            </a>
+            {% endfor %}
+          </div>
+          {% endif %}
+        </div>
+      </div>
+    </div>
+  </section>
+  {% endif %}
+{% endblock %}
+
+{% block announce %}
+  {{ super() }}
+  {# Add class to body when hero is present for CSS targeting #}
+  {% if page and page.meta and page.meta.hero_image %}
+  <script>
+    document.documentElement.classList.add('has-hero');
+    document.documentElement.dataset.heroHeight = '{{ page.meta.hero_height | default("60vh") }}';
+  </script>
+  {% endif %}
+{% endblock %}
