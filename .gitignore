@@ -9,5 +9,12 @@ wheels/
 # Virtual environments
 .venv
 
+# Build outputs
+site/
+.cache/
+.DS_Store
+
+# IDE
 .obsidian/
 _templates/
+.vscode/

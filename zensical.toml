@@ -61,7 +61,6 @@ nav = [
             { "Aula 5 - Organização no Fablab" = "DesignDeProdutoIV/Sumarios/aula5.md" },
             { "Aula 6 - Prototipagem" = "DesignDeProdutoIV/Sumarios/aula6.md" },
         ] },
-        { "Markdown" = "DesignDeProdutoIV/markdown.md" },
     ] },
     #   { "Unidade Curricular - Modelo" = [
     #       { "Página Inicial" = "UnidadeCurricular/index.md" },

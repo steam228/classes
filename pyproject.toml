@@ -1,8 +1,10 @@
 [project]
-name = "classesavt"
+name = "h2i-learning-materials"
 version = "0.1.0"
-description = "Add your description here"
+description = "Open-source learning materials for design courses by André Rocha"
 readme = "README.md"
+authors = [{name = "André Rocha"}]
+license = {text = "CC BY 4.0"}
 requires-python = ">=3.12"
 dependencies = [
     "zensical>=0.0.21",
