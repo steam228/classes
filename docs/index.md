@@ -11,8 +11,7 @@ hero_align: center
 ---
 # Bem-vindos ao Hub de Recursos Abertos de Aprendizagem
 
-
-![me](attachments/perfil01_2025.png)
+![](attachments/DSC05966.jpg)
 
 Olá. Sou **André Rocha**, Professor Adjunto em Design de Produto e Fabricação Digital na Escola Superior de Educação de Lisboa (ESELx/IPL) e na ESES/IPS, e cofundador e coordenador científico do [**Fablab Benfica**](https://fablabbenfica.pt). 
 Esta plataforma serve como repositório central de recursos educativos que apoiam as **Unidades Curriculares que leciono** em ambas as instituições, combinando enquadramentos teóricos com práticas hands-on de fabricação digital.
