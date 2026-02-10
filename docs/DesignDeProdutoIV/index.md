@@ -16,7 +16,7 @@ Bem-vindo à documentação do módulo de Design de Produto IV.
 - [Programa e Avaliação](Avaliacao.md)
 - [Calendário](Calendario.md)
 - [Projeto Nestor - Produtos - Fase 1 - Individual](Enunciado.md)
-- [Projeto Nestor - Marca e Embalagem - Fase 2 - Grupo](Enunciado2.md)
+- [Projeto Nestor - Marca e Embalagem - Fase 2 - Grupo]()
 
 # Horario
 
