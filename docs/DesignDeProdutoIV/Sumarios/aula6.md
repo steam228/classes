@@ -1,12 +1,11 @@
 ---
-title: "Processo de Prototipagem"
+title: Processo de Prototipagem
 icon: lucide/book-open
 tags: aula
-# status options: "not-started" | "in-progress" | "completed"
 status: not-started
-hero_image: ../../images/hero.png
-hero_title: "Processo de Prototipagem"
-hero_subtitle: "22/04/2026 → 05/06/2026"
+hero_image: ../attachments/02-bancoEngraxador.jpg
+hero_title: Processo de Prototipagem
+hero_subtitle: 22/04/2026 → 05/06/2026
 hero_height: 60vh
 hero_overlay: 0.2
 hero_align: center
@@ -24,6 +23,8 @@ hero_align: center
 3. Acompanhamento de Projeto
 4. Demonstração de utilização das diferentes tecnologias no Fablab
 
+![](attachments/02-bancoEngraxador%201.jpg)
+%% *Banco Engraxador por João Pires 2017-18* %%
 ## Notas da Aula
 
 ## Conteúdos

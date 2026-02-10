@@ -1,12 +1,11 @@
 ---
-title: "Organização e Metodologias no Fablab"
+title: Organização e Metodologias no Fablab
 icon: lucide/book-open
 tags: aula
-# status options: "not-started" | "in-progress" | "completed"
 status: not-started
-hero_image: ../../images/hero.png
-hero_title: "Organização e metodologias de trabalho de projeto no Fablab"
-hero_subtitle: "08/04/2026 → 17/04/2026"
+hero_image: ../attachments/01-LabWork.jpg
+hero_title: Organização e metodologias de trabalho de projeto no Fablab
+hero_subtitle: 08/04/2026 → 17/04/2026
 hero_height: 60vh
 hero_overlay: 0.2
 hero_align: center
