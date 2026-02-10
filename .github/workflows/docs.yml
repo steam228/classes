@@ -1,9 +1,6 @@
-name: Documentation
+name: Documentation (backup)
 on:
-  push:
-    branches:
-      - master
-      - main
+  workflow_dispatch: {}
 permissions:
   contents: read
   pages: write
