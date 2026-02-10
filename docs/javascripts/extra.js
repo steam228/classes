@@ -29,6 +29,108 @@
     setupHeroNavigation();
   }
 
+  function initGanttZoom() {
+    const containers = document.querySelectorAll(".gantt-zoom");
+    if (!containers.length) return;
+
+    const lightbox = ensureGanttLightbox();
+    const bindSvg = (svg) => {
+      if (!svg || svg.dataset.ganttZoomBound === "true") return;
+
+      svg.dataset.ganttZoomBound = "true";
+      svg.setAttribute("role", "button");
+      svg.setAttribute("tabindex", "0");
+
+      const open = () => openGanttLightbox(svg, lightbox);
+      svg.addEventListener("click", open);
+      svg.addEventListener("keydown", (event) => {
+        if (event.key === "Enter" || event.key === " ") {
+          event.preventDefault();
+          open();
+        }
+      });
+    };
+
+    containers.forEach((container) => {
+      const svg = container.querySelector("svg");
+      if (svg) bindSvg(svg);
+
+      if (container.dataset.ganttObserverBound === "true") return;
+      container.dataset.ganttObserverBound = "true";
+
+      const observer = new MutationObserver(() => {
+        const nextSvg = container.querySelector("svg");
+        if (nextSvg) {
+          bindSvg(nextSvg);
+          observer.disconnect();
+        }
+      });
+
+      observer.observe(container, {
+        subtree: true,
+        childList: true,
+      });
+    });
+  }
+
+  function ensureGanttLightbox() {
+    let lightbox = document.querySelector(".gantt-lightbox");
+    if (lightbox) return lightbox;
+
+    lightbox = document.createElement("div");
+    lightbox.className = "gantt-lightbox";
+    lightbox.setAttribute("aria-hidden", "true");
+    lightbox.innerHTML =
+      '<div class="gantt-lightbox__backdrop" aria-hidden="true"></div>' +
+      '<div class="gantt-lightbox__content" role="dialog" aria-modal="true" aria-label="Gantt chart">' +
+      '<button class="gantt-lightbox__close" type="button" aria-label="Close">x</button>' +
+      '<div class="gantt-lightbox__inner"></div>' +
+      "</div>";
+
+    document.body.appendChild(lightbox);
+
+    const close = () => {
+      lightbox.classList.remove("gantt-lightbox--open");
+      lightbox.setAttribute("aria-hidden", "true");
+      document.body.classList.remove("gantt-lightbox-open");
+      const inner = lightbox.querySelector(".gantt-lightbox__inner");
+      if (inner) inner.innerHTML = "";
+    };
+
+    const backdrop = lightbox.querySelector(".gantt-lightbox__backdrop");
+    const closeButton = lightbox.querySelector(".gantt-lightbox__close");
+
+    if (backdrop) backdrop.addEventListener("click", close);
+    if (closeButton) closeButton.addEventListener("click", close);
+
+    document.addEventListener("keydown", (event) => {
+      if (
+        event.key === "Escape" &&
+        lightbox.classList.contains("gantt-lightbox--open")
+      ) {
+        close();
+      }
+    });
+
+    return lightbox;
+  }
+
+  function openGanttLightbox(svg, lightbox) {
+    const inner = lightbox.querySelector(".gantt-lightbox__inner");
+    if (!inner) return;
+
+    inner.innerHTML = "";
+    const clone = svg.cloneNode(true);
+    clone.removeAttribute("width");
+    clone.removeAttribute("height");
+    clone.setAttribute("aria-hidden", "true");
+    inner.appendChild(clone);
+
+    lightbox.classList.add("gantt-lightbox--open");
+    lightbox.setAttribute("aria-hidden", "false");
+    document.body.classList.add("gantt-lightbox-open");
+  }
+
   /**
    * Handle scroll events to toggle header transparency
    */
@@ -248,10 +350,12 @@
   if (document.readyState === "loading") {
     document.addEventListener("DOMContentLoaded", () => {
       initHero();
+      initGanttZoom();
       setupSmoothScroll();
     });
   } else {
     initHero();
+    initGanttZoom();
     setupSmoothScroll();
   }
 
@@ -260,6 +364,7 @@
   if (typeof document$ !== "undefined") {
     document$.subscribe(function () {
       initHero();
+      initGanttZoom();
     });
   }
 })();

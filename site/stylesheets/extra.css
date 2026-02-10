@@ -364,6 +364,104 @@ html[data-hero-height="100vh"] .md-hero__image {
 }
 
 /* ==========================================================================
+   Gantt Zoom Lightbox
+   ========================================================================== */
+
+.gantt-zoom svg {
+  cursor: zoom-in;
+  pointer-events: auto;
+}
+
+/* Mermaid diagram horizontal scroll */
+.md-typeset .mermaid,
+.md-typeset pre.mermaid,
+.md-typeset .superfences-content {
+  overflow-x: auto !important;
+  overflow-y: visible !important;
+  -webkit-overflow-scrolling: touch;
+  padding-bottom: 1rem;
+  max-width: 100%;
+  display: block;
+}
+
+.md-typeset .mermaid svg,
+.md-typeset pre.mermaid svg,
+.md-typeset .superfences-content svg {
+  min-width: 1600px;
+  min-height: 900px;
+  height: auto;
+  max-width: none !important;
+}
+
+@media screen and (max-width: 900px) {
+  .md-typeset .mermaid svg,
+  .md-typeset pre.mermaid svg,
+  .md-typeset .superfences-content svg {
+    min-width: 1400px;
+    min-height: 800px;
+  }
+}
+
+.gantt-lightbox {
+  position: fixed;
+  inset: 0;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.gantt-lightbox--open {
+  display: flex;
+}
+
+.gantt-lightbox__backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.65);
+}
+
+.gantt-lightbox__content {
+  position: relative;
+  z-index: 1;
+  background: var(--md-default-bg-color, #ffffff);
+  border-radius: 10px;
+  padding: 1rem 1.25rem 1.25rem;
+  max-width: 95vw;
+  max-height: 90vh;
+  overflow: auto;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.35);
+}
+
+.gantt-lightbox__inner svg {
+  width: 90vw;
+  height: auto;
+  max-height: 80vh;
+}
+
+.gantt-lightbox__close {
+  position: absolute;
+  top: 0.5rem;
+  right: 0.5rem;
+  border: 0;
+  border-radius: 999px;
+  width: 2rem;
+  height: 2rem;
+  background: rgba(0, 0, 0, 0.08);
+  color: inherit;
+  font-size: 1.1rem;
+  cursor: pointer;
+}
+
+.gantt-lightbox__close:hover {
+  background: rgba(0, 0, 0, 0.16);
+}
+
+.gantt-lightbox-open {
+  overflow: hidden;
+}
+
+/* ==========================================================================
    Right Side Navigation Panel - Native Zensical Styling
    ========================================================================== */
 

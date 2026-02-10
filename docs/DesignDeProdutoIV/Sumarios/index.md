@@ -19,14 +19,14 @@ hero_align: center
 **Pausa:** 30 de Março - 11 de Abril  
 **Horário:** Quartas-feiras (2 turmas) e Sextas-feiras (1 turma)
 
-| # | Aula | Período | Status | Links |
-|---|------|---------|--------|-------|
-| 1 | [Aula de Apresentação](aula1.md) | 11/02 → 13/02 | — | — |
-| 2 | [Carpintaria Digital](aula2.md) | 18/02 → 20/02 | — | [Conteúdos](aula2_conteudos.md) |
-| 3 | [Funcionalidade e Apresentação Gráfica](aula3.md) | 25/02 → 27/02 | — | [Conteúdos](aula3_conteudos.md) |
-| 4 | [Introdução ao Desenho Paramétrico](aula4.md) | 04/03 → 06/03 | — | [Conteúdos](aula4_conteudos.md) |
-| — | Refinamento & Continuação | 11/03 → 29/03 | — | — |
-| — | **PAUSA LETIVA** | 30/03 → 11/04 | — | — |
-| 5 | [Organização e Metodologias no Fablab](aula5.md) | 08/04 → 17/04 | — | [Conteúdos](aula5_conteudos.md) |
-| 6 | [Processo de Prototipagem](aula6.md) | 22/04 → 05/06 | — | [Conteúdos](aula6_conteudos.md) |
+| #   | Aula                                              | Período       | Status | Links                           |
+| --- | ------------------------------------------------- | ------------- | ------ | ------------------------------- |
+| 1   | [Aula de Apresentação](aula1.md)                  | 11/02 → 13/02 | —      | —                               |
+| 2   | [Carpintaria Digital](aula2.md)                   | 18/02 → 20/02 | —      | [Conteúdos](aula2_conteudos.md) |
+| 3   | [Funcionalidade e Apresentação Gráfica](aula3.md) | 25/02 → 27/02 | —      | [Conteúdos](aula3_conteudos.md) |
+| 4   | [Introdução ao Desenho Paramétrico](aula4.md)     | 04/03 → 06/03 | —      | [Conteúdos](aula4_conteudos.md) |
+| 5   | Processo de Desenho 3D                            | 11/03 → 24/04 | —      | —                               |
+| —   | **PAUSA LETIVA**                                  | 30/03 → 11/04 | —      | —                               |
+| 6   | [Organização e Metodologias no Fablab](aula5.md)  | 18/03 → 20/03 | —      | [Conteúdos](aula5_conteudos.md) |
+| 7   | [Processo de Prototipagem](aula6.md)              | 18/03 → 05/06 | —      | [Conteúdos](aula6_conteudos.md) |
 
