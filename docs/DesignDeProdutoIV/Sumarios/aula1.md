@@ -6,8 +6,8 @@ status: not-started
 hero_image: ../attachments/How_To_Use_Layers.png
 hero_title: Aula de Apresentação
 hero_subtitle: 11/02/2026 → 13/02/2026
-hero_height: 60vh
-hero_overlay: 0.2
+hero_height: 80vh
+hero_overlay: 0.35
 hero_align: center
 ---
 

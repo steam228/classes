@@ -7,7 +7,7 @@ hero_image: https://fablabbenfica.pt/opencallDDP2025/images/IMG_2681.jpg
 hero_title: Uma Introdução às Tecnologias de Fabrico assistido por computador - Controle Numerico
 hero_subtitle: 18/02/2026 → 20/02/2026
 hero_height: 80vh
-hero_overlay: 0.6
+hero_overlay: 0.35
 hero_align: center
 ---
 

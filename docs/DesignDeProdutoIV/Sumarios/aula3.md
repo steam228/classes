@@ -6,8 +6,8 @@ status: not-started
 hero_image: ../attachments/sketching.png
 hero_title: Funcionalidade e A(RE)presentação gráfica de projetos
 hero_subtitle: 25/02/2026 → 27/02/2026
-hero_height: 60vh
-hero_overlay: 0.2
+hero_height: 80vh
+hero_overlay: 0.35
 hero_align: center
 ---
 

@@ -6,8 +6,8 @@ status: not-started
 hero_image: ../attachments/heroParam.png
 hero_title: Introdução ao Desenho Paramétrico
 hero_subtitle: 04/03/2026 → 06/03/2026
-hero_height: 60vh
-hero_overlay: 0.2
+hero_height: 80vh
+hero_overlay: 0.35
 hero_align: center
 ---
 
