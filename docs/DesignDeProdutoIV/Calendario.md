@@ -1,6 +1,6 @@
 ---
 title: Calendário
-icon: lucide/rocket
+icon: lucide/calendar-days
 tags: projeto
 status: not-started
 hero_image: ../../images/heroProj.jpeg

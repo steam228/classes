@@ -1,6 +1,6 @@
 ---
 title: Avaliação
-icon: lucide/rocket
+icon: lucide/chart-candlestick
 tags: projeto
 hero_image: ../attachments/dinoRaquelSilva.webp
 hero_title: Programa e Avaliação

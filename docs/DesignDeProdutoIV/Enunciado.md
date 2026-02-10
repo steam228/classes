@@ -1,6 +1,6 @@
 ---
 title: Projeto - Produtos
-icon: lucide/rocket
+icon: lucide/wallpaper
 tags: projeto
 hero_image: ../../images/heroProj.jpeg
 hero_title: Projeto Nestor - Produtos
