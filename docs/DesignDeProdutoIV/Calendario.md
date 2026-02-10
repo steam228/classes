@@ -11,7 +11,9 @@ hero_overlay: 0.2
 hero_align: center
 ---
 
-# Calendário - Plano de Atividades e Entregas
+# Calendário
+
+###  Plano de Atividades e Entregas
 
 | **Fase**                                                     | **Datas**                    | **Tarefas**                                                                                                                             | **Fase?**                                                                       | **Tipologia**    |
 | ------------------------------------------------------------ | ---------------------------- | --------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------- | ---------------- |
@@ -39,16 +41,16 @@ hero_align: center
 ---
 config:
   gantt:
-    useWidth: 1600
-    barHeight: 40
-    barGap: 6
-    fontSize: 14
-    sectionFontSize: 16
+    useWidth: 1800
+    barHeight: 50
+    barGap: 4
+    fontSize: 16
+    sectionFontSize: 18
     leftPadding: 200
     rightPadding: 75
 ---
 gantt
-    title Calendario - Plano de Atividades e Entregas (2026)
+
     dateFormat YYYY-MM-DD
     axisFormat %d/%m
 
@@ -95,9 +97,4 @@ gantt
 - **Pausa Letiva:** 30 de Março - 11 de Abril (semana da Páscoa)
 - **Aulas:** Quartas-feiras (2 turmas) e Sextas-feiras (1 turma)
 
-### Legenda de Status
-
-- **Completed** - Tarefa finalizada e entregue
-- **In Progress** - Tarefa em desenvolvimento
-- **Not Started** - Tarefa não iniciada ainda
 

@@ -6,7 +6,7 @@ hero_image: ../attachments/dinoRaquelSilva.webp
 hero_title: Programa e Avaliação
 hero_subtitle:
 hero_height: 60vh
-hero_overlay: 0.5
+hero_overlay: 0.2
 hero_align: center
 ---
 
