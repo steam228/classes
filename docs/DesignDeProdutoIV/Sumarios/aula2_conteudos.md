@@ -20,4 +20,6 @@ hero_align: center
 
 ## Recursos
 
+![](attachments/IMG_0135.jpg)
+
 ## Resultado
