@@ -52,3 +52,14 @@ hero_align: center
 [Neste link](https://fablabbenfica.gitlab.io/fablabbenficadocs/machines/ouplan/), encontrarão toda a informação necessária sobre a utilização da CNC Ouplan STEEL que está disponível no Fablab Benfica. logo de inicio encontram Inclusive um video geral.
 
 ![](attachments/Untitled_Artwork%203.jpg)![](attachments/Untitled_Artwork%204.jpg)
+
+##### OUTROS RECURSOS - Encaixes e outros Mecanismos possíveis, mesmo com estas limitações na CNC
+
+[!50 digital wood joints](https://www.ayseesindurmaz.com/50-dijital-wood-joints)
+
+[!50 digital wood joints video](https://www.youtube.com/watch?v=PzTpfLcL1Y8&t=82s)
+
+
+![](attachments/Pasted%20image%2020260221184804.png)
+
+![](attachments/Pasted%20image%2020260221185141.png)![](attachments/Pasted%20image%2020260221185156.png)![](attachments/Pasted%20image%2020260221185339.png)![](attachments/Pasted%20image%2020260221185712.png)![](attachments/Pasted%20image%2020260221185729.png)![](attachments/Pasted%20image%2020260221185749.png)
