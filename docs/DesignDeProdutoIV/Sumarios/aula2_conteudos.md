@@ -44,14 +44,18 @@ hero_align: center
 
 ##### O Projeto Nestor
 
-![](attachments/IMG_0135.jpg)
 
+
+
+![](attachments/Untitled_Artwork%206.jpg)
 
 ### Sobre a CNC!
 
 [Neste link](https://fablabbenfica.gitlab.io/fablabbenficadocs/machines/ouplan/), encontrarão toda a informação necessária sobre a utilização da CNC Ouplan STEEL que está disponível no Fablab Benfica. logo de inicio encontram Inclusive um video geral.
 
-![](attachments/Untitled_Artwork%203.jpg)![](attachments/Untitled_Artwork%204.jpg)
+![](attachments/Untitled_Artwork%205.jpg)
+
+![](attachments/Untitled_Artwork%204.jpg)
 
 ##### OUTROS RECURSOS - Encaixes e outros Mecanismos possíveis, mesmo com estas limitações na CNC
 
