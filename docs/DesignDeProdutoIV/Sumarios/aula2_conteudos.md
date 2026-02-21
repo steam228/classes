@@ -25,10 +25,10 @@ hero_align: center
 ### Instruções / Atividades
 
 - Usar o **Esquema-Ferramenta** para:
-	  . a arrumar os conteúdos do enunciado, para o ir percebendo e colocando as diferentes questões acerca do mesmo que deverão surgir ao longo do semestre; 
-	  . Testar mentalmente a coerência e pertinência (força) das minhas ideias/propostas:
-		  . Quais dos meus esboços/maquetes respondem melhor à forma como me organizei para resolver o problema, ou seja, como interpretei o que me era pedido e que soluções vou privilegiar em cada um dos pontos do esquema?
-	  . Apresentar essas mesmas propostas, para que fique claro em todas as suas dimensões.
+	  - a arrumar os conteúdos do enunciado, para o ir percebendo e colocando as diferentes questões acerca do mesmo que deverão surgir ao longo do semestre; 
+	  - Testar mentalmente a coerência e pertinência (força) das minhas ideias/propostas:
+		  - Quais dos meus esboços/maquetes respondem melhor à forma como me organizei para resolver o problema, ou seja, como interpretei o que me era pedido e que soluções vou privilegiar em cada um dos pontos do esquema?
+	  - Apresentar essas mesmas propostas, para que fique claro em todas as suas dimensões.
 	  
   - Começar a avaliar os meus desenhos à luz do que é possivel fazer e dos materiais disponiveis. essa avaliação pode implicar a sua rejeição, pois modificar para ser possivel desvirtua a ideia/(conceito) ou inviabiliza as funções que quero mesmo que estejam presentes. ou então pode motivar alterações para o viabilizar tecnologicamente, enquanto mantem, ou compromete pouco as minhas restantes intenções.
 
