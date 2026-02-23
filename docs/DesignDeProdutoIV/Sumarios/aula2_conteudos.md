@@ -31,6 +31,7 @@ hero_align: center
 	  - Apresentar essas mesmas propostas, para que fique claro em todas as suas dimensões.
 	  
   - Começar a avaliar os meus desenhos à luz do que é possivel fazer e dos materiais disponiveis. essa avaliação pode implicar a sua rejeição, pois modificar para ser possivel desvirtua a ideia/(conceito) ou inviabiliza as funções que quero mesmo que estejam presentes. ou então pode motivar alterações para o viabilizar tecnologicamente, enquanto mantem, ou compromete pouco as minhas restantes intenções.
+  - Se não chegaram a este link vindo(a)s do Moodle, [não se esqueçam de ir lá marcar o término desta atividade](https://moodle2526.ipl.pt/mod/url/view.php?id=48628), ou seja, que já compreenderam e seguiram estas instruções. *(este aspecto é particularmente importante se por alguma razão não conseguem vir às aulas. tenho que ter a certeza que leram e que têm ou não dúvidas, fazendo-as chegar em caso afirmativo)*
 
 
 ### Recursos
