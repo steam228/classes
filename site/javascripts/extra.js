@@ -346,17 +346,45 @@
     });
   }
 
+  /**
+   * Fix video <source> paths that use relative "attachments/" paths.
+   *
+   * In Obsidian, the markdown file lives at Sumarios/aula3_conteudos.md
+   * so "attachments/foo.mp4" resolves correctly.
+   *
+   * In the built site (with directory URLs), the HTML lives at
+   * Sumarios/aula3_conteudos/index.html — one level deeper — so the
+   * browser resolves "attachments/foo.mp4" as
+   * "aula3_conteudos/attachments/foo.mp4" which does not exist.
+   * The fix: prepend "../" so it becomes "../attachments/foo.mp4".
+   */
+  function fixVideoPaths() {
+    const sources = document.querySelectorAll("video source");
+    sources.forEach(function (source) {
+      const src = source.getAttribute("src");
+      if (src && src.startsWith("attachments/")) {
+        source.setAttribute("src", "../" + src);
+        const video = source.parentElement;
+        if (video && video.tagName === "VIDEO") {
+          video.load();
+        }
+      }
+    });
+  }
+
   // Initialize on page load
   if (document.readyState === "loading") {
     document.addEventListener("DOMContentLoaded", () => {
       initHero();
       initGanttZoom();
       setupSmoothScroll();
+      fixVideoPaths();
     });
   } else {
     initHero();
     initGanttZoom();
     setupSmoothScroll();
+    fixVideoPaths();
   }
 
   // Support Zensical's instant navigation
@@ -365,6 +393,7 @@
     document$.subscribe(function () {
       initHero();
       initGanttZoom();
+      fixVideoPaths();
     });
   }
 })();
