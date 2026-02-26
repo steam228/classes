@@ -43,7 +43,10 @@ Preparei um video curto de demonstração:
 - **A partir de um paralelepípedo** — exploro formas aleatórias "esculpindo" o volume em desenho, definindo progressivamente a forma tridimensional.
 - **A partir de elipses** — represento objetos em revolução, construindo o volume a partir do eixo e das secções.
   
-![](attachments/estrutural1.mp4)
+<video controls width="600">
+    <source src="attachments/estrutural1.mp4" type="video/mp4">
+    Your browser does not support the video tag.
+</video>
 ---
 
 **Demonstração aplicada — um banco em carpintaria digital**
@@ -57,14 +60,20 @@ A sequência é a seguinte:
 3. **Recentrar no plano** — ajustar e estabilizar a proposta.
 4. **Construção por camadas** — preparar progressivamente uma apresentação rápida em formato prancha-resumo.
    
-![](attachments/PranchaResumo_substituir.mp4)
+<video controls width="600">
+    <source src="attachments/PranchaResumo_substituir.mp4" type="video/mp4">
+    Your browser does not support the video tag.
+</video>
 ---
 
 **Ponto de partida bidimensional** _(demo em breve)_
 
 Um ponto de partida muito gráfico e de síntese visual, diretamente informado pelo moodboard. Essencial neste projeto — a linguagem gráfica que o grupo definiu em conjunto deve ser um dos motores do desenho desde o início.
 
-![](attachments/grafico.mp4)
+<video controls width="600">
+    <source src="attachments/grafico.mp4" type="video/mp4">
+    Your browser does not support the video tag.
+</video>
 
 **Referências de sketching**
 
@@ -74,7 +83,10 @@ Abaixo deixo referências de designers especializados nesta área — com um ní
 
 ## Recursos
 
-![](attachments/SKECTH.mp4)
+<video controls width="600">
+    <source src="attachments/SKECTH.mp4" type="video/mp4">
+    Your browser does not support the video tag.
+</video>
 
 
 #### Sketching
