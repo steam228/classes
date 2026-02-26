@@ -43,7 +43,7 @@ if (!filename) {
 const basename = filename.split("/").pop().split("\\").pop();
 
 const html = `<video controls width="100%">
-    <source src="attachments/${basename}" type="video/mp4">
+    <source src="../attachments/${basename}" type="video/mp4">
     O teu browser não suporta o elemento de vídeo.
 </video>`;
 

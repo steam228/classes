@@ -1,12 +1,11 @@
 ---
-title: "Aula 3 - Conteúdos"
+title: Aula 3 - Conteúdos
 icon: lucide/copy
 tags: exercicio
-# status options: "not-started" | "in-progress" | "completed"
 status: not-started
-hero_image: ../../images/hero.png
-hero_title: "Conteúdos"
-hero_subtitle: "Funcionalidade e Apresentação Gráfica"
+hero_image: ../attachments/sketching.png
+hero_title: Conteúdos
+hero_subtitle: Funcionalidade e Apresentação Gráfica
 hero_height: 60vh
 hero_overlay: 0.2
 hero_align: center
@@ -43,10 +42,8 @@ Preparei um video curto de demonstração:
 - **A partir de um paralelepípedo** — exploro formas aleatórias "esculpindo" o volume em desenho, definindo progressivamente a forma tridimensional.
 - **A partir de elipses** — represento objetos em revolução, construindo o volume a partir do eixo e das secções.
   
-<video controls width="600">
-    <source src="attachments/estrutural1.mp4" type="video/mp4">
-    Your browser does not support the video tag.
-</video>
+![Desenho estrutural](attachments/estrutural1.mp4)
+
 ---
 
 **Demonstração aplicada — um banco em carpintaria digital**
@@ -60,20 +57,15 @@ A sequência é a seguinte:
 3. **Recentrar no plano** — ajustar e estabilizar a proposta.
 4. **Construção por camadas** — preparar progressivamente uma apresentação rápida em formato prancha-resumo.
    
-<video controls width="600">
-    <source src="attachments/PranchaResumo_substituir.mp4" type="video/mp4">
-    Your browser does not support the video tag.
-</video>
+![Prancha-resumo: substituir](attachments/PranchaResumo_substituir.mp4)
+
 ---
 
 **Ponto de partida bidimensional** _(demo em breve)_
 
 Um ponto de partida muito gráfico e de síntese visual, diretamente informado pelo moodboard. Essencial neste projeto — a linguagem gráfica que o grupo definiu em conjunto deve ser um dos motores do desenho desde o início.
 
-<video controls width="600">
-    <source src="attachments/grafico.mp4" type="video/mp4">
-    Your browser does not support the video tag.
-</video>
+![Ponto de partida gráfico](attachments/grafico.mp4)
 
 **Referências de sketching**
 
@@ -83,12 +75,10 @@ Abaixo deixo referências de designers especializados nesta área — com um ní
 
 ## Recursos
 
-<video controls width="600">
-    <source src="attachments/SKECTH.mp4" type="video/mp4">
-    Your browser does not support the video tag.
-</video>
+![Sketching](attachments/SKECTH.mp4)
 
-
+![Spaceship sketch](attachments/spaceship.mp4)
+![](attachments/Boi_Tá-tá.mp4)
 #### Sketching
 
 ![](attachments/Screenshot_2022-04-02_at_01.42.33.png)

@@ -347,27 +347,44 @@
   }
 
   /**
-   * Fix video <source> paths that use relative "attachments/" paths.
+   * Convert <img> tags pointing to video files into <video> elements.
    *
-   * In Obsidian, the markdown file lives at Sumarios/aula3_conteudos.md
-   * so "attachments/foo.mp4" resolves correctly.
-   *
-   * In the built site (with directory URLs), the HTML lives at
-   * Sumarios/aula3_conteudos/index.html — one level deeper — so the
-   * browser resolves "attachments/foo.mp4" as
-   * "aula3_conteudos/attachments/foo.mp4" which does not exist.
-   * The fix: prepend "../" so it becomes "../attachments/foo.mp4".
+   * Workflow:
+   *   1. In Obsidian, drag a video file → it inserts a standard Markdown
+   *      image link:  ![](attachments/foo.mp4)
+   *   2. At build time, Zensical's LinksProcessor automatically fixes the
+   *      <img src> path (e.g. → ../attachments/foo.mp4) because <img>
+   *      elements go through the Markdown element tree.
+   *   3. This function replaces those <img> elements with <video> elements
+   *      so browsers can play them. No path math needed — the src is
+   *      already correct.
    */
-  function fixVideoPaths() {
-    const sources = document.querySelectorAll("video source");
-    sources.forEach(function (source) {
-      const src = source.getAttribute("src");
-      if (src && src.startsWith("attachments/")) {
-        source.setAttribute("src", "../" + src);
-        const video = source.parentElement;
-        if (video && video.tagName === "VIDEO") {
-          video.load();
-        }
+  function convertVideoImages() {
+    const selector = [".mp4", ".webm", ".ogg", ".mov"]
+      .map((ext) => `img[src$="${ext}"], img[src$="${ext.toUpperCase()}"]`)
+      .join(", ");
+
+    document.querySelectorAll(selector).forEach(function (img) {
+      const src = img.getAttribute("src");
+      if (!src) return;
+
+      const video = document.createElement("video");
+      video.controls = true;
+      video.setAttribute("width", "600");
+      video.style.maxWidth = "100%";
+      video.style.display = "block";
+
+      const source = document.createElement("source");
+      source.setAttribute("src", src);
+      source.setAttribute("type", "video/mp4");
+      video.appendChild(source);
+
+      // If the img is the only child of a <p>, replace the whole paragraph
+      const parent = img.parentElement;
+      if (parent && parent.tagName === "P" && parent.children.length === 1) {
+        parent.replaceWith(video);
+      } else {
+        img.replaceWith(video);
       }
     });
   }
@@ -378,13 +395,13 @@
       initHero();
       initGanttZoom();
       setupSmoothScroll();
-      fixVideoPaths();
+      convertVideoImages();
     });
   } else {
     initHero();
     initGanttZoom();
     setupSmoothScroll();
-    fixVideoPaths();
+    convertVideoImages();
   }
 
   // Support Zensical's instant navigation
@@ -393,7 +410,7 @@
     document$.subscribe(function () {
       initHero();
       initGanttZoom();
-      fixVideoPaths();
+      convertVideoImages();
     });
   }
 })();
