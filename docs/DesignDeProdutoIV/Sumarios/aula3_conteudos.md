@@ -12,34 +12,72 @@ hero_overlay: 0.2
 hero_align: center
 ---
 
-# Conteúdos - Funcionalidade e Apresentação Gráfica
+# Conteúdos - Funções, Requisitos de Uso e Apresentação Gráfica
 
-## Objetivo
+## Objetivos
 
+- Conhecer os principais **formatos e ferramentas exploratórias** no processo de design: esboço, maquete, recortes, entre outros.
+- Perceber o que é uma **prancha-resumo** e como se relaciona com o esquema-ferramenta:
+    - Como organizar e sintetizar a diversidade de explorações numa peça de comunicação clara.
+    - A prancha-resumo como peça **evolutiva** — acompanha o projeto desde os primeiros esboços até ao protótipo, passando por renders, desenhos técnicos e diagramas.
+- Discutir a **função brincadeira** e os restantes aspetos funcionais do produto.
+- Definir **requisitos de uso**.
 
-- Formatos e ferramentas exploratórias (esboço, maquete, recortes, etc)
-- "Prancha-resumo" e relação com o esquema apresentado na aula anterior
-	- Como podemos navegar a nossa diversidade de explorações para sintetizar numa peça de comunicação - de apresentação de uma proposta.
-	- A Prancha resumo enquanto peça evolutiva - em termos da definição da proposta (dos esboços ao protótipo, passando pelos renders, desenhos técnicos, diagramas, etc)
-	  
-- Discussões em torno da função brincadeira e dos demais aspectos funcionais do produto
-- Definição de requisitos de uso.
+---
 
 ## Instruções
 
-- Como te sentes mais à vontade a desenhar formas tridimensionais de modo a que as compreendas em pleno? (desenho estrutural, maquetes e desenho, peças de referencia, etc) - Neste capítulo é muito importante distinguir o desenho que ilude, que brinca com sombras e luz e um desenho estrutural que tenta representar do modo mais definido possível objectivos de projeto, mesmo que numa fase inicial.
+**Como representas formas tridimensionais de modo a compreendê-las em pleno?**
 
+Reflete sobre qual o formato que te dá mais segurança — desenho estrutural, maquete, peças de referência, combinação de vários.
 
+Neste ponto é essencial distinguir dois tipos de desenho:
+
+- O **desenho que ilude** — que joga com sombras, luz e perspetiva para criar uma impressão visual convincente, mas que pode esconder indefinições.
+- O **desenho estrutural** — que procura representar de forma tão rigorosa quanto possível os objetivos do projeto, mesmo numa fase inicial, sem ambiguidades sobre a forma, as dimensões ou o funcionamento.
+
+**Desenho Estrutural — como fazer**
+
+Preparei um video curto de demonstração:
+
+- **A partir de um paralelepípedo** — exploro formas aleatórias "esculpindo" o volume em desenho, definindo progressivamente a forma tridimensional.
+- **A partir de elipses** — represento objetos em revolução, construindo o volume a partir do eixo e das secções.
+  
+![](attachments/estrutural1.mp4)
+---
+
+**Demonstração aplicada — um banco em carpintaria digital**
+
+Para nos distanciarmos da ideia imediata de "brinquedo de madeira" — embora o condicionamento de **T** seja o mesmo — uso um banco como objeto de trabalho.
+
+A sequência é a seguinte:
+
+1. **Exploração livre** — vários esboços sem compromisso.
+2. **Escolha de uma forma** — selecionar a direção mais interessante.
+3. **Recentrar no plano** — ajustar e estabilizar a proposta.
+4. **Construção por camadas** — preparar progressivamente uma apresentação rápida em formato prancha-resumo.
+   
+![](attachments/PranchaResumo_substituir.mp4)
+---
+
+**Ponto de partida bidimensional** _(demo em breve)_
+
+Um ponto de partida muito gráfico e de síntese visual, diretamente informado pelo moodboard. Essencial neste projeto — a linguagem gráfica que o grupo definiu em conjunto deve ser um dos motores do desenho desde o início.
+
+![](attachments/grafico.mp4)
+
+**Referências de sketching**
+
+Abaixo deixo referências de designers especializados nesta área — com um nível de execução muito superior à demo ao vivo, mas que ilustram bem o que o desenho estrutural pode ser quando desenvolvido com prática.
 
 
 
 ## Recursos
 
+![](attachments/SKECTH.mp4)
 
 
 #### Sketching
-
-# Sketching
 
 ![](attachments/Screenshot_2022-04-02_at_01.42.33.png)
 ## References
