@@ -369,7 +369,9 @@
       if (!src) return;
 
       const video = document.createElement("video");
-      video.controls = true;
+      video.autoplay = true;
+      video.loop = true;
+      video.muted = true; // required for autoplay in most browsers
       video.setAttribute("width", "600");
       video.style.maxWidth = "100%";
       video.style.display = "block";

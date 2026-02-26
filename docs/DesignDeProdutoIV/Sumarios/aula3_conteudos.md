@@ -55,9 +55,11 @@ A sequência é a seguinte:
 1. **Exploração livre** — vários esboços sem compromisso.
 2. **Escolha de uma forma** — selecionar a direção mais interessante.
 3. **Recentrar no plano** — ajustar e estabilizar a proposta.
-4. **Construção por camadas** — preparar progressivamente uma apresentação rápida em formato prancha-resumo.
+4. **Construção por camadas** — preparar progressivamente uma apresentação em formato prancha-resumo.
+
+A prancha deve seguir uma **estrutura narrativa** que mostre, de forma coordenada, como o projeto responde às restrições de **T**, qual o **conceito** e como se manifesta em termos de forma, cor e textura, e como o objeto **funciona**. Deve ainda incluir elementos que ajudem a perceber a **escala** e ilustrar pelo menos uma **ação de uso** que facilite a compreensão da proposta.
    
-![Prancha-resumo: substituir](attachments/PranchaResumo_substituir.mp4)
+![](attachments/nemnufare.mp4)
 
 ---
 
