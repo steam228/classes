@@ -56,6 +56,17 @@
   justify-content: flex-start;
 }
 
+/* Video background for hero (replaces background-image when hero_image is a video) */
+.md-hero__video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  pointer-events: none; /* Prevents controls from ever appearing, even on hover */
+}
+
 /* Theme-dependent overlay for text readability */
 .md-hero__overlay {
   position: absolute;

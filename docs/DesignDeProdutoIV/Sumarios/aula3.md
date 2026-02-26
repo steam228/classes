@@ -3,7 +3,7 @@ title: Funcionalidade e Apresentação Gráfica
 icon: lucide/book-open
 tags: aula
 status: not-started
-hero_image: ../attachments/sketching.png
+hero_image: ../attachments/spaceship.mp4
 hero_title: Funcionalidade e A(RE)presentação gráfica de projetos
 hero_subtitle: 25/02/2026 → 27/02/2026
 hero_height: 80vh

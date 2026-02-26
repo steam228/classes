@@ -27,8 +27,17 @@
 
 {% block hero %}
   {% if page and page.meta and page.meta.hero_image %}
+  {% set _hero_is_video = '.mp4' in page.meta.hero_image or '.webm' in page.meta.hero_image or '.ogg' in page.meta.hero_image or '.mov' in page.meta.hero_image %}
+  {% if '.webm' in page.meta.hero_image %}{% set _hero_mime = 'video/webm' %}{% elif '.ogg' in page.meta.hero_image %}{% set _hero_mime = 'video/ogg' %}{% elif '.mov' in page.meta.hero_image %}{% set _hero_mime = 'video/quicktime' %}{% else %}{% set _hero_mime = 'video/mp4' %}{% endif %}
   <section class="md-hero" data-md-component="hero">
+    {% if _hero_is_video %}
+    <div class="md-hero__image">
+      <video class="md-hero__video" autoplay loop muted playsinline>
+        <source src="{{ page.meta.hero_image }}" type="{{ _hero_mime }}">
+      </video>
+    {% else %}
     <div class="md-hero__image" style="background-image: url('{{ page.meta.hero_image }}');">
+    {% endif %}
       <div class="md-hero__overlay"></div>
       <div class="md-hero__inner md-grid">
         <div class="md-hero__content md-hero__content--{{ page.meta.hero_align | default('center') }}">
