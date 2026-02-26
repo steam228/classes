@@ -58,6 +58,13 @@
           {% endif %}
         </div>
       </div>
+      {% if page.meta.hero_height == "100vh" %}
+      <button class="md-hero__scroll-arrow" aria-label="Scroll to content">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <polyline points="6 9 12 15 18 9"></polyline>
+        </svg>
+      </button>
+      {% endif %}
     </div>
   </section>
   {% endif %}

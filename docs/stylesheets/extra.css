@@ -20,6 +20,7 @@
 :root {
   --hero-height: 60vh;
   --hero-overlay-opacity: 0.2;
+  --hero-overlay-top-opacity: 0.4;  /* Top header-area fade — light mode */
   --hero-title-color: #1a1a1a;
   --hero-subtitle-color: rgba(30, 30, 30, 0.9);
   --hero-overlay-color: 255, 255, 255; /* White for light theme */
@@ -28,6 +29,7 @@
 
 /* Dark theme overrides */
 [data-md-color-scheme="slate"] {
+  --hero-overlay-top-opacity: 0.65; /* Stronger top fade needed in dark mode */
   --hero-title-color: #ffffff;
   --hero-subtitle-color: rgba(255, 255, 255, 0.9);
   --hero-overlay-color: 0, 0, 0; /* Black for dark theme */
@@ -56,6 +58,41 @@
   justify-content: flex-start;
 }
 
+/* Scroll-down arrow for 100vh heroes */
+.md-hero__scroll-arrow {
+  position: absolute;
+  bottom: 2rem;
+  left: 50%;
+  transform: translateX(-50%);
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: var(--hero-title-color);
+  width: 3rem;
+  height: 3rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2;
+  opacity: 0.6;
+  transition: opacity 0.2s ease;
+  animation: hero-arrow-bounce 2s ease-in-out infinite;
+}
+
+.md-hero__scroll-arrow:hover {
+  opacity: 1;
+}
+
+.md-hero__scroll-arrow svg {
+  width: 2.5rem;
+  height: 2.5rem;
+}
+
+@keyframes hero-arrow-bounce {
+  0%, 100% { transform: translateX(-50%) translateY(0); }
+  50%       { transform: translateX(-50%) translateY(10px); }
+}
+
 /* Video background for hero (replaces background-image when hero_image is a video) */
 .md-hero__video {
   position: absolute;
@@ -76,8 +113,9 @@
   bottom: 0;
   background: linear-gradient(
     180deg,
-    rgba(var(--hero-overlay-color), 0) 0%,
-    rgba(var(--hero-overlay-color), 0) 50%,
+    rgba(var(--hero-overlay-color), var(--hero-overlay-top-opacity)) 0%,  /* top fade — stronger in dark mode */
+    rgba(var(--hero-overlay-color), 0) 20%,
+    rgba(var(--hero-overlay-color), 0) 55%,
     rgba(var(--hero-overlay-color), var(--hero-overlay-opacity)) 100%
   );
   pointer-events: none;
@@ -220,23 +258,23 @@ html.has-hero .md-header:not(.md-header--scrolled) .md-search__icon {
 }
 
 /* Dark mode: white text on transparent header */
-[data-md-color-scheme="slate"] html.has-hero .md-header:not(.md-header--scrolled) .md-header__title,
-[data-md-color-scheme="slate"] html.has-hero .md-header:not(.md-header--scrolled) .md-header__topic,
-[data-md-color-scheme="slate"] html.has-hero .md-header:not(.md-header--scrolled) .md-header-nav__button {
+html.has-hero [data-md-color-scheme="slate"] .md-header:not(.md-header--scrolled) .md-header__title,
+html.has-hero [data-md-color-scheme="slate"] .md-header:not(.md-header--scrolled) .md-header__topic,
+html.has-hero [data-md-color-scheme="slate"] .md-header:not(.md-header--scrolled) .md-header-nav__button {
   color: #ffffff;
   text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
 }
 
-[data-md-color-scheme="slate"] html.has-hero .md-header:not(.md-header--scrolled) .md-logo {
+html.has-hero [data-md-color-scheme="slate"] .md-header:not(.md-header--scrolled) .md-logo {
   filter: brightness(0) invert(1);
 }
 
-[data-md-color-scheme="slate"] html.has-hero .md-header:not(.md-header--scrolled) .md-search__icon {
+html.has-hero [data-md-color-scheme="slate"] .md-header:not(.md-header--scrolled) .md-search__icon {
   color: #ffffff;
 }
 
 /* Dark mode adjustments */
-[data-md-color-scheme="slate"] html.has-hero .md-header.md-header--scrolled {
+html.has-hero [data-md-color-scheme="slate"] .md-header.md-header--scrolled {
   background: var(--md-default-bg-color);
 }
 

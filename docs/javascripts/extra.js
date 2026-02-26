@@ -27,6 +27,7 @@
     setupScrollHandler();
     setupParallax();
     setupHeroNavigation();
+    setupScrollArrow();
   }
 
   function initGanttZoom() {
@@ -238,6 +239,35 @@
       window.removeEventListener("scroll", onScroll);
       heroImage.style.backgroundPosition = "";
     };
+  }
+
+  /**
+   * Scroll-down arrow for 100vh heroes — click scrolls to content below
+   */
+  function setupScrollArrow() {
+    const arrow = document.querySelector(".md-hero__scroll-arrow");
+    if (!arrow) return;
+
+    arrow.addEventListener("click", function () {
+      const hero = document.querySelector(".md-hero");
+      const target = hero ? hero.nextElementSibling : null;
+      if (target) {
+        const header = document.querySelector(".md-header");
+        const headerHeight = header ? header.offsetHeight : 0;
+        const top =
+          target.getBoundingClientRect().top + window.scrollY - headerHeight;
+        window.scrollTo({ top, behavior: "smooth" });
+      } else {
+        window.scrollTo({ top: window.innerHeight, behavior: "smooth" });
+      }
+    });
+
+    // Fade out as user scrolls
+    const onScroll = () => {
+      const fade = Math.max(0, 1 - window.scrollY / 150);
+      arrow.style.opacity = fade * 0.6;
+    };
+    window.addEventListener("scroll", onScroll, { passive: true });
   }
 
   /**
