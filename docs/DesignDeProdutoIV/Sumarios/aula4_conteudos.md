@@ -18,6 +18,12 @@ hero_align: center
 
 ## Instruções
 
+1 - Compreender muito bem o interface to Fusion 360
+
+2 - Organização do trabalho em Fusion.
+	. Criar sempre um projeto na nossa cloud (não ficheiros passados em pen, tão pouco qq tipo de ficheiro local)
+
+
 ## Recursos
 
 ## Resultado
