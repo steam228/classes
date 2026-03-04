@@ -62,6 +62,21 @@ nav = [
             { "Aula 6 - Prototipagem" = "DesignDeProdutoIV/Sumarios/aula6.md" },
         ] },
     ] },
+    { "Prototipagem Digital" = [
+        { "Página Inicial" = "PrototipagemDigital/index.md" },
+        { "Avaliação" = "PrototipagemDigital/Avaliacao.md" },
+        { "Calendário" = "PrototipagemDigital/Calendario.md" },
+        { "Exercícios" = "PrototipagemDigital/Enunciado.md" },
+        { "Sumários" = [
+            { "Página Inicial" = "PrototipagemDigital/Sumarios/index.md" },
+            { "Aula 1 - Apresentação" = "PrototipagemDigital/Sumarios/aula1.md" },
+            { "Aula 2" = "PrototipagemDigital/Sumarios/aula2.md" },
+            { "Aula 3 " = "PrototipagemDigital/Sumarios/aula3.md" },
+            { "Aula 4" = "PrototipagemDigital/Sumarios/aula4.md" },
+            { "Aula 5" = "PrototipagemDigital/Sumarios/aula5.md" },
+            { "Aula 6" = "PrototipagemDigital/Sumarios/aula6.md" },
+        ] },
+    ] },
     #   { "Unidade Curricular - Modelo" = [
     #       { "Página Inicial" = "UnidadeCurricular/index.md" },
     #       { "Avaliação" = "UnidadeCurricular/Avaliacao.md" },
