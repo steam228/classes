@@ -31,4 +31,7 @@ ficheiro1:
 
 https://a360.co/4b6z5Mt
 
+
+![](attachments/nist_ftc_09_asme1_ap242-e1.stp)
+
 ## Resultado

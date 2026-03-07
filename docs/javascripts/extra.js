@@ -377,39 +377,92 @@
   }
 
   /**
+   * Replace <img> tags pointing to 3D model files (.stl, .step, .stp)
+   * with an iframe embed from 3dviewer.net, which handles rendering.
+   * Works with files dragged into Obsidian's attachments folder.
+   */
+  function embed3DModels() {
+    var selector = [
+      ".stl",
+      ".step",
+      ".stp",
+      ".obj",
+      ".3ds",
+      ".ply",
+      ".gltf",
+      ".glb",
+    ]
+      .map(function (ext) {
+        return 'img[src$="' + ext + '"], img[src$="' + ext.toUpperCase() + '"]';
+      })
+      .join(", ");
+
+    document.querySelectorAll(selector).forEach(function (img) {
+      var src = img.getAttribute("src");
+      if (!src) return;
+
+      // Build absolute URL so the external viewer can fetch the file
+      var fileUrl = new URL(src, window.location.href).href;
+      var embedUrl =
+        "https://3dviewer.net/embed.html#model=" + encodeURIComponent(fileUrl);
+
+      var wrapper = document.createElement("div");
+      wrapper.className = "model-viewer-3d";
+
+      var iframe = document.createElement("iframe");
+      iframe.setAttribute("src", embedUrl);
+      iframe.setAttribute("allowfullscreen", "true");
+      iframe.setAttribute("loading", "lazy");
+      iframe.setAttribute("frameborder", "0");
+      wrapper.appendChild(iframe);
+
+      var parent = img.parentElement;
+      if (parent && parent.tagName === "P" && parent.children.length === 1) {
+        parent.replaceWith(wrapper);
+      } else {
+        img.replaceWith(wrapper);
+      }
+    });
+  }
+
+  /**
    * Convert bare Autodesk A360 links into full-width embedded viewers.
    *
    * Detects <a> tags whose href points to a360.co and replaces the
    * containing <p> (or just the link) with a responsive iframe embed.
    */
   function embedAutodeskLinks() {
-    document
-      .querySelectorAll('a[href*="a360.co"]')
-      .forEach(function (link) {
-        var href = link.getAttribute("href");
-        if (!href) return;
+    document.querySelectorAll('a[href*="a360.co"]').forEach(function (link) {
+      var href = link.getAttribute("href");
+      if (!href) return;
 
-        // Build the embed URL — append mode=embed if not already present
-        var embedUrl = href + (href.indexOf("?") === -1 ? "?" : "&") + "mode=embed";
+      // Build the embed URL — append mode=embed if not already present
+      var embedUrl =
+        href + (href.indexOf("?") === -1 ? "?" : "&") + "mode=embed";
 
-        var wrapper = document.createElement("div");
-        wrapper.className = "autodesk-embed";
+      var wrapper = document.createElement("div");
+      wrapper.className = "autodesk-embed";
 
-        var iframe = document.createElement("iframe");
-        iframe.setAttribute("src", embedUrl);
-        iframe.setAttribute("allowfullscreen", "true");
-        iframe.setAttribute("loading", "lazy");
-        iframe.setAttribute("frameborder", "0");
-        wrapper.appendChild(iframe);
+      var iframe = document.createElement("iframe");
+      iframe.setAttribute("src", embedUrl);
+      iframe.setAttribute("allowfullscreen", "true");
+      iframe.setAttribute("loading", "lazy");
+      iframe.setAttribute("frameborder", "0");
+      wrapper.appendChild(iframe);
 
-        // If the link is the only child of a <p>, replace the whole paragraph
-        var parent = link.parentElement;
-        if (parent && parent.tagName === "P" && parent.children.length === 1 && parent.textContent.trim() === link.textContent.trim()) {
-          parent.replaceWith(wrapper);
-        } else {
-          link.replaceWith(wrapper);
-        }
-      });
+      // If the link is the only child of a <p>, replace the whole paragraph
+      var parent = link.parentElement;
+      if (
+        parent &&
+        parent.tagName === "P" &&
+        parent.children.length === 1 &&
+        parent.textContent.trim() === link.textContent.trim()
+      ) {
+        parent.replaceWith(wrapper);
+      } else {
+        link.replaceWith(wrapper);
+      }
+    });
   }
 
   /**
@@ -465,6 +518,7 @@
       setupSmoothScroll();
       convertVideoImages();
       embedAutodeskLinks();
+      embed3DModels();
     });
   } else {
     initHero();
@@ -472,6 +526,7 @@
     setupSmoothScroll();
     convertVideoImages();
     embedAutodeskLinks();
+    embed3DModels();
   }
 
   // Support Zensical's instant navigation
@@ -482,6 +537,7 @@
       initGanttZoom();
       convertVideoImages();
       embedAutodeskLinks();
+      embed3DModels();
     });
   }
 })();
