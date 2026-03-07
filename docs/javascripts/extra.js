@@ -377,6 +377,42 @@
   }
 
   /**
+   * Convert bare Autodesk A360 links into full-width embedded viewers.
+   *
+   * Detects <a> tags whose href points to a360.co and replaces the
+   * containing <p> (or just the link) with a responsive iframe embed.
+   */
+  function embedAutodeskLinks() {
+    document
+      .querySelectorAll('a[href*="a360.co"]')
+      .forEach(function (link) {
+        var href = link.getAttribute("href");
+        if (!href) return;
+
+        // Build the embed URL — append mode=embed if not already present
+        var embedUrl = href + (href.indexOf("?") === -1 ? "?" : "&") + "mode=embed";
+
+        var wrapper = document.createElement("div");
+        wrapper.className = "autodesk-embed";
+
+        var iframe = document.createElement("iframe");
+        iframe.setAttribute("src", embedUrl);
+        iframe.setAttribute("allowfullscreen", "true");
+        iframe.setAttribute("loading", "lazy");
+        iframe.setAttribute("frameborder", "0");
+        wrapper.appendChild(iframe);
+
+        // If the link is the only child of a <p>, replace the whole paragraph
+        var parent = link.parentElement;
+        if (parent && parent.tagName === "P" && parent.children.length === 1 && parent.textContent.trim() === link.textContent.trim()) {
+          parent.replaceWith(wrapper);
+        } else {
+          link.replaceWith(wrapper);
+        }
+      });
+  }
+
+  /**
    * Convert <img> tags pointing to video files into <video> elements.
    *
    * Workflow:
@@ -428,12 +464,14 @@
       initGanttZoom();
       setupSmoothScroll();
       convertVideoImages();
+      embedAutodeskLinks();
     });
   } else {
     initHero();
     initGanttZoom();
     setupSmoothScroll();
     convertVideoImages();
+    embedAutodeskLinks();
   }
 
   // Support Zensical's instant navigation
@@ -443,6 +481,7 @@
       initHero();
       initGanttZoom();
       convertVideoImages();
+      embedAutodeskLinks();
     });
   }
 })();
