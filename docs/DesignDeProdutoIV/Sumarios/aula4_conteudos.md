@@ -26,9 +26,14 @@ hero_align: center
 ## Recursos
 
 ### Introdução ao Fusion 360
+
+![](attachments/Gemini_Generated_Image_cu4ppocu4ppocu4p.png)
 [100IntroFusion360](../../Recursos/100IntroFusion360.md)
 
 ### Introdução à Carpintaria Digital
+
+![](attachments/Gemini_Generated_Image_qwm2ykqwm2ykqwm2.png)
+
 [200CarpDigitalFusion360](../../Recursos/200CarpDigitalFusion360.md)
 
 ### Ficheiros para estudo:
