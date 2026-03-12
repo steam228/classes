@@ -102,4 +102,7 @@ Abaixo deixo referências de designers especializados nesta área — com um ní
 
 - [Introdução ao Sketching para Design de Produto — Fran Molina (Domestika)](https://www.domestika.org/pt/courses/1433-introducao-ao-sketching-para-design-de-produto/course)
 
-## Resultado
+## Avaliação
+
+
+
