@@ -5,9 +5,9 @@ tags: exercicio
 status: not-started
 hero_image: ../attachments/heroAula04.png
 hero_title: Conteúdos
-hero_subtitle: Introdução ao Desenho Paramétrico
-hero_height: 60vh
-hero_overlay: 0.2
+hero_subtitle: Desenho Paramétrico
+hero_height: 80vh
+hero_overlay: 0.1
 hero_align: center
 ---
 
