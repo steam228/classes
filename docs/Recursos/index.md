@@ -6,7 +6,7 @@ hero_image: attachments/Video_Generation_Request.mp4
 hero_title: RECURSOS!
 hero_subtitle:
 hero_height: 100vh
-hero_overlay: 0.1
+hero_overlay: 0.7
 hero_align: center
 ---
 
