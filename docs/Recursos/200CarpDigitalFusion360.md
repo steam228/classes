@@ -22,7 +22,7 @@ https://a360.co/4b6z5Mt
 https://youtu.be/T7x_F72Xrz4
 ## 202 - Estratégias para Desenho de Encaixes I ;
 
-
+https://youtu.be/iKZEVHfky1s
 ## 203 - Estratégias para Desenho de Encaixes II;
   
   
