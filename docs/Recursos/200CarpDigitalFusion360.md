@@ -19,7 +19,7 @@ https://youtu.be/k1r-ieB46fY
 https://a360.co/4b6z5Mt
 ## 201 - Sketches, Constraints e Definição de Parâmetros;
 
-
+https://youtu.be/T7x_F72Xrz4
 ## 202 - Estratégias para Desenho de Encaixes I ;
 
 
