@@ -2,12 +2,30 @@
 title: Página de Recursos Gerais
 icon: lucide/package-open
 tags:
-hero_image: images/hero.png
+hero_image: ../attachments/Video_Generation_Request.mp4
 hero_title: H2I
 hero_subtitle: Recursos Abertos em Design de Produto, Fabricação e Digital e outros materiais de apoio à prática projetual
 hero_height: 80vh
-hero_overlay: 0.8
+hero_overlay: 100
 hero_align: center
 ---
 
 # Página de Recursos de Apoio à Documentação de Projetos
+
+
+## Desenho Paramétrico
+
+### 100 - Introdução ao Autodesk Fusion 360:
+
+![](attachments/hero100Fusion.png)
+
+
+### 200 - Introdução à Carpintaria Digital em Autodesk Fusion 360:
+
+![](attachments/hero200Fusion.png)
+[200CarpDigitalFusion360](200CarpDigitalFusion360.md)
+
+
+## Documentação
+
+#### [Markdown Resources][markdown](markdown.md)
