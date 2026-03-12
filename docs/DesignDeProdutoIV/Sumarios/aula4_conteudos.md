@@ -38,6 +38,9 @@ hero_align: center
 
 ### Ficheiros para estudo:
 
+![](attachments/explo2_2026-Mar-12_03-13-09PM-000_CustomizedView21579608440_jpg.jpg)
+https://a360.co/4suF4lk
+
 https://a360.co/4b6z5Mt
 
 !!! note "Recursos em Construção"
