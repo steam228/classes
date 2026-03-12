@@ -18,7 +18,7 @@ hero_align: center
 ### 100 - Introdução ao Autodesk Fusion 360:
 
 ![](attachments/hero100Fusion.png)
-
+[100IntroFusion360](100IntroFusion360.md)
 
 ### 200 - Introdução à Carpintaria Digital em Autodesk Fusion 360:
 
