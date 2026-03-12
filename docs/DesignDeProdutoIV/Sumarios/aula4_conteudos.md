@@ -3,7 +3,7 @@ title: Aula 4 - Conteúdos
 icon: lucide/copy
 tags: exercicio
 status: not-started
-hero_image: ../attachments/heroAula04.png
+hero_image: ../attachments/explo2_2026-Mar-12_03-13-09PM-000_CustomizedView21579608440_jpg.jpg
 hero_title: Fusion 360
 hero_subtitle: Desenho Paramétrico
 hero_height: 80vh
