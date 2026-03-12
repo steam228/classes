@@ -4,7 +4,7 @@ icon: lucide/copy
 tags: exercicio
 status: not-started
 hero_image: ../attachments/heroAula04.png
-hero_title: Conteúdos
+hero_title: Fusion 360
 hero_subtitle: Desenho Paramétrico
 hero_height: 80vh
 hero_overlay: 0.1
