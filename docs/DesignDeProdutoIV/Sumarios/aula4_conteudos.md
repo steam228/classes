@@ -1,12 +1,11 @@
 ---
-title: "Aula 4 - Conteúdos"
+title: Aula 4 - Conteúdos
 icon: lucide/copy
 tags: exercicio
-# status options: "not-started" | "in-progress" | "completed"
 status: not-started
-hero_image: ../../images/hero.png
-hero_title: "Conteúdos"
-hero_subtitle: "Introdução ao Desenho Paramétrico"
+hero_image: ../attachments/heroAula04.png
+hero_title: Conteúdos
+hero_subtitle: Introdução ao Desenho Paramétrico
 hero_height: 60vh
 hero_overlay: 0.2
 hero_align: center
@@ -32,10 +31,11 @@ hero_align: center
 ### Introdução à Carpintaria Digital
 [200CarpDigitalFusion360](../../Recursos/200CarpDigitalFusion360.md)
 
-
-
-ficheiro1:
+### Ficheiros para estudo:
 
 https://a360.co/4b6z5Mt
 
-## Resultado
+!!! note "Recursos em Construção"
+      Iremos adicionando recursos e atualizando até ao final do semestre!
+
+
