@@ -5,8 +5,8 @@ tags:
 hero_image: ../attachments/Video_Generation_Request.mp4
 hero_title: H2I
 hero_subtitle: Recursos Abertos em Design de Produto, Fabricação e Digital e outros materiais de apoio à prática projetual
-hero_height: 80vh
-hero_overlay: 100
+hero_height: 100vh
+hero_overlay: 0.1
 hero_align: center
 ---
 
