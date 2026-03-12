@@ -17,9 +17,11 @@ hero_align: center
 
 ## 100 - interface
 
-![TUT](attachments/100IntroInterfaceFusion.mp4)
+https://youtu.be/0TzrOozguQ4
+
 ## 101 - sketches
 
-![TUT](attachments/101sketches.mp4)
+https://youtu.be/M-m8EHdmbjI
+
 ## 102 - ferramentas simples de modelação
 

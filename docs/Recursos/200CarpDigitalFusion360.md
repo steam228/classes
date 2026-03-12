@@ -14,19 +14,16 @@ hero_align: center
 
 ## 200 - De que falamos quando falamos de Carpintaria Digital? (desmonstração do Workflow completo e simplificado)
 
-![TUT](attachments/200FusionDigitalCarp.mp4)
+https://youtu.be/k1r-ieB46fY
 
 https://a360.co/4b6z5Mt
 ## 201 - Sketches, Constraints e Definição de Parâmetros;
 
-![TUT](attachments/201FusionDigitalCarp.mp4)
 
 ## 202 - Estratégias para Desenho de Encaixes I ;
 
-![TUT](attachments/202.mp4)
 
-
-- 203 - Estratégias para Desenho de Encaixes II;
+## 203 - Estratégias para Desenho de Encaixes II;
   
   
-- 204 - Nesting e CAM;
+## 204 - Nesting e CAM;
