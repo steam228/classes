@@ -26,12 +26,16 @@ hero_align: center
 
 ## Recursos
 
+### Introdução ao Fusion 360
+[100IntroFusion360](../../Recursos/100IntroFusion360.md)
+
+### Introdução à Carpintaria Digital
+[200CarpDigitalFusion360](../../Recursos/200CarpDigitalFusion360.md)
+
+
 
 ficheiro1:
 
 https://a360.co/4b6z5Mt
-
-
-![](attachments/nist_ftc_09_asme1_ap242-e1.stp)
 
 ## Resultado

@@ -2,8 +2,8 @@
 title: 200 - Carpintaria Digital
 icon: lucide/wallpaper
 tags: projeto
-hero_image: ../attachments/cover01.jpg
-hero_title: Projeto Nestor - Produtos
+hero_image: attachments/hero200Fusion.png
+hero_title: Desenho Paramétrico II
 hero_subtitle: Autodesk Fusion 360
 hero_height: 80vh
 hero_overlay: 0.3
