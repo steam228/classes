@@ -125,6 +125,33 @@ For full documentation visit [zensical.org](https://zensical.org/docs/).
 
     This is a **warning** admonition. Be careful!
 
+
+  !!! note "Optional title"
+      Content here.
+
+  !!! warning
+      No custom title — uses type as title.
+
+  !!! tip "Tip"
+      Content.
+
+  Types: note tip warning danger info success question bug example quote
+
+  Collapsible:
+  ??? note "Click to expand"
+      Hidden by default.
+
+  ???+ note "Open by default"
+      Visible by default, collapsible.
+
+  Inline (call-to-action style):
+  !!! tip inline "Left"
+      Floats left.
+
+  !!! tip inline end "Right"
+      Floats right.
+
+
 ### Details
 
 > Go to [documentation](https://zensical.org/docs/authoring/admonitions/#collapsible-blocks)
