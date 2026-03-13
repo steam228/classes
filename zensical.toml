@@ -48,8 +48,6 @@ nav = [
     #   { "Home" = "index.md" },
     { "Design de Produto IV" = [
         { "Página Inicial" = "DesignDeProdutoIV/index.md" },
-        { "Avaliação" = "DesignDeProdutoIV/Avaliacao.md" },
-        { "Calendário" = "DesignDeProdutoIV/Calendario.md" },
         { "Projeto - Produtos" = "DesignDeProdutoIV/Enunciado.md" },
         #{ "Projeto - Marca e Embalagem" = "DesignDeProdutoIV/Enunciado2.md" },
         { "Sumários" = [
@@ -61,12 +59,11 @@ nav = [
             { "Aula 5 - Organização no Fablab" = "DesignDeProdutoIV/Sumarios/aula5.md" },
             { "Aula 6 - Prototipagem" = "DesignDeProdutoIV/Sumarios/aula6.md" },
         ] },
+        { "Avaliação" = "DesignDeProdutoIV/Avaliacao.md" },
+        { "Calendário" = "DesignDeProdutoIV/Calendario.md" },
     ] },
     { "Prototipagem Digital" = [
         { "Página Inicial" = "PrototipagemDigital/index.md" },
-        { "Avaliação" = "PrototipagemDigital/Avaliacao.md" },
-        { "Calendário" = "PrototipagemDigital/Calendario.md" },
-        { "Documentação Final" = "PrototipagemDigital/Enunciado.md" },
         { "Sumários" = [
             { "Página Inicial" = "PrototipagemDigital/Sumarios/index.md" },
             { "Aula 1 - Softwares" = "PrototipagemDigital/Sumarios/aula1.md" },
@@ -81,6 +78,9 @@ nav = [
             { "Aula 10 - Desenvolvimento" = "PrototipagemDigital/Sumarios/aula10.md" },
             { "Aula 11 - Apresentação" = "PrototipagemDigital/Sumarios/aula11.md" },
         ] },
+        { "Documentação Final" = "PrototipagemDigital/Enunciado.md" },
+        { "Calendário" = "PrototipagemDigital/Calendario.md" },
+        { "Avaliação" = "PrototipagemDigital/Avaliacao.md" },
     ] },
     #   { "Unidade Curricular - Modelo" = [
     #       { "Página Inicial" = "UnidadeCurricular/index.md" },
