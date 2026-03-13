@@ -4,7 +4,7 @@ title: Design de Produto IV
 hero_image: attachments/andreiaVieira.webp
 hero_title: Design de Produto IV
 hero_subtitle: Projeto NESTOR - Brinquedos de Madeira Sustentáveis
-hero_height: 60vh
+hero_height: 100vh
 hero_overlay: 0.7
 hero_align: center
 ---
