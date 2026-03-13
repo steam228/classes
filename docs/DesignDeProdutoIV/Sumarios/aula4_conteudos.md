@@ -46,6 +46,10 @@ https://a360.co/4b6z5Mt
 ![](attachments/explo2_2026-Mar-12_10-25-54PM-000_CustomizedView13852115213_jpg.jpg)
 ![](attachments/explo2_2026-Mar-12_10-34-43PM-000_CustomizedView30189488843_jpg.jpg)
 ![](attachments/explo2_2026-Mar-12_10-36-00PM-000_CustomizedView38510908632_jpg.jpg)
+![](attachments/explo2_2026-Mar-13_10-39-20AM-000_CustomizedView9737436664_jpg.jpg)
+![](attachments/frontColor.jpg)
+
+
 
 !!! note "Recursos em Construção"
       Iremos adicionando recursos e atualizando até ao final do semestre!
