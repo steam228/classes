@@ -2,11 +2,11 @@
 title: Página Inicial
 icon: lucide/line-squiggle
 tags:
-hero_image: attachments/nemnufare.mp4
+hero_image: attachments/IMG_8091.jpg
 hero_title: H2I
 hero_subtitle: Recursos Abertos de Aprendizagem em Design de Produto, Fabricação Digital, Código Criativo e Computação Física por André Rocha
 hero_height: 100vh
-hero_overlay: 0.6
+hero_overlay: 0.4
 hero_align: center
 ---
 # Bem-vindos à minha página de Recursos Abertos
