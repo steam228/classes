@@ -2,7 +2,7 @@
 title: 200 - Carpintaria Digital
 icon: lucide/wallpaper
 tags: projeto
-hero_image: ../attachments/Screen04.png
+hero_image: ../attachments/screen04.png
 hero_title:
 hero_subtitle:
 hero_height: 80vh
