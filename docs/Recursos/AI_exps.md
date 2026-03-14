@@ -22,9 +22,10 @@ Nesta experiência recorri a uma conta gratuita de [pletor.ai](https://pletor.ai
 ![](attachments/screen01.png)
 
 
-Assumindo alguns erros de interpretação, princpalmente no que toda à integração do componente decidi agarrar nuns renders de demosntração recentes e numa receita de workflow fornecida pelo proprio pletor e preparar umn photoshoot profissional do (não-)produto de demonstração que havia desenhado no contexto da produção de recursos para o Fusion360:
+Assumindo alguns erros de interpretação, principalmente no que toca à integração do componente decidi agarrar nuns renders de demonstração recentes e numa receita de workflow fornecida pelo próprio Pletor.AI e preparar um photoshoot profissional do (não-)produto de demonstração que havia desenhado no contexto da produção de recursos para o Fusion360:
 
-## Render para Sessão Fotográfica:
+## Do render à Sessão Fotográfica:
+
 ![](attachments/travBaixa1.jpg)
 ![](attachments/screen02.png)
 ![](attachments/screen03.png)
