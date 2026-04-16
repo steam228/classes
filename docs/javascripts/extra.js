@@ -466,6 +466,74 @@
   }
 
   /**
+   * Convert <img> tags pointing to non-image, non-video, non-3D files
+   * into styled download links.
+   *
+   * When a file (e.g. PDF, ZIP, DOCX) is dragged into Obsidian it creates
+   * ![](attachments/file.pdf) which renders as a broken <img>. This function
+   * replaces those with a download card showing the file name, extension badge,
+   * and a download icon.
+   */
+  function convertAttachmentLinks() {
+    // Extensions already handled natively or by other functions
+    var imageExts = [
+      ".png", ".jpg", ".jpeg", ".gif", ".webp", ".svg", ".bmp", ".ico", ".avif",
+    ];
+    var videoExts = [".mp4", ".webm", ".ogg", ".mov"];
+    var modelExts = [
+      ".stl", ".step", ".stp", ".obj", ".3ds", ".ply", ".gltf", ".glb",
+    ];
+    var handled = [].concat(imageExts, videoExts, modelExts);
+
+    document.querySelectorAll("img[src]").forEach(function (img) {
+      var src = img.getAttribute("src");
+      if (!src) return;
+
+      var lower = src.toLowerCase();
+      // Skip if the extension is already handled
+      for (var i = 0; i < handled.length; i++) {
+        if (lower.endsWith(handled[i])) return;
+      }
+
+      // Extract file name from path
+      var parts = src.split("/");
+      var fileName = decodeURIComponent(parts[parts.length - 1]);
+
+      // Extract extension for the badge
+      var dotIndex = fileName.lastIndexOf(".");
+      var ext = dotIndex !== -1 ? fileName.substring(dotIndex + 1).toUpperCase() : "FILE";
+
+      // Build download card
+      var card = document.createElement("a");
+      card.href = src;
+      card.className = "attachment-download";
+      card.setAttribute("download", "");
+      card.setAttribute("title", "Download " + fileName);
+
+      card.innerHTML =
+        '<span class="attachment-download__icon">' +
+          '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">' +
+            '<path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>' +
+            '<polyline points="7 10 12 15 17 10"/>' +
+            '<line x1="12" y1="15" x2="12" y2="3"/>' +
+          "</svg>" +
+        "</span>" +
+        '<span class="attachment-download__info">' +
+          '<span class="attachment-download__name">' + fileName + "</span>" +
+          '<span class="attachment-download__ext">' + ext + "</span>" +
+        "</span>";
+
+      // Replace the img (or its parent <p> if it's the only child)
+      var parent = img.parentElement;
+      if (parent && parent.tagName === "P" && parent.children.length === 1) {
+        parent.replaceWith(card);
+      } else {
+        img.replaceWith(card);
+      }
+    });
+  }
+
+  /**
    * Convert <img> tags pointing to video files into <video> elements.
    *
    * Workflow:
@@ -519,6 +587,7 @@
       convertVideoImages();
       embedAutodeskLinks();
       embed3DModels();
+      convertAttachmentLinks();
     });
   } else {
     initHero();
@@ -527,6 +596,7 @@
     convertVideoImages();
     embedAutodeskLinks();
     embed3DModels();
+    convertAttachmentLinks();
   }
 
   // Support Zensical's instant navigation
@@ -538,6 +608,7 @@
       convertVideoImages();
       embedAutodeskLinks();
       embed3DModels();
+      convertAttachmentLinks();
     });
   }
 })();
