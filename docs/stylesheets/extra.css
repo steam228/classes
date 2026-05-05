@@ -662,5 +662,73 @@ html[data-hero-height="100vh"] .md-hero__image {
   }
 }
 
+/* ==========================================================================
+   Gallery Grid (group / product portfolios)
+   ==========================================================================
+
+   Markup pattern:
+
+     <div class="gallery-grid">
+       <a class="gallery-card" href="...">
+         <img src="..." alt="" />
+         <h3>Title</h3>
+         <p>Subtitle</p>
+       </a>
+     </div>
+   ========================================================================== */
+
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 1.5rem;
+  margin: 2rem 0;
+}
+
+.gallery-card {
+  display: flex;
+  flex-direction: column;
+  text-decoration: none;
+  color: inherit;
+  background: var(--md-default-bg-color);
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.gallery-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+}
+
+.gallery-card img {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  display: block;
+}
+
+.gallery-card h3 {
+  margin: 0.75rem 1rem 0.25rem;
+  font-size: 1rem;
+  font-weight: 600;
+  line-height: 1.3;
+}
+
+.gallery-card p {
+  margin: 0 1rem 1rem;
+  font-size: 0.85rem;
+  color: var(--md-default-fg-color--light);
+}
+
+[data-md-color-scheme="slate"] .gallery-card {
+  background: var(--md-code-bg-color);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+}
+
+[data-md-color-scheme="slate"] .gallery-card:hover {
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5);
+}
+
 
 

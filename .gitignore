@@ -21,3 +21,6 @@ _templates/
 
 # Claude Code
 .claude/
+
+# Gallery template lives in its own GitHub repo; don't track here
+gallery-template/

@@ -5,6 +5,9 @@ on:
     branches: ["main", "master"]
   pull_request:
     branches: ["main", "master"]
+  repository_dispatch:
+    types: [group-update]
+  workflow_dispatch: {}
 
 permissions:
   contents: read
@@ -32,6 +35,18 @@ jobs:
         run: |
           python -m pip install --upgrade pip
           pip install zensical
+
+      - name: Fetch + regenerate student galleries
+        env:
+          GH_TOKEN: ${{ secrets.GALLERY_FETCH_TOKEN }}
+          CLASSROOM_ORG: ${{ vars.CLASSROOM_ORG }}
+        run: |
+          if [ -n "$GH_TOKEN" ] && [ -n "$CLASSROOM_ORG" ]; then
+            python .github/scripts/fetch-galleries.py
+          else
+            echo "::warning::Gallery fetch skipped (GALLERY_FETCH_TOKEN or CLASSROOM_ORG not set); regenerating index from local content only"
+            python .github/scripts/fetch-galleries.py --no-fetch
+          fi
 
       - name: Build site
         run: zensical build --clean
