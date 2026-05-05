@@ -134,8 +134,30 @@ def gh_get(url: str, token: str) -> list[dict]:
             "X-GitHub-Api-Version": "2022-11-28",
         },
     )
-    with urllib.request.urlopen(req) as resp:
-        return json.loads(resp.read())
+    try:
+        with urllib.request.urlopen(req) as resp:
+            return json.loads(resp.read())
+    except urllib.error.HTTPError as e:
+        body = e.read().decode("utf-8", errors="replace")[:1000]
+        print(
+            f"::error::GitHub API returned HTTP {e.code} for {url}\n"
+            f"Response body: {body}",
+            file=sys.stderr,
+        )
+        if e.code in (401, 403):
+            print(
+                "::error::Likely causes:\n"
+                "  - GALLERY_FETCH_TOKEN is invalid or expired\n"
+                "  - Token's Resource Owner is not the classroom org\n"
+                "  - Org has fine-grained PATs disabled\n"
+                "    (fix: Org Settings → Third-party Access → Personal access tokens →\n"
+                "     enable 'Allow access via fine-grained personal access tokens')\n"
+                "  - Token is awaiting org-admin approval\n"
+                "  - CLASSROOM_ORG variable is wrong (use the slug from the URL,\n"
+                "    not the display name)",
+                file=sys.stderr,
+            )
+        raise
 
 
 def list_assignment_repos(org: str, prefix: str, token: str) -> list[dict]:
