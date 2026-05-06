@@ -239,10 +239,15 @@ def generate_index(course: str, cfg: dict) -> None:
         if names:
             subtitle_parts.append(" · ".join(names))
         subtitle = " — ".join(subtitle_parts) if subtitle_parts else (fm.get("hero_subtitle") or "")
-        # Convention: every group keeps its hero at attachments/hero.jpg
+        # Use whatever hero_image the group declared; tolerate any leading
+        # `../` that crept in (a frequent mistake for index.md, which
+        # shouldn't have one).
+        hero = fm.get("hero_image") or "attachments/hero.jpg"
+        while hero.startswith("../"):
+            hero = hero[3:]
         cards.append({
             "href": f"{entry.name}/",
-            "img": f"{entry.name}/attachments/hero.jpg",
+            "img": f"{entry.name}/{hero}",
             "title": title,
             "subtitle": subtitle,
         })
