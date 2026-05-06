@@ -36,18 +36,27 @@ jobs:
           python -m pip install --upgrade pip
           pip install zensical
 
+      - name: Mint App token for the classroom org
+        id: app-token
+        uses: actions/create-github-app-token@v1
+        with:
+          app-id: ${{ vars.GALLERY_APP_ID }}
+          private-key: ${{ secrets.GALLERY_APP_PRIVATE_KEY }}
+          owner: ${{ vars.CLASSROOM_ORG }}
+        continue-on-error: true
+
       - name: Fetch + regenerate student galleries
         env:
-          GH_TOKEN: ${{ secrets.GALLERY_FETCH_TOKEN }}
+          GH_TOKEN: ${{ steps.app-token.outputs.token }}
           CLASSROOM_ORG: ${{ vars.CLASSROOM_ORG }}
         run: |
           if [ -n "$GH_TOKEN" ] && [ -n "$CLASSROOM_ORG" ]; then
             if ! python .github/scripts/fetch-galleries.py; then
-              echo "::warning::Fetch failed (likely token issue — see error above). Falling back to --no-fetch so the deploy still goes through."
+              echo "::warning::Fetch failed — see error above. Falling back to --no-fetch so the deploy still goes through."
               python .github/scripts/fetch-galleries.py --no-fetch
             fi
           else
-            echo "::warning::Gallery fetch skipped (GALLERY_FETCH_TOKEN or CLASSROOM_ORG not set); regenerating index from local content only"
+            echo "::warning::Gallery fetch skipped (App credentials or CLASSROOM_ORG not set); regenerating index from local content only"
             python .github/scripts/fetch-galleries.py --no-fetch
           fi
 
