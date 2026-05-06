@@ -195,6 +195,25 @@ def clone_shallow(clone_url: str, dest: Path, token: str) -> None:
         capture_output=True,
     )
     shutil.rmtree(dest / ".git", ignore_errors=True)
+    prune_for_site(dest)
+
+
+# Files/dirs that exist in student repos but should not be served by the site:
+# - README.md collides with index.md for directory URLs (README wins, masking
+#   the real group page).
+# - .obsidian/, .github/, .gitignore, .DS_Store are repo-internal noise.
+_PRUNE_NAMES = ("README.md", ".obsidian", ".github", ".gitignore", ".DS_Store")
+
+
+def prune_for_site(group_dir: Path) -> None:
+    for name in _PRUNE_NAMES:
+        target = group_dir / name
+        if not target.exists():
+            continue
+        if target.is_dir():
+            shutil.rmtree(target, ignore_errors=True)
+        else:
+            target.unlink()
 
 
 # ----------------------------------------------------------------------------
