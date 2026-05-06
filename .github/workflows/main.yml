@@ -42,7 +42,10 @@ jobs:
           CLASSROOM_ORG: ${{ vars.CLASSROOM_ORG }}
         run: |
           if [ -n "$GH_TOKEN" ] && [ -n "$CLASSROOM_ORG" ]; then
-            python .github/scripts/fetch-galleries.py
+            if ! python .github/scripts/fetch-galleries.py; then
+              echo "::warning::Fetch failed (likely token issue — see error above). Falling back to --no-fetch so the deploy still goes through."
+              python .github/scripts/fetch-galleries.py --no-fetch
+            fi
           else
             echo "::warning::Gallery fetch skipped (GALLERY_FETCH_TOKEN or CLASSROOM_ORG not set); regenerating index from local content only"
             python .github/scripts/fetch-galleries.py --no-fetch
