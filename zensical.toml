@@ -59,9 +59,9 @@ nav = [
             { "Aula 5 - Organização no Fablab" = "DesignDeProdutoIV/Sumarios/aula5.md" },
             { "Aula 6 - Prototipagem" = "DesignDeProdutoIV/Sumarios/aula6.md" },
         ] },
-        { "Galeria" = "DesignDeProdutoIV/Galeria/index.md" },
         { "Avaliação" = "DesignDeProdutoIV/Avaliacao.md" },
         { "Calendário" = "DesignDeProdutoIV/Calendario.md" },
+        { "Galeria" = "DesignDeProdutoIV/Galeria/index.md" },
     ] },
     { "Prototipagem Digital" = [
         { "Página Inicial" = "PrototipagemDigital/index.md" },
