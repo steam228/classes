@@ -16,10 +16,6 @@ Trabalhos finais dos grupos de **Design de Produto IV**.
 
 <!-- markdownlint-disable MD033 -->
 <div class="gallery-grid">
-  <a class="gallery-card" href="grupo-exemplo/">
-    <img src="grupo-exemplo/attachments/hero.jpg" alt="" />
-    <h3>Grupo Exemplo</h3>
-    <p>G00 — Maria Exemplo · João Exemplo</p>
-  </a>
+  <!-- nenhum grupo publicado ainda -->
 </div>
 <!-- markdownlint-enable MD033 -->
