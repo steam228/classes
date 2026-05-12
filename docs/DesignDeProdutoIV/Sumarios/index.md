@@ -27,6 +27,6 @@ hero_align: center
 | 4   | [Introdução ao Desenho Paramétrico](aula4.md)     | 04/03 → 06/03 | —      | [Conteúdos](aula4_conteudos.md) |
 | 5   | Processo de Desenho 3D                            | 11/03 → 24/04 | —      | —                               |
 | —   | **PAUSA LETIVA**                                  | 30/03 → 11/04 | —      | —                               |
-| 6   | [Organização e Metodologias no Fablab](aula5.md)  | 18/03 → 20/03 | —      | [Conteúdos](aula5_conteudos.md) |
-| 7   | [Processo de Prototipagem](aula6.md)              | 18/03 → 05/06 | —      | [Conteúdos](aula6_conteudos.md) |
+| 6   | [Organização e Metodologias no Fablab](aula5.md)  | 18/03 → 20/03 | —      |                                 |
+| 7   | [Processo de Prototipagem](aula6.md)              | 18/03 → 05/06 | —      |                                 |
 

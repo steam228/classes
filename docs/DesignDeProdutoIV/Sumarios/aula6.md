@@ -25,7 +25,6 @@ hero_align: center
 
 ![](attachments/02-bancoEngraxador%201.jpg)
 %% *Banco Engraxador por João Pires 2017-18* %%
-## Notas da Aula
 
-## Conteúdos
-[Clique aqui](aula6_conteudos.md) para acessar os conteúdos desta aula.
+
+

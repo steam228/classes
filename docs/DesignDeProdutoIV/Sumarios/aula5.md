@@ -22,7 +22,4 @@ hero_align: center
 2. Organização de trabalho em grupo - desenho paramétrico com Fusion 360
 3. Possíveis outputs - STL para impressão 3D, DXF ou SVG para corte 2D (laser, vinil, etc) e Gcode no para CNC 2D e 3D
 
-## Notas da Aula
 
-## Conteúdos
-[Clique aqui](aula5_conteudos.md) para acessar os conteúdos desta aula.

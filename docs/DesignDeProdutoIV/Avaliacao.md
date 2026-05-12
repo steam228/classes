@@ -38,6 +38,10 @@ Todas as entregas serão efetuadas exclusivamente via moodle, até à data estip
 Apresentar as ideias de outras pessoas como nossas, constitui uma grave infração das regras de produção académica pelo que não será tolerada.
 ### Projeto Final
 O principal objeto de avaliação do módulo de Design de Produto III é o Projeto Final. É através deste que avaliamos a aplicação dos conceitos e ferramentas abordados ao longo do semestre.
+
+### Entrega (como entregar)
+https://youtu.be/Q1UCXW5ldT4
+
 ### Utilização de IA
 É permitida a utilização de IA em qq fase do processo de trabalho e até mesmo incentivada, desde que o seu uso seja reconhecido e citado, quer na exposição dos diferentes processos, quer como nota bibliográfica.
 
