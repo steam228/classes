@@ -426,6 +426,72 @@
   }
 
   /**
+   * Convert bare YouTube links into embedded iframes.
+   *
+   * Supports:
+   *   https://youtu.be/VIDEO_ID
+   *   https://www.youtube.com/watch?v=VIDEO_ID
+   *
+   * A bare URL on its own line becomes <p><a href="...">...</a></p>.
+   * This function replaces that paragraph with a 16:9 iframe embed.
+   */
+  function embedYouTubeLinks() {
+    document
+      .querySelectorAll('a[href*="youtube.com/watch"], a[href*="youtu.be/"]')
+      .forEach(function (link) {
+        var href = link.getAttribute("href");
+        if (!href) return;
+
+        var videoId = null;
+        var url;
+        try {
+          url = new URL(href);
+        } catch (e) {
+          return;
+        }
+
+        if (url.hostname === "youtu.be") {
+          videoId = url.pathname.slice(1).split("?")[0];
+        } else if (
+          url.hostname === "www.youtube.com" ||
+          url.hostname === "youtube.com"
+        ) {
+          videoId = url.searchParams.get("v");
+        }
+
+        if (!videoId) return;
+
+        var embedUrl = "https://www.youtube.com/embed/" + videoId;
+
+        var wrapper = document.createElement("div");
+        wrapper.className = "youtube-embed";
+
+        var iframe = document.createElement("iframe");
+        iframe.setAttribute("src", embedUrl);
+        iframe.setAttribute("allowfullscreen", "true");
+        iframe.setAttribute("loading", "lazy");
+        iframe.setAttribute("frameborder", "0");
+        iframe.setAttribute(
+          "allow",
+          "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+        );
+        wrapper.appendChild(iframe);
+
+        var parent = link.parentElement;
+        if (
+          parent &&
+          parent.tagName === "P" &&
+          parent.children.length === 1 &&
+          parent.textContent.trim() === link.textContent.trim()
+        ) {
+          parent.replaceWith(wrapper);
+        } else {
+          link.replaceWith(wrapper);
+        }
+      });
+  }
+
+  /**
    * Convert bare Autodesk A360 links into full-width embedded viewers.
    *
    * Detects <a> tags whose href points to a360.co and replaces the
@@ -585,6 +651,7 @@
       initGanttZoom();
       setupSmoothScroll();
       convertVideoImages();
+      embedYouTubeLinks();
       embedAutodeskLinks();
       embed3DModels();
       convertAttachmentLinks();
@@ -594,6 +661,7 @@
     initGanttZoom();
     setupSmoothScroll();
     convertVideoImages();
+    embedYouTubeLinks();
     embedAutodeskLinks();
     embed3DModels();
     convertAttachmentLinks();
@@ -606,6 +674,7 @@
       initHero();
       initGanttZoom();
       convertVideoImages();
+      embedYouTubeLinks();
       embedAutodeskLinks();
       embed3DModels();
       convertAttachmentLinks();

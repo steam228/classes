@@ -13,6 +13,7 @@ hero_align: center
 # Galeria de Projetos
 
 Trabalhos finais dos grupos de **Design de Produto IV**.
+A contribuição para esta galeria é iniciada neste link: https://classroom.github.com/a/vq-Txt7n
 
 <!-- markdownlint-disable MD033 -->
 <div class="gallery-grid">

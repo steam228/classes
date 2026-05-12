@@ -43,6 +43,14 @@ https://a360.co/4suF4lk
 https://a360.co/4b6z5Mt
 [https://a360.co/3Pq853I](https://a360.co/4u1Ig9u)
 
+## Extensão Dogbones (e página a explicar o que são):
+
+https://ekinssolutions.com/product/nifty-dogbones-f360/
+
+
+
+## Alguns Renders:
+
 ![](attachments/explo2_2026-Mar-12_03-13-09PM-000_CustomizedView21579608440_jpg.jpg)
 ![](attachments/explo2_2026-Mar-12_10-25-54PM-000_CustomizedView13852115213_jpg.jpg)
 ![](attachments/explo2_2026-Mar-12_10-34-43PM-000_CustomizedView30189488843_jpg.jpg)
