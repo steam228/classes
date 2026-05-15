@@ -82,6 +82,7 @@ nav = [
         { "Documentação Final" = "PrototipagemDigital/Enunciado.md" },
         { "Calendário" = "PrototipagemDigital/Calendario.md" },
         { "Avaliação" = "PrototipagemDigital/Avaliacao.md" },
+        { "Galeria" = "PrototipagemDigital/Galeria/index.md" },
     ] },
     #   { "Unidade Curricular - Modelo" = [
     #       { "Página Inicial" = "UnidadeCurricular/index.md" },

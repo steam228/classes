@@ -45,11 +45,10 @@ GALLERY_CONFIG = {
         "prefix": "dpiv-galeria-",
         "label": "Design de Produto IV",
     },
-    # Uncomment when the PD template is ready and assignment exists:
-    # "PrototipagemDigital": {
-    #     "prefix": "pd-galeria-",
-    #     "label": "Prototipagem Digital",
-    # },
+    "PrototipagemDigital": {
+        "prefix": "pd-galeria-",
+        "label": "Prototipagem Digital",
+    },
 }
 
 REPO_ROOT = Path(__file__).resolve().parents[2]

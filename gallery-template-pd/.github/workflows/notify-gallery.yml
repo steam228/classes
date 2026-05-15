@@ -1,0 +1,45 @@
+name: Notify gallery rebuild
+
+# Pings the main course site repo on every push to main, so the public
+# gallery refreshes with this group's latest content.
+#
+# Authenticates via a GitHub App installed on both the classroom org
+# (so this workflow can mint a token here) and on steam228/classes (so
+# the minted token can dispatch there). Required ESELX org-level config
+# (inherited by every assignment repo):
+#   - Variable:  GALLERY_APP_ID
+#   - Secret:    GALLERY_APP_PRIVATE_KEY
+
+on:
+  push:
+    branches: [main]
+
+jobs:
+  notify:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Mint App token scoped to steam228/classes
+        id: app-token
+        uses: actions/create-github-app-token@v1
+        with:
+          app-id: ${{ vars.GALLERY_APP_ID }}
+          private-key: ${{ secrets.GALLERY_APP_PRIVATE_KEY }}
+          owner: steam228
+          repositories: classes
+        continue-on-error: true
+
+      - name: Dispatch rebuild to course site
+        env:
+          GH_TOKEN: ${{ steps.app-token.outputs.token }}
+        run: |
+          if [ -z "$GH_TOKEN" ]; then
+            echo "::notice::App token unavailable — skipping dispatch. (Expected on the template repo or forks outside the classroom org.)"
+            exit 0
+          fi
+          gh api \
+            --method POST \
+            -H "Accept: application/vnd.github+json" \
+            /repos/steam228/classes/dispatches \
+            -f event_type=group-update \
+            -f "client_payload[group_repo]=${{ github.repository }}" \
+            -f "client_payload[commit]=${{ github.sha }}"
