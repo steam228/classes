@@ -80,6 +80,7 @@ nav = [
             { "Aula 11 - Apresentação" = "PrototipagemDigital/Sumarios/aula11.md" },
         ] },
         { "Documentação Final" = "PrototipagemDigital/Enunciado.md" },
+        { "Como Submeter?" = "PrototipagemDigital/ComoSubmeter.md" },
         { "Calendário" = "PrototipagemDigital/Calendario.md" },
         { "Avaliação" = "PrototipagemDigital/Avaliacao.md" },
         { "Galeria" = "PrototipagemDigital/Galeria/index.md" },
