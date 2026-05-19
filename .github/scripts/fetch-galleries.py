@@ -246,14 +246,22 @@ def generate_index(course: str, cfg: dict) -> None:
         fm = parse_frontmatter(idx)
         if not fm or fm.get("published") is False:
             continue
-        # Skip groups whose `group_name` is empty — that signals the
-        # student hasn't customized their template yet. Treat naming
-        # the group as the implicit "ready to publish" trigger so the
-        # gallery doesn't surface half-empty placeholders.
-        raw_group_name = (fm.get("group_name") or "").strip()
-        if not raw_group_name:
+        # Skip groups still showing template defaults. Any of group_name,
+        # hero_title, or title being filled with something other than the
+        # template placeholder is enough to count as "customized" — naming
+        # *any* of these fields is the implicit "ready to publish" trigger.
+        TEMPLATE_PLACEHOLDER = "Nome do Grupo"
+        candidates = [
+            (fm.get("group_name") or "").strip(),
+            (fm.get("hero_title") or "").strip(),
+            (fm.get("title") or "").strip(),
+        ]
+        title = next(
+            (c for c in candidates if c and c != TEMPLATE_PLACEHOLDER),
+            None,
+        )
+        if not title:
             continue
-        title = raw_group_name
         members = fm.get("members") or []
         names = []
         if isinstance(members, list):
