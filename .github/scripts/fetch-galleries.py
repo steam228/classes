@@ -215,6 +215,60 @@ def prune_for_site(group_dir: Path) -> None:
             target.unlink()
 
 
+# Matches a Markdown image link: `![alt](path)` or `![alt](path "title")`.
+_MD_IMAGE_LINK_RE = re.compile(r'(!\[[^\]]*\])\(([^)\s]+)((?:\s+"[^"]*")?)\)')
+
+
+def normalize_paths_for_site(group_dir: Path, repo_name: str) -> None:
+    """
+    Rewrite vault-rooted Markdown image paths into sibling-relative form.
+
+    Common failure mode: students open the wrong directory as their Obsidian
+    vault (e.g. the parent containing the cloned repo, not the repo itself),
+    or Obsidian rewrites paths during folder renames. The result is links like
+
+        ![](dpiv-galeria-X/produtos/Ítalo/attachments/foo.png)
+
+    instead of the sibling-relative
+
+        ![](attachments/foo.png)
+
+    MkDocs only rewrites *relative-to-source* paths at build time, so the
+    vault-rooted form ends up as a broken `<img>` on the deployed page.
+    This walks every .md in the cloned repo, strips a leading `<repo-name>/`
+    prefix when present, then computes a source-file-relative path.
+    """
+    repo_prefix = f"{repo_name}/"
+
+    for md_path in group_dir.rglob("*.md"):
+        try:
+            original = md_path.read_text(encoding="utf-8")
+        except UnicodeDecodeError:
+            continue
+
+        def fix_link(match: re.Match) -> str:
+            alt, link, title = match.group(1), match.group(2), match.group(3) or ""
+            # Skip external/absolute/anchor links.
+            if link.startswith(("http://", "https://", "/", "#", "mailto:")):
+                return match.group(0)
+            # Only rewrite when the link starts with the repo-name prefix.
+            # That's the unambiguous "this was vault-rooted" signal — any
+            # other path could legitimately be a sibling-relative reference.
+            if not link.startswith(repo_prefix):
+                return match.group(0)
+            stripped = link[len(repo_prefix):]
+            target = (group_dir / stripped).resolve()
+            try:
+                rel = os.path.relpath(str(target), str(md_path.parent.resolve()))
+            except ValueError:
+                return f"{alt}({stripped}{title})"
+            return f"{alt}({rel.replace(os.sep, '/')}{title})"
+
+        rewritten = _MD_IMAGE_LINK_RE.sub(fix_link, original)
+        if rewritten != original:
+            md_path.write_text(rewritten, encoding="utf-8")
+
+
 # ----------------------------------------------------------------------------
 # Per-course pipeline
 
@@ -232,6 +286,7 @@ def fetch_course(course: str, cfg: dict, org: str, token: str) -> None:
         dest = galeria / slug
         print(f"  fetch {r['name']} → {dest.relative_to(REPO_ROOT)}")
         clone_shallow(r["clone_url"], dest, token)
+        normalize_paths_for_site(dest, r["name"])
 
 
 def generate_index(course: str, cfg: dict) -> None:
