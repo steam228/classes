@@ -215,28 +215,34 @@ def prune_for_site(group_dir: Path) -> None:
             target.unlink()
 
 
-# Matches a Markdown image link: `![alt](path)` or `![alt](path "title")`.
-_MD_IMAGE_LINK_RE = re.compile(r'(!\[[^\]]*\])\(([^)\s]+)((?:\s+"[^"]*")?)\)')
+# Matches any Markdown link or image link:
+#   [text](path)        regular link
+#   ![alt](path)        image link
+#   [text](path "title") with optional title
+_MD_LINK_RE = re.compile(r'(!?\[[^\]]*\])\(([^)\s]+)((?:\s+"[^"]*")?)\)')
 
 
 def normalize_paths_for_site(group_dir: Path, repo_name: str) -> None:
     """
-    Rewrite vault-rooted Markdown image paths into sibling-relative form.
+    Rewrite vault-rooted Markdown links into sibling-relative form.
 
     Common failure mode: students open the wrong directory as their Obsidian
     vault (e.g. the parent containing the cloned repo, not the repo itself),
     or Obsidian rewrites paths during folder renames. The result is links like
 
         ![](dpiv-galeria-X/produtos/Ítalo/attachments/foo.png)
+        [Ver processo](dpiv-galeria-X/produtos/Ítalo/processo.md)
 
     instead of the sibling-relative
 
         ![](attachments/foo.png)
+        [Ver processo](processo.md)
 
     MkDocs only rewrites *relative-to-source* paths at build time, so the
-    vault-rooted form ends up as a broken `<img>` on the deployed page.
-    This walks every .md in the cloned repo, strips a leading `<repo-name>/`
-    prefix when present, then computes a source-file-relative path.
+    vault-rooted form ends up as a broken `<img>` or 404 link. This walks
+    every .md in the cloned repo, strips a leading `<repo-name>/` prefix
+    when present, then computes a source-file-relative path. Both image
+    (`![]()`) and regular (`[]()`) links are covered.
     """
     repo_prefix = f"{repo_name}/"
 
@@ -264,7 +270,7 @@ def normalize_paths_for_site(group_dir: Path, repo_name: str) -> None:
                 return f"{alt}({stripped}{title})"
             return f"{alt}({rel.replace(os.sep, '/')}{title})"
 
-        rewritten = _MD_IMAGE_LINK_RE.sub(fix_link, original)
+        rewritten = _MD_LINK_RE.sub(fix_link, original)
         if rewritten != original:
             md_path.write_text(rewritten, encoding="utf-8")
 
