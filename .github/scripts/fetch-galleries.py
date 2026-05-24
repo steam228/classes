@@ -224,25 +224,36 @@ _MD_LINK_RE = re.compile(r'(!?\[[^\]]*\])\(([^)\s]+)((?:\s+"[^"]*")?)\)')
 
 def normalize_paths_for_site(group_dir: Path, repo_name: str) -> None:
     """
-    Rewrite vault-rooted Markdown links into sibling-relative form.
+    Rewrite Obsidian-mangled Markdown links into sibling-relative form.
 
-    Common failure mode: students open the wrong directory as their Obsidian
-    vault (e.g. the parent containing the cloned repo, not the repo itself),
-    or Obsidian rewrites paths during folder renames. The result is links like
+    Two failure patterns to fix, both produced when Obsidian writes paths
+    against its vault root instead of the current file:
 
-        ![](dpiv-galeria-X/produtos/Ítalo/attachments/foo.png)
-        [Ver processo](dpiv-galeria-X/produtos/Ítalo/processo.md)
+    1. Repo-prefix-rooted, e.g. when the student opened the parent folder
+       as their vault and the repo is one level down:
 
-    instead of the sibling-relative
+           ![](dpiv-galeria-X/produtos/Ítalo/attachments/foo.png)
+           [Ver processo](dpiv-galeria-X/produtos/Ítalo/processo.md)
 
-        ![](attachments/foo.png)
-        [Ver processo](processo.md)
+    2. Repo-root-rooted (no repo segment), typically after Obsidian rewrites
+       on a folder rename / duplicate:
 
-    MkDocs only rewrites *relative-to-source* paths at build time, so the
-    vault-rooted form ends up as a broken `<img>` or 404 link. This walks
-    every .md in the cloned repo, strips a leading `<repo-name>/` prefix
-    when present, then computes a source-file-relative path. Both image
-    (`![]()`) and regular (`[]()`) links are covered.
+           [Ver processo](produtos/_modelo/processo.md)
+           ![](produtos/banquinho/attachments/placeholder.png)
+
+    MkDocs only resolves *source-file-relative* paths at build time, so both
+    forms render as broken `<img>` or 404 links. This walks every .md in
+    the cloned repo and rewrites each link as follows:
+
+      - Skip external / absolute / anchor / mailto links.
+      - Strip a leading `<repo-name>/` prefix if present.
+      - If the remaining link works as sibling-relative (target exists at
+        `<md.parent>/<link>`), leave it alone — that's the natural form.
+      - Else if it works as repo-root-relative (target exists at
+        `<group_dir>/<link>`), rewrite to source-file-relative.
+      - Else leave as-is (broken regardless; not safe to guess).
+
+    Both image (`![]()`) and regular (`[]()`) links are covered.
     """
     repo_prefix = f"{repo_name}/"
 
@@ -252,23 +263,37 @@ def normalize_paths_for_site(group_dir: Path, repo_name: str) -> None:
         except UnicodeDecodeError:
             continue
 
+        md_parent = md_path.parent.resolve()
+
         def fix_link(match: re.Match) -> str:
             alt, link, title = match.group(1), match.group(2), match.group(3) or ""
-            # Skip external/absolute/anchor links.
+            original_match = match.group(0)
+
+            # Skip external/absolute/anchor/mailto links.
             if link.startswith(("http://", "https://", "/", "#", "mailto:")):
-                return match.group(0)
-            # Only rewrite when the link starts with the repo-name prefix.
-            # That's the unambiguous "this was vault-rooted" signal — any
-            # other path could legitimately be a sibling-relative reference.
-            if not link.startswith(repo_prefix):
-                return match.group(0)
-            stripped = link[len(repo_prefix):]
-            target = (group_dir / stripped).resolve()
-            try:
-                rel = os.path.relpath(str(target), str(md_path.parent.resolve()))
-            except ValueError:
-                return f"{alt}({stripped}{title})"
-            return f"{alt}({rel.replace(os.sep, '/')}{title})"
+                return original_match
+
+            # Strip a leading `<repo-name>/` prefix if present (case 1).
+            stripped = link[len(repo_prefix):] if link.startswith(repo_prefix) else link
+
+            # If the link already works as sibling-relative to this .md,
+            # don't touch it (most common, well-formed case).
+            sibling_target = (md_path.parent / stripped).resolve()
+            if sibling_target.exists():
+                return original_match if stripped == link else f"{alt}({stripped}{title})"
+
+            # Else try repo-root-relative; if the file exists there, rewrite
+            # to a path relative to this .md's location.
+            root_target = (group_dir / stripped).resolve()
+            if root_target.exists():
+                try:
+                    rel = os.path.relpath(str(root_target), str(md_parent))
+                except ValueError:
+                    return original_match
+                return f"{alt}({rel.replace(os.sep, '/')}{title})"
+
+            # Broken either way; leave as-is (don't make it worse).
+            return original_match
 
         rewritten = _MD_LINK_RE.sub(fix_link, original)
         if rewritten != original:
