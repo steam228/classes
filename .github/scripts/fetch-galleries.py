@@ -332,10 +332,12 @@ def generate_index(course: str, cfg: dict) -> None:
         fm = parse_frontmatter(idx)
         if not fm or fm.get("published") is False:
             continue
-        # Skip groups still showing template defaults. Any of group_name,
-        # hero_title, or title being filled with something other than the
-        # template placeholder is enough to count as "customized" — naming
-        # *any* of these fields is the implicit "ready to publish" trigger.
+        # Pick a title: prefer customized fields (group_name → hero_title →
+        # title), skipping the bare template placeholder. If nothing is
+        # customized yet, fall back to a readable form of the folder slug
+        # so the group still shows on the gallery — it visibly signals
+        # "this group exists, content still pending". `published: false`
+        # is the only way to hide a group manually.
         TEMPLATE_PLACEHOLDER = "Nome do Grupo"
         candidates = [
             (fm.get("group_name") or "").strip(),
@@ -345,9 +347,7 @@ def generate_index(course: str, cfg: dict) -> None:
         title = next(
             (c for c in candidates if c and c != TEMPLATE_PLACEHOLDER),
             None,
-        )
-        if not title:
-            continue
+        ) or entry.name.replace("-", " ").capitalize()
         members = fm.get("members") or []
         names = []
         if isinstance(members, list):
