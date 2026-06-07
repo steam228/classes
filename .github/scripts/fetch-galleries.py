@@ -46,7 +46,7 @@ GALLERY_CONFIG = {
         "label": "Design de Produto IV",
     },
     "PrototipagemDigital": {
-        "prefix": "pd-galeria-",
+        "prefix": "portfoliospd-",
         "label": "Prototipagem Digital",
     },
 }
