@@ -44,10 +44,15 @@ GALLERY_CONFIG = {
     "DesignDeProdutoIV": {
         "prefix": "dpiv-galeria-",
         "label": "Design de Produto IV",
+        # Slugs (the part after the prefix) to skip — test/example repos
+        # that should never appear on the public gallery even though they
+        # match the prefix.
+        "exclude": ("carrinhos", "x1"),
     },
     "PrototipagemDigital": {
         "prefix": "portfoliospd-",
         "label": "Prototipagem Digital",
+        "exclude": (),
     },
 }
 
@@ -311,9 +316,13 @@ def fetch_course(course: str, cfg: dict, org: str, token: str) -> None:
         if child.is_dir() and not child.name.startswith("_"):
             shutil.rmtree(child)
     repos = list_assignment_repos(org, cfg["prefix"], token)
+    excluded = set(cfg.get("exclude", ()))
     print(f"[{course}] {len(repos)} repos matching prefix '{cfg['prefix']}'")
     for r in repos:
         slug = r["name"][len(cfg["prefix"]):] or r["name"]
+        if slug in excluded:
+            print(f"  skip  {r['name']} (in exclude list)")
+            continue
         dest = galeria / slug
         print(f"  fetch {r['name']} → {dest.relative_to(REPO_ROOT)}")
         clone_shallow(r["clone_url"], dest, token)
