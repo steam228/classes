@@ -17,12 +17,12 @@ hero_align: center
 
 | # | Aula | Data | Status |
 |---|------|------|--------|
-| 1 | [Aula 1](aula1.md) | 25 Set | :material-circle-outline: |
-| 2 | [Aula 2](aula2.md) | 2 Out | :material-circle-outline: |
-| 3 | [Aula 3](aula3.md) | 9 Out | :material-circle-outline: |
-| 4 | [Aula 4](aula4.md) | 16 Out | :material-circle-outline: |
-| 5 | [Aula 5](aula5.md) | 23 Out | :material-circle-outline: |
-| 6 | [Aula 6](aula6.md) | 30 Out | :material-circle-outline: |
+| 1 | [Aula 1 — Código Criativo I](aula1.md) | 25 Set | :material-circle-outline: |
+| 2 | [Aula 2 — Código Criativo II](aula2.md) | 2 Out | :material-circle-outline: |
+| 3 | [Aula 3 — Código Criativo III](aula3.md) | 9 Out | :material-circle-outline: |
+| 4 | [Aula 4 — Computação Física I](aula4.md) | 16 Out | :material-circle-outline: |
+| 5 | [Aula 5 — Computação Física II](aula5.md) | 23 Out | :material-circle-outline: |
+| 6 | [Aula 6 — Computação Física III](aula6.md) | 30 Out | :material-circle-outline: |
 | 7 | [Aula 7](aula7.md) | 6 Nov | :material-circle-outline: |
 | 8 | [Aula 8](aula8.md) | 13 Nov | :material-circle-outline: |
 | 9 | [Aula 9](aula9.md) | 20 Nov | :material-circle-outline: |

@@ -1,5 +1,5 @@
 ---
-title: "Aula 2"
+title: "Aula 2 — Moldes Digitais I"
 icon: lucide/book-open
 tags: aula
 status: not-started
@@ -11,7 +11,7 @@ hero_overlay: 0.2
 hero_align: center
 ---
 
-# Aula 2
+# Aula 2 — Moldes Digitais I
 
 ## Data
 
@@ -19,6 +19,21 @@ hero_align: center
 
 ## Sumário
 
-## Referências Bibliográficas
+- Introdução ao conceito de molde como ferramenta de design
+- Tipos de molde: aberto, bipartido, perdido
+- Demonstração: modelação digital de moldes simples
+- Exemplos de integração de formas existentes em novos moldes
+- Início da experimentação digital com os objetos pessoais
 
 ## Notas da Aula
+
+### Conceitos-chave
+
+- **Draft angle** — ângulo de desmoldagem
+- **Undercut** — geometrias que impedem a desmoldagem
+- **Parting line** — linha de separação do molde
+- **Negativo/Positivo** — a relação entre molde e peça
+
+### Exercício em aula
+
+Digitalizar (por fotografia, medição ou scanner) o objeto pessoal e iniciar a modelação de um molde simples no software paramétrico.

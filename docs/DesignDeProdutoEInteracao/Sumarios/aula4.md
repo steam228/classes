@@ -1,5 +1,5 @@
 ---
-title: "Aula 4"
+title: "Aula 4 — Propostas de Grupo I"
 icon: lucide/book-open
 tags: aula
 status: not-started
@@ -11,7 +11,7 @@ hero_overlay: 0.2
 hero_align: center
 ---
 
-# Aula 4
+# Aula 4 — Propostas de Grupo I
 
 ## Data
 
@@ -19,6 +19,19 @@ hero_align: center
 
 ## Sumário
 
-## Referências Bibliográficas
+- Trabalho de grupo: desenvolvimento da proposta de projeto
+- Definição do objeto pessoal selecionado e do fragmento a integrar
+- Esboço do conceito modular: como as peças se ligam, que composições permitem
+- Escolha tecnológica preliminar (cerâmica, silicone, injeção)
+- Acompanhamento individual por grupo
 
 ## Notas da Aula
+
+### O que preparar para a apresentação (aula 5)
+
+Cada grupo deve apresentar:
+
+1. Objeto(s) pessoal(is) selecionado(s) — fotografias, análise formal/funcional
+2. Fragmento a integrar — justificação da escolha
+3. Conceito modular — esboço das composições possíveis (mín. 3)
+4. Tecnologia — justificação da escolha de materiais e processo de moldagem

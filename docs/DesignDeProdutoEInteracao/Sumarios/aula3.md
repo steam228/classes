@@ -1,5 +1,5 @@
 ---
-title: "Aula 3"
+title: "Aula 3 — Moldes Digitais II"
 icon: lucide/book-open
 tags: aula
 status: not-started
@@ -11,7 +11,7 @@ hero_overlay: 0.2
 hero_align: center
 ---
 
-# Aula 3
+# Aula 3 — Moldes Digitais II
 
 ## Data
 
@@ -19,6 +19,14 @@ hero_align: center
 
 ## Sumário
 
-## Referências Bibliográficas
+- Continuação da experimentação digital com moldes
+- Técnicas de integração: como incorporar um fragmento do objeto original na geometria do molde
+- Operações booleanas e projeção de superfícies
+- Discussão em grupo: primeiras ideias de modularidade
+- Feedback sobre as explorações digitais
 
 ## Notas da Aula
+
+### Articulação com DI
+
+Na sexta-feira anterior (aula 2 de DI), os alunos trabalharam código criativo — padrões e repetições. Discutir como essas explorações podem informar a geometria modular do projeto.
