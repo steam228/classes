@@ -15,7 +15,8 @@ Bem-vindo à documentação do módulo de Design de Produto e Interação I (Pro
 
 ## Conteúdos
 
-- [Programa e Avaliação](Avaliacao.md)
+- [Programa](Programa.md)
+- [Avaliação](Avaliacao.md)
 - [Calendário](Calendario.md)
 - [Enunciado do Projeto](Enunciado.md)
 

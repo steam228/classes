@@ -15,7 +15,8 @@ Bem-vindo à documentação da unidade curricular de Design de Inovação.
 
 ## Conteúdos
 
-- [Programa e Avaliação](Avaliacao.md)
+- [Programa](Programa.md)
+- [Avaliação](Avaliacao.md)
 - [Calendário](Calendario.md)
 - [Enunciado do Projeto](Enunciado.md)
 

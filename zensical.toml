@@ -49,6 +49,7 @@ nav = [
     # ── Active courses (1st semester 2026-27) ──
     { "Design de Produto e Interação I" = [
         { "Página Inicial" = "DesignDeProdutoEInteracao/index.md" },
+        { "Programa" = "DesignDeProdutoEInteracao/Programa.md" },
         { "Projeto" = "DesignDeProdutoEInteracao/Enunciado.md" },
         { "Sumários" = [
             { "Página Inicial" = "DesignDeProdutoEInteracao/Sumarios/index.md" },
@@ -73,6 +74,7 @@ nav = [
     ] },
     { "Design de Inovação" = [
         { "Página Inicial" = "DesignDeInovacao/index.md" },
+        { "Programa" = "DesignDeInovacao/Programa.md" },
         { "Projeto" = "DesignDeInovacao/Enunciado.md" },
         { "Sumários" = [
             { "Página Inicial" = "DesignDeInovacao/Sumarios/index.md" },
