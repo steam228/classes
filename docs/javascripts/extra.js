@@ -644,6 +644,29 @@
     });
   }
 
+  /**
+   * Mark navigation tabs and sidebar items for archived (past-year) courses.
+   * Matches any element whose label contains a year pattern like "25/26".
+   */
+  function markArchivedCourses() {
+    var yearTag = /\d{2}\/\d{2}/;
+
+    // Top header tabs
+    document.querySelectorAll(".md-tabs__link").forEach(function (link) {
+      if (yearTag.test(link.textContent)) {
+        link.classList.add("archived-course");
+      }
+    });
+
+    // Primary sidebar top-level items (the course section headings)
+    document.querySelectorAll(".md-nav--primary > .md-nav__list > .md-nav__item").forEach(function (item) {
+      var label = item.querySelector(":scope > .md-nav__link, :scope > label > .md-ellipsis");
+      if (label && yearTag.test(label.textContent)) {
+        item.classList.add("archived-course");
+      }
+    });
+  }
+
   // Initialize on page load
   if (document.readyState === "loading") {
     document.addEventListener("DOMContentLoaded", () => {
@@ -655,6 +678,7 @@
       embedAutodeskLinks();
       embed3DModels();
       convertAttachmentLinks();
+      markArchivedCourses();
     });
   } else {
     initHero();
@@ -665,6 +689,7 @@
     embedAutodeskLinks();
     embed3DModels();
     convertAttachmentLinks();
+    markArchivedCourses();
   }
 
   // Support Zensical's instant navigation
@@ -678,6 +703,7 @@
       embedAutodeskLinks();
       embed3DModels();
       convertAttachmentLinks();
+      markArchivedCourses();
     });
   }
 })();
