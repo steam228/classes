@@ -15,6 +15,8 @@ hero_align: center
 
 ## Data
 
+**1 de dezembro de 2026** (3ª feira) *(Feriado — Restauração da Independência)*
+
 ## Sumário
 
 ## Referências Bibliográficas

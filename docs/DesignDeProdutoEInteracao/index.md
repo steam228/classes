@@ -29,11 +29,11 @@ Bem-vindo à documentação do módulo de Design de Produto e Interação I (Pro
 
 ## Horário
 
-| Dia | Horário | Turma |
-| --- | --- | --- |
-| 3ª feira | 09:00 - 11:15 | 3L |
-| 3ª feira | 11:30 - 13:45 | 3J |
-| 3ª feira | 14:30 - 16:45 | 3M |
+| Dia | Horário | Turma | Sala |
+| --- | --- | --- | --- |
+| 3ª feira | 09:00 – 11:15 | PeDV-TL | 209 / FabLab |
+| 3ª feira | 11:30 – 13:45 | PeDV-TJ | 209 / FabLab |
+| 3ª feira | 14:30 – 16:45 | PeDV-TM | 209 / FabLab |
 
 !!! warning "Nota"
     O Fablab não estará aberto aos fins-de-semana e dias feriado!

@@ -15,6 +15,8 @@ hero_align: center
 
 ## Data
 
+**8 de dezembro de 2026** (3ª feira) *(Feriado — Imaculada Conceição)*
+
 ## Sumário
 
 ## Referências Bibliográficas

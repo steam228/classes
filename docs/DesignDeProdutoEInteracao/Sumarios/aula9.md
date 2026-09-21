@@ -15,6 +15,8 @@ hero_align: center
 
 ## Data
 
+**17 de novembro de 2026** (3ª feira)
+
 ## Sumário
 
 ## Referências Bibliográficas

@@ -15,6 +15,8 @@ hero_align: center
 
 ## Data
 
+**8 de janeiro de 2027** (6ª feira) *(sem turma DI-TL)*
+
 ## Sumário
 
 ## Referências Bibliográficas

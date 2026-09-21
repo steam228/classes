@@ -15,6 +15,8 @@ hero_align: center
 
 ## Data
 
+**5 de janeiro de 2027** (3ª feira)
+
 ## Sumário
 
 ## Referências Bibliográficas

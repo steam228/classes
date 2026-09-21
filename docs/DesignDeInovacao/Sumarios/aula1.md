@@ -15,6 +15,8 @@ hero_align: center
 
 ## Data
 
+**25 de setembro de 2026** (6ª feira)
+
 ## Sumário
 
 ## Referências Bibliográficas

@@ -21,11 +21,11 @@ Bem-vindo à documentação da unidade curricular de Design de Inovação.
 
 ## Horário
 
-| Dia | Horário | Turma |
-| --- | --- | --- |
-| 6ª feira | 08:30 - 11:15 | 3J |
-| 6ª feira | 11:15 - 14:00 | 3L |
-| 6ª feira | 15:00 - 17:45 | 3M |
+| Dia | Horário | Turma | Sala |
+| --- | --- | --- | --- |
+| 6ª feira | 08:30 – 11:15 | DI-TJ | 209 / FabLab |
+| 6ª feira | 11:30 – 14:15 | DI-TL | 209 / FabLab |
+| 6ª feira | 15:00 – 17:45 | DI-TM | 209 / FabLab |
 
 !!! warning "Nota"
     O Fablab não estará aberto aos fins-de-semana e dias feriado!

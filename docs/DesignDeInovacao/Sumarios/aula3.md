@@ -15,6 +15,8 @@ hero_align: center
 
 ## Data
 
+**9 de outubro de 2026** (6ª feira)
+
 ## Sumário
 
 ## Referências Bibliográficas
