@@ -3,7 +3,7 @@ title: "Aula 8"
 icon: lucide/book-open
 tags: aula
 status: not-started
-hero_image: ../../images/hero.png
+hero_image: ../../attachments/DSC05966.jpg
 hero_title: "Aula 8"
 hero_subtitle: "Design de Inovação"
 hero_height: 60vh

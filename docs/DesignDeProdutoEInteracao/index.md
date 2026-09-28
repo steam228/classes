@@ -1,7 +1,7 @@
 ---
 icon: lucide/folder-open
 title: "Design de Produto e Interação I"
-hero_image: ../images/hero.png
+hero_image: ../attachments/DSC05966.jpg
 hero_title: "Design de Produto e Interação I"
 hero_subtitle: "Projeto em Design · 1º Semestre 2026-27"
 hero_height: 100vh

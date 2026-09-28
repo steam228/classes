@@ -3,7 +3,7 @@ title: "Calendário"
 icon: lucide/calendar-days
 tags: projeto
 status: not-started
-hero_image: ../images/hero.png
+hero_image: ../attachments/DSC05966.jpg
 hero_title: "Calendário"
 hero_subtitle: "Design de Inovação · 2026-27"
 hero_height: 60vh

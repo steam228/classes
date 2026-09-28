@@ -3,7 +3,7 @@ title: "Sumários"
 icon: lucide/book-marked
 tags: projeto
 status: not-started
-hero_image: ../../images/hero.png
+hero_image: ../../attachments/DSC05966.jpg
 hero_title: "Sumários e Resumos de Aula"
 hero_subtitle: "Design de Produto e Interação I · 2026-27"
 hero_height: 60vh
@@ -29,7 +29,7 @@ hero_align: center
 | 10 | [Aula 10 — Desenvolvimento V](aula10.md) | 24 Nov | :material-circle-outline: |
 | 11 | [Aula 11](aula11.md) | 1 Dez | :material-alert-circle-outline: Feriado |
 | 12 | [Aula 12](aula12.md) | 8 Dez | :material-alert-circle-outline: Feriado |
-| 13 | [Aula 13 — Prototipagem](aula13.md) | 15 Dez | :material-circle-outline: |
+| 13 | [Aula 13 — Desenvolvimento VI](aula13.md) | 15 Dez | :material-circle-outline: |
 | | | **Pausa de Natal** | :material-snowflake: |
 | 14 | [Aula 14 — Entrega Final](aula14.md) | 5 Jan | :material-circle-outline: |
 

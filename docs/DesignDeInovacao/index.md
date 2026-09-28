@@ -1,7 +1,7 @@
 ---
 icon: lucide/folder-open
 title: "Design de Inovação"
-hero_image: ../images/hero.png
+hero_image: ../attachments/DSC05966.jpg
 hero_title: "Design de Inovação"
 hero_subtitle: "1º Semestre 2026-27"
 hero_height: 100vh

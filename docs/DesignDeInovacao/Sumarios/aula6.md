@@ -3,7 +3,7 @@ title: "Aula 6 — Computação Física III"
 icon: lucide/book-open
 tags: aula
 status: not-started
-hero_image: ../../images/hero.png
+hero_image: ../../attachments/DSC05966.jpg
 hero_title: "Aula 6"
 hero_subtitle: "Design de Inovação"
 hero_height: 60vh
@@ -40,4 +40,4 @@ Entregar:
 
 ### Balanço dos blocos 1 e 2
 
-Discussão coletiva: que ferramentas e conceitos dos dois primeiros blocos são úteis para o Projeto FORMA? Como integrar código criativo e computação física no design de produto?
+Discussão coletiva: que ferramentas e conceitos dos dois primeiros blocos são úteis para o (com)FORMA? Como integrar código criativo e computação física no design de produto?

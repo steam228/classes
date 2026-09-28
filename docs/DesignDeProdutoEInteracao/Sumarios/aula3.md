@@ -3,7 +3,7 @@ title: "Aula 3 — Moldes Digitais II"
 icon: lucide/book-open
 tags: aula
 status: not-started
-hero_image: ../../images/hero.png
+hero_image: ../../attachments/DSC05966.jpg
 hero_title: "Aula 3"
 hero_subtitle: "Design de Produto e Interação I"
 hero_height: 60vh

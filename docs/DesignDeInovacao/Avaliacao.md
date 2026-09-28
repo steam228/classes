@@ -3,7 +3,7 @@ title: "Avaliação"
 icon: lucide/clipboard-check
 tags: avaliacao
 status: not-started
-hero_image: ../images/hero.png
+hero_image: ../attachments/DSC05966.jpg
 hero_title: "Avaliação"
 hero_subtitle: "Design de Inovação"
 hero_height: 60vh

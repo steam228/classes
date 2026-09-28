@@ -3,7 +3,7 @@ title: "Aula 4 — Propostas de Grupo I"
 icon: lucide/book-open
 tags: aula
 status: not-started
-hero_image: ../../images/hero.png
+hero_image: ../../attachments/DSC05966.jpg
 hero_title: "Aula 4"
 hero_subtitle: "Design de Produto e Interação I"
 hero_height: 60vh

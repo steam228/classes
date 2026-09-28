@@ -1,31 +1,49 @@
 ---
-title: "Projeto FORMA"
+title: (com)FORMA
 icon: lucide/box
 tags: projeto
 status: in-progress
-hero_image: ../images/hero.png
-hero_title: "Projeto FORMA"
-hero_subtitle: "Do Objeto Pessoal ao Módulo Replicável"
-hero_height: 60vh
+hero_image: ../attachments/referencia-avaliacao.png
+hero_title: (com)FORMA
+hero_subtitle: Do Objeto Pessoal ao Módulo Replicável e Aberto
+hero_height: 70vh
 hero_overlay: 0.5
 hero_align: center
 ---
 
-# Projeto FORMA
+# (com)FORMA
 
-**Do Objeto Pessoal ao Módulo Replicável** — Trabalho de Grupo
+**Do Objeto Pessoal ao Módulo Replicável e Aberto** — Projeto de Grupo
 
 ## Enquadramento
 
+![Salz–Pfeffermühle 2021](attachments/salz-pfeffermuehle-2021.png)
+
+*Fig. 1 — Salz–Pfeffermühle 2021 by [studio sebastian marbacher](https://sebastian.marbacher.com/index.html)*
+
 ### Introdução
 
-O **Projeto FORMA** explora a relação entre objetos do quotidiano, processos de moldagem e design modular. Partindo de um objeto pessoal — de plástico ou cerâmica — cada grupo de trabalho desenvolverá uma peça modular cuja forma integra, literalmente, fragmentos do objeto original. O resultado é um sistema de peças replicáveis que podem ser compostas de múltiplas formas, servindo diferentes funções.
+Esta proposta de projeto visa a exploração da relação entre objetos do quotidiano, processos de conformação (replicáveis com recurso a moldes) e design modular.
 
-O projeto situa-se na interseção entre design de produto, fabricação por molde e documentação aberta: cada peça deve poder ser reproduzida por terceiros a partir da documentação técnica publicada pelo grupo.
+Partindo de **um objeto pessoal à escala da mão** — de plástico, cerâmica[^1] — cada grupo de trabalho desenvolverá um produto composto por uma ou mais peças modulares (até 3 componentes).
 
-### Conceito: o Molde como Ferramenta de Design
+O produto resultante deverá integrar literalmente um fragmento selecionado da forma de um objeto original (o mesmo objeto pessoal ou outro), também este escolhido pelas suas qualidades formais — por exemplo, um recorte de uma embalagem de plástico, uma pega de uma cafeteira, o gargalo de uma garrafa de vidro, etc.
 
-Um molde não é apenas um meio de produção — é uma decisão de design. A forma do molde determina o que é possível replicar, em que materiais, com que acabamentos e a que escala. Neste projeto, o molde é o centro do processo criativo: é no desenho do molde que se negoceia a integração entre a geometria do objeto pessoal e a nova forma modular.
+Pretende-se que deste processo de desenho resulte um sistema de peças replicáveis que podem ser compostas de múltiplas formas, servindo uma ou mais funções.
+
+O design deste produto deverá também prever o desenvolvimento detalhado da sua componente de interface, seja este digital ou físico, podendo estar mais focado:
+
+1. No apoio à sua replicação — relação de um interface físico / ferramenta para replicação do objeto (por exemplo, o projeto pode oferecer uma página web focada no acompanhamento passo a passo da replicação do objeto — um guia DIY interativo).
+2. Assistindo a compreensão e fácil recombinação motivada pela modularidade (à semelhança do ponto anterior, esta webapp pode demonstrar diferentes esquemas de montagem, como por exemplo acontece num guia interativo de montagem de Legos).
+3. No próprio interface físico do objeto, se para a sua operação ou uso for necessário incremento da comunicação entre este objeto e os utilizadores — normalmente se for particularmente mais complexo em termos mecânicos, ou se incorporar eletrónica.
+4. Ter o objeto a função quase exclusiva de interface.
+5. Todas ou apenas algumas das propostas anteriores.
+
+Esta proposta de projeto interseta design de produto, design de interação, fabricação por molde e documentação aberta.
+
+### Conceito: da forma ao molde e de novo à forma
+
+Um molde não é apenas um meio de produção — é uma decisão de design. A forma e materiais de um molde determinam o que é possível replicar, em que materiais, com que acabamentos e a que escala. Neste projeto, o molde é o centro do processo criativo: é no desenho do molde que se negoceia a integração entre a geometria do objeto pessoal e a nova forma modular.
 
 A incorporação de um fragmento do objeto original no molde (por exemplo, o recorte de uma pega, a curvatura de um gargalo, a textura de uma superfície) estabelece uma continuidade formal entre o objeto encontrado e o objeto projetado. Esta operação não é meramente decorativa — deve ser funcional e estruturalmente integrada na peça final.
 
@@ -39,6 +57,10 @@ A peça produzida deve ser modular: a partir de uma mesma unidade (ou de um pequ
 - **Complementaridade** — duas ou mais peças distintas que se combinam
 
 O sistema modular deve ter pelo menos **3 configurações distintas** com funções ou expressões formais diferenciadas.
+
+![String Furniture](attachments/string-furniture.png)
+
+*Fig. 2 — String Furniture by Nisse and Kaisa Strinning — [stringfurniture.com](https://www.stringfurniture.com/)*
 
 ### Documentação Aberta
 
@@ -56,22 +78,37 @@ A documentação deve permitir que qualquer pessoa com acesso a equipamento equi
 
 ### Ponto de Partida: o Objeto Pessoal
 
-Cada grupo seleciona **um ou dois objetos pessoais** de plástico ou cerâmica, à escala da mão. O objeto deve cumprir pelo menos uma destas condições:
+Cada grupo seleciona **um dos objetos pessoais** de plástico ou cerâmica, à escala da mão, estudados pelos diferentes colegas e trazidos por estes. O objeto deve cumprir pelo menos uma destas condições:
 
 1. **Objeto estimado** — um objeto de uso frequente cujas qualidades formais e/ou funcionais são valorizadas pelo grupo
-2. **Objeto falhado** — um objeto cujo desenho falha na forma, na função, na escolha de materiais, ou em tudo ao mesmo tempo
-3. **Par contrastante** — um objeto que funciona bem e outro que deveria funcionar melhor, permitindo explorar o contraste entre bom e mau design
+2. **Objeto falhado** — um objeto cujo desenho falha na forma, na função, na escolha de materiais, ou em tudo ao mesmo tempo, mas que ainda assim é usado persistentemente pelo estudante
 
 A análise do objeto (dimensões, geometrias, superfícies, qualidades táteis, ergonomia, falhas) constitui a base do desenvolvimento projetual.
+Esta análise deve incluir um conjunto de esboços que analisem em desenho o objeto, decompondo-o em componentes separados, interpretando-o em relação à escala, possibilidades de divergência em termos de forma, outros exemplos familiares, possíveis materiais alternativos, entre outros aspetos que o ou a estudante ache pertinentes.
+
+Pretende-se aqui um trabalho de observação, transposto para o sketching.
+
+### Objeto de referência
+
+![Lotus Lamp](attachments/lotus-lamp-carlo-nason.png)
+
+*Fig. 3 — Lotus Lamp by Carlo Nason*
+
+Cada estudante é também convidado a trazer (aqui não necessariamente fisicamente) um objeto de referência em termos de qualidade de projeto. Por outras palavras, um objeto que revele nas suas formas, cores, texturas um design consciente, cuidado e inclusive revelador de tendências atuais.
+Este objeto será central a um eventual moodboard que os estudantes queiram constituir, e um detalhe da sua forma deverá ser alvo de apropriação na forma resultante em projeto.
 
 ### Da Análise ao Molde
 
 A partir da análise do objeto pessoal, o grupo deve:
 
-1. Identificar um **fragmento formal** a integrar na peça final (uma curva, uma textura, um perfil, um encaixe)
+1. Identificar um **fragmento formal** a integrar na peça final (uma curva, uma textura, um perfil, um encaixe) — pode vir de um outro objeto de referência, escolhido pelas suas características visuais/formais
 2. Definir a **geometria modular** da peça — como se conecta, como se compõe
-3. Desenhar o **sistema de molde** que permite produzir a peça, integrando o fragmento do objeto original
+3. Desenhar o **sistema de molde** que permite produzir a peça, integrando o fragmento do objeto de referência original na forma
 4. Prototipar e iterar
+
+![IKEA + Xbox](attachments/ikea-xbox.png)
+
+*Fig. 4 — Recente colaboração IKEA + Xbox*
 
 ### Tecnologias Disponíveis
 
@@ -87,48 +124,51 @@ A escolha tecnológica deve ser justificada pela geometria da peça, pelas propr
 
 ## Fases do Projeto
 
-| Fase | Aulas | Período | Descrição |
-|------|-------|---------|-----------|
-| **1. Exploração Digital** | 1–3 | 22 Set – 6 Out | Introdução ao tema; experimentação digital de moldes; exemplos e referências |
-| **2. Propostas** | 4–5 | 13 Out – 20 Out | Seleção do objeto pessoal; desenvolvimento e apresentação de propostas de grupo |
-| **3. Desenvolvimento** | 6–10 | 27 Out – 24 Nov | Iteração do conceito; desenho técnico do molde; primeiros testes |
-| **4. Prototipagem** | 11–13 | 1 Dez – 15 Dez | Fabrico de moldes; testes de vazamento; refinamento |
-| **5. Entrega Final** | 14 | 5 Jan | Apresentação final; entrega de documentação e protótipos |
+| Fase                      | Aulas | Período         | Descrição                                                                                                                                                                                                                        |
+| ------------------------- | ----- | --------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **1. Exploração Digital** | 1–3   | 22 Set – 6 Out  | Introdução ao tema; experimentação digital de moldes; exemplos e referências                                                                                                                                                     |
+| **2. Propostas**          | 4–5   | 13 Out – 20 Out | Seleção do objeto pessoal; desenvolvimento e apresentação de propostas de grupo                                                                                                                                                  |
+| **3. Desenvolvimento**    | 6–13  | 27 Out – 15 Dez | Gestão e documentação do processo em grupo; iteração do conceito (sketching, CAD e prototipagem em ciclos curtos e rápidos); CAD e fabricação do molde; primeiros testes; fabrico de moldes; testes de vazamento; refinamento |
+| **4. Entrega Final**      | 14    | 5 Jan           | Apresentação final; entrega de documentação e protótipos                                                                                                                                                                         |
 
 ## Entregáveis
 
 1. **Peça modular** — mínimo 6 unidades produzidas, demonstrando pelo menos 3 composições distintas
 2. **Molde funcional** — o molde utilizado, acompanhado de documentação técnica
 3. **Objeto pessoal original** — apresentado em contexto com a peça final
-4. **Dossiê de projeto** — processo documentado (esboços, iterações, testes, falhas, decisões)
-5. **Documentação aberta** — ficheiros publicados no repositório do grupo (GitHub)
+4. **Documentação aberta** — ficheiros e processo documentado (esboços, iterações, testes, falhas, decisões — online conforme processo de anos anteriores — template a fornecer) publicados no repositório do grupo (GitHub)
+
+![Pallino](attachments/pallino-martinelli.png)
+
+*Fig. 5 — Pallino, 1970 by Elio Martinelli*
 
 ## Avaliação (100%)
 
-| Componente | Peso | Critérios |
-|-----------|------|-----------|
-| **Conceito** | 30% | Qualidade da análise do objeto pessoal; integração formal do fragmento; coerência do sistema modular |
-| **Processo** | 40% | Articulação técnica/conceptual; iterações e pertinência das mesmas; experimentação com moldes |
-| **Execução Técnica** | 20% | Qualidade do molde; acabamento das peças; domínio das ferramentas (CAD, fabricação digital, moldagem) |
-| **Comunicação** | 10% | Documentação aberta; qualidade dos desenhos técnicos; apresentação visual |
+| Componente           | Peso | Critérios                                                                                             |
+| -------------------- | ---- | ----------------------------------------------------------------------------------------------------- |
+| **Conceito**         | 30%  | Qualidade da análise do objeto pessoal; integração formal do fragmento; coerência do sistema modular  |
+| **Processo**         | 40%  | Articulação técnica/conceptual; iterações e pertinência das mesmas; experimentação com moldes         |
+| **Execução Técnica** | 20%  | Qualidade do molde; acabamento das peças; domínio das ferramentas (CAD, fabricação digital, moldagem) |
+| **Comunicação**      | 10%  | Documentação aberta; qualidade dos desenhos técnicos; apresentação visual                             |
+
+![](attachments/referencia-avaliacao.png)
 
 ## Referências
+(em atualização)
 
 ### Moldes e Fabricação
 
 - Guerrilla guide to CNC machining, mold making, and resin casting — [lcamtuf.coredump.cx/gcnc](http://lcamtuf.coredump.cx/gcnc/)
 - Fab Academy — Molding and Casting — [fabacademy.org](https://fabacademy.org/2024/labs/)
 
-### Design Modular e Sistemas
-
-- Publishers, B. (2011). *Open Design Now: How Design Can No Longer Be Exclusive*. BIS Publishers.
-- Dunne, A. & Raby, F. (2013). *Speculative Everything*. MIT Press.
-
 ### Open Design e Distributed Design
 
+- Publishers, B. (2011). *Open Design Now: How Design Can No Longer Be Exclusive*. BIS Publishers.
 - Distributed Design Platform — [distributeddesign.eu](https://distributeddesign.eu/)
 - Open Source Hardware Association — [oshwa.org](https://www.oshwa.org/)
 
 ### Cerâmica e Silicone
 
-- *A preencher com referências específicas de técnicas de moldagem.*
+
+
+[^1]: ou outro, desde que viável.

@@ -3,7 +3,7 @@ title: "Aula 5 — Computação Física II"
 icon: lucide/book-open
 tags: aula
 status: not-started
-hero_image: ../../images/hero.png
+hero_image: ../../attachments/DSC05966.jpg
 hero_title: "Aula 5"
 hero_subtitle: "Design de Inovação"
 hero_height: 60vh
@@ -34,4 +34,4 @@ hero_align: center
 
 ### Articulação com DPI
 
-Pensar como os módulos do Projeto FORMA poderiam incorporar eletrónica simples: um módulo com LED, um módulo sensível ao toque, um módulo que reage à luz.
+Pensar como os módulos do (com)FORMA poderiam incorporar eletrónica simples: um módulo com LED, um módulo sensível ao toque, um módulo que reage à luz.

@@ -3,7 +3,7 @@ title: "Aula 2 — Moldes Digitais I"
 icon: lucide/book-open
 tags: aula
 status: not-started
-hero_image: ../../images/hero.png
+hero_image: ../../attachments/DSC05966.jpg
 hero_title: "Aula 2"
 hero_subtitle: "Design de Produto e Interação I"
 hero_height: 60vh
@@ -19,13 +19,23 @@ hero_align: center
 
 ## Sumário
 
+- Apresentação individual dos objetos pessoais trazidos pelos estudantes
+- Exercício de análise individual por esboço (sketching) dos objetos
 - Introdução ao conceito de molde como ferramenta de design
 - Tipos de molde: aberto, bipartido, perdido
-- Demonstração: modelação digital de moldes simples
+- Demonstração em Fusion 360: modelação digital de peças e moldes hipotéticos (gravação de ecrã disponibilizada posteriormente)
+- Vídeos de processos analógicos de moldagem
 - Exemplos de integração de formas existentes em novos moldes
-- Início da experimentação digital com os objetos pessoais
 
 ## Notas da Aula
+
+### Apresentação dos objetos pessoais
+
+Cada estudante apresenta brevemente o objeto que trouxe, destacando as suas qualidades formais, funcionais e materiais.
+
+### Exercício em aula — Análise por esboço
+
+Trabalho individual: analisar o objeto pessoal através do desenho, decompondo-o em componentes, interpretando a sua forma, escala, possibilidades de divergência formal e possíveis materiais alternativos.
 
 ### Conceitos-chave
 
@@ -34,6 +44,6 @@ hero_align: center
 - **Parting line** — linha de separação do molde
 - **Negativo/Positivo** — a relação entre molde e peça
 
-### Exercício em aula
+### Demonstração — Moldes digitais em Fusion 360
 
-Digitalizar (por fotografia, medição ou scanner) o objeto pessoal e iniciar a modelação de um molde simples no software paramétrico.
+Demonstração ao vivo (com gravação de ecrã) do processo de modelação de peças e moldes hipotéticos em Fusion 360, complementada com vídeos de processos analógicos de moldagem.

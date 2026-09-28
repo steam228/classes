@@ -3,7 +3,7 @@ title: "Atividades e Workshops"
 icon: lucide/sparkles
 tags: projeto
 status: in-progress
-hero_image: ../images/hero.png
+hero_image: ../attachments/DSC05966.jpg
 hero_title: "Atividades e Workshops"
 hero_subtitle: "Design de Inovação · 2026-27"
 hero_height: 60vh
@@ -17,7 +17,7 @@ hero_align: center
 
 A UC de Design de Inovação está organizada em **blocos temáticos**, cada um composto por workshops práticos e exercícios curtos que se encerram numa única entrega. Os blocos exploram diferentes ferramentas e conceitos de inovação em design, partindo sempre da prática.
 
-Alguns exercícios poderão contribuir diretamente para o projeto final de **Design de Produto e Interação I** (Projeto FORMA), nomeadamente na geração de formas, na prototipagem de interações e na documentação. A articulação entre as duas UC é intencional e incentivada.
+Alguns exercícios poderão contribuir diretamente para o projeto final de **Design de Produto e Interação I** ((com)FORMA), nomeadamente na geração de formas, na prototipagem de interações e na documentação. A articulação entre as duas UC é intencional e incentivada.
 
 ## Estrutura do Semestre
 
@@ -52,7 +52,7 @@ Criar uma **composição generativa** baseada em regras de repetição, simetria
 
 ### Articulação com DPI
 
-As formas e padrões gerados neste bloco podem servir como ponto de partida para a geometria modular do Projeto FORMA — explorar computacionalmente as possibilidades de composição antes de as materializar.
+As formas e padrões gerados neste bloco podem servir como ponto de partida para a geometria modular do (com)FORMA — explorar computacionalmente as possibilidades de composição antes de as materializar.
 
 ---
 
@@ -80,7 +80,7 @@ Criar um **protótipo funcional de interação** — um objeto ou sistema simple
 
 ### Articulação com DPI
 
-A computação física pode acrescentar uma camada funcional/interativa às peças modulares do Projeto FORMA — por exemplo, módulos que incorporam sensores, luz ou som.
+A computação física pode acrescentar uma camada funcional/interativa às peças modulares do (com)FORMA — por exemplo, módulos que incorporam sensores, luz ou som.
 
 ---
 

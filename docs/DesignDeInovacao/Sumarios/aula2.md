@@ -3,7 +3,7 @@ title: "Aula 2 — Código Criativo II"
 icon: lucide/book-open
 tags: aula
 status: not-started
-hero_image: ../../images/hero.png
+hero_image: ../../attachments/DSC05966.jpg
 hero_title: "Aula 2"
 hero_subtitle: "Design de Inovação"
 hero_height: 60vh
@@ -36,4 +36,4 @@ hero_align: center
 
 ### Articulação com DPI
 
-As composições geradas podem explorar as mesmas lógicas de modularidade que o Projeto FORMA pede: como uma unidade se repete, roda e combina para gerar configurações distintas.
+As composições geradas podem explorar as mesmas lógicas de modularidade que o (com)FORMA pede: como uma unidade se repete, roda e combina para gerar configurações distintas.

@@ -3,7 +3,7 @@ title: "Programa"
 icon: lucide/list
 tags: programa
 status: not-started
-hero_image: ../images/hero.png
+hero_image: ../attachments/DSC05966.jpg
 hero_title: "Programa"
 hero_subtitle: "Design de Produto e Interação I"
 hero_height: 60vh
