@@ -515,7 +515,17 @@ html.has-hero .md-header {
   .md-search__button { width: 180px; }
 }
 
+/* Tablet: 60px header */
+@media screen and (max-width: 959px) {
+  .md-header__inner.md-grid { height: 60px; }
+}
+
+/* Mobile: 56px header, hide tagline */
 @media screen and (max-width: 719px) {
+  .md-header__inner.md-grid {
+    height: 56px;
+    padding: 0 4px;
+  }
   .h2i-tagline { display: none; }
 }
 
@@ -1552,6 +1562,35 @@ html[data-hero-height="100vh"] .md-hero__image {
 .md-footer-meta__inner {
   font-size: 13px;
   color: var(--md-default-fg-color--light);
+  width: 100%;
+}
+
+/* Copyright row — CC icons + name on left, "Made with" on right */
+.md-copyright {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  flex-wrap: wrap;
+  padding: 16px 0;
+}
+
+.md-copyright__highlight {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.md-copyright__highlight img {
+  height: 1.2em;
+  width: auto;
+  vertical-align: middle;
+}
+
+.md-copyright a {
+  display: inline-flex;
+  align-items: center;
+  gap: 2px;
 }
 
 /* Stack prev/next on mobile */
