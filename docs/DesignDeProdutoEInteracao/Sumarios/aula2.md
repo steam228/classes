@@ -60,10 +60,5 @@ Através de **desenho estrutural** — usando elipses e/ou paralelepípedos como
 
     Esta é a **primeira avaliação** da unidade curricular e tem **valor de diagnóstico** — avalia-se a capacidade de observação e de representação por esboço. Os conteúdos de sketching remetem para a UC de Design de Produto IV (semestre anterior).
 
-### Conceitos-chave
 
-- **Draft angle** — ângulo de desmoldagem
-- **Undercut** — geometrias que impedem a desmoldagem
-- **Parting line** — linha de separação do molde
-- **Negativo/Positivo** — a relação entre molde e peça
 

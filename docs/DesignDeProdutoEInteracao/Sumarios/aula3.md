@@ -28,7 +28,6 @@ hero_align: center
 - Operações booleanas e projeção de superfícies
   
 
-
 ## Notas da Aula
 
 ### Apresentação dos estudos por esboço
@@ -37,10 +36,16 @@ Cada estudante apresenta os seus estudos em esboço (até 3 A3 por objeto) refer
 
 Após o feedback, os estudantes poderão refinar os esboços e entregar a versão final via **Moodle até à Aula 4 (13 de outubro)**.
 
-
 ### Demonstração — Moldes digitais em Fusion 360
 
 Demonstração ao vivo (com gravação de ecrã) do processo de modelação de peças e moldes hipotéticos em Fusion 360, complementada com vídeos de processos analógicos de moldagem.
+
+### Conceitos-chave
+
+- **Draft angle** — ângulo de desmoldagem
+- **Undercut** — geometrias que impedem a desmoldagem
+- **Parting line** — linha de separação do molde
+- **Negativo/Positivo** — a relação entre molde e peça
 
 ## Recursos
 
