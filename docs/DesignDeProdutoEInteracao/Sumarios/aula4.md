@@ -19,7 +19,8 @@ hero_align: center
 
 ## Sumário
 
-- Trabalho de grupo: desenvolvimento da proposta de projeto
+- Trabalho de grupo: desenvolvimento da proposta de projeto / Discussão em grupo: primeiras ideias de modularidade
+- Feedback sobre as explorações digitais
 - Definição do objeto pessoal selecionado e do fragmento a integrar
 - Esboço do conceito modular: como as peças se ligam, que composições permitem
 - Escolha tecnológica preliminar (cerâmica, silicone, injeção)
