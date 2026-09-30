@@ -690,10 +690,12 @@
   function markArchivedCourses() {
     var yearTag = /\d{2}\/\d{2}/;
 
-    // Top header tabs
+    // Top header tabs — class on both <a> and parent <li> for CSS selectors
     document.querySelectorAll(".md-tabs__link").forEach(function (link) {
       if (yearTag.test(link.textContent)) {
         link.classList.add("archived-course");
+        var item = link.closest(".md-tabs__item");
+        if (item) item.classList.add("archived-course");
       }
     });
 
@@ -706,9 +708,30 @@
     });
   }
 
+  /**
+   * Split the header site name into wordmark + tagline.
+   * "H2I - Learning Materials by André Rocha" → two styled spans.
+   * Runs once — the header DOM persists across SPA navigations.
+   */
+  function splitWordmark() {
+    var el = document.querySelector(".md-header__topic .md-ellipsis");
+    if (!el || el.querySelector(".h2i-wordmark")) return; // already split
+
+    var text = el.textContent.trim();
+    var parts = text.split(" - ");
+    if (parts.length < 2) return;
+
+    var wordmark = parts[0].trim();
+    var tagline = parts.slice(1).join(" - ").trim().replace(" by ", " \u00B7 ");
+    el.innerHTML =
+      '<span class="h2i-wordmark">' + wordmark + "</span>" +
+      '<span class="h2i-tagline">' + tagline + "</span>";
+  }
+
   // Initialize on page load
   if (document.readyState === "loading") {
     document.addEventListener("DOMContentLoaded", () => {
+      splitWordmark();
       initHero();
       initGanttZoom();
       setupSmoothScroll();
@@ -720,6 +743,7 @@
       markArchivedCourses();
     });
   } else {
+    splitWordmark();
     initHero();
     initGanttZoom();
     setupSmoothScroll();

@@ -227,63 +227,120 @@
 }
 
 /* ==========================================================================
-   Transparent Header When Hero Present
+   Frosted-Glass Header (replaces old transparent/solid toggle)
    ========================================================================== */
 
-/* Make header transparent when hero is present */
+.md-header {
+  background: var(--h2i-glass);
+  -webkit-backdrop-filter: blur(16px) saturate(1.6);
+  backdrop-filter: blur(16px) saturate(1.6);
+  border-bottom: 1px solid var(--h2i-glass-line);
+  box-shadow: none;
+  color: var(--md-default-fg-color);
+  transition: background var(--hero-transition-duration) ease,
+              box-shadow var(--hero-transition-duration) ease;
+}
+
+@supports not (backdrop-filter: blur(1px)) {
+  .md-header { background: var(--h2i-glass-solid); }
+}
+
+/* Scrolled state — more opaque */
+.md-header.md-header--scrolled {
+  background: var(--h2i-glass-solid);
+  box-shadow: 0 4px 16px rgba(16, 19, 24, 0.06);
+}
+
+[data-md-color-scheme="slate"] .md-header.md-header--scrolled {
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
+}
+
+/* Hero pages: header still fixed, glass handles contrast — no colour swap */
 html.has-hero .md-header {
   position: fixed;
   top: 0;
   left: 0;
   right: 0;
+}
+
+/* Wordmark split: "H2I" bold + tagline light */
+.md-header__title .md-header__ellipsis {
+  display: flex;
+  align-items: baseline;
+  gap: 0.5rem;
+}
+
+.h2i-wordmark {
+  font-family: var(--h2i-font-display);
+  font-weight: 800;
+  font-size: 22px;
+  letter-spacing: var(--h2i-display-tracking);
+  color: var(--md-default-fg-color);
+}
+
+.h2i-tagline {
+  font-size: 14px;
+  color: var(--md-default-fg-color--light);
+}
+
+@media screen and (max-width: 719px) {
+  .h2i-tagline { display: none; }
+}
+
+/* ==========================================================================
+   Tabs
+   ========================================================================== */
+
+.md-tabs {
   background: transparent;
-  box-shadow: none;
-  transition: background-color var(--hero-transition-duration) ease,
-              box-shadow var(--hero-transition-duration) ease;
 }
 
-/* Header becomes solid when scrolled */
-html.has-hero .md-header.md-header--scrolled {
-  background: var(--md-default-bg-color, #ffffff);
-  box-shadow: 0 0 0.2rem rgba(0, 0, 0, 0.1),
-              0 0.2rem 0.4rem rgba(0, 0, 0, 0.2);
+.md-tabs__link {
+  font-size: 14.5px;
+  color: var(--md-default-fg-color);
+  padding: 0 12px;
+  opacity: 1;
 }
 
-/* Adjust header text colors for transparent state - Light theme: dark text */
-html.has-hero .md-header:not(.md-header--scrolled) .md-header__title,
-html.has-hero .md-header:not(.md-header--scrolled) .md-header__topic,
-html.has-hero .md-header:not(.md-header--scrolled) .md-header-nav__button {
-  color: var(--hero-title-color);
-  text-shadow: 0 1px 3px rgba(var(--hero-overlay-color), 0.3);
+.md-tabs__link--active,
+.md-tabs__item--active .md-tabs__link {
+  font-weight: 600;
+  border-bottom: 2px solid var(--md-primary-fg-color);
 }
 
-html.has-hero .md-header:not(.md-header--scrolled) .md-logo {
-  filter: none; /* Keep original logo colors */
+/* Archived courses: use lighter colour instead of opacity (for contrast) */
+.md-tabs__link.archived-course,
+.md-tabs__item.archived-course .md-tabs__link {
+  color: var(--md-default-fg-color--light);
+  opacity: 1;
 }
 
-html.has-hero .md-header:not(.md-header--scrolled) .md-search__icon {
-  color: var(--hero-title-color);
+.md-tabs__link.archived-course:hover,
+.md-tabs__item.archived-course .md-tabs__link:hover {
+  color: var(--md-default-fg-color);
+  opacity: 1;
 }
 
-/* Dark mode: white text on transparent header */
-html.has-hero [data-md-color-scheme="slate"] .md-header:not(.md-header--scrolled) .md-header__title,
-html.has-hero [data-md-color-scheme="slate"] .md-header:not(.md-header--scrolled) .md-header__topic,
-html.has-hero [data-md-color-scheme="slate"] .md-header:not(.md-header--scrolled) .md-header-nav__button {
-  color: #ffffff;
-  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+/* "ARQUIVO" divider before the first archived tab */
+.md-tabs__item:not(.archived-course) + .md-tabs__item.archived-course > .md-tabs__link::before {
+  content: "ARQUIVO";
+  font-family: var(--md-code-font);
+  font-size: var(--h2i-fs-label);
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--md-default-fg-color--lighter);
+  margin-right: 12px;
+  padding-left: 12px;
+  border-left: 1px solid var(--md-default-fg-color--lightest);
+  line-height: 20px;
 }
 
-html.has-hero [data-md-color-scheme="slate"] .md-header:not(.md-header--scrolled) .md-logo {
-  filter: brightness(0) invert(1);
-}
-
-html.has-hero [data-md-color-scheme="slate"] .md-header:not(.md-header--scrolled) .md-search__icon {
-  color: #ffffff;
-}
-
-/* Dark mode adjustments */
-html.has-hero [data-md-color-scheme="slate"] .md-header.md-header--scrolled {
-  background: var(--md-default-bg-color);
+/* Divider after the last archived tab */
+.md-tabs__item.archived-course + .md-tabs__item:not(.archived-course) > .md-tabs__link::before {
+  content: "";
+  padding-left: 12px;
+  border-left: 1px solid var(--md-default-fg-color--lightest);
 }
 
 /* ==========================================================================
