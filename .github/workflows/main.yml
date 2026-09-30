@@ -81,3 +81,8 @@ jobs:
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
+
+      # Zé (the chat) reads the site's search.json. Tell him it changed so he
+      # reads it now instead of within 5 minutes. Never fails the deploy.
+      - name: Tell Zé the site changed
+        run: curl -fsS -m 20 -X POST https://chat.hacktoimprove.com/sync || echo "::warning::Zé ping failed — he catches up on his own within 5 min"
