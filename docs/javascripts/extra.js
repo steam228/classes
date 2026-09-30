@@ -193,103 +193,28 @@
   }
 
   /**
-   * Hero image carousel — supports two modes:
-   *
-   * Mode A (static):  hero_images in template → slides already in DOM, just animate.
-   * Mode B (dynamic): data-showcase attribute on .md-hero → fetch JSON, build slides
-   *                   as a background image reel. Legend stays static (H2I branding).
+   * Hero image carousel for pages with hero_images frontmatter
    */
   function setupCarousel() {
-    // Mode A: static carousel (hero_images in Jinja template)
-    var staticCarousel = document.querySelector(".md-hero__carousel");
-    if (staticCarousel) {
-      runCarousel(staticCarousel);
-      return;
-    }
+    const carousel = document.querySelector(".md-hero__carousel");
+    if (!carousel) return;
 
-    // Mode B: dynamic showcase (data-showcase on .md-hero)
-    var hero = document.querySelector(".md-hero[data-showcase]");
-    if (!hero) return;
-
-    var showcaseUrl = hero.getAttribute("data-showcase");
-    if (!showcaseUrl) return;
-
-    fetch(showcaseUrl)
-      .then(function (r) { return r.ok ? r.json() : []; })
-      .then(function (projects) {
-        if (!projects || !projects.length) return;
-        buildShowcaseCarousel(hero, shuffle(projects));
-      })
-      .catch(function () { /* static hero stays */ });
-  }
-
-  /** Fisher-Yates shuffle (in-place, returns same array). */
-  function shuffle(arr) {
-    for (var i = arr.length - 1; i > 0; i--) {
-      var j = Math.floor(Math.random() * (i + 1));
-      var tmp = arr[i];
-      arr[i] = arr[j];
-      arr[j] = tmp;
-    }
-    return arr;
-  }
-
-  /**
-   * Upgrade a single-image hero into a dynamic carousel from JSON data.
-   * Builds a small project-info overlay in the lower-left that updates per slide.
-   */
-  function buildShowcaseCarousel(hero, projects) {
-    var imageDiv = hero.querySelector(".md-hero__image");
-    if (!imageDiv) return;
-
-    // Convert .md-hero__image into .md-hero__carousel
-    imageDiv.classList.add("md-hero__carousel");
-    imageDiv.style.backgroundImage = "none";
-
-    // Build slide elements
-    var inner = imageDiv.querySelector(".md-hero__inner");
-    projects.forEach(function (p) {
-      var slide = document.createElement("div");
-      slide.className = "md-hero__slide";
-      slide.style.backgroundImage = "url('" + p.image + "')";
-      imageDiv.insertBefore(slide, inner);
-    });
-
-    // Build the project info overlay
-    var info = document.createElement("a");
-    info.className = "md-hero__project-info";
-    info.href = projects[0].href;
-    info.innerHTML =
-      '<span class="md-hero__project-title">' + projects[0].title + "</span>" +
-      '<span class="md-hero__project-team">' + projects[0].team + " \u00b7 " + projects[0].course + "</span>";
-    imageDiv.appendChild(info);
-
-    runCarousel(imageDiv, { infoEl: info, projects: projects });
-  }
-
-  /**
-   * Shared carousel engine — works for both static and dynamic slides.
-   * Dots are only used in Mode A (static, already in DOM).
-   * @param {Object} [showcase] — if provided, update the project-info overlay per slide.
-   */
-  function runCarousel(carousel, showcase) {
-    var slides = carousel.querySelectorAll(".md-hero__slide");
-    var dots = carousel.querySelectorAll(".md-hero__dot");
+    const slides = carousel.querySelectorAll(".md-hero__slide");
+    const dots = carousel.querySelectorAll(".md-hero__dot");
     if (slides.length < 2) return;
 
-    var current = 0;
-    var timer = null;
+    let current = 0;
+    let timer = null;
 
     function goTo(index) {
       current = ((index % slides.length) + slides.length) % slides.length;
-      var tx = "-" + current * 100 + "%";
+      const tx = "-" + current * 100 + "%";
       slides.forEach(function (slide) {
         slide.style.transform = "translateX(" + tx + ")";
       });
       dots.forEach(function (dot, i) {
         dot.classList.toggle("md-hero__dot--active", i === current);
       });
-      if (showcase) updateProjectInfo(showcase, current);
     }
 
     function next() {
@@ -298,7 +223,7 @@
 
     function startTimer() {
       stopTimer();
-      timer = setInterval(next, 3000);
+      timer = setInterval(next, 5000);
     }
 
     function stopTimer() {
@@ -325,22 +250,6 @@
       carousel.removeEventListener("mouseenter", stopTimer);
       carousel.removeEventListener("mouseleave", startTimer);
     };
-  }
-
-  /** Fade-swap the project info overlay to match the current slide. */
-  function updateProjectInfo(showcase, index) {
-    var el = showcase.infoEl;
-    var p = showcase.projects[index];
-    if (!el || !p) return;
-
-    el.classList.add("md-hero__project-info--fading");
-    setTimeout(function () {
-      el.href = p.href;
-      el.querySelector(".md-hero__project-title").textContent = p.title;
-      el.querySelector(".md-hero__project-team").textContent =
-        p.team ? p.team + " \u00b7 " + p.course : p.course;
-      el.classList.remove("md-hero__project-info--fading");
-    }, 150);
   }
 
   /**

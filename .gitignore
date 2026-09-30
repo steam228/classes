@@ -22,9 +22,6 @@ _templates/
 # Claude Code
 .claude/
 
-# Generated gallery showcase (from fetch-galleries.py)
-docs/gallery-showcase.json
-
 # Design reference files (local only)
 h2i-redesign/
 
