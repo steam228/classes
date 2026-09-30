@@ -863,14 +863,19 @@ html[data-hero-height="100vh"] .md-hero__image {
   background: transparent;
   font-weight: 700;
   font-size: 15.5px;
-  margin: -14px -18px 12px;
-  padding: 10px 18px 10px 42px;
+  margin: 0 0 8px;
+  padding: 0;
   border-bottom: none;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  position: relative;
 }
 
 [dir] .md-typeset .admonition-title::before,
 [dir] .md-typeset details > summary::before {
-  left: 18px;
+  position: static;
+  flex-shrink: 0;
   width: 18px;
   height: 18px;
 }
