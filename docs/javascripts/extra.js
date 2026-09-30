@@ -995,11 +995,10 @@
   // =========================================================================
 
   var GREETING =
-    "Ol\u00e1! \ud83d\udc4b Sou o <strong>Z\u00e9</strong>, o teu colega do lado \u2014 " +
-    "estou aqui para te ajudar com as mat\u00e9rias das aulas." +
-    "<br><br><small>Sou um colega virtual (IA): s\u00f3 conhe\u00e7o os materiais deste site " +
-    "e posso enganar-me. S\u00f3 falo com estudantes das turmas. As perguntas ficam registadas " +
-    "sem o teu nome \u2014 s\u00f3 em caso de abuso o professor pode saber de quem s\u00e3o.</small>" +
+    "Ol\u00e1 \ud83d\udc4b Sou o <strong>Z\u00e9</strong>, o colega do lado." +
+    "<br><br><small>Colega virtual (IA): s\u00f3 sei o que est\u00e1 no site e posso enganar-me. " +
+    "S\u00f3 falo com quem est\u00e1 nas turmas. As perguntas ficam registadas sem o teu nome \u2014 " +
+    "s\u00f3 em caso de abuso o professor sabe de quem s\u00e3o.</small>" +
     "<br><br>Como te chamas?";
 
   function startOnboarding() {
@@ -1153,9 +1152,8 @@
 
   // Consent before Zé mentions this student to anyone else.
   var SHARE_QUESTION =
-    "S\u00f3 mais uma coisa\u2026 \ud83d\ude0a \u00c0s vezes os colegas da turma perguntam-me " +
-    "as mesmas coisas. Posso dizer-lhes que tamb\u00e9m falaste comigo sobre isso? " +
-    "S\u00f3 digo o teu nome e o tema \u2014 nunca os pormenores.";
+    "Ah, e \u00e0s vezes os da turma perguntam-me as mesmas coisas. " +
+    "Posso dizer-lhes que tamb\u00e9m falaste comigo sobre o tema? S\u00f3 o teu nome e o tema, nada de pormenores.";
 
   function showShareQuestion() {
     appendMessage("bot", SHARE_QUESTION +
