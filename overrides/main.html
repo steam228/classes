@@ -17,14 +17,21 @@
 #}
 
 {% block hero %}
-  {% if page and page.meta and (page.meta.hero_image or page.meta.hero_sketch) %}
+  {% if page and page.meta and (page.meta.hero_image or page.meta.hero_images or page.meta.hero_sketch) %}
   {% set _hero_is_video = page.meta.hero_image and ('.mp4' in page.meta.hero_image or '.webm' in page.meta.hero_image or '.ogg' in page.meta.hero_image or '.mov' in page.meta.hero_image) %}
   {% if page.meta.hero_image and ('.webm' in page.meta.hero_image) %}{% set _hero_mime = 'video/webm' %}{% elif page.meta.hero_image and ('.ogg' in page.meta.hero_image) %}{% set _hero_mime = 'video/ogg' %}{% elif page.meta.hero_image and ('.mov' in page.meta.hero_image) %}{% set _hero_mime = 'video/quicktime' %}{% else %}{% set _hero_mime = 'video/mp4' %}{% endif %}
   {% set _immersive = page.meta.hero_tone == 'dark' %}
   {% set _is_100vh = page.meta.hero_height == '100vh' %}
   {% set _is_home = not page.ancestors | length and not page.parent %}
-  <section class="md-hero{% if _immersive %} md-hero--immersive{% endif %}{% if _is_100vh %} md-hero--full{% endif %}{% if _is_home %} md-hero--home{% endif %}" data-md-component="hero">
-    {% if _hero_is_video %}
+  <section class="md-hero{% if _immersive %} md-hero--immersive{% endif %}{% if _is_100vh %} md-hero--full{% endif %}{% if _is_home %} md-hero--home{% endif %}"
+           {% if _is_home %}data-showcase="gallery-showcase.json"{% endif %}
+           data-md-component="hero">
+    {% if page.meta.hero_images %}
+    <div class="md-hero__image md-hero__carousel">
+      {% for img in page.meta.hero_images %}
+      <div class="md-hero__slide" style="background-image: url('{{ img }}');"></div>
+      {% endfor %}
+    {% elif _hero_is_video %}
     <div class="md-hero__image">
       <video class="md-hero__video" autoplay loop muted playsinline>
         <source src="{{ page.meta.hero_image }}" type="{{ _hero_mime }}">
@@ -110,6 +117,14 @@
         </svg>
       </button>
       {% endif %}
+      {% if page.meta.hero_images %}
+      <div class="md-hero__dots">
+        {% for img in page.meta.hero_images %}
+        <button class="md-hero__dot{% if loop.first %} md-hero__dot--active{% endif %}"
+                aria-label="Slide {{ loop.index }}" data-slide="{{ loop.index0 }}"></button>
+        {% endfor %}
+      </div>
+      {% endif %}
     </div>
   </section>
   {% endif %}
@@ -118,7 +133,7 @@
 {% block announce %}
   {{ super() }}
   {# Add classes to html when hero is present for CSS targeting #}
-  {% if page and page.meta and (page.meta.hero_image or page.meta.hero_sketch) %}
+  {% if page and page.meta and (page.meta.hero_image or page.meta.hero_images or page.meta.hero_sketch) %}
   <script>
     document.documentElement.classList.add('has-hero');
     document.documentElement.dataset.heroHeight = '{{ page.meta.hero_height | default("60vh") }}';

@@ -1,0 +1,152 @@
+<!doctype html>
+<html lang="pt">
+<head>
+<meta charset="utf-8">
+<title>Design de Inovação — modo escuro</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400..800&amp;display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible+Next:wght@400..700&amp;display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible+Mono:wght@400..700&amp;display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,400..700&amp;family=Public+Sans:wght@400..700&amp;family=IBM+Plex+Mono:wght@400;500&amp;family=Geist:wght@400..700&amp;family=Geist+Mono:wght@400..600&amp;display=swap">
+<style>
+body{margin:0}
+.h2i,.ty-A{--f-display:'Bricolage Grotesque','Helvetica Neue',Helvetica,sans-serif;--f-text:'Atkinson Hyperlegible Next',system-ui,-apple-system,'Segoe UI',sans-serif;--f-mono:'Atkinson Hyperlegible Mono',ui-monospace,'SF Mono',Menlo,monospace;--w-display:700;--ls-display:-0.025em}
+.h2i[data-type="B"],.ty-B{--f-display:'Newsreader',Georgia,'Times New Roman',serif;--f-text:'Public Sans',system-ui,-apple-system,'Segoe UI',sans-serif;--f-mono:'IBM Plex Mono',ui-monospace,Menlo,monospace;--w-display:600;--ls-display:-0.012em}
+.h2i[data-type="C"],.ty-C{--f-display:'Geist',system-ui,-apple-system,sans-serif;--f-text:'Geist',system-ui,-apple-system,sans-serif;--f-mono:'Geist Mono',ui-monospace,Menlo,monospace;--w-display:650;--ls-display:-0.035em}
+.h2i{--md-default-bg-color:#FAFBFC;--md-default-fg-color:#101318;--md-typeset-color:#272C33;--md-default-fg-color--light:#525A66;--md-default-fg-color--lighter:#7A8390;--md-default-fg-color--lightest:#DDE2E8;--md-code-bg-color:#F1F4F7;--md-code-fg-color:#1D2229;--md-primary-fg-color:#2C5EAD;--md-primary-bg-color:#FFFFFF;--md-accent-fg-color:#1591DC;--md-typeset-a-color:#2C5EAD;--h2i-surface-2:#E8EDF2;--h2i-tint:#E2F0F9;--h2i-tint-strong:#C4E2F5;--h2i-tint-fg:#2C5EAD;--h2i-hl:#C4E2F5;--h2i-glass:rgba(250,251,252,.74);--h2i-glass-solid:rgba(250,251,252,.94);--h2i-glass-line:rgba(16,19,24,.09);--h2i-field:rgba(16,19,24,.05);--h2i-dot:#CCD4DD;--h2i-shadow:0 1px 2px rgba(16,19,24,.06),0 10px 30px rgba(16,19,24,.10);--h2i-shadow-sm:0 1px 2px rgba(16,19,24,.06),0 3px 10px rgba(16,19,24,.06);--h2i-warn-bg:#FFF6E8;--h2i-warn-fg:#8A5300;--h2i-warn-line:#F1D9B0;--h2i-hero-dim:rgba(14,17,22,0);-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
+.h2i[data-scheme="slate"]{--md-default-bg-color:#0E1116;--md-default-fg-color:#F2F5F8;--md-typeset-color:#CDD3DB;--md-default-fg-color--light:#9AA4B0;--md-default-fg-color--lighter:#6E7885;--md-default-fg-color--lightest:#262D36;--md-code-bg-color:#151A21;--md-code-fg-color:#DDE3EA;--md-primary-fg-color:#4BB8FA;--md-primary-bg-color:#07131F;--md-typeset-a-color:#4BB8FA;--h2i-surface-2:#1C222B;--h2i-tint:#12263A;--h2i-tint-strong:#1A3A57;--h2i-tint-fg:#4BB8FA;--h2i-hl:rgba(75,184,250,.2);--h2i-glass:rgba(14,17,22,.66);--h2i-glass-solid:rgba(14,17,22,.92);--h2i-glass-line:rgba(255,255,255,.08);--h2i-field:rgba(255,255,255,.07);--h2i-dot:#262E38;--h2i-shadow:0 1px 2px rgba(0,0,0,.4),0 12px 32px rgba(0,0,0,.5);--h2i-shadow-sm:0 1px 2px rgba(0,0,0,.4),0 3px 10px rgba(0,0,0,.35);--h2i-warn-bg:#231A0C;--h2i-warn-fg:#F0C37E;--h2i-warn-line:#46341A;--h2i-hero-dim:rgba(14,17,22,.2)}
+.h2i a{color:inherit;text-decoration:none}
+.h2i input::placeholder{color:var(--md-default-fg-color--light);opacity:1}
+.tx a{color:var(--md-typeset-a-color);text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:3px;text-decoration-color:color-mix(in srgb,var(--md-typeset-a-color) 45%,transparent);border-radius:2px}
+.tx a:hover{background:var(--h2i-hl);text-decoration-color:currentColor}
+.tx li::marker{color:var(--md-accent-fg-color)}
+.dots{background-image:radial-gradient(var(--h2i-dot) 1px,transparent 1.3px);background-size:16px 16px}
+</style>
+</helmet>
+<div class="h2i" data-scheme="{{scheme}}" data-type="{{pairing}}" style="width: 1440px; height: 1940px; position: relative; overflow: hidden; background: var(--md-default-bg-color); color: var(--md-typeset-color); font-family: var(--f-text); display: flex; flex-direction: column">
+
+<section aria-label="Hero" style="position: relative; height: 560px; flex-shrink: 0; z-index: 2">
+<img src="/_blob/fc4ef3012ca052e6ba0f96ec6b9b19cc" alt="" style="position: absolute; left: 0; top: 0; width: 1440px; height: 560px; object-fit: cover; object-position: 50% 30%; display: block">
+<div style="position: absolute; left: 0; top: 0; width: 1440px; height: 560px; background: var(--h2i-hero-dim)"></div>
+<div style="position: absolute; left: 352px; bottom: -48px; width: 600px; background: var(--md-default-bg-color); border-radius: 4px; box-shadow: var(--h2i-shadow); overflow: hidden">
+<nav aria-label="Caminho" style="display: flex; border-bottom: 1px solid var(--md-default-fg-color--lightest); font-family: var(--f-mono); font-size: 11.5px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--md-default-fg-color--light)"><a href="#" style="padding: 12px 20px; color: var(--md-primary-fg-color)">Página Inicial</a></nav>
+<div style="padding: 24px 28px 28px; display: flex; flex-direction: column; gap: 10px">
+<span style="font-family: var(--f-display); font-weight: var(--w-display); letter-spacing: var(--ls-display); font-size: 60px; line-height: 1; color: var(--md-default-fg-color)">Design de Inovação</span>
+<span style="font-size: 19px; color: var(--md-default-fg-color--light)">1º Semestre 2026-27</span>
+</div>
+</div>
+</section>
+
+<header style="position: absolute; left: 0; top: 0; width: 1440px; z-index: 5; background: var(--h2i-glass); backdrop-filter: blur(16px) saturate(1.6); -webkit-backdrop-filter: blur(16px) saturate(1.6); border-bottom: 1px solid var(--h2i-glass-line); color: var(--md-default-fg-color)">
+<div style="height: 64px; box-sizing: border-box; padding: 0 40px; display: flex; align-items: center; gap: 20px">
+<a href="#" aria-label="H2I — Página Inicial" style="display: flex; align-items: center; gap: 12px"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="color: var(--md-primary-fg-color)"><path d="M7 3.5c5-2 7 2.5 3 4C1.5 10 2 15 5 16c5 2 9-10 14-7s.5 13.5-4 12c-5-2.5.5-11 6-2"></path></svg><span style="font-family: var(--f-display); font-weight: 800; font-size: 22px; letter-spacing: -0.02em">H2I</span><span style="font-size: 14px; color: var(--md-default-fg-color--light)">Learning Materials · André Rocha</span></a>
+<span style="flex-grow: 1"></span>
+<label style="display: flex; align-items: center; gap: 10px; width: 300px; height: 40px; box-sizing: border-box; padding: 0 12px; border-radius: 10px; background: var(--h2i-field); color: var(--md-default-fg-color--light)"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><path d="m20 20-3.5-3.5"></path></svg><input type="search" placeholder="Pesquisar" aria-label="Pesquisar" style="flex-grow: 1; min-width: 0; border: 0; background: transparent; font: inherit; font-size: 14.5px; color: var(--md-default-fg-color); outline: none"><span style="font-family: var(--f-mono); font-size: 11px; padding: 2px 6px; border: 1px solid var(--h2i-glass-line); border-radius: 4px">⌘K</span></label>
+<button type="button" aria-label="Mudar para modo claro" style="width: 44px; height: 44px; border: 0; border-radius: 10px; background: transparent; color: inherit; display: flex; align-items: center; justify-content: center"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"></path></svg></button>
+</div>
+<nav aria-label="Unidades curriculares" style="height: 48px; box-sizing: border-box; padding: 0 28px; display: flex; align-items: stretch; gap: 2px; font-size: 14.5px">
+<a href="#" style="display: flex; align-items: center; padding: 0 12px; border-bottom: 2px solid transparent">Design de Produto e Interação I</a>
+<a href="#" aria-current="page" style="display: flex; align-items: center; padding: 0 12px; border-bottom: 2px solid var(--md-primary-fg-color); font-weight: 600">Design de Inovação</a>
+<span style="align-self: center; width: 1px; height: 20px; margin: 0 10px; background: var(--md-default-fg-color--lightest)"></span>
+<span style="align-self: center; margin-right: 4px; font-family: var(--f-mono); font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--md-default-fg-color--light)">Arquivo</span>
+<a href="#" style="display: flex; align-items: center; padding: 0 12px; border-bottom: 2px solid transparent; color: var(--md-default-fg-color--light)">Design de Produto IV · 25/26</a>
+<a href="#" style="display: flex; align-items: center; padding: 0 12px; border-bottom: 2px solid transparent; color: var(--md-default-fg-color--light)">Prototipagem Digital · 25/26</a>
+<span style="align-self: center; width: 1px; height: 20px; margin: 0 10px; background: var(--md-default-fg-color--lightest)"></span>
+<a href="#" style="display: flex; align-items: center; padding: 0 12px; border-bottom: 2px solid transparent">Recursos</a>
+</nav>
+</header>
+
+<main style="flex-grow: 1; display: flex; gap: 64px; padding: 104px 40px 0; align-items: flex-start">
+<nav aria-label="Navegação" style="width: 248px; flex-shrink: 0; display: flex; flex-direction: column; gap: 2px; font-size: 15px">
+<a href="#" aria-current="page" style="margin-bottom: 10px; padding: 8px 12px; border-radius: 8px; background: var(--h2i-tint); font-family: var(--f-display); font-weight: var(--w-display); letter-spacing: var(--ls-display); font-size: 18px; color: var(--h2i-tint-fg)">Design de Inovação</a>
+<a href="#" style="display: flex; align-items: center; gap: 12px; height: 38px; padding: 0 12px; border-radius: 8px; color: var(--md-typeset-color)"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="color: var(--md-default-fg-color--lighter)"><path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"></path><path d="M14 2v4a2 2 0 0 0 2 2h4M10 9H8m8 4H8m8 4H8"></path></svg>Programa</a>
+<a href="#" style="display: flex; align-items: center; gap: 12px; height: 38px; padding: 0 12px; border-radius: 8px; color: var(--md-typeset-color)"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="color: var(--md-default-fg-color--lighter)"><path d="M15 14c.2-1 .7-1.7 1.5-2.5 1-.9 1.5-2.2 1.5-3.5A6 6 0 0 0 6 8c0 1 .2 2.2 1.5 3.5.7.7 1.3 1.5 1.5 2.5M9 18h6m-5 4h4"></path></svg>Projeto</a>
+<a href="#" aria-expanded="false" style="display: flex; align-items: center; gap: 12px; height: 38px; padding: 0 12px; border-radius: 8px; color: var(--md-typeset-color)"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="color: var(--md-default-fg-color--lighter)"><path d="M3 12h.01M3 18h.01M3 6h.01M8 12h13M8 18h13M8 6h13"></path></svg><span style="flex-grow: 1">Sumários</span><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="color: var(--md-default-fg-color--lighter)"><path d="m9 18 6-6-6-6"></path></svg></a>
+<a href="#" style="display: flex; align-items: center; gap: 12px; height: 38px; padding: 0 12px; border-radius: 8px; color: var(--md-typeset-color)"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="color: var(--md-default-fg-color--lighter)"><rect width="8" height="4" x="8" y="2" rx="1"></rect><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path><path d="m9 14 2 2 4-4"></path></svg>Avaliação</a>
+<a href="#" style="display: flex; align-items: center; gap: 12px; height: 38px; padding: 0 12px; border-radius: 8px; color: var(--md-typeset-color)"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="color: var(--md-default-fg-color--lighter)"><rect width="18" height="18" x="3" y="4" rx="2"></rect><path d="M16 2v4M8 2v4M3 10h18"></path></svg>Calendário</a>
+<a href="#" style="display: flex; align-items: center; gap: 12px; height: 38px; padding: 0 12px; border-radius: 8px; color: var(--md-typeset-color)"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="color: var(--md-default-fg-color--lighter)"><rect width="7" height="7" x="3" y="3" rx="1"></rect><rect width="7" height="7" x="14" y="3" rx="1"></rect><rect width="7" height="7" x="14" y="14" rx="1"></rect><rect width="7" height="7" x="3" y="14" rx="1"></rect></svg>Galeria</a>
+</nav>
+
+<article class="tx" style="width: 760px; flex-shrink: 0; display: flex; flex-direction: column; font-size: 17px; line-height: 1.65; color: var(--md-typeset-color)">
+<h1 style="margin: 0; font-family: var(--f-display); font-weight: var(--w-display); letter-spacing: var(--ls-display); font-size: 44px; line-height: 1.1; color: var(--md-default-fg-color)">Design de Inovação</h1>
+<p style="margin: 16px 0 0">Bem-vindo à documentação da unidade curricular de Design de Inovação.</p>
+<h2 style="margin: 48px 0 12px; display: flex; align-items: baseline; gap: 14px; font-family: var(--f-display); font-weight: var(--w-display); letter-spacing: var(--ls-display); font-size: 30px; line-height: 1.2; color: var(--md-default-fg-color)"><span style="font-family: var(--f-mono); font-weight: 400; font-size: 14px; letter-spacing: 0.04em; color: var(--md-primary-fg-color)">01</span>Conteúdos</h2>
+<ul style="margin: 0; padding-left: 22px; display: flex; flex-direction: column; gap: 6px">
+<li style="padding-left: 6px"><a href="#">Programa</a></li>
+<li style="padding-left: 6px"><a href="#">Avaliação</a></li>
+<li style="padding-left: 6px"><a href="#">Calendário</a></li>
+<li style="padding-left: 6px"><a href="#">Enunciado do Projeto</a></li>
+</ul>
+<h2 style="margin: 48px 0 16px; display: flex; align-items: baseline; gap: 14px; font-family: var(--f-display); font-weight: var(--w-display); letter-spacing: var(--ls-display); font-size: 30px; line-height: 1.2; color: var(--md-default-fg-color)"><span style="font-family: var(--f-mono); font-weight: 400; font-size: 14px; letter-spacing: 0.04em; color: var(--md-primary-fg-color)">02</span>Horário</h2>
+<div style="border: 1px solid var(--md-default-fg-color--lightest); border-radius: 8px; overflow: hidden">
+<table style="width: 100%; border-collapse: collapse; font-size: 15.5px; line-height: 1.4">
+<thead>
+<tr style="background: var(--md-code-bg-color)">
+<th scope="col" style="text-align: left; padding: 12px 18px; font-family: var(--f-mono); font-weight: 500; font-size: 11.5px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--md-default-fg-color--light)">Dia</th>
+<th scope="col" style="text-align: left; padding: 12px 18px; font-family: var(--f-mono); font-weight: 500; font-size: 11.5px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--md-default-fg-color--light)">Horário</th>
+<th scope="col" style="text-align: left; padding: 12px 18px; font-family: var(--f-mono); font-weight: 500; font-size: 11.5px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--md-default-fg-color--light)">Turma</th>
+<th scope="col" style="text-align: left; padding: 12px 18px; font-family: var(--f-mono); font-weight: 500; font-size: 11.5px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--md-default-fg-color--light)">Sala</th>
+</tr>
+</thead>
+<tbody>
+<tr style="border-top: 1px solid var(--md-default-fg-color--lightest)"><td style="padding: 14px 18px">6ª feira</td><td style="padding: 14px 18px; font-variant-numeric: tabular-nums">08:30 – 11:15</td><td style="padding: 14px 18px"><span style="padding: 3px 8px; border-radius: 4px; background: var(--h2i-tint); color: var(--h2i-tint-fg); font-family: var(--f-mono); font-size: 13px">DI-TJ</span></td><td style="padding: 14px 18px">209 / FabLab</td></tr>
+<tr style="border-top: 1px solid var(--md-default-fg-color--lightest)"><td style="padding: 14px 18px">6ª feira</td><td style="padding: 14px 18px; font-variant-numeric: tabular-nums">11:30 – 14:15</td><td style="padding: 14px 18px"><span style="padding: 3px 8px; border-radius: 4px; background: var(--h2i-tint); color: var(--h2i-tint-fg); font-family: var(--f-mono); font-size: 13px">DI-TL</span></td><td style="padding: 14px 18px">209 / FabLab</td></tr>
+<tr style="border-top: 1px solid var(--md-default-fg-color--lightest)"><td style="padding: 14px 18px">6ª feira</td><td style="padding: 14px 18px; font-variant-numeric: tabular-nums">15:00 – 17:45</td><td style="padding: 14px 18px"><span style="padding: 3px 8px; border-radius: 4px; background: var(--h2i-tint); color: var(--h2i-tint-fg); font-family: var(--f-mono); font-size: 13px">DI-TM</span></td><td style="padding: 14px 18px">209 / FabLab</td></tr>
+</tbody>
+</table>
+</div>
+<div role="note" style="margin-top: 28px; border: 1px solid var(--h2i-warn-line); border-radius: 8px; background: var(--h2i-warn-bg); padding: 14px 18px 16px; display: flex; flex-direction: column; gap: 6px">
+<span style="display: flex; align-items: center; gap: 10px; font-weight: 700; font-size: 15.5px; color: var(--h2i-warn-fg)"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3"></path><path d="M12 9v4M12 17h.01"></path></svg>Nota</span>
+<span style="padding-left: 28px; font-size: 16px; line-height: 1.55; color: var(--md-typeset-color)">O Fablab não estará aberto aos fins-de-semana e dias feriado!</span>
+</div>
+<h2 style="margin: 48px 0 12px; display: flex; align-items: baseline; gap: 14px; font-family: var(--f-display); font-weight: var(--w-display); letter-spacing: var(--ls-display); font-size: 30px; line-height: 1.2; color: var(--md-default-fg-color)"><span style="font-family: var(--f-mono); font-weight: 400; font-size: 14px; letter-spacing: 0.04em; color: var(--md-primary-fg-color)">03</span>Contactos</h2>
+<p style="margin: 0"><strong style="color: var(--md-default-fg-color)">Docente:</strong> André Rocha<br><strong style="color: var(--md-default-fg-color)">Email:</strong> <a href="#">arocha@eselx.ipl.pt</a><br><strong style="color: var(--md-default-fg-color)">Sala(s):</strong> 209 e Fablab</p>
+</article>
+
+<aside aria-label="Índice" style="width: 224px; flex-shrink: 0; display: flex; flex-direction: column; gap: 14px">
+<span style="font-family: var(--f-mono); font-weight: 500; font-size: 11.5px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--md-default-fg-color--light)">Índice</span>
+<nav style="display: flex; flex-direction: column; border-left: 1px solid var(--md-default-fg-color--lightest); font-size: 14px; line-height: 1.4">
+<a href="#" aria-current="location" style="margin-left: -1px; padding: 6px 0 6px 14px; border-left: 2px solid var(--md-accent-fg-color); color: var(--md-default-fg-color); font-weight: 600">Conteúdos</a>
+<a href="#" style="margin-left: -1px; padding: 6px 0 6px 14px; border-left: 2px solid transparent; color: var(--md-default-fg-color--light)">Horário</a>
+<a href="#" style="margin-left: -1px; padding: 6px 0 6px 14px; border-left: 2px solid transparent; color: var(--md-default-fg-color--light)">Contactos</a>
+</nav>
+</aside>
+</main>
+
+<footer style="flex-shrink: 0">
+<div style="padding: 56px 40px 64px 352px">
+<div style="width: 760px; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px">
+<a href="#" style="display: flex; flex-direction: column; gap: 8px; padding: 20px 22px; border: 1px solid var(--md-default-fg-color--lightest); border-radius: 8px">
+<span style="display: flex; align-items: center; gap: 8px; font-family: var(--f-mono); font-size: 11.5px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--md-default-fg-color--light)"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m12 19-7-7 7-7M19 12H5"></path></svg>Anterior</span>
+<span style="font-family: var(--f-display); font-weight: var(--w-display); letter-spacing: var(--ls-display); font-size: 21px; color: var(--md-default-fg-color)">Galeria</span>
+</a>
+<a href="#" style="display: flex; flex-direction: column; align-items: flex-end; gap: 8px; padding: 20px 22px; border: 1px solid var(--md-default-fg-color--lightest); border-radius: 8px; text-align: right">
+<span style="display: flex; align-items: center; gap: 8px; font-family: var(--f-mono); font-size: 11.5px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--md-default-fg-color--light)">Próximo<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14m-7-7 7 7-7 7"></path></svg></span>
+<span style="font-family: var(--f-display); font-weight: var(--w-display); letter-spacing: var(--ls-display); font-size: 21px; color: var(--md-default-fg-color)">Programa</span>
+</a>
+</div>
+</div>
+<div class="dots" style="height: 88px; box-sizing: border-box; padding: 0 40px; display: flex; align-items: center; gap: 28px; border-top: 1px solid var(--md-default-fg-color--lightest); background-color: var(--md-code-bg-color); font-size: 14px; color: var(--md-default-fg-color--light)">
+<span style="display: flex; align-items: center; gap: 10px; color: var(--md-default-fg-color)"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="color: var(--md-primary-fg-color)"><path d="M7 3.5c5-2 7 2.5 3 4C1.5 10 2 15 5 16c5 2 9-10 14-7s.5 13.5-4 12c-5-2.5.5-11 6-2"></path></svg><span style="font-family: var(--f-display); font-weight: 800; font-size: 18px; letter-spacing: -0.02em">H2I</span></span>
+<span style="display: flex; align-items: center; gap: 10px"><span style="display: flex; gap: 3px"><span style="width: 22px; height: 22px; border-radius: 999px; border: 1.5px solid var(--md-default-fg-color); display: flex; align-items: center; justify-content: center; font-family: var(--f-mono); font-size: 9px; font-weight: 700; color: var(--md-default-fg-color)">cc</span><span style="width: 22px; height: 22px; border-radius: 999px; border: 1.5px solid var(--md-default-fg-color); display: flex; align-items: center; justify-content: center; font-family: var(--f-mono); font-size: 9px; font-weight: 700; color: var(--md-default-fg-color)">by</span></span>CC BY 4.0 · 2026 André Rocha</span>
+<span>Made with Zensical</span>
+</div>
+</footer>
+
+<button type="button" aria-label="Abrir chat com o Zé" style="position: absolute; left: 1204px; top: 812px; height: 52px; padding: 0 22px 0 18px; border: 0; border-radius: 999px; background: var(--md-primary-fg-color); color: var(--md-primary-bg-color); display: flex; align-items: center; gap: 10px; box-shadow: var(--h2i-shadow); font-family: var(--f-text); font-weight: 600; font-size: 15px; z-index: 6"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"></path></svg>Pergunta ao Zé</button>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"scheme":{"editor":"enum","options":["default","slate"],"default":"slate","section":"Tema"},"pairing":{"editor":"enum","options":["A","B","C"],"default":"A","section":"Tema"},"$preview":{"width":1440,"height":1940}}'>
+class Component extends DCLogic {
+  renderVals() {
+    return { scheme: this.props.scheme ?? 'slate', pairing: this.props.pairing ?? 'A' };
+  }
+}
+</script>
+</body>
+</html>

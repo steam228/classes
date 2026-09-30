@@ -22,6 +22,9 @@ _templates/
 # Claude Code
 .claude/
 
+# Generated gallery showcase (from fetch-galleries.py)
+docs/gallery-showcase.json
+
 # Gallery templates live in their own GitHub repos; don't track here
 gallery-template/
 gallery-template-pd/

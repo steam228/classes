@@ -421,6 +421,53 @@ Trabalhos finais dos grupos de **{cfg['label']}**.
 
 
 # ----------------------------------------------------------------------------
+# Home-page showcase JSON
+
+def write_showcase_json(courses: list[str]) -> None:
+    """Collect published gallery cards across all courses for the home carousel."""
+    TEMPLATE_PLACEHOLDER = "Nome do Grupo"
+    projects: list[dict] = []
+    for course in courses:
+        cfg = GALLERY_CONFIG[course]
+        galeria = DOCS / course / "Galeria"
+        if not galeria.exists():
+            continue
+        for entry in sorted(galeria.iterdir()):
+            if not entry.is_dir():
+                continue
+            fm = parse_frontmatter(entry / "index.md")
+            if not fm or fm.get("published") is False:
+                continue
+            # Same title-candidate logic as generate_index()
+            candidates = [
+                (fm.get("group_name") or "").strip(),
+                (fm.get("hero_title") or "").strip(),
+                (fm.get("title") or "").strip(),
+            ]
+            title = next(
+                (c for c in candidates if c and c != TEMPLATE_PLACEHOLDER),
+                None,
+            ) or entry.name.replace("-", " ").capitalize()
+            members = fm.get("members") or []
+            names = []
+            if isinstance(members, list):
+                names = [m.get("name") for m in members if isinstance(m, dict) and m.get("name")]
+            hero = fm.get("hero_image") or "attachments/hero.jpg"
+            while hero.startswith("../"):
+                hero = hero[3:]
+            projects.append({
+                "image": f"{course}/Galeria/{entry.name}/{hero}",
+                "title": title,
+                "team": " \u00b7 ".join(names) if names else "",
+                "course": cfg["label"],
+                "href": f"{course}/Galeria/{entry.name}/",
+            })
+    out = DOCS / "gallery-showcase.json"
+    out.write_text(json.dumps(projects, ensure_ascii=False, indent=2), encoding="utf-8")
+    print(f"[showcase] {len(projects)} projects \u2192 {out.relative_to(REPO_ROOT)}")
+
+
+# ----------------------------------------------------------------------------
 # Entry
 
 def main() -> int:
@@ -443,6 +490,8 @@ def main() -> int:
         if not args.no_fetch:
             fetch_course(course, cfg, org, token)
         generate_index(course, cfg)
+
+    write_showcase_json(courses)
     return 0
 
 

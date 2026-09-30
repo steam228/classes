@@ -25,6 +25,7 @@
     }
 
     setupScrollHandler();
+    setupCarousel();
     setupParallax();
     setupScrollArrow();
     initHeroSketch();
@@ -192,11 +193,194 @@
   }
 
   /**
+   * Hero image carousel — supports two modes:
+   *
+   * Mode A (static):  hero_images in template → slides already in DOM, just animate.
+   * Mode B (dynamic): data-showcase attribute on .md-hero → fetch JSON, build slides,
+   *                   animate legend text per slide. Falls back to static hero on error.
+   */
+  function setupCarousel() {
+    // Mode A: static carousel (hero_images in Jinja template)
+    var staticCarousel = document.querySelector(".md-hero__carousel");
+    if (staticCarousel) {
+      runCarousel(staticCarousel);
+      return;
+    }
+
+    // Mode B: dynamic showcase (data-showcase on .md-hero)
+    var hero = document.querySelector(".md-hero[data-showcase]");
+    if (!hero) return;
+
+    var showcaseUrl = hero.getAttribute("data-showcase");
+    if (!showcaseUrl) return;
+
+    fetch(showcaseUrl)
+      .then(function (r) { return r.ok ? r.json() : []; })
+      .then(function (projects) {
+        if (!projects || !projects.length) return;
+        buildShowcaseCarousel(hero, shuffle(projects).slice(0, 6));
+      })
+      .catch(function () { /* static hero stays */ });
+  }
+
+  /** Fisher-Yates shuffle (in-place, returns same array). */
+  function shuffle(arr) {
+    for (var i = arr.length - 1; i > 0; i--) {
+      var j = Math.floor(Math.random() * (i + 1));
+      var tmp = arr[i];
+      arr[i] = arr[j];
+      arr[j] = tmp;
+    }
+    return arr;
+  }
+
+  /**
+   * Upgrade a single-image hero into a dynamic carousel from JSON data.
+   */
+  function buildShowcaseCarousel(hero, projects) {
+    var imageDiv = hero.querySelector(".md-hero__image");
+    if (!imageDiv) return;
+
+    // Save original legend text for when we cycle back (index 0 = original)
+    var legendBody = hero.querySelector(".md-hero__legend-body");
+    var titleEl = legendBody && legendBody.querySelector(".md-hero__title");
+    var subtitleEl = legendBody && legendBody.querySelector(".md-hero__subtitle");
+    var origTitle = titleEl ? titleEl.textContent : "";
+    var origSubtitle = subtitleEl ? subtitleEl.textContent : "";
+
+    // Convert .md-hero__image into .md-hero__carousel
+    imageDiv.classList.add("md-hero__carousel");
+    imageDiv.style.backgroundImage = "none";
+
+    // Build slide elements
+    projects.forEach(function (p) {
+      var slide = document.createElement("div");
+      slide.className = "md-hero__slide";
+      slide.style.backgroundImage = "url('" + p.image + "')";
+
+      // "Ver projeto" link overlay
+      var link = document.createElement("a");
+      link.className = "md-hero__slide-link";
+      link.href = p.href;
+      link.textContent = "Ver projeto \u2192";
+      slide.appendChild(link);
+
+      // Insert before the inner grid (first child that isn't a slide)
+      var inner = imageDiv.querySelector(".md-hero__inner");
+      imageDiv.insertBefore(slide, inner);
+    });
+
+    // Build dots
+    var dotsContainer = document.createElement("div");
+    dotsContainer.className = "md-hero__dots";
+    projects.forEach(function (_, i) {
+      var dot = document.createElement("button");
+      dot.className = "md-hero__dot" + (i === 0 ? " md-hero__dot--active" : "");
+      dot.setAttribute("aria-label", "Slide " + (i + 1));
+      dot.dataset.slide = i;
+      dotsContainer.appendChild(dot);
+    });
+    imageDiv.appendChild(dotsContainer);
+
+    // Animate with legend text updates
+    runCarousel(imageDiv, {
+      legendBody: legendBody,
+      titleEl: titleEl,
+      subtitleEl: subtitleEl,
+      projects: projects,
+      origTitle: origTitle,
+      origSubtitle: origSubtitle,
+    });
+  }
+
+  /**
+   * Shared carousel engine — works for both static and dynamic slides.
+   * @param {Element} carousel — the .md-hero__carousel container
+   * @param {Object} [legend] — if provided, update legend text per slide (dynamic mode)
+   */
+  function runCarousel(carousel, legend) {
+    var slides = carousel.querySelectorAll(".md-hero__slide");
+    var dots = carousel.querySelectorAll(".md-hero__dot");
+    if (slides.length < 2) return;
+
+    var current = 0;
+    var timer = null;
+
+    function goTo(index) {
+      current = ((index % slides.length) + slides.length) % slides.length;
+      var tx = "-" + current * 100 + "%";
+      slides.forEach(function (slide) {
+        slide.style.transform = "translateX(" + tx + ")";
+      });
+      dots.forEach(function (dot, i) {
+        dot.classList.toggle("md-hero__dot--active", i === current);
+      });
+      if (legend) updateLegend(legend, current);
+    }
+
+    function next() {
+      goTo(current + 1);
+    }
+
+    function startTimer() {
+      stopTimer();
+      timer = setInterval(next, 5000);
+    }
+
+    function stopTimer() {
+      if (timer) {
+        clearInterval(timer);
+        timer = null;
+      }
+    }
+
+    dots.forEach(function (dot) {
+      dot.addEventListener("click", function () {
+        goTo(Number(dot.dataset.slide));
+        startTimer();
+      });
+    });
+
+    carousel.addEventListener("mouseenter", stopTimer);
+    carousel.addEventListener("mouseleave", startTimer);
+
+    // First slide — set legend immediately
+    if (legend) updateLegend(legend, 0);
+    startTimer();
+
+    window.__heroCarouselCleanup = function () {
+      stopTimer();
+      carousel.removeEventListener("mouseenter", stopTimer);
+      carousel.removeEventListener("mouseleave", startTimer);
+    };
+  }
+
+  /**
+   * Fade-swap legend text to match the current showcase slide.
+   */
+  function updateLegend(legend, index) {
+    if (!legend.legendBody) return;
+    var p = legend.projects[index];
+    var newTitle = p ? p.title : legend.origTitle;
+    var newSub = p ? (p.team ? p.team + " \u00b7 " + p.course : p.course) : legend.origSubtitle;
+
+    legend.legendBody.classList.add("md-hero__legend-body--fading");
+    setTimeout(function () {
+      if (legend.titleEl) legend.titleEl.textContent = newTitle;
+      if (legend.subtitleEl) legend.subtitleEl.textContent = newSub;
+      legend.legendBody.classList.remove("md-hero__legend-body--fading");
+    }, 150);
+  }
+
+  /**
    * Optional parallax effect for hero image
    */
   function setupParallax() {
     const heroImage = document.querySelector(".md-hero__image");
     if (!heroImage) return;
+
+    // Skip parallax for carousel heroes
+    if (heroImage.classList.contains("md-hero__carousel")) return;
 
     // Check for reduced motion preference
     const prefersReducedMotion = window.matchMedia(
@@ -324,6 +508,11 @@
     if (typeof window.__heroParallaxCleanup === "function") {
       window.__heroParallaxCleanup();
       delete window.__heroParallaxCleanup;
+    }
+
+    if (typeof window.__heroCarouselCleanup === "function") {
+      window.__heroCarouselCleanup();
+      delete window.__heroCarouselCleanup;
     }
 
     // Clean up sketch iframe observer

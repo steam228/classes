@@ -1,0 +1,254 @@
+<!doctype html>
+<html lang="pt">
+<head>
+<meta charset="utf-8">
+<title>Fundamentos H2I</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400..800&amp;display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible+Next:wght@400..700&amp;display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible+Mono:wght@400..700&amp;display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,400..700&amp;family=Public+Sans:wght@400..700&amp;family=IBM+Plex+Mono:wght@400;500&amp;family=Geist:wght@400..700&amp;family=Geist+Mono:wght@400..600&amp;display=swap">
+<style>
+body{margin:0}
+.h2i,.ty-A{--f-display:'Bricolage Grotesque','Helvetica Neue',Helvetica,sans-serif;--f-text:'Atkinson Hyperlegible Next',system-ui,-apple-system,'Segoe UI',sans-serif;--f-mono:'Atkinson Hyperlegible Mono',ui-monospace,'SF Mono',Menlo,monospace;--w-display:700;--ls-display:-0.025em}
+.h2i[data-type="B"],.ty-B{--f-display:'Newsreader',Georgia,'Times New Roman',serif;--f-text:'Public Sans',system-ui,-apple-system,'Segoe UI',sans-serif;--f-mono:'IBM Plex Mono',ui-monospace,Menlo,monospace;--w-display:600;--ls-display:-0.012em}
+.h2i[data-type="C"],.ty-C{--f-display:'Geist',system-ui,-apple-system,sans-serif;--f-text:'Geist',system-ui,-apple-system,sans-serif;--f-mono:'Geist Mono',ui-monospace,Menlo,monospace;--w-display:650;--ls-display:-0.035em}
+.h2i{--md-default-bg-color:#FAFBFC;--md-default-fg-color:#101318;--md-typeset-color:#272C33;--md-default-fg-color--light:#525A66;--md-default-fg-color--lighter:#7A8390;--md-default-fg-color--lightest:#DDE2E8;--md-code-bg-color:#F1F4F7;--md-code-fg-color:#1D2229;--md-primary-fg-color:#2C5EAD;--md-primary-bg-color:#FFFFFF;--md-accent-fg-color:#1591DC;--md-typeset-a-color:#2C5EAD;--h2i-surface-2:#E8EDF2;--h2i-tint:#E2F0F9;--h2i-tint-strong:#C4E2F5;--h2i-tint-fg:#2C5EAD;--h2i-hl:#C4E2F5;--h2i-glass:rgba(250,251,252,.74);--h2i-glass-solid:rgba(250,251,252,.94);--h2i-glass-line:rgba(16,19,24,.09);--h2i-field:rgba(16,19,24,.05);--h2i-dot:#CCD4DD;--h2i-shadow:0 1px 2px rgba(16,19,24,.06),0 10px 30px rgba(16,19,24,.10);--h2i-shadow-sm:0 1px 2px rgba(16,19,24,.06),0 3px 10px rgba(16,19,24,.06);--h2i-warn-bg:#FFF6E8;--h2i-warn-fg:#8A5300;--h2i-warn-line:#F1D9B0;--h2i-danger-bg:#FDEFEF;--h2i-danger-fg:#A12A2A;--h2i-danger-line:#F0CACA;--h2i-code-kw:#2C5EAD;--h2i-code-str:#8A5300;--h2i-code-com:#66707C;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
+.h2i[data-scheme="slate"]{--md-default-bg-color:#0E1116;--md-default-fg-color:#F2F5F8;--md-typeset-color:#CDD3DB;--md-default-fg-color--light:#9AA4B0;--md-default-fg-color--lighter:#6E7885;--md-default-fg-color--lightest:#262D36;--md-code-bg-color:#151A21;--md-code-fg-color:#DDE3EA;--md-primary-fg-color:#4BB8FA;--md-primary-bg-color:#07131F;--md-typeset-a-color:#4BB8FA;--h2i-surface-2:#1C222B;--h2i-tint:#12263A;--h2i-tint-strong:#1A3A57;--h2i-tint-fg:#4BB8FA;--h2i-hl:rgba(75,184,250,.2);--h2i-glass:rgba(14,17,22,.66);--h2i-glass-solid:rgba(14,17,22,.92);--h2i-glass-line:rgba(255,255,255,.08);--h2i-field:rgba(255,255,255,.07);--h2i-dot:#262E38;--h2i-shadow:0 1px 2px rgba(0,0,0,.4),0 12px 32px rgba(0,0,0,.5);--h2i-shadow-sm:0 1px 2px rgba(0,0,0,.4),0 3px 10px rgba(0,0,0,.35);--h2i-warn-bg:#231A0C;--h2i-warn-fg:#F0C37E;--h2i-warn-line:#46341A;--h2i-danger-bg:#261212;--h2i-danger-fg:#F2A7A7;--h2i-danger-line:#4A2323;--h2i-code-kw:#4BB8FA;--h2i-code-str:#F0C37E;--h2i-code-com:#8A95A2}
+.h2i a{color:inherit;text-decoration:none}
+.tx a{color:var(--md-typeset-a-color);text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:3px;text-decoration-color:color-mix(in srgb,var(--md-typeset-a-color) 45%,transparent);border-radius:2px}
+.tx a:hover{background:var(--h2i-hl);text-decoration-color:currentColor}
+.dots{background-image:radial-gradient(var(--h2i-dot) 1px,transparent 1.3px);background-size:16px 16px}
+</style>
+</helmet>
+<div class="h2i" data-scheme="{{scheme}}" data-type="{{pairing}}" style="width: 1440px; height: 3200px; box-sizing: border-box; padding: 88px 80px 80px; background: var(--md-default-bg-color); color: var(--md-typeset-color); font-family: var(--f-text); display: flex; flex-direction: column; gap: 80px; overflow: hidden">
+
+<section style="display: flex; justify-content: space-between; align-items: flex-end; gap: 48px; padding-bottom: 48px; border-bottom: 1px solid var(--md-default-fg-color--lightest)">
+<div style="display: flex; flex-direction: column; gap: 20px">
+<div style="display: flex; align-items: center; gap: 12px">
+<svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="color: var(--md-primary-fg-color)"><path d="M7 3.5c5-2 7 2.5 3 4C1.5 10 2 15 5 16c5 2 9-10 14-7s.5 13.5-4 12c-5-2.5.5-11 6-2"></path></svg>
+<span style="font-family: var(--f-mono); font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--md-default-fg-color--light)">H2I · Hack to Improve — sistema visual</span>
+</div>
+<h1 style="margin: 0; font-family: var(--f-display); font-weight: var(--w-display); letter-spacing: var(--ls-display); font-size: 96px; line-height: 0.95; color: var(--md-default-fg-color)">Fundamentos</h1>
+<p style="margin: 0; max-width: 660px; font-size: 19px; line-height: 1.55; color: var(--md-default-fg-color--light); text-wrap: pretty">Papel quase branco, tinta preta e cinza escura, azul só quando é preciso. Todos os valores estão escritos como variáveis do Zensical / Material, prontos para o extra.css.</p>
+</div>
+<div style="display: flex; flex-direction: column; gap: 8px; align-items: flex-end; font-family: var(--f-mono); font-size: 12px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--md-default-fg-color--light)">
+<span>Esquema · {{schemeLabel}}</span>
+<span>Tipografia · opção {{pairing}}</span>
+</div>
+</section>
+
+<section style="display: flex; flex-direction: column; gap: 28px">
+<div style="display: flex; align-items: baseline; gap: 20px">
+<span style="font-family: var(--f-mono); font-size: 13px; letter-spacing: 0.08em; color: var(--md-primary-fg-color)">01</span>
+<h2 style="margin: 0; font-family: var(--f-display); font-weight: var(--w-display); letter-spacing: var(--ls-display); font-size: 40px; line-height: 1.1; color: var(--md-default-fg-color)">Acentos</h2>
+<span style="font-size: 16px; color: var(--md-default-fg-color--light)">Os quatro azuis são os mesmos nos dois esquemas — o que muda é o papel de cada um.</span>
+</div>
+<div style="display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 24px">
+<div style="display: flex; flex-direction: column; border: 1px solid var(--md-default-fg-color--lightest); border-radius: 8px; overflow: hidden">
+<div style="height: 184px; box-sizing: border-box; padding: 20px; background: #2C5EAD; color: #FFFFFF; display: flex; flex-direction: column; justify-content: space-between">
+<span style="font-family: var(--f-display); font-weight: var(--w-display); font-size: 34px; letter-spacing: -0.02em">Aa</span>
+<span style="font-family: var(--f-mono); font-size: 13px">#2C5EAD · 6,3:1 c/ branco</span>
+</div>
+<div style="padding: 18px 20px 22px; display: flex; flex-direction: column; gap: 8px">
+<span style="font-family: var(--f-mono); font-size: 12.5px; color: var(--md-default-fg-color)">rgb(44, 94, 173)</span>
+<span style="font-family: var(--f-mono); font-size: 12px; color: var(--md-primary-fg-color)">--md-primary-fg-color · --md-typeset-a-color</span>
+<span style="font-size: 15px; line-height: 1.5; color: var(--md-default-fg-color--light)">Claro: links, botões, tab ativa, FAB do Zé, número das secções.</span>
+</div>
+</div>
+<div style="display: flex; flex-direction: column; border: 1px solid var(--md-default-fg-color--lightest); border-radius: 8px; overflow: hidden">
+<div style="height: 184px; box-sizing: border-box; padding: 20px; background: #1591DC; color: #101318; display: flex; flex-direction: column; justify-content: space-between">
+<span style="font-family: var(--f-display); font-weight: var(--w-display); font-size: 34px; letter-spacing: -0.02em">Aa</span>
+<span style="font-family: var(--f-mono); font-size: 13px">#1591DC · 5,4:1 c/ preto</span>
+</div>
+<div style="padding: 18px 20px 22px; display: flex; flex-direction: column; gap: 8px">
+<span style="font-family: var(--f-mono); font-size: 12.5px; color: var(--md-default-fg-color)">rgb(21, 145, 220)</span>
+<span style="font-family: var(--f-mono); font-size: 12px; color: var(--md-primary-fg-color)">--md-accent-fg-color</span>
+<span style="font-size: 15px; line-height: 1.5; color: var(--md-default-fg-color--light)">Indicadores: anel de foco, barra do índice ativo, ícones ativos. Nunca texto pequeno sobre branco (3,4:1).</span>
+</div>
+</div>
+<div style="display: flex; flex-direction: column; border: 1px solid var(--md-default-fg-color--lightest); border-radius: 8px; overflow: hidden">
+<div style="height: 184px; box-sizing: border-box; padding: 20px; background: #4BB8FA; color: #07131F; display: flex; flex-direction: column; justify-content: space-between">
+<span style="font-family: var(--f-display); font-weight: var(--w-display); font-size: 34px; letter-spacing: -0.02em">Aa</span>
+<span style="font-family: var(--f-mono); font-size: 13px">#4BB8FA · 8,6:1 sobre #0E1116</span>
+</div>
+<div style="padding: 18px 20px 22px; display: flex; flex-direction: column; gap: 8px">
+<span style="font-family: var(--f-mono); font-size: 12.5px; color: var(--md-default-fg-color)">rgb(75, 184, 250)</span>
+<span style="font-family: var(--f-mono); font-size: 12px; color: var(--md-primary-fg-color)">--md-primary-fg-color (slate)</span>
+<span style="font-size: 15px; line-height: 1.5; color: var(--md-default-fg-color--light)">Escuro: links, botões, tab ativa. No claro é só gráfico — pontos, diagramas, barras do Gantt.</span>
+</div>
+</div>
+<div style="display: flex; flex-direction: column; border: 1px solid var(--md-default-fg-color--lightest); border-radius: 8px; overflow: hidden">
+<div style="height: 184px; box-sizing: border-box; padding: 20px; background: #C4E2F5; color: #101318; display: flex; flex-direction: column; justify-content: space-between">
+<span style="font-family: var(--f-display); font-weight: var(--w-display); font-size: 34px; letter-spacing: -0.02em; color: #2C5EAD">Aa</span>
+<span style="font-family: var(--f-mono); font-size: 13px">#C4E2F5 · #2C5EAD por cima 4,7:1</span>
+</div>
+<div style="padding: 18px 20px 22px; display: flex; flex-direction: column; gap: 8px">
+<span style="font-family: var(--f-mono); font-size: 12.5px; color: var(--md-default-fg-color)">rgb(196, 226, 245)</span>
+<span style="font-family: var(--f-mono); font-size: 12px; color: var(--md-primary-fg-color)">--h2i-hl · --h2i-tint-strong</span>
+<span style="font-size: 15px; line-height: 1.5; color: var(--md-default-fg-color--light)">Marcador: realce de hover dos links, item selecionado, chips, linha destacada no código.</span>
+</div>
+</div>
+</div>
+</section>
+
+<section style="display: flex; flex-direction: column; gap: 28px">
+<div style="display: flex; align-items: baseline; gap: 20px">
+<span style="font-family: var(--f-mono); font-size: 13px; letter-spacing: 0.08em; color: var(--md-primary-fg-color)">02</span>
+<h2 style="margin: 0; font-family: var(--f-display); font-weight: var(--w-display); letter-spacing: var(--ls-display); font-size: 40px; line-height: 1.1; color: var(--md-default-fg-color)">Neutros</h2>
+<span style="font-size: 16px; color: var(--md-default-fg-color--light)">Branco-papel com um toque frio, texto em cinza escuro, títulos a preto.</span>
+</div>
+<div style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px">
+<div style="background: #FAFBFC; border: 1px solid #DDE2E8; border-radius: 12px; padding: 28px; display: flex; flex-direction: column; gap: 4px; color: #272C33">
+<div style="display: flex; justify-content: space-between; align-items: baseline; padding-bottom: 14px; margin-bottom: 6px; border-bottom: 1px solid #DDE2E8">
+<span style="font-family: var(--f-display); font-weight: var(--w-display); font-size: 22px; color: #101318">Claro</span>
+<span style="font-family: var(--f-mono); font-size: 12px; letter-spacing: 0.08em; text-transform: uppercase; color: #525A66">scheme = "default"</span>
+</div>
+<div style="display: grid; grid-template-columns: 44px 290px 84px 1fr; gap: 16px; align-items: center; height: 50px"><span style="width: 44px; height: 32px; border-radius: 6px; background: #FAFBFC; border: 1px solid #DDE2E8"></span><span style="font-family: var(--f-mono); font-size: 12.5px; color: #101318">--md-default-bg-color</span><span style="font-family: var(--f-mono); font-size: 12.5px; color: #525A66">#FAFBFC</span><span style="font-size: 14.5px; color: #525A66">Papel — fundo de página</span></div>
+<div style="display: grid; grid-template-columns: 44px 290px 84px 1fr; gap: 16px; align-items: center; height: 50px"><span style="width: 44px; height: 32px; border-radius: 6px; background: #F1F4F7; border: 1px solid #DDE2E8"></span><span style="font-family: var(--f-mono); font-size: 12.5px; color: #101318">--md-code-bg-color</span><span style="font-family: var(--f-mono); font-size: 12.5px; color: #525A66">#F1F4F7</span><span style="font-size: 14.5px; color: #525A66">Superfície — código, cartões, Zé</span></div>
+<div style="display: grid; grid-template-columns: 44px 290px 84px 1fr; gap: 16px; align-items: center; height: 50px"><span style="width: 44px; height: 32px; border-radius: 6px; background: #E8EDF2"></span><span style="font-family: var(--f-mono); font-size: 12.5px; color: #101318">--h2i-surface-2</span><span style="font-family: var(--f-mono); font-size: 12.5px; color: #525A66">#E8EDF2</span><span style="font-size: 14.5px; color: #525A66">Hover e pressionado</span></div>
+<div style="display: grid; grid-template-columns: 44px 290px 84px 1fr; gap: 16px; align-items: center; height: 50px"><span style="width: 44px; height: 32px; border-radius: 6px; background: #DDE2E8"></span><span style="font-family: var(--f-mono); font-size: 12.5px; color: #101318">--md-default-fg-color--lightest</span><span style="font-family: var(--f-mono); font-size: 12.5px; color: #525A66">#DDE2E8</span><span style="font-size: 14.5px; color: #525A66">Linhas, bordas, divisórias</span></div>
+<div style="display: grid; grid-template-columns: 44px 290px 84px 1fr; gap: 16px; align-items: center; height: 50px"><span style="width: 44px; height: 32px; border-radius: 6px; background: #7A8390"></span><span style="font-family: var(--f-mono); font-size: 12.5px; color: #101318">--md-default-fg-color--lighter</span><span style="font-family: var(--f-mono); font-size: 12.5px; color: #525A66">#7A8390</span><span style="font-size: 14.5px; color: #525A66">Ícones inativos · 3,7:1</span></div>
+<div style="display: grid; grid-template-columns: 44px 290px 84px 1fr; gap: 16px; align-items: center; height: 50px"><span style="width: 44px; height: 32px; border-radius: 6px; background: #525A66"></span><span style="font-family: var(--f-mono); font-size: 12.5px; color: #101318">--md-default-fg-color--light</span><span style="font-family: var(--f-mono); font-size: 12.5px; color: #525A66">#525A66</span><span style="font-size: 14.5px; color: #525A66">Texto secundário · 6,8:1</span></div>
+<div style="display: grid; grid-template-columns: 44px 290px 84px 1fr; gap: 16px; align-items: center; height: 50px"><span style="width: 44px; height: 32px; border-radius: 6px; background: #272C33"></span><span style="font-family: var(--f-mono); font-size: 12.5px; color: #101318">--md-typeset-color</span><span style="font-family: var(--f-mono); font-size: 12.5px; color: #525A66">#272C33</span><span style="font-size: 14.5px; color: #525A66">Texto corrido, cinza escuro · 13:1</span></div>
+<div style="display: grid; grid-template-columns: 44px 290px 84px 1fr; gap: 16px; align-items: center; height: 50px"><span style="width: 44px; height: 32px; border-radius: 6px; background: #101318"></span><span style="font-family: var(--f-mono); font-size: 12.5px; color: #101318">--md-default-fg-color</span><span style="font-family: var(--f-mono); font-size: 12.5px; color: #525A66">#101318</span><span style="font-size: 14.5px; color: #525A66">Títulos, preto · 18:1</span></div>
+<div style="display: flex; gap: 12px; margin-top: 18px">
+<span style="padding: 8px 12px; border-radius: 6px; background: #FFF6E8; border: 1px solid #F1D9B0; color: #8A5300; font-family: var(--f-mono); font-size: 12px">Aviso #8A5300 / #FFF6E8</span>
+<span style="padding: 8px 12px; border-radius: 6px; background: #FDEFEF; border: 1px solid #F0CACA; color: #A12A2A; font-family: var(--f-mono); font-size: 12px">Perigo #A12A2A / #FDEFEF</span>
+</div>
+</div>
+<div style="background: #0E1116; border: 1px solid #262D36; border-radius: 12px; padding: 28px; display: flex; flex-direction: column; gap: 4px; color: #CDD3DB">
+<div style="display: flex; justify-content: space-between; align-items: baseline; padding-bottom: 14px; margin-bottom: 6px; border-bottom: 1px solid #262D36">
+<span style="font-family: var(--f-display); font-weight: var(--w-display); font-size: 22px; color: #F2F5F8">Escuro</span>
+<span style="font-family: var(--f-mono); font-size: 12px; letter-spacing: 0.08em; text-transform: uppercase; color: #9AA4B0">scheme = "slate"</span>
+</div>
+<div style="display: grid; grid-template-columns: 44px 290px 84px 1fr; gap: 16px; align-items: center; height: 50px"><span style="width: 44px; height: 32px; border-radius: 6px; background: #0E1116; border: 1px solid #262D36"></span><span style="font-family: var(--f-mono); font-size: 12.5px; color: #F2F5F8">--md-default-bg-color</span><span style="font-family: var(--f-mono); font-size: 12.5px; color: #9AA4B0">#0E1116</span><span style="font-size: 14.5px; color: #9AA4B0">Fundo</span></div>
+<div style="display: grid; grid-template-columns: 44px 290px 84px 1fr; gap: 16px; align-items: center; height: 50px"><span style="width: 44px; height: 32px; border-radius: 6px; background: #151A21; border: 1px solid #262D36"></span><span style="font-family: var(--f-mono); font-size: 12.5px; color: #F2F5F8">--md-code-bg-color</span><span style="font-family: var(--f-mono); font-size: 12.5px; color: #9AA4B0">#151A21</span><span style="font-size: 14.5px; color: #9AA4B0">Superfície — código, cartões, Zé</span></div>
+<div style="display: grid; grid-template-columns: 44px 290px 84px 1fr; gap: 16px; align-items: center; height: 50px"><span style="width: 44px; height: 32px; border-radius: 6px; background: #1C222B"></span><span style="font-family: var(--f-mono); font-size: 12.5px; color: #F2F5F8">--h2i-surface-2</span><span style="font-family: var(--f-mono); font-size: 12.5px; color: #9AA4B0">#1C222B</span><span style="font-size: 14.5px; color: #9AA4B0">Hover e pressionado</span></div>
+<div style="display: grid; grid-template-columns: 44px 290px 84px 1fr; gap: 16px; align-items: center; height: 50px"><span style="width: 44px; height: 32px; border-radius: 6px; background: #262D36"></span><span style="font-family: var(--f-mono); font-size: 12.5px; color: #F2F5F8">--md-default-fg-color--lightest</span><span style="font-family: var(--f-mono); font-size: 12.5px; color: #9AA4B0">#262D36</span><span style="font-size: 14.5px; color: #9AA4B0">Linhas, bordas, divisórias</span></div>
+<div style="display: grid; grid-template-columns: 44px 290px 84px 1fr; gap: 16px; align-items: center; height: 50px"><span style="width: 44px; height: 32px; border-radius: 6px; background: #6E7885"></span><span style="font-family: var(--f-mono); font-size: 12.5px; color: #F2F5F8">--md-default-fg-color--lighter</span><span style="font-family: var(--f-mono); font-size: 12.5px; color: #9AA4B0">#6E7885</span><span style="font-size: 14.5px; color: #9AA4B0">Ícones inativos · 4,1:1</span></div>
+<div style="display: grid; grid-template-columns: 44px 290px 84px 1fr; gap: 16px; align-items: center; height: 50px"><span style="width: 44px; height: 32px; border-radius: 6px; background: #9AA4B0"></span><span style="font-family: var(--f-mono); font-size: 12.5px; color: #F2F5F8">--md-default-fg-color--light</span><span style="font-family: var(--f-mono); font-size: 12.5px; color: #9AA4B0">#9AA4B0</span><span style="font-size: 14.5px; color: #9AA4B0">Texto secundário · 7,4:1</span></div>
+<div style="display: grid; grid-template-columns: 44px 290px 84px 1fr; gap: 16px; align-items: center; height: 50px"><span style="width: 44px; height: 32px; border-radius: 6px; background: #CDD3DB"></span><span style="font-family: var(--f-mono); font-size: 12.5px; color: #F2F5F8">--md-typeset-color</span><span style="font-family: var(--f-mono); font-size: 12.5px; color: #9AA4B0">#CDD3DB</span><span style="font-size: 14.5px; color: #9AA4B0">Texto corrido · 12:1</span></div>
+<div style="display: grid; grid-template-columns: 44px 290px 84px 1fr; gap: 16px; align-items: center; height: 50px"><span style="width: 44px; height: 32px; border-radius: 6px; background: #F2F5F8"></span><span style="font-family: var(--f-mono); font-size: 12.5px; color: #F2F5F8">--md-default-fg-color</span><span style="font-family: var(--f-mono); font-size: 12.5px; color: #9AA4B0">#F2F5F8</span><span style="font-size: 14.5px; color: #9AA4B0">Títulos · 17:1</span></div>
+<div style="display: flex; gap: 12px; margin-top: 18px">
+<span style="padding: 8px 12px; border-radius: 6px; background: #231A0C; border: 1px solid #46341A; color: #F0C37E; font-family: var(--f-mono); font-size: 12px">Aviso #F0C37E / #231A0C</span>
+<span style="padding: 8px 12px; border-radius: 6px; background: #261212; border: 1px solid #4A2323; color: #F2A7A7; font-family: var(--f-mono); font-size: 12px">Perigo #F2A7A7 / #261212</span>
+</div>
+</div>
+</div>
+</section>
+
+<section style="display: flex; flex-direction: column; gap: 28px">
+<div style="display: flex; align-items: baseline; gap: 20px">
+<span style="font-family: var(--f-mono); font-size: 13px; letter-spacing: 0.08em; color: var(--md-primary-fg-color)">03</span>
+<h2 style="margin: 0; font-family: var(--f-display); font-weight: var(--w-display); letter-spacing: var(--ls-display); font-size: 40px; line-height: 1.1; color: var(--md-default-fg-color)">Tipografia</h2>
+<span style="font-size: 16px; color: var(--md-default-fg-color--light)">Três famílias: display para títulos, texto para ler muito, mono para código e rótulos.</span>
+</div>
+<div style="display: grid; grid-template-columns: 320px 1fr; gap: 48px">
+<div style="display: flex; flex-direction: column; gap: 20px; padding: 28px; border-radius: 12px; background: var(--md-code-bg-color); align-self: start">
+<div style="display: flex; flex-direction: column; gap: 6px"><span style="font-family: var(--f-mono); font-size: 11.5px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--md-default-fg-color--light)">Display</span><span style="font-family: var(--f-display); font-weight: var(--w-display); letter-spacing: var(--ls-display); font-size: 26px; line-height: 1.15; color: var(--md-default-fg-color)">{{fontDisplay}}</span></div>
+<div style="display: flex; flex-direction: column; gap: 6px"><span style="font-family: var(--f-mono); font-size: 11.5px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--md-default-fg-color--light)">Texto · theme.font.text</span><span style="font-family: var(--f-text); font-size: 20px; line-height: 1.25; color: var(--md-default-fg-color)">{{fontText}}</span></div>
+<div style="display: flex; flex-direction: column; gap: 6px"><span style="font-family: var(--f-mono); font-size: 11.5px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--md-default-fg-color--light)">Mono · theme.font.code</span><span style="font-family: var(--f-mono); font-size: 17px; line-height: 1.3; color: var(--md-default-fg-color)">{{fontMono}}</span></div>
+<p style="margin: 0; font-size: 14.5px; line-height: 1.55; color: var(--md-default-fg-color--light)">Muda a opção em Tweaks para ver A, B ou C aplicadas a esta escala.</p>
+</div>
+<div style="display: flex; flex-direction: column">
+<div style="display: grid; grid-template-columns: 110px 1fr 200px; gap: 24px; align-items: center; padding: 20px 0; border-top: 1px solid var(--md-default-fg-color--lightest)"><span style="font-family: var(--f-mono); font-size: 12px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--md-default-fg-color--light)">Hero</span><span style="font-family: var(--f-display); font-weight: var(--w-display); letter-spacing: var(--ls-display); font-size: 72px; line-height: 1; color: var(--md-default-fg-color)">Design de Inovação</span><span style="font-family: var(--f-mono); font-size: 12.5px; color: var(--md-default-fg-color--light)">display · 72/72 (clamp 40→72)</span></div>
+<div style="display: grid; grid-template-columns: 110px 1fr 200px; gap: 24px; align-items: center; padding: 20px 0; border-top: 1px solid var(--md-default-fg-color--lightest)"><span style="font-family: var(--f-mono); font-size: 12px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--md-default-fg-color--light)">H1</span><span style="font-family: var(--f-display); font-weight: var(--w-display); letter-spacing: var(--ls-display); font-size: 44px; line-height: 1.1; color: var(--md-default-fg-color)">Aula 1 — Código Criativo I</span><span style="font-family: var(--f-mono); font-size: 12.5px; color: var(--md-default-fg-color--light)">display · 44/48</span></div>
+<div style="display: grid; grid-template-columns: 110px 1fr 200px; gap: 24px; align-items: center; padding: 20px 0; border-top: 1px solid var(--md-default-fg-color--lightest)"><span style="font-family: var(--f-mono); font-size: 12px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--md-default-fg-color--light)">H2</span><span style="display: flex; align-items: baseline; gap: 14px"><span style="font-family: var(--f-mono); font-size: 14px; color: var(--md-primary-fg-color)">03</span><span style="font-family: var(--f-display); font-weight: var(--w-display); letter-spacing: var(--ls-display); font-size: 30px; line-height: 1.2; color: var(--md-default-fg-color)">Notas da Aula</span></span><span style="font-family: var(--f-mono); font-size: 12.5px; color: var(--md-default-fg-color--light)">display · 30/36 · nº por CSS counter</span></div>
+<div style="display: grid; grid-template-columns: 110px 1fr 200px; gap: 24px; align-items: center; padding: 20px 0; border-top: 1px solid var(--md-default-fg-color--lightest)"><span style="font-family: var(--f-mono); font-size: 12px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--md-default-fg-color--light)">H3</span><span style="font-family: var(--f-text); font-weight: 700; font-size: 21px; line-height: 1.3; color: var(--md-default-fg-color)">Conceitos introduzidos</span><span style="font-family: var(--f-mono); font-size: 12.5px; color: var(--md-default-fg-color--light)">texto 700 · 21/28</span></div>
+<div style="display: grid; grid-template-columns: 110px 1fr 200px; gap: 24px; align-items: center; padding: 20px 0; border-top: 1px solid var(--md-default-fg-color--lightest)"><span style="font-family: var(--f-mono); font-size: 12px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--md-default-fg-color--light)">Corpo</span><p class="tx" style="margin: 0; max-width: 640px; font-family: var(--f-text); font-size: 17px; line-height: 1.65; color: var(--md-typeset-color); text-wrap: pretty">Esta página é um repositório de recursos educativos que apoiam as <strong style="color: var(--md-default-fg-color)">Unidades Curriculares que leciono</strong> em ambas as instituições, combinando enquadramentos teóricos e práticas <em>hands-on</em> de fabricação digital — com o <a href="#">Fablab Benfica</a>.</p><span style="font-family: var(--f-mono); font-size: 12.5px; color: var(--md-default-fg-color--light)">texto 400 · 17/28 · máx. 72ch</span></div>
+<div style="display: grid; grid-template-columns: 110px 1fr 200px; gap: 24px; align-items: center; padding: 20px 0; border-top: 1px solid var(--md-default-fg-color--lightest)"><span style="font-family: var(--f-mono); font-size: 12px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--md-default-fg-color--light)">Pequeno</span><span style="font-family: var(--f-text); font-size: 14.5px; line-height: 1.5; color: var(--md-default-fg-color--light)">Página Inicial  ›  Design de Inovação  ›  Sumários</span><span style="font-family: var(--f-mono); font-size: 12.5px; color: var(--md-default-fg-color--light)">texto 400 · 14.5/22</span></div>
+<div style="display: grid; grid-template-columns: 110px 1fr 200px; gap: 24px; align-items: center; padding: 20px 0; border-top: 1px solid var(--md-default-fg-color--lightest)"><span style="font-family: var(--f-mono); font-size: 12px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--md-default-fg-color--light)">Rótulo</span><span style="font-family: var(--f-mono); font-weight: 500; font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--md-default-fg-color)">Índice · Anterior · Próximo · Arquivo</span><span style="font-family: var(--f-mono); font-size: 12.5px; color: var(--md-default-fg-color--light)">mono 500 · 12 · +0,1em</span></div>
+<div style="display: grid; grid-template-columns: 110px 1fr 200px; gap: 24px; align-items: center; padding: 20px 0; border-top: 1px solid var(--md-default-fg-color--lightest); border-bottom: 1px solid var(--md-default-fg-color--lightest)"><span style="font-family: var(--f-mono); font-size: 12px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--md-default-fg-color--light)">Código</span><span style="font-family: var(--f-mono); font-size: 14.5px; line-height: 1.6; color: var(--md-code-fg-color)"><span style="color: var(--h2i-code-kw)">for</span> (<span style="color: var(--h2i-code-kw)">let</span> i = <span style="color: var(--h2i-code-kw)">0</span>; i &lt; <span style="color: var(--h2i-code-kw)">10</span>; i++) { <strong>ellipse</strong>(i * <span style="color: var(--h2i-code-kw)">40</span>, <span style="color: var(--h2i-code-kw)">200</span>, <span style="color: var(--h2i-code-kw)">30</span>); }</span><span style="font-family: var(--f-mono); font-size: 12.5px; color: var(--md-default-fg-color--light)">mono 400 · 14.5/23</span></div>
+</div>
+</div>
+</section>
+
+<section style="display: flex; flex-direction: column; gap: 28px">
+<div style="display: flex; align-items: baseline; gap: 20px">
+<span style="font-family: var(--f-mono); font-size: 13px; letter-spacing: 0.08em; color: var(--md-primary-fg-color)">04</span>
+<h2 style="margin: 0; font-family: var(--f-display); font-weight: var(--w-display); letter-spacing: var(--ls-display); font-size: 40px; line-height: 1.1; color: var(--md-default-fg-color)">Forma</h2>
+<span style="font-size: 16px; color: var(--md-default-fg-color--light)">Espaço em múltiplos de 4, poucos raios, sombras só para o que flutua.</span>
+</div>
+<div style="display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 24px">
+<div style="border: 1px solid var(--md-default-fg-color--lightest); border-radius: 12px; padding: 24px; display: flex; flex-direction: column; gap: 16px">
+<span style="font-family: var(--f-mono); font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--md-default-fg-color--light)">Espaçamento</span>
+<div style="display: flex; flex-direction: column; gap: 10px">
+<div style="display: flex; align-items: center; gap: 12px"><span style="width: 4px; height: 12px; background: var(--md-primary-fg-color)"></span><span style="font-family: var(--f-mono); font-size: 12px; color: var(--md-default-fg-color--light)">4</span></div>
+<div style="display: flex; align-items: center; gap: 12px"><span style="width: 8px; height: 12px; background: var(--md-primary-fg-color)"></span><span style="font-family: var(--f-mono); font-size: 12px; color: var(--md-default-fg-color--light)">8</span></div>
+<div style="display: flex; align-items: center; gap: 12px"><span style="width: 16px; height: 12px; background: var(--md-primary-fg-color)"></span><span style="font-family: var(--f-mono); font-size: 12px; color: var(--md-default-fg-color--light)">16</span></div>
+<div style="display: flex; align-items: center; gap: 12px"><span style="width: 24px; height: 12px; background: var(--md-primary-fg-color)"></span><span style="font-family: var(--f-mono); font-size: 12px; color: var(--md-default-fg-color--light)">24</span></div>
+<div style="display: flex; align-items: center; gap: 12px"><span style="width: 32px; height: 12px; background: var(--md-primary-fg-color)"></span><span style="font-family: var(--f-mono); font-size: 12px; color: var(--md-default-fg-color--light)">32</span></div>
+<div style="display: flex; align-items: center; gap: 12px"><span style="width: 48px; height: 12px; background: var(--md-primary-fg-color)"></span><span style="font-family: var(--f-mono); font-size: 12px; color: var(--md-default-fg-color--light)">48</span></div>
+<div style="display: flex; align-items: center; gap: 12px"><span style="width: 64px; height: 12px; background: var(--md-primary-fg-color)"></span><span style="font-family: var(--f-mono); font-size: 12px; color: var(--md-default-fg-color--light)">64</span></div>
+<div style="display: flex; align-items: center; gap: 12px"><span style="width: 96px; height: 12px; background: var(--md-primary-fg-color)"></span><span style="font-family: var(--f-mono); font-size: 12px; color: var(--md-default-fg-color--light)">96</span></div>
+</div>
+</div>
+<div style="border: 1px solid var(--md-default-fg-color--lightest); border-radius: 12px; padding: 24px; display: flex; flex-direction: column; gap: 16px">
+<span style="font-family: var(--f-mono); font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--md-default-fg-color--light)">Raios</span>
+<div style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px">
+<div style="display: flex; flex-direction: column; gap: 8px"><span style="height: 64px; border-radius: 4px; background: var(--h2i-tint); border: 1px solid var(--h2i-tint-strong)"></span><span style="font-size: 13.5px; color: var(--md-default-fg-color--light)">4 · legenda do hero, badges</span></div>
+<div style="display: flex; flex-direction: column; gap: 8px"><span style="height: 64px; border-radius: 8px; background: var(--h2i-tint); border: 1px solid var(--h2i-tint-strong)"></span><span style="font-size: 13.5px; color: var(--md-default-fg-color--light)">8 · botões, código, cartões</span></div>
+<div style="display: flex; flex-direction: column; gap: 8px"><span style="height: 64px; border-radius: 14px; background: var(--h2i-tint); border: 1px solid var(--h2i-tint-strong)"></span><span style="font-size: 13.5px; color: var(--md-default-fg-color--light)">14 · painéis, Zé</span></div>
+<div style="display: flex; flex-direction: column; gap: 8px"><span style="height: 64px; border-radius: 999px; background: var(--h2i-tint); border: 1px solid var(--h2i-tint-strong)"></span><span style="font-size: 13.5px; color: var(--md-default-fg-color--light)">999 · chips, FAB</span></div>
+</div>
+</div>
+<div style="border: 1px solid var(--md-default-fg-color--lightest); border-radius: 12px; padding: 24px; display: flex; flex-direction: column; gap: 16px; background: var(--md-code-bg-color)">
+<span style="font-family: var(--f-mono); font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--md-default-fg-color--light)">Elevação</span>
+<div style="display: flex; flex-direction: column; gap: 20px; padding-top: 4px">
+<div style="height: 72px; border-radius: 8px; background: var(--md-default-bg-color); box-shadow: var(--h2i-shadow-sm); display: flex; align-items: center; padding: 0 16px; font-size: 13.5px; color: var(--md-default-fg-color--light)">1 · cartão em hover</div>
+<div style="height: 72px; border-radius: 8px; background: var(--md-default-bg-color); box-shadow: var(--h2i-shadow); display: flex; align-items: center; padding: 0 16px; font-size: 13.5px; color: var(--md-default-fg-color--light)">2 · legenda, Zé, lightbox</div>
+</div>
+</div>
+<div style="border: 1px solid var(--md-default-fg-color--lightest); border-radius: 12px; overflow: hidden; display: flex; flex-direction: column">
+<div class="dots" style="flex-grow: 1; min-height: 190px; background-color: var(--md-default-bg-color); display: flex; align-items: flex-end; padding: 20px">
+<span style="font-family: var(--f-display); font-weight: var(--w-display); letter-spacing: var(--ls-display); font-size: 28px; color: var(--md-default-fg-color)">Papel pontilhado</span>
+</div>
+<div style="padding: 16px 20px 20px; border-top: 1px solid var(--md-default-fg-color--lightest); font-size: 14px; line-height: 1.5; color: var(--md-default-fg-color--light)">Grelha de 16 px do caderno. Hero sem imagem, estados vazios, rodapé.</div>
+</div>
+</div>
+</section>
+
+<section style="display: flex; flex-direction: column; gap: 28px">
+<div style="display: flex; align-items: baseline; gap: 20px">
+<span style="font-family: var(--f-mono); font-size: 13px; letter-spacing: 0.08em; color: var(--md-primary-fg-color)">05</span>
+<h2 style="margin: 0; font-family: var(--f-display); font-weight: var(--w-display); letter-spacing: var(--ls-display); font-size: 40px; line-height: 1.1; color: var(--md-default-fg-color)">Sempre responsivo</h2>
+<span style="font-size: 16px; color: var(--md-default-fg-color--light)">Os pontos de quebra do Material, sem inventar novos.</span>
+</div>
+<div style="display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); border: 1px solid var(--md-default-fg-color--lightest); border-radius: 12px; overflow: hidden">
+<div style="padding: 24px; display: flex; flex-direction: column; gap: 10px; border-right: 1px solid var(--md-default-fg-color--lightest)"><span style="font-family: var(--f-mono); font-size: 12px; letter-spacing: 0.08em; color: var(--md-primary-fg-color)">≤ 719 px</span><span style="font-family: var(--f-display); font-weight: var(--w-display); font-size: 22px; color: var(--md-default-fg-color)">Telemóvel</span><span style="font-size: 14.5px; line-height: 1.55; color: var(--md-default-fg-color--light)">Cabeçalho de 56 px em vidro. Navegação em gaveta. Legenda do hero em largura total, a sobrepor 40 px. Zé em ecrã inteiro.</span></div>
+<div style="padding: 24px; display: flex; flex-direction: column; gap: 10px; border-right: 1px solid var(--md-default-fg-color--lightest)"><span style="font-family: var(--f-mono); font-size: 12px; letter-spacing: 0.08em; color: var(--md-primary-fg-color)">720 – 1219 px</span><span style="font-family: var(--f-display); font-weight: var(--w-display); font-size: 22px; color: var(--md-default-fg-color)">Tablet</span><span style="font-size: 14.5px; line-height: 1.55; color: var(--md-default-fg-color--light)">Sem tabs nem índice lateral: tudo na gaveta. Galeria a 3 colunas (mín. 220 px por cartão).</span></div>
+<div style="padding: 24px; display: flex; flex-direction: column; gap: 10px; border-right: 1px solid var(--md-default-fg-color--lightest)"><span style="font-family: var(--f-mono); font-size: 12px; letter-spacing: 0.08em; color: var(--md-primary-fg-color)">≥ 1220 px</span><span style="font-family: var(--f-display); font-weight: var(--w-display); font-size: 22px; color: var(--md-default-fg-color)">Desktop</span><span style="font-size: 14.5px; line-height: 1.55; color: var(--md-default-fg-color--light)">Tabs no cabeçalho, sidebar e índice visíveis. Grelha 248 · 760 · 224 com 64 px entre colunas.</span></div>
+<div style="padding: 24px; display: flex; flex-direction: column; gap: 10px"><span style="font-family: var(--f-mono); font-size: 12px; letter-spacing: 0.08em; color: var(--md-primary-fg-color)">≥ 1600 px</span><span style="font-family: var(--f-display); font-weight: var(--w-display); font-size: 22px; color: var(--md-default-fg-color)">Largo</span><span style="font-size: 14.5px; line-height: 1.55; color: var(--md-default-fg-color--light)">Grelha máx. 1440 px centrada; o hero continua de ponta a ponta.</span></div>
+</div>
+</section>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"scheme":{"editor":"enum","options":["default","slate"],"default":"default","section":"Tema"},"pairing":{"editor":"enum","options":["A","B","C"],"default":"A","section":"Tema"},"$preview":{"width":1440,"height":3200}}'>
+class Component extends DCLogic {
+  renderVals() {
+    const scheme = this.props.scheme ?? 'default';
+    const pairing = this.props.pairing ?? 'A';
+    const fonts = {
+      A: ['Bricolage Grotesque', 'Atkinson Hyperlegible Next', 'Atkinson Hyperlegible Mono'],
+      B: ['Newsreader', 'Public Sans', 'IBM Plex Mono'],
+      C: ['Geist', 'Geist', 'Geist Mono']
+    }[pairing] || ['Bricolage Grotesque', 'Atkinson Hyperlegible Next', 'Atkinson Hyperlegible Mono'];
+    return {
+      scheme,
+      pairing,
+      schemeLabel: scheme === 'slate' ? 'escuro (slate)' : 'claro (default)',
+      fontDisplay: fonts[0],
+      fontText: fonts[1],
+      fontMono: fonts[2]
+    };
+  }
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="pt">
+<head>
+<meta charset="utf-8">
+<title>Tipografia — opções</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400..800&amp;display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible+Next:wght@400..700&amp;display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible+Mono:wght@400..700&amp;display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,400..700&amp;family=Public+Sans:wght@400..700&amp;family=IBM+Plex+Mono:wght@400;500&amp;family=Geist:wght@400..700&amp;family=Geist+Mono:wght@400..600&amp;display=swap">
+<style>
+body{margin:0}
+.h2i,.ty-A{--f-display:'Bricolage Grotesque','Helvetica Neue',Helvetica,sans-serif;--f-text:'Atkinson Hyperlegible Next',system-ui,-apple-system,'Segoe UI',sans-serif;--f-mono:'Atkinson Hyperlegible Mono',ui-monospace,'SF Mono',Menlo,monospace;--w-display:700;--ls-display:-0.025em}
+.h2i[data-type="B"],.ty-B{--f-display:'Newsreader',Georgia,'Times New Roman',serif;--f-text:'Public Sans',system-ui,-apple-system,'Segoe UI',sans-serif;--f-mono:'IBM Plex Mono',ui-monospace,Menlo,monospace;--w-display:600;--ls-display:-0.012em}
+.h2i[data-type="C"],.ty-C{--f-display:'Geist',system-ui,-apple-system,sans-serif;--f-text:'Geist',system-ui,-apple-system,sans-serif;--f-mono:'Geist Mono',ui-monospace,Menlo,monospace;--w-display:650;--ls-display:-0.035em}
+.h2i{--md-default-bg-color:#FAFBFC;--md-default-fg-color:#101318;--md-typeset-color:#272C33;--md-default-fg-color--light:#525A66;--md-default-fg-color--lighter:#7A8390;--md-default-fg-color--lightest:#DDE2E8;--md-code-bg-color:#F1F4F7;--md-code-fg-color:#1D2229;--md-primary-fg-color:#2C5EAD;--md-primary-bg-color:#FFFFFF;--md-accent-fg-color:#1591DC;--md-typeset-a-color:#2C5EAD;--h2i-surface-2:#E8EDF2;--h2i-tint:#E2F0F9;--h2i-tint-strong:#C4E2F5;--h2i-tint-fg:#2C5EAD;--h2i-hl:#C4E2F5;--h2i-dot:#CCD4DD;--h2i-shadow:0 1px 2px rgba(16,19,24,.06),0 10px 30px rgba(16,19,24,.10);--h2i-code-kw:#2C5EAD;--h2i-code-str:#8A5300;--h2i-code-com:#66707C;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
+.h2i[data-scheme="slate"]{--md-default-bg-color:#0E1116;--md-default-fg-color:#F2F5F8;--md-typeset-color:#CDD3DB;--md-default-fg-color--light:#9AA4B0;--md-default-fg-color--lighter:#6E7885;--md-default-fg-color--lightest:#262D36;--md-code-bg-color:#151A21;--md-code-fg-color:#DDE3EA;--md-primary-fg-color:#4BB8FA;--md-primary-bg-color:#07131F;--md-typeset-a-color:#4BB8FA;--h2i-surface-2:#1C222B;--h2i-tint:#12263A;--h2i-tint-strong:#1A3A57;--h2i-tint-fg:#4BB8FA;--h2i-hl:rgba(75,184,250,.2);--h2i-dot:#262E38;--h2i-shadow:0 1px 2px rgba(0,0,0,.4),0 12px 32px rgba(0,0,0,.5);--h2i-code-kw:#4BB8FA;--h2i-code-str:#F0C37E;--h2i-code-com:#8A95A2}
+.h2i a{color:inherit;text-decoration:none}
+.dots{background-image:radial-gradient(var(--h2i-dot) 1px,transparent 1.3px);background-size:16px 16px}
+</style>
+</helmet>
+<div class="h2i" data-scheme="{{scheme}}" style="width: 1440px; height: 1080px; box-sizing: border-box; padding: 80px 80px 72px; background: var(--md-default-bg-color); color: var(--md-typeset-color); font-family: var(--f-text); display: flex; flex-direction: column; gap: 56px; overflow: hidden">
+
+<section style="display: flex; justify-content: space-between; align-items: flex-end; gap: 48px">
+<div style="display: flex; flex-direction: column; gap: 16px">
+<span style="font-family: var(--f-mono); font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--md-default-fg-color--light)">Tipografia · substitui Inter + JetBrains Mono</span>
+<h1 style="margin: 0; font-family: var(--f-display); font-weight: var(--w-display); letter-spacing: var(--ls-display); font-size: 64px; line-height: 1; color: var(--md-default-fg-color)">Três pares, a mesma página</h1>
+</div>
+<p style="margin: 0; max-width: 420px; font-size: 16px; line-height: 1.55; color: var(--md-default-fg-color--light); text-wrap: pretty">Todas vêm do Google Fonts e cobrem o português. A amostra usa o conteúdo real da Aula 1 de Design de Inovação.</p>
+</section>
+
+<div style="display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 40px; flex-grow: 1">
+
+<div class="ty-A" style="display: flex; flex-direction: column; gap: 20px">
+<div style="display: flex; align-items: center; justify-content: space-between">
+<div style="display: flex; align-items: baseline; gap: 14px"><span style="font-family: var(--f-mono); font-size: 13px; letter-spacing: 0.08em; color: var(--md-primary-fg-color)">A</span><span style="font-family: var(--f-display); font-weight: var(--w-display); letter-spacing: var(--ls-display); font-size: 28px; color: var(--md-default-fg-color)">Oficina acessível</span></div>
+<span style="padding: 5px 10px; border-radius: 999px; background: var(--h2i-tint); color: var(--h2i-tint-fg); font-family: var(--f-mono); font-size: 11.5px; letter-spacing: 0.06em; text-transform: uppercase">Recomendada</span>
+</div>
+<div style="display: flex; flex-direction: column; gap: 4px; font-family: var(--f-mono); font-size: 12.5px; line-height: 1.6; color: var(--md-default-fg-color--light)">
+<span>Display — Bricolage Grotesque</span>
+<span>Texto — Atkinson Hyperlegible Next</span>
+<span>Código — Atkinson Hyperlegible Mono</span>
+</div>
+<div style="flex-grow: 1; border: 1px solid var(--md-default-fg-color--lightest); border-radius: 12px; background: var(--md-default-bg-color); display: flex; flex-direction: column; overflow: hidden">
+<div style="display: flex; border-bottom: 1px solid var(--md-default-fg-color--lightest); font-family: var(--f-mono); font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--md-default-fg-color--light)"><span style="padding: 10px 16px; border-right: 1px solid var(--md-default-fg-color--lightest)">Design de Inovação</span><span style="padding: 10px 16px; color: var(--md-primary-fg-color)">Sumários</span></div>
+<div style="padding: 24px 24px 28px; display: flex; flex-direction: column; gap: 18px">
+<h2 style="margin: 0; font-family: var(--f-display); font-weight: var(--w-display); letter-spacing: var(--ls-display); font-size: 40px; line-height: 1.05; color: var(--md-default-fg-color)">Aula 1 — Código Criativo I</h2>
+<div style="display: flex; align-items: baseline; gap: 12px"><span style="font-family: var(--f-mono); font-size: 13px; color: var(--md-primary-fg-color)">02</span><h3 style="margin: 0; font-family: var(--f-display); font-weight: var(--w-display); letter-spacing: var(--ls-display); font-size: 24px; line-height: 1.2; color: var(--md-default-fg-color)">Sumário</h3></div>
+<p style="margin: 0; font-size: 17px; line-height: 1.65; color: var(--md-typeset-color); text-wrap: pretty">Introdução ao código criativo: o código como ferramenta de design. Primeiros passos com Processing / p5.js — formas primitivas, repetição, cor.</p>
+<div style="padding: 12px 14px; border-radius: 8px; background: var(--md-code-bg-color); font-family: var(--f-mono); font-size: 14px; color: var(--md-code-fg-color)"><strong>ellipse</strong>(x, y, <span style="color: var(--h2i-code-kw)">40</span>, <span style="color: var(--h2i-code-kw)">40</span>);</div>
+<div style="display: flex; justify-content: space-between; align-items: baseline; padding-top: 14px; border-top: 1px solid var(--md-default-fg-color--lightest)"><span style="font-size: 24px; color: var(--md-default-fg-color)">Il1 0O ção ãõ</span><span style="font-family: var(--f-mono); font-size: 15px; color: var(--md-default-fg-color--light)">Il1 0O {}</span></div>
+</div>
+</div>
+</div>
+
+<div class="ty-B" style="display: flex; flex-direction: column; gap: 20px">
+<div style="display: flex; align-items: center; justify-content: space-between">
+<div style="display: flex; align-items: baseline; gap: 14px"><span style="font-family: var(--f-mono); font-size: 13px; letter-spacing: 0.08em; color: var(--md-primary-fg-color)">B</span><span style="font-family: var(--f-display); font-weight: var(--w-display); letter-spacing: var(--ls-display); font-size: 30px; color: var(--md-default-fg-color)">Caderno editorial</span></div>
+</div>
+<div style="display: flex; flex-direction: column; gap: 4px; font-family: var(--f-mono); font-size: 12.5px; line-height: 1.6; color: var(--md-default-fg-color--light)">
+<span>Display — Newsreader</span>
+<span>Texto — Public Sans</span>
+<span>Código — IBM Plex Mono</span>
+</div>
+<div style="flex-grow: 1; border: 1px solid var(--md-default-fg-color--lightest); border-radius: 12px; background: var(--md-default-bg-color); display: flex; flex-direction: column; overflow: hidden">
+<div style="display: flex; border-bottom: 1px solid var(--md-default-fg-color--lightest); font-family: var(--f-mono); font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--md-default-fg-color--light)"><span style="padding: 10px 16px; border-right: 1px solid var(--md-default-fg-color--lightest)">Design de Inovação</span><span style="padding: 10px 16px; color: var(--md-primary-fg-color)">Sumários</span></div>
+<div style="padding: 24px 24px 28px; display: flex; flex-direction: column; gap: 18px">
+<h2 style="margin: 0; font-family: var(--f-display); font-weight: var(--w-display); letter-spacing: var(--ls-display); font-size: 42px; line-height: 1.05; color: var(--md-default-fg-color)">Aula 1 — Código Criativo I</h2>
+<div style="display: flex; align-items: baseline; gap: 12px"><span style="font-family: var(--f-mono); font-size: 13px; color: var(--md-primary-fg-color)">02</span><h3 style="margin: 0; font-family: var(--f-display); font-weight: var(--w-display); letter-spacing: var(--ls-display); font-size: 26px; line-height: 1.2; color: var(--md-default-fg-color)">Sumário</h3></div>
+<p style="margin: 0; font-size: 17px; line-height: 1.65; color: var(--md-typeset-color); text-wrap: pretty">Introdução ao código criativo: o código como ferramenta de design. Primeiros passos com Processing / p5.js — formas primitivas, repetição, cor.</p>
+<div style="padding: 12px 14px; border-radius: 8px; background: var(--md-code-bg-color); font-family: var(--f-mono); font-size: 14px; color: var(--md-code-fg-color)"><strong>ellipse</strong>(x, y, <span style="color: var(--h2i-code-kw)">40</span>, <span style="color: var(--h2i-code-kw)">40</span>);</div>
+<div style="display: flex; justify-content: space-between; align-items: baseline; padding-top: 14px; border-top: 1px solid var(--md-default-fg-color--lightest)"><span style="font-size: 24px; color: var(--md-default-fg-color)">Il1 0O ção ãõ</span><span style="font-family: var(--f-mono); font-size: 15px; color: var(--md-default-fg-color--light)">Il1 0O {}</span></div>
+</div>
+</div>
+</div>
+
+<div class="ty-C" style="display: flex; flex-direction: column; gap: 20px">
+<div style="display: flex; align-items: center; justify-content: space-between">
+<div style="display: flex; align-items: baseline; gap: 14px"><span style="font-family: var(--f-mono); font-size: 13px; letter-spacing: 0.08em; color: var(--md-primary-fg-color)">C</span><span style="font-family: var(--f-display); font-weight: var(--w-display); letter-spacing: var(--ls-display); font-size: 28px; color: var(--md-default-fg-color)">Neutra, próxima da atual</span></div>
+</div>
+<div style="display: flex; flex-direction: column; gap: 4px; font-family: var(--f-mono); font-size: 12.5px; line-height: 1.6; color: var(--md-default-fg-color--light)">
+<span>Display — Geist</span>
+<span>Texto — Geist</span>
+<span>Código — Geist Mono</span>
+</div>
+<div style="flex-grow: 1; border: 1px solid var(--md-default-fg-color--lightest); border-radius: 12px; background: var(--md-default-bg-color); display: flex; flex-direction: column; overflow: hidden">
+<div style="display: flex; border-bottom: 1px solid var(--md-default-fg-color--lightest); font-family: var(--f-mono); font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--md-default-fg-color--light)"><span style="padding: 10px 16px; border-right: 1px solid var(--md-default-fg-color--lightest)">Design de Inovação</span><span style="padding: 10px 16px; color: var(--md-primary-fg-color)">Sumários</span></div>
+<div style="padding: 24px 24px 28px; display: flex; flex-direction: column; gap: 18px">
+<h2 style="margin: 0; font-family: var(--f-display); font-weight: var(--w-display); letter-spacing: var(--ls-display); font-size: 40px; line-height: 1.05; color: var(--md-default-fg-color)">Aula 1 — Código Criativo I</h2>
+<div style="display: flex; align-items: baseline; gap: 12px"><span style="font-family: var(--f-mono); font-size: 13px; color: var(--md-primary-fg-color)">02</span><h3 style="margin: 0; font-family: var(--f-display); font-weight: var(--w-display); letter-spacing: var(--ls-display); font-size: 24px; line-height: 1.2; color: var(--md-default-fg-color)">Sumário</h3></div>
+<p style="margin: 0; font-size: 17px; line-height: 1.65; color: var(--md-typeset-color); text-wrap: pretty">Introdução ao código criativo: o código como ferramenta de design. Primeiros passos com Processing / p5.js — formas primitivas, repetição, cor.</p>
+<div style="padding: 12px 14px; border-radius: 8px; background: var(--md-code-bg-color); font-family: var(--f-mono); font-size: 14px; color: var(--md-code-fg-color)"><strong>ellipse</strong>(x, y, <span style="color: var(--h2i-code-kw)">40</span>, <span style="color: var(--h2i-code-kw)">40</span>);</div>
+<div style="display: flex; justify-content: space-between; align-items: baseline; padding-top: 14px; border-top: 1px solid var(--md-default-fg-color--lightest)"><span style="font-size: 24px; color: var(--md-default-fg-color)">Il1 0O ção ãõ</span><span style="font-family: var(--f-mono); font-size: 15px; color: var(--md-default-fg-color--light)">Il1 0O {}</span></div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"scheme":{"editor":"enum","options":["default","slate"],"default":"default","section":"Tema"},"$preview":{"width":1440,"height":1080}}'>
+class Component extends DCLogic {
+  renderVals() {
+    return { scheme: this.props.scheme ?? 'default' };
+  }
+}
+</script>
+</body>
+</html>
