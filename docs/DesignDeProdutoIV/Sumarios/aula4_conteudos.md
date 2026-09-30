@@ -3,13 +3,9 @@ title: Aula 4 - Conteúdos
 icon: lucide/copy
 tags: exercicio
 status: not-started
-hero_image: ../attachments/travBaixa1.jpg
-hero_title: "Aula 4"
-hero_subtitle: "Conteúdos — Introdução ao Desenho Paramétrico"
-hero_height: 80vh
-hero_overlay: 0.1
-hero_align: center
 ---
+
+# Aula 4 — Conteúdos
 
 ## Introdução ao Desenho Paramétrico
 
