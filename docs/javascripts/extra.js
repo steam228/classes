@@ -1141,7 +1141,8 @@
       els.input.style.height = "auto";
       els.send.disabled = true;
       if (state.phase === "ask-turma") {
-        var t = text.toUpperCase().match(/([JLM])\s*$/);
+        // J/L/M are the buttons; X is the test turma, typed ("TX"), never offered
+        var t = text.toUpperCase().match(/([JLMX])\s*$/);
         if (t) { handleTurmaSelection(t[1]); } else { appendMessage("user", escapeHtml(text)); disableButtons("[data-turma]"); showTurmaQuestion(); }
       } else if (state.phase === "ask-numero") {
         appendMessage("user", escapeHtml(text));
