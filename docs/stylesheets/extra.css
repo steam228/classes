@@ -906,17 +906,116 @@ html[data-hero-height="100vh"] .md-hero__image {
 }
 
 /* ==========================================================================
-   Right Side Navigation Panel - Native Zensical Styling
+   Sidebar — .md-sidebar--primary
    ========================================================================== */
 
-/* Let Zensical handle TOC styling natively */
+/* Section title */
+.md-nav--primary > .md-nav__title {
+  font-family: var(--h2i-font-display);
+  font-weight: 700;
+  font-size: 18px;
+  color: var(--md-default-fg-color);
+}
+
+/* Nav items */
+.md-nav--primary .md-nav__item > .md-nav__link {
+  height: 38px;
+  padding: 0 12px;
+  border-radius: 8px;
+  font-size: 15px;
+  color: var(--md-typeset-color);
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+/* Nav icons */
+.md-nav--primary .md-nav__link .md-nav__icon,
+.md-nav--primary .md-nav__link .md-icon {
+  font-size: 18px;
+  color: var(--md-default-fg-color--lighter);
+}
+
+/* Active page */
+.md-nav--primary .md-nav__item--active > .md-nav__link {
+  background: var(--h2i-tint);
+  color: var(--h2i-tint-fg);
+  font-weight: 600;
+}
+
+/* Open group parent */
+.md-nav--primary .md-nav__item--nested.md-nav__item--active > .md-nav__link,
+.md-nav--primary .md-nav__item--nested.md-nav__item--active > label {
+  font-weight: 600;
+}
+
+.md-nav--primary .md-nav__item--nested.md-nav__item--active > .md-nav__link .md-icon,
+.md-nav--primary .md-nav__item--nested.md-nav__item--active > label .md-icon {
+  color: var(--md-primary-fg-color);
+}
+
+/* Nested nav list */
+.md-nav--primary .md-nav__item--nested > .md-nav {
+  margin-left: 21px;
+  padding-left: 12px;
+  border-left: 1px solid var(--md-default-fg-color--lightest);
+}
+
+.md-nav--primary .md-nav__item--nested > .md-nav .md-nav__link {
+  font-size: 14.5px;
+  line-height: 1.35;
+  padding: 8px 10px;
+  border-radius: 6px;
+  color: var(--md-default-fg-color--light);
+}
+
+/* ==========================================================================
+   TOC — .md-sidebar--secondary
+   ========================================================================== */
+
 .md-sidebar--secondary {
   display: flex !important;
 }
 
-/* Expand TOC sections by default - minimal override */
+/* Expand TOC sections by default */
 .md-nav--secondary .md-nav__toggle ~ .md-nav__list {
   display: block;
+}
+
+/* TOC label */
+.md-nav--secondary > .md-nav__title {
+  font-family: var(--md-code-font);
+  font-weight: 500;
+  font-size: 11.5px;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--md-default-fg-color--light);
+}
+
+/* TOC list: rail on the left */
+.md-nav--secondary .md-nav__list {
+  border-left: 1px solid var(--md-default-fg-color--lightest);
+}
+
+/* TOC items */
+.md-nav--secondary .md-nav__link {
+  font-size: 14px;
+  line-height: 1.4;
+  padding: 6px 0 6px 14px;
+  color: var(--md-default-fg-color--light);
+}
+
+/* TOC nested items */
+.md-nav--secondary .md-nav__list .md-nav__list .md-nav__link {
+  padding-left: 28px;
+}
+
+/* TOC active item */
+.md-nav--secondary .md-nav__link--active {
+  border-left: 2px solid var(--md-accent-fg-color);
+  margin-left: -1px;
+  color: var(--md-default-fg-color);
+  font-weight: 600;
 }
 
 /* Hide right sidebar on small screens */
@@ -924,6 +1023,95 @@ html[data-hero-height="100vh"] .md-hero__image {
   .md-sidebar--secondary {
     display: none !important;
   }
+}
+
+/* ==========================================================================
+   Footer — .md-footer
+   ========================================================================== */
+
+/* Prev/next navigation: card style */
+.md-footer__inner {
+  display: flex;
+  gap: 24px;
+  padding: 40px 0;
+}
+
+.md-footer__link {
+  flex: 1;
+  border: 1px solid var(--md-default-fg-color--lightest);
+  border-radius: 8px;
+  padding: 20px 22px;
+  text-decoration: none;
+  color: inherit;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.md-footer__link:hover {
+  border-color: var(--md-primary-fg-color);
+  box-shadow: var(--h2i-shadow-sm);
+}
+
+.md-footer__direction {
+  font-family: var(--md-code-font);
+  font-size: 11.5px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--md-default-fg-color--light);
+}
+
+.md-footer__title .md-ellipsis {
+  font-family: var(--h2i-font-display);
+  font-size: 21px;
+  font-weight: 700;
+  letter-spacing: var(--h2i-display-tracking);
+  color: var(--md-default-fg-color);
+  margin-top: 6px;
+}
+
+/* Footer meta bar */
+.md-footer-meta {
+  background: var(--md-code-bg-color);
+  border-top: 1px solid var(--md-default-fg-color--lightest);
+  min-height: 88px;
+  display: flex;
+  align-items: center;
+}
+
+.md-footer-meta.h2i-dots,
+.md-footer-meta {
+  background-image: radial-gradient(var(--h2i-dot) 1px, transparent 1.3px);
+  background-size: 16px 16px;
+  background-color: var(--md-code-bg-color);
+}
+
+.md-footer-meta__inner {
+  font-size: 13px;
+  color: var(--md-default-fg-color--light);
+}
+
+/* Stack prev/next on mobile */
+@media screen and (max-width: 719px) {
+  .md-footer__inner {
+    flex-direction: column;
+    gap: 16px;
+  }
+}
+
+/* ==========================================================================
+   Back to Top — .md-top
+   ========================================================================== */
+
+.md-top {
+  background: var(--h2i-glass) !important;
+  -webkit-backdrop-filter: blur(16px) saturate(1.6);
+  backdrop-filter: blur(16px) saturate(1.6);
+  border: 1px solid var(--h2i-glass-line);
+  border-radius: 20px;
+  height: 40px;
+  padding: 0 16px;
+  font-size: 14px;
+  color: var(--md-default-fg-color);
 }
 
 /* ==========================================================================
@@ -994,30 +1182,20 @@ html[data-hero-height="100vh"] .md-hero__image {
    Archived / Past-Year Courses
    ========================================================================== */
 
-/* Header tabs — faded text */
-.md-tabs__link.archived-course {
-  opacity: 0.45;
-}
-
-.md-tabs__link.archived-course:hover {
-  opacity: 0.75;
-}
-
-/* Primary sidebar items */
+/* Sidebar items: lighter colour instead of opacity (for contrast) */
 .md-nav__item.archived-course > .md-nav__link,
 .md-nav__item.archived-course > label {
-  opacity: 0.45;
+  color: var(--md-default-fg-color--light);
 }
 
 .md-nav__item.archived-course:hover > .md-nav__link,
 .md-nav__item.archived-course:hover > label {
-  opacity: 0.75;
+  color: var(--md-default-fg-color);
 }
 
-/* When an archived course section is expanded/active, restore legibility */
 .md-nav__item.archived-course.md-nav__item--active > .md-nav__link,
 .md-nav__item.archived-course.md-nav__item--active > label {
-  opacity: 0.7;
+  color: var(--md-default-fg-color);
 }
 
 [data-md-color-scheme="slate"] .gallery-card {
