@@ -23,30 +23,13 @@
 }
 
 /* ==========================================================================
-   Global Grid — widen from default 61rem to 1440px
+   Global Grid — viewport-relative gutters, proportional margins
    ========================================================================== */
 
 .md-grid {
-  max-width: 1440px;
-}
-
-.md-container .md-grid {
-  padding-left: 40px;
-  padding-right: 40px;
-}
-
-@media screen and (max-width: 959px) {
-  .md-container .md-grid {
-    padding-left: 20px;
-    padding-right: 20px;
-  }
-}
-
-@media screen and (max-width: 719px) {
-  .md-container .md-grid {
-    padding-left: 12px;
-    padding-right: 12px;
-  }
+  max-width: 1600px;
+  padding-left: clamp(12px, 4vw, 80px);
+  padding-right: clamp(12px, 4vw, 80px);
 }
 
 /* ==========================================================================
@@ -432,11 +415,11 @@ html.h2i-hero-dark .md-header:not(.md-header--scrolled) .md-search__button::afte
    Frosted-Glass Header (replaces old transparent/solid toggle)
    ========================================================================== */
 
-/* Header inner layout — match 1440px grid, items spaced with gap */
+/* Header inner layout — viewport-relative padding, items right-aligned */
 .md-header__inner.md-grid {
-  padding: 0 40px;
+  padding: 0 clamp(12px, 4vw, 80px);
   gap: 20px;
-  max-width: 1440px;
+  max-width: 1600px;
 }
 
 .md-header {
@@ -523,14 +506,10 @@ html.has-hero .md-header {
 }
 
 @media screen and (max-width: 959px) {
-  .md-header__inner.md-grid { padding: 0 20px; }
-  .md-tabs .md-grid { padding: 0 16px; }
   .md-search__button { width: 180px; }
 }
 
 @media screen and (max-width: 719px) {
-  .md-header__inner.md-grid { padding: 0 12px; }
-  .md-tabs .md-grid { padding: 0 12px; }
   .h2i-tagline { display: none; }
 }
 
@@ -543,8 +522,8 @@ html.has-hero .md-header {
 }
 
 .md-tabs .md-grid {
-  padding: 0 28px;
-  max-width: 1440px;
+  padding: 0 clamp(12px, 3.5vw, 72px);
+  max-width: 1600px;
 }
 
 .md-tabs__list {
@@ -1353,6 +1332,13 @@ html[data-hero-height="100vh"] .md-hero__image {
    Sidebar — .md-sidebar--primary
    ========================================================================== */
 
+/* Widen sidebar from default 12.1rem (194px) to 248px */
+@media screen and (min-width: 1220px) {
+  .md-sidebar {
+    width: 248px;
+  }
+}
+
 /* Section title */
 .md-nav--primary > .md-nav__title {
   font-family: var(--h2i-font-display);
@@ -1361,16 +1347,24 @@ html[data-hero-height="100vh"] .md-hero__image {
   color: var(--md-default-fg-color);
 }
 
-/* Nav items */
+/* Nav items — min-height allows wrapping for long titles */
 .md-nav--primary .md-nav__item > .md-nav__link {
-  height: 38px;
-  padding: 0 12px;
+  min-height: 38px;
+  padding: 6px 12px;
   border-radius: 8px;
   font-size: 15px;
   color: var(--md-typeset-color);
   display: flex;
   align-items: center;
   gap: 12px;
+}
+
+/* Text in nav items: allow wrapping */
+.md-nav--primary .md-nav__link .md-ellipsis {
+  overflow: visible;
+  white-space: normal;
+  text-overflow: unset;
+  line-height: 1.35;
 }
 
 /* Nav icons */
@@ -1406,11 +1400,19 @@ html[data-hero-height="100vh"] .md-hero__image {
 }
 
 .md-nav--primary .md-nav__item--nested > .md-nav .md-nav__link {
-  font-size: 14.5px;
+  font-size: 14px;
   line-height: 1.35;
-  padding: 8px 10px;
+  min-height: 32px;
+  padding: 5px 10px;
   border-radius: 6px;
   color: var(--md-default-fg-color--light);
+}
+
+/* Nested items: also allow wrapping */
+.md-nav--primary .md-nav__item--nested > .md-nav .md-nav__link .md-ellipsis {
+  overflow: visible;
+  white-space: normal;
+  text-overflow: unset;
 }
 
 /* ==========================================================================
