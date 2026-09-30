@@ -19,6 +19,7 @@ hero_align: center
 
 ## Sumário
 
+- **Apresentação dos estudos por esboço** — feedback oral individual sobre os desenhos do objeto pessoal e do objeto de referência (exercício da Aula 2)
 - Continuação da experimentação digital com moldes
 - Técnicas de integração: como incorporar um fragmento do objeto original na geometria do molde
 - Operações booleanas e projeção de superfícies
@@ -26,6 +27,12 @@ hero_align: center
 - Feedback sobre as explorações digitais
 
 ## Notas da Aula
+
+### Apresentação dos estudos por esboço
+
+Cada estudante apresenta os seus estudos em esboço (até 3 A3 por objeto) referentes ao objeto pessoal e ao objeto de referência. Feedback oral do professor sobre a qualidade da observação, o rigor do desenho estrutural e as oportunidades formais identificadas.
+
+Após o feedback, os estudantes poderão refinar os esboços e entregar a versão final via **Moodle até à Aula 4 (13 de outubro)**.
 
 ### Articulação com DI
 
