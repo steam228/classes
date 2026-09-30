@@ -794,9 +794,9 @@
   var TURMAS = ["J", "L", "M"];   // the same students take both courses
 
   // ---- What Zé says between steps: short, a colleague's, never the same twice
-  // in a row. {c} = how students call the course, {n} = the name.
-  var COURSE_SHORT = { dpi: "DPI", di: "DI", dpiv: "Produto IV", pd: "Prototipagem Digital",
-                       recursos: "Recursos", geral: "" };
+  // in a row. {c} = how students call the course (alternating), {n} = the name.
+  var COURSE_SHORT = { dpi: ["DPI", "DP"], di: ["DI"], dpiv: ["Produto IV"],
+                       pd: ["Prototipagem Digital", "Prototipagem"], recursos: ["Recursos"], geral: [""] };
   var SAY = {
     hello: [
       "Ah, \u00e9s tu, {n}! \ud83d\ude0a",
@@ -830,6 +830,14 @@
       "Recursos\u2026 Fusion, Arduino, p5? Diz l\u00e1.",
       "Ok, recursos. O que \u00e9 que procuras?"
     ],
+    // on a page of the chosen course: it's obvious, no need to name it
+    openHere: [
+      "Diz l\u00e1.",
+      "Ok, manda.",
+      "Em que ponto est\u00e1s?",
+      "O que \u00e9 que te est\u00e1 a fazer confus\u00e3o?",
+      "Diz, diz."
+    ],
     openGeral: [
       "Ok, \u00e0 vontade. O que \u00e9?",
       "Diz l\u00e1, que eu vejo em que cadeira est\u00e1."
@@ -842,6 +850,7 @@
       "T\u00e3o cedo\u2026 \u2615 "
     ],
     back: [
+      "Onde \u00e9 que \u00edamos\u2026",
       "Onde \u00e9 que \u00edamos\u2026 ah, {c}.",
       "{c}, ainda. Diz."
     ]
@@ -856,9 +865,16 @@
   }
 
   /** The line after picking a course — with a yawn at night, a coffee at dawn. */
+  function shortName(key) {
+    var names = COURSE_SHORT[key] || [(COURSES[key] && COURSES[key].label) || ""];
+    return names[Math.floor(Math.random() * names.length)];
+  }
+
   function opener(key) {
-    var c = COURSE_SHORT[key] || (COURSES[key] && COURSES[key].label) || "";
+    var c = shortName(key);
+    var here = (state.pageContext || detectCourseContext()).course === key;
     var line = key === "geral" ? say("openGeral")
+      : here && Math.random() < 0.6 ? say("openHere")
       : key === "recursos" ? say("openRecursos")
       : (key === "dpiv" || key === "pd") ? say("openPast", { c: c })
       : say("open", { c: c });
@@ -1462,7 +1478,7 @@
       showTopicSelection();
     } else if (state.phase === "chatting") {
       // Brief context line, then replay messages
-      appendMessage("bot", say("back", { c: COURSE_SHORT[state.topic] || state.topicLabel }));
+      appendMessage("bot", say("back", { c: shortName(state.topic) }));
       for (var i = 0; i < state.messages.length; i++) {
         var m = state.messages[i];
         if (m.role === "bot") renderBotText(appendMessage("bot", ""), m.text);
