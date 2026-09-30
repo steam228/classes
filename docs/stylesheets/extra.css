@@ -415,8 +415,9 @@ html.h2i-hero-dark .md-header:not(.md-header--scrolled) .md-search__button::afte
    Frosted-Glass Header (replaces old transparent/solid toggle)
    ========================================================================== */
 
-/* Header inner layout — same gutters as grid, search pushed right */
+/* Header inner layout — 64px tall, same gutters as grid */
 .md-header__inner.md-grid {
+  height: 64px;
   padding: 0 clamp(12px, 4vw, 120px);
   gap: 20px;
   max-width: 100%;
@@ -533,6 +534,10 @@ html.has-hero .md-header {
 
 .md-tabs__list {
   gap: 2px;
+}
+
+.md-tabs__item {
+  height: 48px;
 }
 
 .md-tabs__link {
