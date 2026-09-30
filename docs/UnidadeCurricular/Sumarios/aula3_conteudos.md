@@ -4,8 +4,8 @@ icon: lucide/copy
 tags: exercicio
 status: not-started
 hero_image: ../../images/hero.png
-hero_title: "Conteúdos"
-hero_subtitle: "Aula 3"
+hero_title: "Aula 3"
+hero_subtitle: "Conteúdos"
 hero_height: 60vh
 hero_overlay: 0.2
 hero_align: center

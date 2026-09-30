@@ -4,8 +4,8 @@ icon: lucide/copy
 tags: exercicio
 status: not-started
 hero_image: ../attachments/sketching.png
-hero_title: Conteúdos
-hero_subtitle: Funcionalidade e Apresentação Gráfica
+hero_title: Funcionalidade e Apresentação Gráfica
+hero_subtitle: Conteúdos — Aula 3
 hero_height: 60vh
 hero_overlay: 0.2
 hero_align: center
