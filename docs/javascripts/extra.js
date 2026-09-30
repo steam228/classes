@@ -236,7 +236,7 @@
 
   /**
    * Upgrade a single-image hero into a dynamic carousel from JSON data.
-   * No dots, no per-slide text — just a rolling background image reel.
+   * Builds a small project-info overlay in the lower-left that updates per slide.
    */
   function buildShowcaseCarousel(hero, projects) {
     var imageDiv = hero.querySelector(".md-hero__image");
@@ -255,14 +255,24 @@
       imageDiv.insertBefore(slide, inner);
     });
 
-    runCarousel(imageDiv);
+    // Build the project info overlay
+    var info = document.createElement("a");
+    info.className = "md-hero__project-info";
+    info.href = projects[0].href;
+    info.innerHTML =
+      '<span class="md-hero__project-title">' + projects[0].title + "</span>" +
+      '<span class="md-hero__project-team">' + projects[0].team + " \u00b7 " + projects[0].course + "</span>";
+    imageDiv.appendChild(info);
+
+    runCarousel(imageDiv, { infoEl: info, projects: projects });
   }
 
   /**
    * Shared carousel engine — works for both static and dynamic slides.
    * Dots are only used in Mode A (static, already in DOM).
+   * @param {Object} [showcase] — if provided, update the project-info overlay per slide.
    */
-  function runCarousel(carousel) {
+  function runCarousel(carousel, showcase) {
     var slides = carousel.querySelectorAll(".md-hero__slide");
     var dots = carousel.querySelectorAll(".md-hero__dot");
     if (slides.length < 2) return;
@@ -279,6 +289,7 @@
       dots.forEach(function (dot, i) {
         dot.classList.toggle("md-hero__dot--active", i === current);
       });
+      if (showcase) updateProjectInfo(showcase, current);
     }
 
     function next() {
@@ -314,6 +325,22 @@
       carousel.removeEventListener("mouseenter", stopTimer);
       carousel.removeEventListener("mouseleave", startTimer);
     };
+  }
+
+  /** Fade-swap the project info overlay to match the current slide. */
+  function updateProjectInfo(showcase, index) {
+    var el = showcase.infoEl;
+    var p = showcase.projects[index];
+    if (!el || !p) return;
+
+    el.classList.add("md-hero__project-info--fading");
+    setTimeout(function () {
+      el.href = p.href;
+      el.querySelector(".md-hero__project-title").textContent = p.title;
+      el.querySelector(".md-hero__project-team").textContent =
+        p.team ? p.team + " \u00b7 " + p.course : p.course;
+      el.classList.remove("md-hero__project-info--fading");
+    }, 150);
   }
 
   /**
