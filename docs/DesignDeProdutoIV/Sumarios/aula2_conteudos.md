@@ -4,8 +4,8 @@ icon: lucide/copy
 tags: exercicio
 status: not-started
 hero_image: https://fablabbenfica.pt/opencallDDP2025/images/IMG_2681.jpg
-hero_title: Introdução à Fabricação Digital
-hero_subtitle: Conteúdos — Aula 2
+hero_title: "Aula 2"
+hero_subtitle: "Conteúdos — Introdução à Fabricação Digital"
 hero_height: 60vh
 hero_overlay: 0.2
 hero_align: center
