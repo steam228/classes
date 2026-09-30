@@ -733,6 +733,11 @@ html[data-hero-height="100vh"] .md-hero__image {
   margin-bottom: 8px;
 }
 
+/* Hero already shows the title — hide the auto-generated content H1 */
+html.has-hero .md-typeset h1 {
+  display: none;
+}
+
 .md-typeset h2 {
   font-family: var(--h2i-font-display);
   font-weight: 700;
