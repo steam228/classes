@@ -23,6 +23,33 @@
 }
 
 /* ==========================================================================
+   Global Grid — widen from default 61rem to 1440px
+   ========================================================================== */
+
+.md-grid {
+  max-width: 1440px;
+}
+
+.md-container .md-grid {
+  padding-left: 40px;
+  padding-right: 40px;
+}
+
+@media screen and (max-width: 959px) {
+  .md-container .md-grid {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+}
+
+@media screen and (max-width: 719px) {
+  .md-container .md-grid {
+    padding-left: 12px;
+    padding-right: 12px;
+  }
+}
+
+/* ==========================================================================
    Hero Section Base Styles
    ========================================================================== */
 
@@ -387,21 +414,30 @@ html.h2i-hero-dark .md-header:not(.md-header--scrolled) .md-tabs__item--active .
   border-bottom-color: #4BB8FA;
 }
 
-html.h2i-hero-dark .md-header:not(.md-header--scrolled) .md-search__form {
+html.h2i-hero-dark .md-header:not(.md-header--scrolled) .md-search__button {
   background: rgba(255, 255, 255, 0.14);
+  color: rgba(255, 255, 255, 0.7);
 }
 
-html.h2i-hero-dark .md-header:not(.md-header--scrolled) .md-search__input {
-  color: #ffffff;
+html.h2i-hero-dark .md-header:not(.md-header--scrolled) .md-search__button::before {
+  background-color: rgba(255, 255, 255, 0.7);
 }
 
-html.h2i-hero-dark .md-header:not(.md-header--scrolled) .md-search__input::placeholder {
+html.h2i-hero-dark .md-header:not(.md-header--scrolled) .md-search__button::after {
+  border-color: rgba(255, 255, 255, 0.2);
   color: rgba(255, 255, 255, 0.5);
 }
 
 /* ==========================================================================
    Frosted-Glass Header (replaces old transparent/solid toggle)
    ========================================================================== */
+
+/* Header inner layout — match 1440px grid, items spaced with gap */
+.md-header__inner.md-grid {
+  padding: 0 40px;
+  gap: 20px;
+  max-width: 1440px;
+}
 
 .md-header {
   background: var(--h2i-glass);
@@ -436,29 +472,40 @@ html.has-hero .md-header {
   right: 0;
 }
 
-/* Search input — pill shape */
-.md-search__form {
+/* Search button — pill shape (replaces default primary-coloured button) */
+.md-search__button {
+  background: var(--h2i-field, rgba(16, 19, 24, 0.05));
+  color: var(--md-default-fg-color--light);
   border-radius: 10px;
-  background: var(--h2i-field, var(--md-code-bg-color));
-  overflow: hidden;
-}
-
-.md-search__input {
   height: 40px;
+  width: 260px;
   font-size: 14.5px;
 }
 
-/* ⌘K hint — mono, right-aligned */
-.md-search__input::placeholder {
+.md-search__button:hover {
+  background: var(--h2i-field, rgba(16, 19, 24, 0.08));
+  color: var(--md-default-fg-color);
+}
+
+.md-search__button::before {
+  background-color: var(--md-default-fg-color--light);
+}
+
+.md-search__button::after {
   font-family: var(--md-code-font);
-  font-size: 13px;
+  font-size: 11px;
+  padding: 2px 6px;
+  border: 1px solid var(--h2i-glass-line, rgba(16, 19, 24, 0.09));
+  border-radius: 4px;
+  background: transparent;
+  color: var(--md-default-fg-color--lighter);
 }
 
 /* Wordmark split: "H2I" bold + tagline light */
-.md-header__title .md-header__ellipsis {
-  display: flex;
-  align-items: baseline;
-  gap: 0.5rem;
+.md-header__topic:first-child .md-ellipsis {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
 }
 
 .h2i-wordmark {
@@ -472,9 +519,18 @@ html.has-hero .md-header {
 .h2i-tagline {
   font-size: 14px;
   color: var(--md-default-fg-color--light);
+  white-space: nowrap;
+}
+
+@media screen and (max-width: 959px) {
+  .md-header__inner.md-grid { padding: 0 20px; }
+  .md-tabs .md-grid { padding: 0 16px; }
+  .md-search__button { width: 180px; }
 }
 
 @media screen and (max-width: 719px) {
+  .md-header__inner.md-grid { padding: 0 12px; }
+  .md-tabs .md-grid { padding: 0 12px; }
   .h2i-tagline { display: none; }
 }
 
@@ -484,6 +540,15 @@ html.has-hero .md-header {
 
 .md-tabs {
   background: transparent;
+}
+
+.md-tabs .md-grid {
+  padding: 0 28px;
+  max-width: 1440px;
+}
+
+.md-tabs__list {
+  gap: 2px;
 }
 
 .md-tabs__link {
