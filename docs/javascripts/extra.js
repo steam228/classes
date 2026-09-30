@@ -784,8 +784,8 @@
   var COURSES = {
     dpi:      { label: "Design de Produto e Intera\u00e7\u00e3o I", slug: "DesignDeProdutoEInteracao" },
     di:       { label: "Design de Inova\u00e7\u00e3o",              slug: "DesignDeInovacao" },
-    dpiv:     { label: "Design de Produto IV",            slug: "DesignDeProdutoIV" },
-    pd:       { label: "Prototipagem Digital",            slug: "PrototipagemDigital" },
+    dpiv:     { label: "Design de Produto IV \u00b7 25/26", slug: "DesignDeProdutoIV" },
+    pd:       { label: "Prototipagem Digital \u00b7 25/26", slug: "PrototipagemDigital" },
     recursos: { label: "Recursos",                        slug: "Recursos" },
     geral:    { label: "Geral",                           slug: "" }
   };
@@ -1346,6 +1346,12 @@
 
       var convId = response.headers.get("X-Conversation-Id");
       if (convId) state.conversationId = convId;
+      // "afinal é DPI": the backend switched course — follow it
+      var course = response.headers.get("X-Course");
+      if (course && COURSES[course] && course !== state.topic) {
+        state.topic = course;
+        state.topicLabel = COURSES[course].label;
+      }
 
       var reader = response.body.getReader();
       var decoder = new TextDecoder();
