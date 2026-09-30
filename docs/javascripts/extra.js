@@ -196,8 +196,8 @@
    * Hero image carousel — supports two modes:
    *
    * Mode A (static):  hero_images in template → slides already in DOM, just animate.
-   * Mode B (dynamic): data-showcase attribute on .md-hero → fetch JSON, build slides,
-   *                   animate legend text per slide. Falls back to static hero on error.
+   * Mode B (dynamic): data-showcase attribute on .md-hero → fetch JSON, build slides
+   *                   as a background image reel. Legend stays static (H2I branding).
    */
   function setupCarousel() {
     // Mode A: static carousel (hero_images in Jinja template)
@@ -218,7 +218,7 @@
       .then(function (r) { return r.ok ? r.json() : []; })
       .then(function (projects) {
         if (!projects || !projects.length) return;
-        buildShowcaseCarousel(hero, shuffle(projects).slice(0, 6));
+        buildShowcaseCarousel(hero, shuffle(projects));
       })
       .catch(function () { /* static hero stays */ });
   }
@@ -236,69 +236,33 @@
 
   /**
    * Upgrade a single-image hero into a dynamic carousel from JSON data.
+   * No dots, no per-slide text — just a rolling background image reel.
    */
   function buildShowcaseCarousel(hero, projects) {
     var imageDiv = hero.querySelector(".md-hero__image");
     if (!imageDiv) return;
-
-    // Save original legend text for when we cycle back (index 0 = original)
-    var legendBody = hero.querySelector(".md-hero__legend-body");
-    var titleEl = legendBody && legendBody.querySelector(".md-hero__title");
-    var subtitleEl = legendBody && legendBody.querySelector(".md-hero__subtitle");
-    var origTitle = titleEl ? titleEl.textContent : "";
-    var origSubtitle = subtitleEl ? subtitleEl.textContent : "";
 
     // Convert .md-hero__image into .md-hero__carousel
     imageDiv.classList.add("md-hero__carousel");
     imageDiv.style.backgroundImage = "none";
 
     // Build slide elements
+    var inner = imageDiv.querySelector(".md-hero__inner");
     projects.forEach(function (p) {
       var slide = document.createElement("div");
       slide.className = "md-hero__slide";
       slide.style.backgroundImage = "url('" + p.image + "')";
-
-      // "Ver projeto" link overlay
-      var link = document.createElement("a");
-      link.className = "md-hero__slide-link";
-      link.href = p.href;
-      link.textContent = "Ver projeto \u2192";
-      slide.appendChild(link);
-
-      // Insert before the inner grid (first child that isn't a slide)
-      var inner = imageDiv.querySelector(".md-hero__inner");
       imageDiv.insertBefore(slide, inner);
     });
 
-    // Build dots
-    var dotsContainer = document.createElement("div");
-    dotsContainer.className = "md-hero__dots";
-    projects.forEach(function (_, i) {
-      var dot = document.createElement("button");
-      dot.className = "md-hero__dot" + (i === 0 ? " md-hero__dot--active" : "");
-      dot.setAttribute("aria-label", "Slide " + (i + 1));
-      dot.dataset.slide = i;
-      dotsContainer.appendChild(dot);
-    });
-    imageDiv.appendChild(dotsContainer);
-
-    // Animate with legend text updates
-    runCarousel(imageDiv, {
-      legendBody: legendBody,
-      titleEl: titleEl,
-      subtitleEl: subtitleEl,
-      projects: projects,
-      origTitle: origTitle,
-      origSubtitle: origSubtitle,
-    });
+    runCarousel(imageDiv);
   }
 
   /**
    * Shared carousel engine — works for both static and dynamic slides.
-   * @param {Element} carousel — the .md-hero__carousel container
-   * @param {Object} [legend] — if provided, update legend text per slide (dynamic mode)
+   * Dots are only used in Mode A (static, already in DOM).
    */
-  function runCarousel(carousel, legend) {
+  function runCarousel(carousel) {
     var slides = carousel.querySelectorAll(".md-hero__slide");
     var dots = carousel.querySelectorAll(".md-hero__dot");
     if (slides.length < 2) return;
@@ -315,7 +279,6 @@
       dots.forEach(function (dot, i) {
         dot.classList.toggle("md-hero__dot--active", i === current);
       });
-      if (legend) updateLegend(legend, current);
     }
 
     function next() {
@@ -344,8 +307,6 @@
     carousel.addEventListener("mouseenter", stopTimer);
     carousel.addEventListener("mouseleave", startTimer);
 
-    // First slide — set legend immediately
-    if (legend) updateLegend(legend, 0);
     startTimer();
 
     window.__heroCarouselCleanup = function () {
@@ -353,23 +314,6 @@
       carousel.removeEventListener("mouseenter", stopTimer);
       carousel.removeEventListener("mouseleave", startTimer);
     };
-  }
-
-  /**
-   * Fade-swap legend text to match the current showcase slide.
-   */
-  function updateLegend(legend, index) {
-    if (!legend.legendBody) return;
-    var p = legend.projects[index];
-    var newTitle = p ? p.title : legend.origTitle;
-    var newSub = p ? (p.team ? p.team + " \u00b7 " + p.course : p.course) : legend.origSubtitle;
-
-    legend.legendBody.classList.add("md-hero__legend-body--fading");
-    setTimeout(function () {
-      if (legend.titleEl) legend.titleEl.textContent = newTitle;
-      if (legend.subtitleEl) legend.subtitleEl.textContent = newSub;
-      legend.legendBody.classList.remove("md-hero__legend-body--fading");
-    }, 150);
   }
 
   /**

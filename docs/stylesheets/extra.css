@@ -109,40 +109,6 @@
   border-color: #fff;
 }
 
-/* Legend text fade for dynamic carousel */
-.md-hero__legend-body {
-  transition: opacity 0.15s ease;
-}
-.md-hero__legend-body--fading {
-  opacity: 0;
-}
-
-/* "Ver projeto" link on each slide */
-.md-hero__slide-link {
-  position: absolute;
-  bottom: 20px;
-  right: 20px;
-  z-index: 3;
-  padding: 8px 18px;
-  font-family: var(--md-code-font);
-  font-size: var(--h2i-fs-label, 11.5px);
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 0.06em;
-  color: #fff;
-  text-decoration: none;
-  background: var(--h2i-glass, rgba(0, 0, 0, 0.3));
-  -webkit-backdrop-filter: blur(12px) saturate(1.6);
-  backdrop-filter: blur(12px) saturate(1.6);
-  border: 1px solid var(--h2i-glass-line, rgba(255, 255, 255, 0.12));
-  border-radius: 100px;
-  transition: background 0.2s, transform 0.2s;
-}
-.md-hero__slide-link:hover {
-  background: rgba(0, 0, 0, 0.5);
-  transform: translateY(-1px);
-}
-
 /* Scroll-down arrow for 100vh heroes — glass pill */
 .md-hero__scroll-arrow {
   position: absolute;
@@ -256,11 +222,16 @@
   z-index: 2;
 }
 
-/* 100vh heroes: legend inside hero, not overlapping */
+/* Tall heroes (≥80vh): legend floats inside hero with minimum clearance.
+   max() keeps at least 80px from the bottom edge regardless of height. */
 .md-hero--full .md-hero__legend {
-  bottom: 124px;
+  bottom: max(80px, 124px);
   box-shadow: var(--h2i-shadow-lg);
 }
+
+/* Short heroes (40–60vh): legend straddles the bottom edge as before.
+   When hero is too short for the legend to breathe, hide it and let
+   the title live in the content flow instead (see below). */
 
 /* Home hero: wider legend + title treatment */
 .md-hero--home .md-hero__legend {
@@ -727,7 +698,7 @@ html[data-hero-height="100vh"] .md-hero__image {
   }
 
   .md-hero--full .md-hero__legend {
-    bottom: 100px;
+    bottom: max(80px, 100px);
   }
 
   .md-hero__title {
@@ -794,6 +765,17 @@ html[data-hero-height="100vh"] .md-hero__image {
   .md-hero__buttons .md-button {
     text-align: center;
     width: 100%;
+  }
+
+  /* Very narrow: hide the legend card; title lives in page content instead */
+  .md-hero--home .md-hero__legend {
+    display: none;
+  }
+
+  /* No legend overlap → no extra top padding needed on home */
+  html.has-hero .md-hero--home + .md-main,
+  html.has-hero .md-hero--home ~ .md-main {
+    padding-top: 0;
   }
 
   html.has-hero .md-main {
