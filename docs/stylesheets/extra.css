@@ -10,7 +10,7 @@
  *   hero_subtitle: "Optional subtitle text"
  *   hero_height: 60vh (40vh, 50vh, 60vh, 80vh, 100vh)
  *   hero_overlay: 0.4 (0-1, darkness of overlay)
- *   hero_align: center (left, center, right)
+ *   hero_align: left (left, center, right)
  */
 
 /* ==========================================================================
@@ -1034,6 +1034,19 @@ html[data-hero-height="100vh"] .md-hero__image {
   html.has-hero .md-header {
     position: static;
     background: var(--md-default-bg-color, #ffffff);
+  }
+
+  html.has-hero .md-main {
+    padding-top: 0;
+  }
+
+  html.has-hero .md-path {
+    display: block;
+  }
+
+  .gantt-lightbox,
+  .md-top {
+    display: none !important;
   }
 }
 

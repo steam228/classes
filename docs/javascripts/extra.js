@@ -372,8 +372,10 @@
       header.classList.remove("md-header--scrolled");
     }
 
-    // Remove immersive mode class
+    // Remove hero-related classes and attributes from <html>
+    document.documentElement.classList.remove("has-hero");
     document.documentElement.classList.remove("h2i-hero-dark");
+    delete document.documentElement.dataset.heroHeight;
 
     // Call stored cleanup functions
     if (typeof window.__heroScrollCleanup === "function") {
