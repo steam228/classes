@@ -20,19 +20,7 @@
 :root {
   --hero-height: 60vh;
   --hero-overlay-opacity: 0.2;
-  --hero-overlay-top-opacity: 0.4;  /* Top header-area fade — light mode */
-  --hero-title-color: #1a1a1a;
-  --hero-subtitle-color: rgba(30, 30, 30, 0.9);
-  --hero-overlay-color: 255, 255, 255; /* White for light theme */
   --hero-transition-duration: 0.3s;
-}
-
-/* Dark theme overrides */
-[data-md-color-scheme="slate"] {
-  --hero-overlay-top-opacity: 0.65; /* Stronger top fade needed in dark mode */
-  --hero-title-color: #ffffff;
-  --hero-subtitle-color: rgba(255, 255, 255, 0.9);
-  --hero-overlay-color: 0, 0, 0; /* Black for dark theme */
 }
 
 /* ==========================================================================
