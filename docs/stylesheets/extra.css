@@ -422,6 +422,11 @@ html.h2i-hero-dark .md-header:not(.md-header--scrolled) .md-search__button::afte
   max-width: 100%;
 }
 
+/* Hide empty source link container (takes 187px even when empty) */
+.md-header__source {
+  display: none !important;
+}
+
 .md-header {
   background: var(--h2i-glass);
   -webkit-backdrop-filter: blur(16px) saturate(1.6);
