@@ -793,6 +793,81 @@
   var TOPIC_ORDER = ["dpi", "di", "dpiv", "pd", "recursos", "geral"];
   var TURMAS = ["J", "L", "M"];   // the same students take both courses
 
+  // ---- What Zé says between steps: short, a colleague's, never the same twice
+  // in a row. {c} = how students call the course, {n} = the name.
+  var COURSE_SHORT = { dpi: "DPI", di: "DI", dpiv: "Produto IV", pd: "Prototipagem Digital",
+                       recursos: "Recursos", geral: "" };
+  var SAY = {
+    hello: [
+      "Ah, \u00e9s tu, {n}! \ud83d\ude0a",
+      "Ol\u00e1, {n}!",
+      "{n}! Tudo bem?",
+      "Boas, {n}. \ud83d\ude0a",
+      "Ei, {n}."
+    ],
+    shareYes: [
+      "Fixe. Que cadeira?",
+      "Combinado. \u00c9 sobre que cadeira?",
+      "Ok! Ent\u00e3o, qual \u00e9 a cadeira?"
+    ],
+    shareNo: [
+      "Tranquilo, fica entre n\u00f3s. Que cadeira?",
+      "Sem problema, fica entre n\u00f3s. \u00c9 sobre que cadeira?"
+    ],
+    open: [
+      "Bora, {c}. Diz l\u00e1.",
+      "{c}, ent\u00e3o. O que \u00e9 que te est\u00e1 a fazer confus\u00e3o?",
+      "Ok, {c}. Manda.",
+      "{c}\u2026 diz l\u00e1 o que precisas.",
+      "{c}. Em que ponto est\u00e1s?",
+      "Ah, {c}. Pergunta \u00e0 vontade."
+    ],
+    openPast: [
+      "{c}? Isso j\u00e1 foi o ano passado\u2026 mas diz, que eu ainda me lembro de alguma coisa.",
+      "{c}, do ano passado\u2026 vamos l\u00e1 ver se ainda me lembro. Diz."
+    ],
+    openRecursos: [
+      "Recursos\u2026 Fusion, Arduino, p5? Diz l\u00e1.",
+      "Ok, recursos. O que \u00e9 que procuras?"
+    ],
+    openGeral: [
+      "Ok, \u00e0 vontade. O que \u00e9?",
+      "Diz l\u00e1, que eu vejo em que cadeira est\u00e1."
+    ],
+    late: [
+      "A esta hora? \ud83d\ude34 ",
+      "Ainda por aqui a esta hora? "
+    ],
+    early: [
+      "T\u00e3o cedo\u2026 \u2615 "
+    ],
+    back: [
+      "Onde \u00e9 que \u00edamos\u2026 ah, {c}.",
+      "{c}, ainda. Diz."
+    ]
+  };
+  var lastSaid = {};
+
+  function say(kind, vars) {
+    var opts = SAY[kind], i;
+    do { i = Math.floor(Math.random() * opts.length); } while (opts.length > 1 && i === lastSaid[kind]);
+    lastSaid[kind] = i;
+    return opts[i].replace(/\{(\w)\}/g, function (_, k) { return escapeHtml((vars || {})[k] || ""); });
+  }
+
+  /** The line after picking a course — with a yawn at night, a coffee at dawn. */
+  function opener(key) {
+    var c = COURSE_SHORT[key] || (COURSES[key] && COURSES[key].label) || "";
+    var line = key === "geral" ? say("openGeral")
+      : key === "recursos" ? say("openRecursos")
+      : (key === "dpiv" || key === "pd") ? say("openPast", { c: c })
+      : say("open", { c: c });
+    var h = new Date().getHours();
+    if ((h >= 23 || h < 6) && Math.random() < 0.6) line = say("late") + line;
+    else if (h >= 6 && h < 8 && Math.random() < 0.5) line = say("early") + line;
+    return line;
+  }
+
   // ---- DOM refs ----
   var els = {};
 
@@ -836,6 +911,11 @@
               '<path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z" fill="currentColor"/>' +
             "</svg>" +
           "</button>" +
+        "</div>" +
+        '<div class="h2i-chat__disclaimer">' +
+          "\u26a0\ufe0f O Z\u00e9 \u00e9 experimental e pode dar respostas incorretas. " +
+          "\u00c9 um auxiliar n\u00e3o vinculativo que n\u00e3o substitui a leitura dos " +
+          "documentos e conte\u00fados fornecidos nesta plataforma." +
         "</div>" +
       "</div>";
 
@@ -1028,10 +1108,7 @@
         state.token = d.token;
         state.name = d.name || state.name;
         state.turma = d.turma || state.turma;
-        var g = state.gender;
-        appendMessage("bot",
-          "Fixe, <strong>" + escapeHtml(state.name) + "</strong>! " +
-          (g === "f" ? "Bem-vinda" : g === "m" ? "Bem-vindo" : "Boas") + ". \ud83d\ude0a");
+        appendMessage("bot", say("hello", { n: state.name }));
         state.phase = "ask-share";
         showShareQuestion();
       } else if (d.status === "need_number") {
@@ -1075,18 +1152,14 @@
     appendMessage("user", yes ? "Pode ser" : "Prefiro que n\u00e3o");
     disableButtons("[data-share]");
     state.phase = "ask-topic";
-    appendMessage("bot", "Combinado! Sobre que cadeira queres falar?");
+    appendMessage("bot", say(yes ? "shareYes" : "shareNo"));
     showTopicSelection();
     saveSession();
   }
 
   function startChatting() {
     state.phase = "chatting";
-    appendMessage("bot",
-      "Boa escolha! Pergunta o que quiseres sobre <strong>" +
-      escapeHtml(state.topicLabel) + "</strong>. \ud83d\udcac<br><br>" +
-      "<em>S\u00f3 consigo ajudar com o que est\u00e1 nos materiais das aulas, ok?</em>"
-    );
+    appendMessage("bot", opener(state.topic));
     els.input.focus();
     saveSession();
   }
@@ -1389,10 +1462,7 @@
       showTopicSelection();
     } else if (state.phase === "chatting") {
       // Brief context line, then replay messages
-      appendMessage("bot",
-        "\ud83d\udcda <em>" + escapeHtml(state.topicLabel) +
-        "</em> \u2014 continuamos de onde par\u00e1mos."
-      );
+      appendMessage("bot", say("back", { c: COURSE_SHORT[state.topic] || state.topicLabel }));
       for (var i = 0; i < state.messages.length; i++) {
         var m = state.messages[i];
         if (m.role === "bot") renderBotText(appendMessage("bot", ""), m.text);
