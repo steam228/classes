@@ -233,25 +233,11 @@
    When hero is too short for the legend to breathe, hide it and let
    the title live in the content flow instead (see below). */
 
-/* Home hero: wider legend + title treatment */
+/* Home hero: no legend card — just the image carousel */
 .md-hero--home .md-hero__legend {
-  width: 680px;
+  display: none;
 }
 
-.md-hero--home .md-hero__legend-body {
-  padding: 26px 30px 32px;
-}
-
-.md-hero--home .md-hero__title {
-  font-weight: 800;
-  font-size: 128px;
-  line-height: 0.86;
-}
-
-.md-hero--home .md-hero__subtitle {
-  font-size: 21px;
-  line-height: 1.45;
-}
 
 /* Breadcrumb path row */
 .md-hero__path {
@@ -693,9 +679,6 @@ html[data-hero-height="100vh"] .md-hero__image {
     bottom: -40px;
   }
 
-  .md-hero--home .md-hero__legend {
-    width: 600px;
-  }
 
   .md-hero--full .md-hero__legend {
     bottom: max(80px, 100px);
@@ -705,9 +688,6 @@ html[data-hero-height="100vh"] .md-hero__image {
     font-size: 46px;
   }
 
-  .md-hero--home .md-hero__title {
-    font-size: 80px;
-  }
 
   html.has-hero .md-main {
     padding-top: 96px;
@@ -736,9 +716,6 @@ html[data-hero-height="100vh"] .md-hero__image {
     font-size: 40px;
   }
 
-  .md-hero--home .md-hero__title {
-    font-size: 56px;
-  }
 
   .md-hero__subtitle {
     font-size: 16px;
@@ -767,16 +744,6 @@ html[data-hero-height="100vh"] .md-hero__image {
     width: 100%;
   }
 
-  /* Very narrow: hide the legend card; title lives in page content instead */
-  .md-hero--home .md-hero__legend {
-    display: none;
-  }
-
-  /* No legend overlap → no extra top padding needed on home */
-  html.has-hero .md-hero--home + .md-main,
-  html.has-hero .md-hero--home ~ .md-main {
-    padding-top: 0;
-  }
 
   html.has-hero .md-main {
     padding-top: 96px;
