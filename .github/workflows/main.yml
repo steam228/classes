@@ -2,7 +2,7 @@ name: Build and Deploy Documentation
 
 on:
   push:
-    branches: ["main", "master"]
+    branches: ["main", "master", "redesign-2026"]
   pull_request:
     branches: ["main", "master"]
   repository_dispatch:
@@ -69,7 +69,7 @@ jobs:
           path: "site"
 
   deploy:
-    if: github.ref == 'refs/heads/main' || github.ref == 'refs/heads/master'
+    if: github.ref == 'refs/heads/main' || github.ref == 'refs/heads/master' || github.ref == 'refs/heads/redesign-2026'
     needs: build
     runs-on: ubuntu-latest
 
