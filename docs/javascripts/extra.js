@@ -746,3 +746,684 @@
     });
   }
 })();
+
+/**
+ * H2I Chat — "Colega do Lado" Assistant
+ *
+ * Informal chatbot widget for students. Connects to a FastAPI backend
+ * via Cloudflare Tunnel. Persists across SPA navigations.
+ */
+(function () {
+  "use strict";
+
+  // ---- Configuration ----
+  var H2I_CHAT_CONFIG = {
+    apiEndpoint: "https://chat.hacktoimprove.com",
+    maxMessageLength: 1000,
+    sessionKey: "h2i-chat-session"
+  };
+
+  // ---- State (closure-scoped) ----
+  var state = {
+    phase: "idle",        // idle | ask-name | ask-turma | ask-numero | ask-share | ask-topic | chatting
+    name: "",
+    gender: "neutral",    // m | f | neutral
+    topic: "",
+    topicLabel: "",
+    turma: "",            // J | L | M — confirmed by the backend against the class list
+    token: "",            // from POST /identify; /chat answers only with it
+    share: false,         // consent: may Zé mention this chat to the turma?
+    conversationId: "",
+    messages: [],          // { role: "user"|"bot", text: string }
+    pageContext: null,
+    isOpen: false,
+    isSending: false
+  };
+
+  // ---- Course map ----
+  var COURSES = {
+    dpi:      { label: "Design de Produto e Intera\u00e7\u00e3o I", slug: "DesignDeProdutoEInteracao" },
+    di:       { label: "Design de Inova\u00e7\u00e3o",              slug: "DesignDeInovacao" },
+    dpiv:     { label: "Design de Produto IV",            slug: "DesignDeProdutoIV" },
+    pd:       { label: "Prototipagem Digital",            slug: "PrototipagemDigital" },
+    recursos: { label: "Recursos",                        slug: "Recursos" },
+    geral:    { label: "Geral",                           slug: "" }
+  };
+
+  var TOPIC_ORDER = ["dpi", "di", "dpiv", "pd", "recursos", "geral"];
+  var TURMAS = ["J", "L", "M"];   // the same students take both courses
+
+  // ---- DOM refs ----
+  var els = {};
+
+  // =========================================================================
+  //  Initialization
+  // =========================================================================
+
+  function initChat() {
+    ensureChatWidget();
+    loadSession();
+    updateChatContext();
+  }
+
+  /** Create widget DOM once — idempotent across SPA navigations. */
+  function ensureChatWidget() {
+    if (document.querySelector(".h2i-chat")) return;
+
+    var root = document.createElement("div");
+    root.className = "h2i-chat";
+    root.innerHTML =
+      '<button class="h2i-chat__toggle" type="button" aria-label="Abrir chat">' +
+        '<svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">' +
+          '<path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm0 14H5.2L4 17.2V4h16v12z"/>' +
+        "</svg>" +
+      "</button>" +
+      '<div class="h2i-chat__panel">' +
+        '<div class="h2i-chat__header">' +
+          '<span class="h2i-chat__header-title">Z\u00e9</span>' +
+          '<button class="h2i-chat__close" type="button" aria-label="Fechar chat">' +
+            '<svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">' +
+              '<path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z" fill="currentColor"/>' +
+            "</svg>" +
+          "</button>" +
+        "</div>" +
+        '<div class="h2i-chat__messages"></div>' +
+        '<div class="h2i-chat__input-area">' +
+          '<textarea class="h2i-chat__input" rows="1" placeholder="Escreve aqui\u2026"' +
+            ' maxlength="' + H2I_CHAT_CONFIG.maxMessageLength + '"></textarea>' +
+          '<button class="h2i-chat__send" type="button" aria-label="Enviar" disabled>' +
+            '<svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">' +
+              '<path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z" fill="currentColor"/>' +
+            "</svg>" +
+          "</button>" +
+        "</div>" +
+      "</div>";
+
+    document.body.appendChild(root);
+
+    els.root     = root;
+    els.toggle   = root.querySelector(".h2i-chat__toggle");
+    els.panel    = root.querySelector(".h2i-chat__panel");
+    els.close    = root.querySelector(".h2i-chat__close");
+    els.messages = root.querySelector(".h2i-chat__messages");
+    els.input    = root.querySelector(".h2i-chat__input");
+    els.send     = root.querySelector(".h2i-chat__send");
+
+    // ---- Event listeners ----
+    els.toggle.addEventListener("click", toggleChat);
+    els.close.addEventListener("click", closeChat);
+    els.send.addEventListener("click", function () { sendMessage(); });
+
+    els.input.addEventListener("keydown", function (e) {
+      if (e.key === "Enter" && !e.shiftKey) {
+        e.preventDefault();
+        sendMessage();
+      }
+    });
+
+    els.input.addEventListener("input", function () {
+      els.send.disabled = !els.input.value.trim() || state.isSending;
+      // Auto-resize
+      els.input.style.height = "auto";
+      els.input.style.height = Math.min(els.input.scrollHeight, 100) + "px";
+    });
+
+    document.addEventListener("keydown", function (e) {
+      if (e.key === "Escape" && state.isOpen) closeChat();
+    });
+  }
+
+  // =========================================================================
+  //  Toggle / Close
+  // =========================================================================
+
+  function toggleChat() {
+    if (state.isOpen) { closeChat(); return; }
+
+    state.isOpen = true;
+    els.root.classList.add("h2i-chat--open");
+
+    if (state.phase === "idle") startOnboarding();
+
+    els.input.focus();
+    scrollToBottom();
+  }
+
+  function closeChat() {
+    state.isOpen = false;
+    els.root.classList.remove("h2i-chat--open");
+  }
+
+  // =========================================================================
+  //  Onboarding
+  // =========================================================================
+
+  var GREETING =
+    "Ol\u00e1! \ud83d\udc4b Sou o <strong>Z\u00e9</strong>, o teu colega do lado \u2014 " +
+    "estou aqui para te ajudar com as mat\u00e9rias das aulas." +
+    "<br><br><small>Sou um colega virtual (IA): s\u00f3 conhe\u00e7o os materiais deste site " +
+    "e posso enganar-me. S\u00f3 falo com estudantes das turmas. As perguntas ficam registadas " +
+    "sem o teu nome \u2014 s\u00f3 em caso de abuso o professor pode saber de quem s\u00e3o.</small>" +
+    "<br><br>Como te chamas?";
+
+  function startOnboarding() {
+    state.phase = "ask-name";
+    appendMessage("bot", GREETING);
+    saveSession();
+  }
+
+  function handleNameResponse(name) {
+    state.name = name.trim();
+    state.gender = inferGender(state.name);
+    state.phase = "ask-turma";
+    showTurmaQuestion();
+    saveSession();
+  }
+
+  /**
+   * Simple Portuguese gender heuristic based on first name.
+   * Returns "m", "f", or "neutral".
+   */
+  function inferGender(name) {
+    var n = name.toLowerCase().trim().split(/\s+/)[0];
+
+    var male = [
+      "duarte", "henrique", "jorge", "jos\u00e9", "jose", "nuno", "rui",
+      "sim\u00e3o", "simao", "tom\u00e9", "tome", "vicente", "afonso",
+      "guilherme", "gon\u00e7alo", "goncalo", "vasco", "xavier"
+    ];
+    var female = [
+      "in\u00eas", "ines", "beatriz", "raquel", "isabel", "catarina",
+      "madalena", "leonor", "alice", "matilde", "carmen", "flor",
+      "pilar", "mercedes", "dolores"
+    ];
+
+    if (male.indexOf(n) !== -1) return "m";
+    if (female.indexOf(n) !== -1) return "f";
+    if (n.endsWith("a")) return "f";
+    if (n.endsWith("o") || n.endsWith("or") || n.endsWith("el")) return "m";
+    return "neutral";
+  }
+
+  function showTopicSelection() {
+    var html = '<div class="h2i-chat__topics">';
+    for (var i = 0; i < TOPIC_ORDER.length; i++) {
+      var key = TOPIC_ORDER[i];
+      html +=
+        '<button class="h2i-chat__topic-btn" data-topic="' + key + '">' +
+        COURSES[key].label + "</button>";
+    }
+    html += "</div>";
+    appendMessage("bot", html);
+
+    // Bind click events on topic buttons
+    var btns = els.messages.querySelectorAll(".h2i-chat__topic-btn");
+    btns.forEach(function (btn) {
+      btn.addEventListener("click", function () {
+        handleTopicSelection(btn.getAttribute("data-topic"));
+      });
+    });
+  }
+
+  function handleTopicSelection(key) {
+    var course = COURSES[key];
+    if (!course) return;
+    state.topic = key;
+    state.topicLabel = course.label;
+    appendMessage("user", escapeHtml(course.label));
+    disableButtons("[data-topic]");
+    startChatting();
+  }
+
+  function disableButtons(selector) {
+    els.messages.querySelectorAll(selector).forEach(function (btn) {
+      btn.disabled = true;
+      btn.style.opacity = "0.5";
+    });
+  }
+
+  function buttons(attr, items) {
+    var html = '<div class="h2i-chat__topics">';
+    for (var i = 0; i < items.length; i++) {
+      html += '<button class="h2i-chat__topic-btn" ' + attr + '="' + escapeHtml(items[i][0]) +
+        '">' + escapeHtml(items[i][1]) + "</button>";
+    }
+    return html + "</div>";
+  }
+
+  function bindButtons(attr, handler) {
+    els.messages.querySelectorAll("[" + attr + "]:not([disabled])").forEach(function (btn) {
+      btn.addEventListener("click", function () { handler(btn.getAttribute(attr)); });
+    });
+  }
+
+  function showTurmaQuestion() {
+    appendMessage("bot", "E de que turma \u00e9s?" +
+      buttons("data-turma", TURMAS.map(function (t) { return [t, "Turma " + t]; })));
+    bindButtons("data-turma", handleTurmaSelection);
+  }
+
+  function handleTurmaSelection(turma) {
+    state.turma = String(turma).toUpperCase();
+    appendMessage("user", escapeHtml("Turma " + state.turma));
+    disableButtons("[data-turma]");
+    identify("");
+  }
+
+  // The backend checks name + turma (+ student number when in doubt) against
+  // the class list. Only a student on it gets a token; /chat needs the token.
+  function identify(numero) {
+    state.isSending = true;
+    showTyping();
+    fetch(H2I_CHAT_CONFIG.apiEndpoint + "/identify", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ name: state.name, turma: state.turma, numero: numero || "" })
+    })
+    .then(function (r) { return r.json(); })
+    .then(function (d) {
+      hideTyping();
+      state.isSending = false;
+      if (d.ok) {
+        state.token = d.token;
+        state.name = d.name || state.name;
+        state.turma = d.turma || state.turma;
+        var g = state.gender;
+        appendMessage("bot",
+          "Fixe, <strong>" + escapeHtml(state.name) + "</strong>! " +
+          (g === "f" ? "Bem-vinda" : g === "m" ? "Bem-vindo" : "Boas") + ". \ud83d\ude0a");
+        state.phase = "ask-share";
+        showShareQuestion();
+      } else if (d.status === "need_number") {
+        state.phase = "ask-numero";
+        appendMessage("bot", escapeHtml(d.say));
+      } else {
+        forgetIdentity();
+        appendMessage("bot", escapeHtml(d.say ||
+          "Desculpa, mas n\u00e3o te estou a conhecer\u2026 podes repetir, sff?"));
+      }
+      saveSession();
+    })
+    .catch(function (err) {
+      hideTyping();
+      handleError(err);
+    });
+  }
+
+  function forgetIdentity() {
+    state.token = "";
+    state.turma = "";
+    state.name = "";
+    state.conversationId = "";
+    state.phase = "ask-name";
+  }
+
+  // Consent before Zé mentions this student to anyone else.
+  var SHARE_QUESTION =
+    "S\u00f3 mais uma coisa\u2026 \ud83d\ude0a \u00c0s vezes os colegas da turma perguntam-me " +
+    "as mesmas coisas. Posso dizer-lhes que tamb\u00e9m falaste comigo sobre isso? " +
+    "S\u00f3 digo o teu nome e o tema \u2014 nunca os pormenores.";
+
+  function showShareQuestion() {
+    appendMessage("bot", SHARE_QUESTION +
+      buttons("data-share", [["1", "Pode ser"], ["0", "Prefiro que n\u00e3o"]]));
+    bindButtons("data-share", function (v) { handleShare(v === "1"); });
+  }
+
+  function handleShare(yes) {
+    state.share = !!yes;
+    appendMessage("user", yes ? "Pode ser" : "Prefiro que n\u00e3o");
+    disableButtons("[data-share]");
+    state.phase = "ask-topic";
+    appendMessage("bot", "Combinado! Sobre que cadeira queres falar?");
+    showTopicSelection();
+    saveSession();
+  }
+
+  function startChatting() {
+    state.phase = "chatting";
+    appendMessage("bot",
+      "Boa escolha! Pergunta o que quiseres sobre <strong>" +
+      escapeHtml(state.topicLabel) + "</strong>. \ud83d\udcac<br><br>" +
+      "<em>S\u00f3 consigo ajudar com o que est\u00e1 nos materiais das aulas, ok?</em>"
+    );
+    els.input.focus();
+    saveSession();
+  }
+
+  // =========================================================================
+  //  Course context detection (from URL)
+  // =========================================================================
+
+  function detectCourseContext() {
+    // Path under the site root, e.g. "DesignDeInovacao/Sumarios/aula2/".
+    // Sent whole as page_slug; the backend resolves it against its index,
+    // so the course list here never has to mirror the site's folders.
+    var path = window.location.pathname
+      .replace(/^.*?\/classes\//, "").replace(/^\/+/, "");
+    var top = path.split("/")[0].toLowerCase();
+    var courseKey = top === "resources" ? "recursos" : null;
+    for (var k in COURSES) {
+      if (COURSES[k].slug && COURSES[k].slug.toLowerCase() === top) { courseKey = k; break; }
+    }
+    return { course: courseKey, page: path || null };
+  }
+
+  /** Called on every SPA navigation — only updates context, never re-creates DOM. */
+  function updateChatContext() {
+    state.pageContext = detectCourseContext();
+  }
+
+  // =========================================================================
+  //  Messaging
+  // =========================================================================
+
+  function sendMessage(text) {
+    text = text || els.input.value.trim();
+    if (!text || state.isSending) return;
+    if (text.length > H2I_CHAT_CONFIG.maxMessageLength) {
+      text = text.substring(0, H2I_CHAT_CONFIG.maxMessageLength);
+    }
+
+    // Handle onboarding name phase
+    if (state.phase === "ask-name") {
+      els.input.value = "";
+      els.input.style.height = "auto";
+      els.send.disabled = true;
+      appendMessage("user", escapeHtml(text));
+      handleNameResponse(text);
+      return;
+    }
+
+    // Typed instead of clicked during onboarding
+    if (state.phase === "ask-turma" || state.phase === "ask-share" || state.phase === "ask-numero") {
+      els.input.value = "";
+      els.input.style.height = "auto";
+      els.send.disabled = true;
+      if (state.phase === "ask-turma") {
+        var t = text.toUpperCase().match(/([JLM])\s*$/);
+        if (t) { handleTurmaSelection(t[1]); } else { appendMessage("user", escapeHtml(text)); disableButtons("[data-turma]"); showTurmaQuestion(); }
+      } else if (state.phase === "ask-numero") {
+        appendMessage("user", escapeHtml(text));
+        identify(text.replace(/\D/g, ""));
+      } else {
+        handleShare(/^\s*(sim|pode|ok|claro|s)\b/i.test(text));
+      }
+      return;
+    }
+
+    if (state.phase !== "chatting") return;
+
+    // Regular chat message
+    appendMessage("user", escapeHtml(text));
+    els.input.value = "";
+    els.input.style.height = "auto";
+    els.send.disabled = true;
+
+    state.messages.push({ role: "user", text: text });
+    saveSession();
+    sendToBackend(text);
+  }
+
+  function appendMessage(role, html) {
+    var div = document.createElement("div");
+    div.className = "h2i-chat__message h2i-chat__message--" + role;
+    div.innerHTML = html;
+    els.messages.appendChild(div);
+    scrollToBottom();
+    return div;
+  }
+
+  /** Zé's reply as text nodes (never innerHTML); only site links become <a>. */
+  function renderBotText(el, text) {
+    el.textContent = "";
+    el.classList.add("h2i-chat__message--text");
+    var re = /(?:https?:\/\/)?(?:www\.)?hacktoimprove\.com\/[^\s<>"')\]]*/g;
+    var last = 0, m;
+    while ((m = re.exec(text)) !== null) {
+      var url = m[0].replace(/[.,;:!?\u00bb]+$/, "");
+      el.appendChild(document.createTextNode(text.slice(last, m.index)));
+      var a = document.createElement("a");
+      a.href = /^https?:/.test(url) ? url : "https://" + url;
+      a.textContent = url;
+      el.appendChild(a);
+      last = m.index + url.length;
+      re.lastIndex = last;
+    }
+    el.appendChild(document.createTextNode(text.slice(last)));
+  }
+
+  function showTyping() {
+    var div = document.createElement("div");
+    div.className = "h2i-chat__typing";
+    div.id = "h2i-chat-typing";
+    div.innerHTML =
+      '<span class="h2i-chat__typing-dot"></span>' +
+      '<span class="h2i-chat__typing-dot"></span>' +
+      '<span class="h2i-chat__typing-dot"></span>';
+    els.messages.appendChild(div);
+    scrollToBottom();
+  }
+
+  function hideTyping() {
+    var el = document.getElementById("h2i-chat-typing");
+    if (el) el.remove();
+  }
+
+  function scrollToBottom() {
+    if (els.messages) els.messages.scrollTop = els.messages.scrollHeight;
+  }
+
+  // =========================================================================
+  //  Backend communication (POST + SSE stream via ReadableStream)
+  // =========================================================================
+
+  function sendToBackend(text) {
+    state.isSending = true;
+    showTyping();
+
+    var ctx = state.pageContext || detectCourseContext();
+    var body = {
+      name: state.name,
+      gender: state.gender,
+      message: text,
+      course_context: state.topic,
+      page_slug: ctx.page || "",
+      conversation_id: state.conversationId || "",
+      token: state.token || "",
+      partilhar: !!state.share
+    };
+
+    fetch(H2I_CHAT_CONFIG.apiEndpoint + "/chat", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(body)
+    })
+    .then(function (response) {
+      if (response.status === 401) {
+        // token expired or not ours: introduce yourself again
+        return response.json().then(function (d) {
+          hideTyping();
+          state.isSending = false;
+          forgetIdentity();
+          appendMessage("bot", escapeHtml((d && d.say) ||
+            "Desculpa, mas n\u00e3o te estou a conhecer\u2026 podes repetir, sff?") +
+            "<br><br>Como te chamas?");
+          saveSession();
+        });
+      }
+      if (!response.ok) throw new Error("HTTP " + response.status);
+
+      var convId = response.headers.get("X-Conversation-Id");
+      if (convId) state.conversationId = convId;
+
+      var reader = response.body.getReader();
+      var decoder = new TextDecoder();
+      var botText = "";
+
+      hideTyping();
+      var bubble = document.createElement("div");
+      bubble.className = "h2i-chat__message h2i-chat__message--bot";
+      els.messages.appendChild(bubble);
+
+      // SSE: a network read can end mid-line, so keep the partial line in
+      // `buffer`; an event ends at a blank line and its data: lines join
+      // with "\n" (that is how the reply keeps its paragraphs).
+      var buffer = "";
+      var dataLines = [];
+
+      function endEvent() {
+        if (!dataLines.length) return false;
+        var data = dataLines.join("\n");
+        dataLines = [];
+        if (data === "[DONE]") return true;
+        botText += data;
+        renderBotText(bubble, botText);
+        scrollToBottom();
+        return false;
+      }
+
+      function read() {
+        return reader.read().then(function (result) {
+          if (result.done) { endEvent(); finish(); return; }
+
+          buffer += decoder.decode(result.value, { stream: true });
+          var lines = buffer.split("\n");
+          buffer = lines.pop();
+          for (var i = 0; i < lines.length; i++) {
+            var line = lines[i].replace(/\r$/, "");
+            if (line === "") {
+              if (endEvent()) { finish(); return; }
+            } else if (line.indexOf("data:") === 0) {
+              var v = line.substring(5);
+              dataLines.push(v.charAt(0) === " " ? v.substring(1) : v);
+            }
+          }
+          return read();
+        });
+      }
+
+      function finish() {
+        state.isSending = false;
+        els.send.disabled = !els.input.value.trim();
+        if (botText) state.messages.push({ role: "bot", text: botText });
+        else bubble.remove();   // Zé chose not to answer (off topic, again)
+        saveSession();
+      }
+
+      return read();
+    })
+    .catch(function (err) {
+      hideTyping();
+      handleError(err);
+    });
+  }
+
+  function handleError(err) {
+    state.isSending = false;
+    els.send.disabled = !els.input.value.trim();
+    console.warn("[H2I Chat]", err);
+    appendMessage("bot",
+      "\ud83d\ude05 Desculpa, n\u00e3o consegui ligar-me ao servidor. " +
+      "Tenta outra vez daqui a pouco, ou pergunta diretamente ao professor."
+    );
+  }
+
+  // =========================================================================
+  //  Session persistence (sessionStorage)
+  // =========================================================================
+
+  function loadSession() {
+    try {
+      var raw = sessionStorage.getItem(H2I_CHAT_CONFIG.sessionKey);
+      if (!raw) return;
+      var d = JSON.parse(raw);
+      state.name           = d.name           || "";
+      state.gender         = d.gender         || "neutral";
+      state.topic          = d.topic          || "";
+      state.topicLabel     = d.topicLabel     || "";
+      state.turma          = d.turma          || "";
+      state.token          = d.token          || "";
+      state.share          = !!d.share;
+      state.phase          = d.phase          || "idle";
+      state.conversationId = d.conversationId || "";
+      state.messages       = d.messages       || [];
+      if (state.phase !== "idle") restoreChat();
+    } catch (e) { /* start fresh */ }
+  }
+
+  function saveSession() {
+    try {
+      sessionStorage.setItem(H2I_CHAT_CONFIG.sessionKey, JSON.stringify({
+        name:           state.name,
+        gender:         state.gender,
+        topic:          state.topic,
+        topicLabel:     state.topicLabel,
+        turma:          state.turma,
+        token:          state.token,
+        share:          state.share,
+        phase:          state.phase,
+        conversationId: state.conversationId,
+        messages:       state.messages.slice(-50)
+      }));
+    } catch (e) { /* storage full — ignore */ }
+  }
+
+  /** Re-render stored state into the messages pane. */
+  function restoreChat() {
+    els.messages.innerHTML = "";
+
+    if (state.phase === "ask-name") {
+      appendMessage("bot", GREETING);
+    } else if (state.phase === "ask-turma") {
+      appendMessage("bot", GREETING);
+      appendMessage("user", escapeHtml(state.name));
+      showTurmaQuestion();
+    } else if (state.phase === "ask-numero") {
+      appendMessage("bot", "Qual \u00e9 o teu n\u00famero de estudante?");
+    } else if (state.phase === "ask-share") {
+      showShareQuestion();
+    } else if (state.phase === "ask-topic") {
+      appendMessage("bot", "Sobre que cadeira queres falar?");
+      showTopicSelection();
+    } else if (state.phase === "chatting") {
+      // Brief context line, then replay messages
+      appendMessage("bot",
+        "\ud83d\udcda <em>" + escapeHtml(state.topicLabel) +
+        "</em> \u2014 continuamos de onde par\u00e1mos."
+      );
+      for (var i = 0; i < state.messages.length; i++) {
+        var m = state.messages[i];
+        if (m.role === "bot") renderBotText(appendMessage("bot", ""), m.text);
+        else appendMessage(m.role, escapeHtml(m.text));
+      }
+    }
+  }
+
+  // =========================================================================
+  //  Utilities
+  // =========================================================================
+
+  function escapeHtml(str) {
+    var div = document.createElement("div");
+    div.appendChild(document.createTextNode(str));
+    return div.innerHTML;
+  }
+
+  // =========================================================================
+  //  Bootstrap
+  // =========================================================================
+
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", initChat);
+  } else {
+    initChat();
+  }
+
+  // SPA navigation — update context only (widget persists)
+  if (typeof document$ !== "undefined") {
+    document$.subscribe(function () {
+      updateChatContext();
+    });
+  }
+})();
