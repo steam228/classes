@@ -19,7 +19,6 @@
 
 :root {
   --hero-height: 60vh;
-  --hero-overlay-opacity: 0.2;
   --hero-transition-duration: 0.3s;
 }
 
@@ -46,39 +45,45 @@
   justify-content: flex-start;
 }
 
-/* Scroll-down arrow for 100vh heroes */
+/* Scroll-down arrow for 100vh heroes — glass pill */
 .md-hero__scroll-arrow {
   position: absolute;
-  bottom: 2rem;
+  bottom: 40px;
   left: 50%;
   transform: translateX(-50%);
-  background: none;
-  border: none;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: var(--h2i-glass);
+  -webkit-backdrop-filter: blur(16px) saturate(1.6);
+  backdrop-filter: blur(16px) saturate(1.6);
+  border: 1px solid var(--h2i-glass-line);
   cursor: pointer;
-  color: var(--hero-title-color);
-  width: 3rem;
-  height: 3rem;
+  color: var(--md-default-fg-color);
   display: flex;
   align-items: center;
   justify-content: center;
-  z-index: 2;
-  opacity: 0.6;
+  z-index: 3;
   transition: opacity 0.2s ease;
   animation: hero-arrow-bounce 2s ease-in-out infinite;
 }
 
+.md-hero--immersive .md-hero__scroll-arrow {
+  color: #ffffff;
+}
+
 .md-hero__scroll-arrow:hover {
-  opacity: 1;
+  opacity: 0.8;
 }
 
 .md-hero__scroll-arrow svg {
-  width: 2.5rem;
-  height: 2.5rem;
+  width: 24px;
+  height: 24px;
 }
 
 @keyframes hero-arrow-bounce {
   0%, 100% { transform: translateX(-50%) translateY(0); }
-  50%       { transform: translateX(-50%) translateY(10px); }
+  50%       { transform: translateX(-50%) translateY(6px); }
 }
 
 /* Video background for hero (replaces background-image when hero_image is a video) */
@@ -112,68 +117,114 @@
   .md-hero__sketch { display: none; }
 }
 
-/* Theme-dependent overlay for text readability */
-.md-hero__overlay {
+/* Slate-only dim layer (replaces old overlay gradient) */
+.md-hero__dim {
   position: absolute;
   top: 0;
   left: 0;
   right: 0;
   bottom: 0;
-  background: linear-gradient(
-    180deg,
-    rgba(var(--hero-overlay-color), var(--hero-overlay-top-opacity)) 0%,  /* top fade — stronger in dark mode */
-    rgba(var(--hero-overlay-color), 0) 20%,
-    rgba(var(--hero-overlay-color), 0) 55%,
-    rgba(var(--hero-overlay-color), var(--hero-overlay-opacity)) 100%
-  );
+  background: var(--h2i-hero-dim);
   pointer-events: none;
+}
+
+/* Sketch loading state: dot-grid until iframe paints */
+.md-hero__sketch.h2i-dots {
+  background-color: var(--md-code-bg-color);
 }
 
 .md-hero__inner {
   position: relative;
   z-index: 1;
   width: 100%;
-  max-width: 61rem; /* Match md-grid max-width */
-  padding: 0 .4rem; /* Match md-header__inner padding */
-  padding-left: calc(.4rem + .2rem + .4rem); /* header padding + button margin + button padding = align with logo */
-  padding-bottom: 10vh; /* 10vh from bottom of hero image */
-  margin: 0 auto;
+  display: flex;
+  align-items: flex-end;
+  height: 100%;
 }
 
 /* ==========================================================================
-   Hero Content & Typography
+   Hero Legend Card
    ========================================================================== */
 
-.md-hero__content {
-  width: 100%;
-  max-width: 800px;
-  text-align: left; /* Always left-aligned with logo */
+.md-hero__legend {
+  position: absolute;
+  bottom: -48px;
+  left: 0;
+  width: 600px;
+  max-width: calc(100% - 32px);
+  background: var(--md-default-bg-color);
+  border-radius: 4px;
+  box-shadow: var(--h2i-shadow);
+  z-index: 2;
 }
 
-.md-hero__content--left,
-.md-hero__content--center,
-.md-hero__content--right {
-  text-align: left;
-  margin: 0;
+/* 100vh heroes: legend inside hero, not overlapping */
+.md-hero--full .md-hero__legend {
+  bottom: 124px;
+  box-shadow: var(--h2i-shadow-lg);
+}
+
+/* Home hero: wider title treatment */
+.md-hero--home .md-hero__title {
+  font-weight: 800;
+  font-size: 128px;
+  line-height: 0.86;
+}
+
+/* Breadcrumb path row */
+.md-hero__path {
+  display: flex;
+  padding: 0;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.md-hero__path a {
+  display: block;
+  padding: 10px 14px;
+  font-family: var(--md-code-font);
+  font-size: var(--h2i-fs-label, 11.5px);
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--md-default-fg-color--light);
+  text-decoration: none;
+  border-right: 1px solid var(--md-default-fg-color--lightest);
+}
+
+.md-hero__path a:last-child {
+  color: var(--md-primary-fg-color);
+  border-right: none;
+}
+
+.md-hero__path a:hover {
+  color: var(--md-default-fg-color);
+}
+
+/* Legend body (title, subtitle, buttons) */
+.md-hero__legend-body {
+  padding: 24px 28px 28px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
 }
 
 .md-hero__title {
-  color: var(--hero-title-color);
-  font-size: clamp(1.6rem, 4vw, 2.8rem); /* 20% smaller */
-  font-weight: 600; /* SemiBold */
-  line-height: 0.84; /* 30% less than 1.2 */
-  margin: 0 0 0.5rem 0;
-  text-shadow: 0 2px 8px rgba(var(--hero-overlay-color), 0.3);
+  font-family: var(--h2i-font-display);
+  font-weight: 700;
+  font-size: 60px;
+  line-height: 1;
+  letter-spacing: var(--h2i-display-tracking);
+  color: var(--md-default-fg-color);
+  margin: 0;
 }
 
 .md-hero__subtitle {
-  color: var(--hero-subtitle-color);
-  font-size: clamp(0.8rem, 1.6vw, 1.12rem); /* 20% smaller */
-  font-weight: 400; /* Regular */
-  font-style: italic;
-  line-height: 1.05; /* 30% less than 1.5 */
+  font-size: 19px;
+  font-weight: 400;
+  line-height: 1.4;
+  color: var(--md-default-fg-color--light);
   margin: 0;
-  text-shadow: 0 1px 4px rgba(var(--hero-overlay-color), 0.3);
 }
 
 /* ==========================================================================
@@ -184,46 +235,149 @@
   display: flex;
   flex-wrap: wrap;
   gap: 1rem;
-}
-
-.md-hero__content--center .md-hero__buttons {
-  justify-content: center;
-}
-
-.md-hero__content--right .md-hero__buttons {
-  justify-content: flex-end;
+  margin-top: 4px;
 }
 
 .md-hero__buttons .md-button {
-  padding: 0.75rem 1.5rem;
-  font-size: 1rem;
+  height: 44px;
+  padding: 0 20px;
+  font-size: 15.5px;
   font-weight: 600;
-  border-radius: 0.25rem;
+  border-radius: 8px;
   text-decoration: none;
+  display: inline-flex;
+  align-items: center;
   transition: all var(--hero-transition-duration) ease;
 }
 
 .md-hero__buttons .md-button--primary {
-  background: var(--md-primary-fg-color, #4051b5);
-  color: var(--md-primary-bg-color, #ffffff);
-  border: 2px solid var(--md-primary-fg-color, #4051b5);
+  background: var(--md-primary-fg-color);
+  color: var(--md-primary-bg-color);
+  border: none;
 }
 
 .md-hero__buttons .md-button--primary:hover {
-  background: transparent;
-  color: #ffffff;
-  border-color: #ffffff;
+  background: var(--md-primary-fg-color--dark, var(--md-primary-fg-color));
+  transform: translateY(-1px);
+  box-shadow: var(--h2i-shadow-sm);
 }
 
 .md-hero__buttons .md-button--secondary {
   background: transparent;
-  color: #ffffff;
-  border: 2px solid rgba(255, 255, 255, 0.8);
+  color: var(--md-default-fg-color);
+  border: 1.5px solid var(--md-default-fg-color);
 }
 
 .md-hero__buttons .md-button--secondary:hover {
-  background: rgba(255, 255, 255, 0.1);
-  border-color: #ffffff;
+  background: var(--md-default-fg-color--lightest);
+}
+
+/* Extra padding on .md-main for hero overhang */
+html.has-hero .md-main {
+  padding-top: 104px; /* overhang 48px + 56px spacing */
+}
+
+html.has-hero[data-hero-height="100vh"] .md-main {
+  padding-top: 0; /* no overhang for 100vh */
+}
+
+/* Hide the normal breadcrumbs on hero pages (legend carries them) */
+html.has-hero .md-path {
+  display: none;
+}
+
+/* ==========================================================================
+   Immersive Mode — hero_tone: dark
+   ========================================================================== */
+
+/* Top scrim for header readability */
+.md-hero__scrim--top {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 180px;
+  background: linear-gradient(rgba(0, 0, 0, 0.55), transparent);
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* Bottom scrim for content readability */
+.md-hero__scrim--bottom {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 240px;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.62), transparent);
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* Immersive: content directly on image, white text */
+.md-hero--immersive .md-hero__content {
+  position: relative;
+  z-index: 2;
+  padding-bottom: 80px;
+}
+
+.md-hero--immersive .md-hero__path a {
+  color: rgba(255, 255, 255, 0.7);
+  border-right-color: rgba(255, 255, 255, 0.2);
+}
+
+.md-hero--immersive .md-hero__path a:last-child {
+  color: #4BB8FA;
+}
+
+.md-hero--immersive .md-hero__title {
+  color: #ffffff;
+}
+
+.md-hero--immersive .md-hero__subtitle {
+  color: rgba(255, 255, 255, 0.85);
+}
+
+/* Immersive header: transparent until scrolled */
+html.h2i-hero-dark .md-header:not(.md-header--scrolled) {
+  background: transparent;
+  border-bottom-color: transparent;
+  color: #ffffff;
+  -webkit-backdrop-filter: none;
+  backdrop-filter: none;
+}
+
+html.h2i-hero-dark .md-header:not(.md-header--scrolled) .h2i-wordmark {
+  color: #ffffff;
+}
+
+html.h2i-hero-dark .md-header:not(.md-header--scrolled) .h2i-tagline {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+html.h2i-hero-dark .md-header:not(.md-header--scrolled) .md-tabs__link {
+  color: #ffffff;
+}
+
+html.h2i-hero-dark .md-header:not(.md-header--scrolled) .md-tabs__item.archived-course .md-tabs__link {
+  color: rgba(255, 255, 255, 0.78);
+}
+
+html.h2i-hero-dark .md-header:not(.md-header--scrolled) .md-tabs__link--active,
+html.h2i-hero-dark .md-header:not(.md-header--scrolled) .md-tabs__item--active .md-tabs__link {
+  border-bottom-color: #4BB8FA;
+}
+
+html.h2i-hero-dark .md-header:not(.md-header--scrolled) .md-search__form {
+  background: rgba(255, 255, 255, 0.14);
+}
+
+html.h2i-hero-dark .md-header:not(.md-header--scrolled) .md-search__input {
+  color: #ffffff;
+}
+
+html.h2i-hero-dark .md-header:not(.md-header--scrolled) .md-search__input::placeholder {
+  color: rgba(255, 255, 255, 0.5);
 }
 
 /* ==========================================================================
@@ -368,29 +522,75 @@ html[data-hero-height="100vh"] .md-hero__image {
 }
 
 /* ==========================================================================
-   Responsive Adjustments
+   Hero Responsive Adjustments
    ========================================================================== */
 
-/* Tablet and below */
-@media screen and (max-width: 960px) {
-  .md-hero__inner {
-    padding: 0 1.5rem;
-    padding-bottom: 10vh;
+/* Tablet (720–1219px) */
+@media screen and (max-width: 1219px) {
+  .md-hero__legend {
+    left: 32px;
+    width: 560px;
+    bottom: -40px;
+  }
+
+  .md-hero--full .md-hero__legend {
+    bottom: 100px;
   }
 
   .md-hero__title {
-    font-size: clamp(1.4rem, 4vw, 2rem);
+    font-size: 46px;
   }
 
-  .md-hero__subtitle {
-    font-size: clamp(0.75rem, 1.6vw, 0.95rem);
+  .md-hero--home .md-hero__title {
+    font-size: 80px;
+  }
+
+  html.has-hero .md-main {
+    padding-top: 96px;
   }
 }
 
-/* Mobile */
-@media screen and (max-width: 600px) {
+/* Mobile (≤719px) */
+@media screen and (max-width: 719px) {
   .md-hero__image {
     min-height: 300px;
+  }
+
+  .md-hero__legend {
+    left: 16px;
+    right: 16px;
+    width: auto;
+    max-width: none;
+    bottom: -40px;
+  }
+
+  .md-hero--full .md-hero__legend {
+    bottom: 80px;
+  }
+
+  .md-hero__title {
+    font-size: 40px;
+  }
+
+  .md-hero--home .md-hero__title {
+    font-size: 56px;
+  }
+
+  .md-hero__subtitle {
+    font-size: 16px;
+  }
+
+  .md-hero__legend-body {
+    padding: 18px 20px 22px;
+  }
+
+  /* Path: show only last two items on mobile */
+  .md-hero__path a:first-child {
+    display: none;
+  }
+
+  .md-hero__path {
+    overflow: hidden;
   }
 
   .md-hero__buttons {
@@ -398,14 +598,13 @@ html[data-hero-height="100vh"] .md-hero__image {
     align-items: stretch;
   }
 
-  .md-hero__content--center .md-hero__buttons,
-  .md-hero__content--right .md-hero__buttons {
-    align-items: stretch;
-  }
-
   .md-hero__buttons .md-button {
     text-align: center;
     width: 100%;
+  }
+
+  html.has-hero .md-main {
+    padding-top: 96px;
   }
 }
 

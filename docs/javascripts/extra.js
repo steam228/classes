@@ -343,6 +343,11 @@
       return;
     }
 
+    // Remove dot-grid loading state once sketch paints
+    iframe.addEventListener("load", function () {
+      iframe.classList.remove("h2i-dots");
+    }, { once: true });
+
     var observer = new IntersectionObserver(
       function (entries) {
         entries.forEach(function (entry) {
@@ -366,6 +371,9 @@
     if (header) {
       header.classList.remove("md-header--scrolled");
     }
+
+    // Remove immersive mode class
+    document.documentElement.classList.remove("h2i-hero-dark");
 
     // Call stored cleanup functions
     if (typeof window.__heroScrollCleanup === "function") {
