@@ -870,6 +870,7 @@ html[data-hero-height="100vh"] .md-hero__image {
 
 .md-typeset .admonition-title::before,
 .md-typeset details > summary::before {
+  left: 18px;
   width: 18px;
   height: 18px;
 }
