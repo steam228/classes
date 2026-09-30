@@ -26,7 +26,6 @@
 
     setupScrollHandler();
     setupParallax();
-    setupHeroNavigation();
     setupScrollArrow();
     initHeroSketch();
   }
@@ -153,7 +152,6 @@
 
     let threshold = getThreshold();
     let ticking = false;
-    let lastScrollY = window.scrollY;
 
     const updateHeader = () => {
       const scrollY = window.scrollY;
@@ -168,33 +166,28 @@
     };
 
     const onScroll = () => {
-      lastScrollY = window.scrollY;
-
       if (!ticking) {
         requestAnimationFrame(updateHeader);
         ticking = true;
       }
     };
 
+    const onResize = () => {
+      threshold = getThreshold();
+      updateHeader();
+    };
+
     // Initial check
     updateHeader();
 
-    // Attach scroll listener
+    // Attach listeners
     window.addEventListener("scroll", onScroll, { passive: true });
+    window.addEventListener("resize", onResize, { passive: true });
 
-    // Update threshold on resize
-    window.addEventListener(
-      "resize",
-      () => {
-        threshold = getThreshold();
-        updateHeader();
-      },
-      { passive: true },
-    );
-
-    // Store cleanup function
+    // Store cleanup function (removes both scroll and resize)
     window.__heroScrollCleanup = () => {
       window.removeEventListener("scroll", onScroll);
+      window.removeEventListener("resize", onResize);
     };
   }
 
@@ -269,61 +262,6 @@
       arrow.style.opacity = fade * 0.6;
     };
     window.addEventListener("scroll", onScroll, { passive: true });
-  }
-
-  /**
-   * Set up hero in-page navigation highlighting
-   */
-  function setupHeroNavigation() {
-    const navLinks = document.querySelectorAll(".md-hero__nav-link");
-    if (!navLinks.length) return;
-
-    // Highlight active section based on scroll position
-    const sections = [];
-    navLinks.forEach((link) => {
-      const href = link.getAttribute("href");
-      if (href && href.startsWith("#")) {
-        const section = document.querySelector(href);
-        if (section) {
-          sections.push({ link, section });
-        }
-      }
-    });
-
-    if (!sections.length) return;
-
-    let ticking = false;
-
-    const updateActiveLink = () => {
-      const scrollY = window.scrollY + 100; // Offset for header
-
-      let activeSection = null;
-
-      for (const { link, section } of sections) {
-        if (section.offsetTop <= scrollY) {
-          activeSection = link;
-        }
-      }
-
-      navLinks.forEach((link) =>
-        link.classList.remove("md-hero__nav-link--active"),
-      );
-      if (activeSection) {
-        activeSection.classList.add("md-hero__nav-link--active");
-      }
-
-      ticking = false;
-    };
-
-    const onScroll = () => {
-      if (!ticking) {
-        requestAnimationFrame(updateActiveLink);
-        ticking = true;
-      }
-    };
-
-    window.addEventListener("scroll", onScroll, { passive: true });
-    updateActiveLink();
   }
 
   /**
@@ -678,9 +616,11 @@
       video.style.maxWidth = "100%";
       video.style.display = "block";
 
+      var ext = src.split(".").pop().toLowerCase();
+      var mimeMap = { mp4: "video/mp4", webm: "video/webm", ogg: "video/ogg", mov: "video/quicktime" };
       const source = document.createElement("source");
       source.setAttribute("src", src);
-      source.setAttribute("type", "video/mp4");
+      source.setAttribute("type", mimeMap[ext] || "video/mp4");
       video.appendChild(source);
 
       // If the img is the only child of a <p>, replace the whole paragraph

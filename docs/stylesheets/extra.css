@@ -55,8 +55,8 @@
   height: 48px;
   border-radius: 50%;
   background: var(--h2i-glass);
-  -webkit-backdrop-filter: blur(16px) saturate(1.6);
-  backdrop-filter: blur(16px) saturate(1.6);
+  -webkit-backdrop-filter: blur(12px) saturate(1.6);
+  backdrop-filter: blur(12px) saturate(1.6);
   border: 1px solid var(--h2i-glass-line);
   cursor: pointer;
   color: var(--md-default-fg-color);
@@ -149,7 +149,7 @@
 .md-hero__legend {
   position: absolute;
   bottom: -48px;
-  left: 0;
+  left: 312px; /* aligned to content column (sidebar 242px + gap 70px) */
   width: 600px;
   max-width: calc(100% - 32px);
   background: var(--md-default-bg-color);
@@ -164,11 +164,24 @@
   box-shadow: var(--h2i-shadow-lg);
 }
 
-/* Home hero: wider title treatment */
+/* Home hero: wider legend + title treatment */
+.md-hero--home .md-hero__legend {
+  width: 680px;
+}
+
+.md-hero--home .md-hero__legend-body {
+  padding: 26px 30px 32px;
+}
+
 .md-hero--home .md-hero__title {
   font-weight: 800;
   font-size: 128px;
   line-height: 0.86;
+}
+
+.md-hero--home .md-hero__subtitle {
+  font-size: 21px;
+  line-height: 1.45;
 }
 
 /* Breadcrumb path row */
@@ -181,7 +194,7 @@
 
 .md-hero__path a {
   display: block;
-  padding: 10px 14px;
+  padding: 12px 20px;
   font-family: var(--md-code-font);
   font-size: var(--h2i-fs-label, 11.5px);
   font-weight: 500;
@@ -321,6 +334,12 @@ html.has-hero .md-path {
   padding-bottom: 80px;
 }
 
+/* hero_align modifiers (immersive mode) */
+.md-hero__content--center { text-align: center; align-items: center; }
+.md-hero__content--right { text-align: right; align-items: flex-end; }
+.md-hero__content--center .md-hero__buttons { justify-content: center; }
+.md-hero__content--right .md-hero__buttons { justify-content: flex-end; }
+
 .md-hero--immersive .md-hero__path a {
   color: rgba(255, 255, 255, 0.7);
   border-right-color: rgba(255, 255, 255, 0.2);
@@ -415,6 +434,24 @@ html.has-hero .md-header {
   top: 0;
   left: 0;
   right: 0;
+}
+
+/* Search input — pill shape */
+.md-search__form {
+  border-radius: 10px;
+  background: var(--h2i-field, var(--md-code-bg-color));
+  overflow: hidden;
+}
+
+.md-search__input {
+  height: 40px;
+  font-size: 14.5px;
+}
+
+/* ⌘K hint — mono, right-aligned */
+.md-search__input::placeholder {
+  font-family: var(--md-code-font);
+  font-size: 13px;
 }
 
 /* Wordmark split: "H2I" bold + tagline light */
@@ -525,12 +562,16 @@ html[data-hero-height="100vh"] .md-hero__image {
    Hero Responsive Adjustments
    ========================================================================== */
 
-/* Tablet (720–1219px) */
+/* Tablet (720–1219px) — no sidebar, legend left-aligned */
 @media screen and (max-width: 1219px) {
   .md-hero__legend {
     left: 32px;
     width: 560px;
     bottom: -40px;
+  }
+
+  .md-hero--home .md-hero__legend {
+    width: 600px;
   }
 
   .md-hero--full .md-hero__legend {
@@ -637,9 +678,12 @@ html[data-hero-height="100vh"] .md-hero__image {
   margin-top: 48px;
 }
 
-/* H2 numbering — opt-out with .no-h2-numbers on body or wrapper */
+/* H2 numbering — flex layout with mono counter, opt-out with .no-h2-numbers */
 .md-typeset h2 {
   counter-increment: h2;
+  display: flex;
+  gap: 14px;
+  align-items: baseline;
 }
 
 .md-typeset h2::before {
@@ -648,11 +692,10 @@ html[data-hero-height="100vh"] .md-hero__image {
   font-weight: 400;
   font-size: 14px;
   color: var(--md-primary-fg-color);
-  margin-right: 14px;
-  vertical-align: baseline;
+  flex-shrink: 0;
 }
 
-.no-h2-numbers .md-typeset h2 { counter-increment: none; }
+.no-h2-numbers .md-typeset h2 { counter-increment: none; display: block; }
 .no-h2-numbers .md-typeset h2::before { display: none; }
 
 .md-typeset h3 {
@@ -967,59 +1010,6 @@ html[data-hero-height="100vh"] .md-hero__image {
   background: var(--h2i-tint);
   padding: 1px 6px;
   border-radius: 10px;
-}
-
-/* ==========================================================================
-   Page Menu Links (Horizontal Navigation Below Hero)
-   ========================================================================== */
-
-.md-hero__nav {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  background: rgba(0, 0, 0, 0.3);
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
-}
-
-.md-hero__nav-inner {
-  max-width: var(--md-grid-max-width, 1440px);
-  margin: 0 auto;
-  padding: 0 1.5rem;
-  display: flex;
-  justify-content: center;
-  gap: 2rem;
-}
-
-.md-hero__nav-link {
-  color: rgba(255, 255, 255, 0.9);
-  text-decoration: none;
-  padding: 1rem 0;
-  font-size: 0.875rem;
-  font-weight: 500;
-  border-bottom: 2px solid transparent;
-  transition: all var(--hero-transition-duration) ease;
-}
-
-.md-hero__nav-link:hover,
-.md-hero__nav-link--active {
-  color: #ffffff;
-  border-bottom-color: var(--md-primary-fg-color, #4051b5);
-}
-
-@media screen and (max-width: 600px) {
-  .md-hero__nav-inner {
-    gap: 1rem;
-    overflow-x: auto;
-    justify-content: flex-start;
-    padding: 0 1rem;
-  }
-
-  .md-hero__nav-link {
-    white-space: nowrap;
-    font-size: 0.8rem;
-  }
 }
 
 /* ==========================================================================
@@ -1689,7 +1679,7 @@ html[data-hero-height="100vh"] .md-hero__image {
   align-items: center;
   gap: 12px;
   height: 64px;
-  padding: 0 16px;
+  padding: 0 8px 0 16px;
   background: var(--md-default-bg-color);
   border-bottom: 1px solid var(--md-default-fg-color--lightest);
   flex-shrink: 0;
@@ -1707,7 +1697,7 @@ html[data-hero-height="100vh"] .md-hero__image {
   justify-content: center;
   font-family: var(--h2i-font-display);
   font-weight: 800;
-  font-size: 16px;
+  font-size: 17px;
   flex-shrink: 0;
 }
 
@@ -1742,7 +1732,7 @@ html[data-hero-height="100vh"] .md-hero__image {
   display: flex;
   align-items: center;
   justify-content: center;
-  border-radius: 50%;
+  border-radius: 10px;
   flex-shrink: 0;
   transition: background 0.15s, color 0.15s;
 }
@@ -1799,6 +1789,7 @@ html[data-hero-height="100vh"] .md-hero__image {
 
 .h2i-chat__message--user {
   align-self: flex-end;
+  max-width: 280px;
   background: var(--md-primary-fg-color);
   color: var(--md-primary-bg-color, #fff);
   border-radius: 14px 4px 14px 14px;
@@ -1826,8 +1817,8 @@ html[data-hero-height="100vh"] .md-hero__image {
 .h2i-chat__typing-dot:nth-child(3) { animation-delay: 0.30s; }
 
 @keyframes h2i-chat-bounce {
-  0%, 80%, 100% { transform: scale(0.6); opacity: 0.4; }
-  40% { transform: scale(1); opacity: 1; }
+  0%, 80%, 100% { transform: translateY(0); opacity: 0.4; }
+  40% { transform: translateY(-3px); opacity: 1; }
 }
 
 /* Input area */
@@ -1851,7 +1842,7 @@ html[data-hero-height="100vh"] .md-hero__image {
   line-height: 1.4;
   height: 44px;
   max-height: 100px;
-  background: var(--md-code-bg-color);
+  background: var(--md-default-bg-color);
   color: var(--md-default-fg-color);
   outline: none;
   transition: border-color 0.15s, box-shadow 0.15s;
@@ -1890,13 +1881,22 @@ html[data-hero-height="100vh"] .md-hero__image {
 
 /* Disclaimer */
 .h2i-chat__disclaimer {
-  padding: 8px 14px;
+  padding: 4px 16px 14px;
   font-size: 12px;
   line-height: 1.4;
   color: var(--md-default-fg-color--light);
   border-top: 1px solid var(--md-default-fg-color--lightest);
   flex-shrink: 0;
-  text-align: center;
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+}
+
+.h2i-chat__disclaimer svg {
+  width: 14px;
+  height: 14px;
+  flex-shrink: 0;
+  margin-top: 2px;
 }
 
 /* Topic / turma selection chips */
@@ -1924,11 +1924,25 @@ html[data-hero-height="100vh"] .md-hero__image {
   transition: border-color 0.15s, background 0.15s;
 }
 
-/* Cadeira chips: taller, wider radius */
+/* Cadeira chips: taller, wider radius, colored square indicator */
 .h2i-chat__topic-btn[data-course] {
   height: 40px;
   border-radius: 10px;
 }
+
+.h2i-chat__topic-btn[data-course]::before {
+  content: "";
+  width: 8px;
+  height: 8px;
+  border-radius: 2px;
+  background: var(--md-primary-fg-color);
+  flex-shrink: 0;
+}
+
+.h2i-chat__topic-btn[data-course="dpi"]::before { background: #2563EB; }
+.h2i-chat__topic-btn[data-course="di"]::before { background: #D97706; }
+.h2i-chat__topic-btn[data-course="dpiv"]::before { background: #7C3AED; }
+.h2i-chat__topic-btn[data-course="pd"]::before { background: #059669; }
 
 .h2i-chat__topic-btn:hover:not(:disabled) {
   border-color: var(--md-primary-fg-color);
