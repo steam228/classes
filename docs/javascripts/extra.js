@@ -943,7 +943,11 @@
       "</button>" +
       '<div class="h2i-chat__panel">' +
         '<div class="h2i-chat__header">' +
-          '<span class="h2i-chat__header-title">Z\u00e9</span>' +
+          '<div class="h2i-chat__avatar">Z</div>' +
+          '<div class="h2i-chat__header-info">' +
+            '<div class="h2i-chat__header-title">Z\u00e9</div>' +
+            '<div class="h2i-chat__header-subtitle">Colega virtual \u00b7 IA</div>' +
+          '</div>' +
           '<button class="h2i-chat__close" type="button" aria-label="Fechar chat">' +
             '<svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">' +
               '<path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z" fill="currentColor"/>' +
@@ -961,7 +965,8 @@
           "</button>" +
         "</div>" +
         '<div class="h2i-chat__disclaimer">' +
-          "\u26a0\ufe0f O Z\u00e9 \u00e9 experimental e pode dar respostas incorretas. " +
+          '<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:inline;vertical-align:-1px;margin-right:4px"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>' +
+          "O Z\u00e9 \u00e9 experimental e pode dar respostas incorretas. " +
           "\u00c9 um auxiliar n\u00e3o vinculativo que n\u00e3o substitui a leitura dos " +
           "documentos e conte\u00fados fornecidos nesta plataforma." +
         "</div>" +
