@@ -12,7 +12,7 @@ hero_overlay: 0.2
 hero_align: center
 ---
 
-# Conteúdos - Processo de Prototipagem
+## Processo de Prototipagem
 
 ## Objetivo
 

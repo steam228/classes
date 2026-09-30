@@ -11,7 +11,7 @@ hero_overlay: 0.1
 hero_align: center
 ---
 
-# Conteúdos - Introdução ao Desenho Paramétrico
+## Introdução ao Desenho Paramétrico
 
 ## Objetivo
 

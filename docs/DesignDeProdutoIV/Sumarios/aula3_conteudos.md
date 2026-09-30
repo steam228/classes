@@ -11,7 +11,7 @@ hero_overlay: 0.2
 hero_align: center
 ---
 
-# Conteúdos - Funções, Requisitos de Uso e Apresentação Gráfica
+## Funções, Requisitos de Uso e Apresentação Gráfica
 
 ## Objetivos
 

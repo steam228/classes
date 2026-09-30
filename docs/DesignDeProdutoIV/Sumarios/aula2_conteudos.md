@@ -11,7 +11,7 @@ hero_overlay: 0.2
 hero_align: center
 ---
 
-# Conteúdos - Discussão do Enunciado e Introdução à Fabricação Digital
+## Discussão do Enunciado e Introdução à Fabricação Digital
 
 ### Objetivos
 

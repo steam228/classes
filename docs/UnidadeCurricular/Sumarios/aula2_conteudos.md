@@ -11,7 +11,7 @@ hero_overlay: 0.2
 hero_align: center
 ---
 
-# Conteúdos - Aula 2
+## Aula 2
 
 ## Objetivo
 

@@ -12,7 +12,7 @@ hero_overlay: 0.2
 hero_align: center
 ---
 
-# Conteúdos - Organização e Metodologias no Fablab
+## Organização e Metodologias no Fablab
 
 ## Objetivo
 
