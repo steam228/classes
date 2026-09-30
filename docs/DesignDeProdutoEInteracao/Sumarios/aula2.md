@@ -47,3 +47,19 @@ Trabalho individual: analisar o objeto pessoal através do desenho, decompondo-o
 ### Demonstração — Moldes digitais em Fusion 360
 
 Demonstração ao vivo (com gravação de ecrã) do processo de modelação de peças e moldes hipotéticos em Fusion 360, complementada com vídeos de processos analógicos de moldagem.
+
+## Recursos
+
+### Guia — Molde em Resina (Fusion 360)
+
+[Resin mould 3D Model — Fusion 360 Guide v3.0 (PDF)](../attachments/Resin_mould_3D_Model(Fusion_360_guide)_v3.0.pdf)
+
+### Modelos 3D — Autodesk Viewer
+
+<https://a360.co/3CxJAef>
+
+<https://a360.co/3UO0P0X>
+
+### Esquemas do Quadro
+
+![Esquemas do quadro — moldes para injeção de plástico](../attachments/IMG_2679.jpeg)

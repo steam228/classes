@@ -1,13 +1,14 @@
 ---
-title: "Aula 1 — Código Criativo I"
+title: Aula 1 — Código Criativo I
 icon: lucide/book-open
 tags: aula
 status: not-started
 hero_image: ../../attachments/DSC05966.jpg
-hero_title: "Aula 1"
-hero_subtitle: "Design de Inovação"
-hero_height: 60vh
-hero_overlay: 0.2
+hero_sketch: ../../../P5JS/blood/index.html
+hero_title: Aula 1
+hero_subtitle: Design de Inovação
+hero_height: 80vh
+hero_overlay: 0.5
 hero_align: center
 ---
 

@@ -1,12 +1,13 @@
 {% extends "base.html" %}
 
-{# 
+{#
   Hero Header Template Override for Zensical
-  
+
   Adds support for a full-width hero image header on any page.
-  
+
   Frontmatter properties:
     hero_image: path to the hero image (relative to docs folder)
+    hero_sketch: path to a p5.js sketch file (instance mode)
     hero_title: optional title text to overlay on hero
     hero_subtitle: optional subtitle text
     hero_height: optional height (default: 60vh, can be: 40vh, 50vh, 60vh, 80vh, 100vh)
@@ -16,7 +17,7 @@
 
 {% block extrahead %}
   {{ super() }}
-  {% if page and page.meta and page.meta.hero_image %}
+  {% if page and page.meta and (page.meta.hero_image or page.meta.hero_sketch) %}
   <style>
     :root {
       --hero-overlay-opacity: {{ page.meta.hero_overlay | default(0.4) }};
@@ -26,18 +27,23 @@
 {% endblock %}
 
 {% block hero %}
-  {% if page and page.meta and page.meta.hero_image %}
-  {% set _hero_is_video = '.mp4' in page.meta.hero_image or '.webm' in page.meta.hero_image or '.ogg' in page.meta.hero_image or '.mov' in page.meta.hero_image %}
-  {% if '.webm' in page.meta.hero_image %}{% set _hero_mime = 'video/webm' %}{% elif '.ogg' in page.meta.hero_image %}{% set _hero_mime = 'video/ogg' %}{% elif '.mov' in page.meta.hero_image %}{% set _hero_mime = 'video/quicktime' %}{% else %}{% set _hero_mime = 'video/mp4' %}{% endif %}
+  {% if page and page.meta and (page.meta.hero_image or page.meta.hero_sketch) %}
+  {% set _hero_is_video = page.meta.hero_image and ('.mp4' in page.meta.hero_image or '.webm' in page.meta.hero_image or '.ogg' in page.meta.hero_image or '.mov' in page.meta.hero_image) %}
+  {% if page.meta.hero_image and ('.webm' in page.meta.hero_image) %}{% set _hero_mime = 'video/webm' %}{% elif page.meta.hero_image and ('.ogg' in page.meta.hero_image) %}{% set _hero_mime = 'video/ogg' %}{% elif page.meta.hero_image and ('.mov' in page.meta.hero_image) %}{% set _hero_mime = 'video/quicktime' %}{% else %}{% set _hero_mime = 'video/mp4' %}{% endif %}
   <section class="md-hero" data-md-component="hero">
     {% if _hero_is_video %}
     <div class="md-hero__image">
       <video class="md-hero__video" autoplay loop muted playsinline>
         <source src="{{ page.meta.hero_image }}" type="{{ _hero_mime }}">
       </video>
-    {% else %}
+    {% elif page.meta.hero_image %}
     <div class="md-hero__image" style="background-image: url('{{ page.meta.hero_image }}');">
+    {% else %}
+    <div class="md-hero__image">
     {% endif %}
+      {% if page.meta.hero_sketch %}
+      <iframe class="md-hero__sketch" src="{{ page.meta.hero_sketch }}" loading="lazy" allowtransparency="true"></iframe>
+      {% endif %}
       <div class="md-hero__overlay"></div>
       <div class="md-hero__inner md-grid">
         <div class="md-hero__content md-hero__content--{{ page.meta.hero_align | default('center') }}">
@@ -73,7 +79,7 @@
 {% block announce %}
   {{ super() }}
   {# Add class to body when hero is present for CSS targeting #}
-  {% if page and page.meta and page.meta.hero_image %}
+  {% if page and page.meta and (page.meta.hero_image or page.meta.hero_sketch) %}
   <script>
     document.documentElement.classList.add('has-hero');
     document.documentElement.dataset.heroHeight = '{{ page.meta.hero_height | default("60vh") }}';

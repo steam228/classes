@@ -19,12 +19,64 @@ hero_align: center
 
 ## Sumário
 
+- Sensores digitais e utilização de bibliotecas Arduino
+- Exemplo: sensor DHT11 (temperatura e humidade)
 - Sessão de trabalho: finalização do protótipo de interação
 - Apresentação e demonstração dos protótipos em aula
 - Discussão: como a computação física se relaciona com o design de produto
-- Reflexão sobre os dois primeiros blocos
 
 ## Notas da Aula
+
+### Sensores Digitais + Bibliotecas
+
+#### Exemplo — Sensor DHT11 (Temperatura e Humidade)
+
+Referências:
+
+- [DHT11/DHT22 com Arduino — Random Nerd Tutorials](https://randomnerdtutorials.com/complete-guide-for-dht11dht22-humidity-and-temperature-sensor-with-arduino/)
+- [DHT11, DHT22 and AM2302 — Adafruit](https://learn.adafruit.com/dht/using-a-dhtxx-sensor)
+
+```arduino
+#include "DHT.h"
+
+float h, t;
+
+DHT dht(7, DHT11); // (pin, TIPO de SENSOR)
+
+void setup() {
+  Serial.begin(9600);
+  dht.begin();
+}
+
+void loop() {
+  h = dht.readHumidity();
+  t = dht.readTemperature();
+
+  if (isnan(h) || isnan(t)) {
+    Serial.println(F("Não consegui ler o sensor, bolas!"));
+    return;
+  }
+
+  Serial.print("Humidade: ");
+  Serial.println(h);
+  Serial.print("Temperatura: ");
+  Serial.println(t);
+  Serial.println("||||||||||||||||");
+
+  delay(2000);
+}
+```
+
+### Ferramentas de simulação
+
+- [Tinkercad Circuits](https://www.tinkercad.com/) — simulação online de circuitos Arduino
+
+### Referências adicionais
+
+- [Smooth Arduino 16x2 Gauge](https://youtu.be/cx9CoGqpsfg?si=0qlAnGIS-e132RMU) — exemplo LCD 16x2
+- [Arduino Home](https://www.arduino.cc/)
+
+---
 
 ### Entrega — Bloco 2
 

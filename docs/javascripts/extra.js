@@ -28,6 +28,7 @@
     setupParallax();
     setupHeroNavigation();
     setupScrollArrow();
+    initHeroSketch();
   }
 
   function initGanttZoom() {
@@ -326,6 +327,38 @@
   }
 
   /**
+   * Set up scroll-pause for the hero sketch iframe.
+   * Hides the iframe when off-screen so the browser can throttle it.
+   */
+  function initHeroSketch() {
+    var iframe = document.querySelector("iframe.md-hero__sketch");
+    if (!iframe) return;
+
+    // Respect reduced-motion — hide sketch entirely
+    var prefersReducedMotion = window.matchMedia(
+      "(prefers-reduced-motion: reduce)"
+    ).matches;
+    if (prefersReducedMotion) {
+      iframe.style.display = "none";
+      return;
+    }
+
+    var observer = new IntersectionObserver(
+      function (entries) {
+        entries.forEach(function (entry) {
+          entry.target.style.visibility = entry.isIntersecting
+            ? "visible"
+            : "hidden";
+        });
+      },
+      { threshold: 0 }
+    );
+
+    observer.observe(iframe);
+    window.__heroSketchObserver = observer;
+  }
+
+  /**
    * Clean up hero functionality when navigating away
    */
   function cleanupHero() {
@@ -343,6 +376,12 @@
     if (typeof window.__heroParallaxCleanup === "function") {
       window.__heroParallaxCleanup();
       delete window.__heroParallaxCleanup;
+    }
+
+    // Clean up sketch iframe observer
+    if (window.__heroSketchObserver) {
+      window.__heroSketchObserver.disconnect();
+      delete window.__heroSketchObserver;
     }
   }
 

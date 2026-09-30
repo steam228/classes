@@ -104,6 +104,26 @@
   pointer-events: none; /* Prevents controls from ever appearing, even on hover */
 }
 
+/* p5.js sketch iframe layer (between background and overlay) */
+.md-hero__sketch {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  border: 0;
+  pointer-events: none;
+}
+
+@media print {
+  .md-hero__sketch { display: none; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .md-hero__sketch { display: none; }
+}
+
 /* Theme-dependent overlay for text readability */
 .md-hero__overlay {
   position: absolute;
