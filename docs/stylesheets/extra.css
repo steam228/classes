@@ -1007,6 +1007,18 @@ html[data-hero-height="100vh"] .md-hero__image {
   height: 18px;
 }
 
+/* Disclaimer footer */
+.h2i-chat__disclaimer {
+  padding: 0.5rem 0.75rem;
+  font-size: 0.65rem;
+  line-height: 1.35;
+  color: var(--md-default-fg-color--light);
+  background: var(--md-code-bg-color);
+  border-top: 1px solid var(--md-default-fg-color--lightest);
+  flex-shrink: 0;
+  text-align: center;
+}
+
 /* Topic selection buttons */
 .h2i-chat__topics {
   display: flex;
