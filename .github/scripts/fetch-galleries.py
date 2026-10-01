@@ -208,6 +208,11 @@ def clone_shallow(clone_url: str, dest: Path, token: str) -> None:
 # - .obsidian/, .github/, .gitignore, .DS_Store are repo-internal noise.
 _PRUNE_NAMES = ("README.md", ".obsidian", ".github", ".gitignore", ".DS_Store")
 
+# Max file size to keep (bytes).  Anything larger is deleted to stay under
+# the GitHub Pages artifact limit (~1 GB).  5 MB is generous for web images;
+# students occasionally drop uncompressed TIFFs, raw video, or .blend files.
+_MAX_FILE_BYTES = 5 * 1024 * 1024  # 5 MB
+
 
 def prune_for_site(group_dir: Path) -> None:
     for name in _PRUNE_NAMES:
@@ -218,6 +223,16 @@ def prune_for_site(group_dir: Path) -> None:
             shutil.rmtree(target, ignore_errors=True)
         else:
             target.unlink()
+
+    # Remove oversized files (videos, raw images, etc.)
+    pruned = 0
+    for f in group_dir.rglob("*"):
+        if f.is_file() and f.stat().st_size > _MAX_FILE_BYTES:
+            print(f"    prune {f.relative_to(group_dir)} ({f.stat().st_size / 1024 / 1024:.1f} MB)")
+            f.unlink()
+            pruned += 1
+    if pruned:
+        print(f"    {pruned} oversized file(s) removed (>{_MAX_FILE_BYTES // 1024 // 1024} MB)")
 
 
 # Matches any Markdown link or image link:
