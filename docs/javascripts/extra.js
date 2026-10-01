@@ -25,8 +25,8 @@
     }
 
     setupScrollHandler();
+    setupCarousel();
     setupParallax();
-    setupHeroNavigation();
     setupScrollArrow();
     initHeroSketch();
   }
@@ -153,7 +153,6 @@
 
     let threshold = getThreshold();
     let ticking = false;
-    let lastScrollY = window.scrollY;
 
     const updateHeader = () => {
       const scrollY = window.scrollY;
@@ -168,33 +167,88 @@
     };
 
     const onScroll = () => {
-      lastScrollY = window.scrollY;
-
       if (!ticking) {
         requestAnimationFrame(updateHeader);
         ticking = true;
       }
     };
 
+    const onResize = () => {
+      threshold = getThreshold();
+      updateHeader();
+    };
+
     // Initial check
     updateHeader();
 
-    // Attach scroll listener
+    // Attach listeners
     window.addEventListener("scroll", onScroll, { passive: true });
+    window.addEventListener("resize", onResize, { passive: true });
 
-    // Update threshold on resize
-    window.addEventListener(
-      "resize",
-      () => {
-        threshold = getThreshold();
-        updateHeader();
-      },
-      { passive: true },
-    );
-
-    // Store cleanup function
+    // Store cleanup function (removes both scroll and resize)
     window.__heroScrollCleanup = () => {
       window.removeEventListener("scroll", onScroll);
+      window.removeEventListener("resize", onResize);
+    };
+  }
+
+  /**
+   * Hero image carousel for pages with hero_images frontmatter
+   */
+  function setupCarousel() {
+    const carousel = document.querySelector(".md-hero__carousel");
+    if (!carousel) return;
+
+    const slides = carousel.querySelectorAll(".md-hero__slide");
+    const dots = carousel.querySelectorAll(".md-hero__dot");
+    if (slides.length < 2) return;
+
+    let current = 0;
+    let timer = null;
+
+    function goTo(index) {
+      current = ((index % slides.length) + slides.length) % slides.length;
+      const tx = "-" + current * 100 + "%";
+      slides.forEach(function (slide) {
+        slide.style.transform = "translateX(" + tx + ")";
+      });
+      dots.forEach(function (dot, i) {
+        dot.classList.toggle("md-hero__dot--active", i === current);
+      });
+    }
+
+    function next() {
+      goTo(current + 1);
+    }
+
+    function startTimer() {
+      stopTimer();
+      timer = setInterval(next, 5000);
+    }
+
+    function stopTimer() {
+      if (timer) {
+        clearInterval(timer);
+        timer = null;
+      }
+    }
+
+    dots.forEach(function (dot) {
+      dot.addEventListener("click", function () {
+        goTo(Number(dot.dataset.slide));
+        startTimer();
+      });
+    });
+
+    carousel.addEventListener("mouseenter", stopTimer);
+    carousel.addEventListener("mouseleave", startTimer);
+
+    startTimer();
+
+    window.__heroCarouselCleanup = function () {
+      stopTimer();
+      carousel.removeEventListener("mouseenter", stopTimer);
+      carousel.removeEventListener("mouseleave", startTimer);
     };
   }
 
@@ -204,6 +258,9 @@
   function setupParallax() {
     const heroImage = document.querySelector(".md-hero__image");
     if (!heroImage) return;
+
+    // Skip parallax for carousel heroes
+    if (heroImage.classList.contains("md-hero__carousel")) return;
 
     // Check for reduced motion preference
     const prefersReducedMotion = window.matchMedia(
@@ -272,61 +329,6 @@
   }
 
   /**
-   * Set up hero in-page navigation highlighting
-   */
-  function setupHeroNavigation() {
-    const navLinks = document.querySelectorAll(".md-hero__nav-link");
-    if (!navLinks.length) return;
-
-    // Highlight active section based on scroll position
-    const sections = [];
-    navLinks.forEach((link) => {
-      const href = link.getAttribute("href");
-      if (href && href.startsWith("#")) {
-        const section = document.querySelector(href);
-        if (section) {
-          sections.push({ link, section });
-        }
-      }
-    });
-
-    if (!sections.length) return;
-
-    let ticking = false;
-
-    const updateActiveLink = () => {
-      const scrollY = window.scrollY + 100; // Offset for header
-
-      let activeSection = null;
-
-      for (const { link, section } of sections) {
-        if (section.offsetTop <= scrollY) {
-          activeSection = link;
-        }
-      }
-
-      navLinks.forEach((link) =>
-        link.classList.remove("md-hero__nav-link--active"),
-      );
-      if (activeSection) {
-        activeSection.classList.add("md-hero__nav-link--active");
-      }
-
-      ticking = false;
-    };
-
-    const onScroll = () => {
-      if (!ticking) {
-        requestAnimationFrame(updateActiveLink);
-        ticking = true;
-      }
-    };
-
-    window.addEventListener("scroll", onScroll, { passive: true });
-    updateActiveLink();
-  }
-
-  /**
    * Set up scroll-pause for the hero sketch iframe.
    * Hides the iframe when off-screen so the browser can throttle it.
    */
@@ -342,6 +344,11 @@
       iframe.style.display = "none";
       return;
     }
+
+    // Remove dot-grid loading state once sketch paints
+    iframe.addEventListener("load", function () {
+      iframe.classList.remove("h2i-dots");
+    }, { once: true });
 
     var observer = new IntersectionObserver(
       function (entries) {
@@ -367,6 +374,11 @@
       header.classList.remove("md-header--scrolled");
     }
 
+    // Remove hero-related classes and attributes from <html>
+    document.documentElement.classList.remove("has-hero");
+    document.documentElement.classList.remove("h2i-hero-dark");
+    delete document.documentElement.dataset.heroHeight;
+
     // Call stored cleanup functions
     if (typeof window.__heroScrollCleanup === "function") {
       window.__heroScrollCleanup();
@@ -376,6 +388,11 @@
     if (typeof window.__heroParallaxCleanup === "function") {
       window.__heroParallaxCleanup();
       delete window.__heroParallaxCleanup;
+    }
+
+    if (typeof window.__heroCarouselCleanup === "function") {
+      window.__heroCarouselCleanup();
+      delete window.__heroCarouselCleanup;
     }
 
     // Clean up sketch iframe observer
@@ -668,9 +685,11 @@
       video.style.maxWidth = "100%";
       video.style.display = "block";
 
+      var ext = src.split(".").pop().toLowerCase();
+      var mimeMap = { mp4: "video/mp4", webm: "video/webm", ogg: "video/ogg", mov: "video/quicktime" };
       const source = document.createElement("source");
       source.setAttribute("src", src);
-      source.setAttribute("type", "video/mp4");
+      source.setAttribute("type", mimeMap[ext] || "video/mp4");
       video.appendChild(source);
 
       // If the img is the only child of a <p>, replace the whole paragraph
@@ -690,10 +709,12 @@
   function markArchivedCourses() {
     var yearTag = /\d{2}\/\d{2}/;
 
-    // Top header tabs
+    // Top header tabs — class on both <a> and parent <li> for CSS selectors
     document.querySelectorAll(".md-tabs__link").forEach(function (link) {
       if (yearTag.test(link.textContent)) {
         link.classList.add("archived-course");
+        var item = link.closest(".md-tabs__item");
+        if (item) item.classList.add("archived-course");
       }
     });
 
@@ -706,9 +727,30 @@
     });
   }
 
+  /**
+   * Split the header site name into wordmark + tagline.
+   * "H2I - Learning Materials by André Rocha" → two styled spans.
+   * Runs once — the header DOM persists across SPA navigations.
+   */
+  function splitWordmark() {
+    var el = document.querySelector(".md-header__topic .md-ellipsis");
+    if (!el || el.querySelector(".h2i-wordmark")) return; // already split
+
+    var text = el.textContent.trim();
+    var parts = text.split(" - ");
+    if (parts.length < 2) return;
+
+    var wordmark = parts[0].trim();
+    var tagline = parts.slice(1).join(" - ").trim().replace(" by ", " \u00B7 ");
+    el.innerHTML =
+      '<span class="h2i-wordmark">' + wordmark + "</span>" +
+      '<span class="h2i-tagline">' + tagline + "</span>";
+  }
+
   // Initialize on page load
   if (document.readyState === "loading") {
     document.addEventListener("DOMContentLoaded", () => {
+      splitWordmark();
       initHero();
       initGanttZoom();
       setupSmoothScroll();
@@ -720,6 +762,7 @@
       markArchivedCourses();
     });
   } else {
+    splitWordmark();
     initHero();
     initGanttZoom();
     setupSmoothScroll();
@@ -911,7 +954,11 @@
       "</button>" +
       '<div class="h2i-chat__panel">' +
         '<div class="h2i-chat__header">' +
-          '<span class="h2i-chat__header-title">Z\u00e9</span>' +
+          '<div class="h2i-chat__avatar">Z</div>' +
+          '<div class="h2i-chat__header-info">' +
+            '<div class="h2i-chat__header-title">Z\u00e9</div>' +
+            '<div class="h2i-chat__header-subtitle">Colega virtual \u00b7 IA</div>' +
+          '</div>' +
           '<button class="h2i-chat__close" type="button" aria-label="Fechar chat">' +
             '<svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">' +
               '<path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z" fill="currentColor"/>' +
@@ -929,7 +976,8 @@
           "</button>" +
         "</div>" +
         '<div class="h2i-chat__disclaimer">' +
-          "\u26a0\ufe0f O Z\u00e9 \u00e9 experimental e pode dar respostas incorretas. " +
+          '<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:inline;vertical-align:-1px;margin-right:4px"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>' +
+          "O Z\u00e9 \u00e9 experimental e pode dar respostas incorretas. " +
           "\u00c9 um auxiliar n\u00e3o vinculativo que n\u00e3o substitui a leitura dos " +
           "documentos e conte\u00fados fornecidos nesta plataforma." +
         "</div>" +

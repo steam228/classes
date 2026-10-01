@@ -3,15 +3,11 @@ title: Aula 3 - Conteúdos
 icon: lucide/copy
 tags: exercicio
 status: not-started
-hero_image: ../attachments/sketching.png
-hero_title: Conteúdos
-hero_subtitle: Funcionalidade e Apresentação Gráfica
-hero_height: 60vh
-hero_overlay: 0.2
-hero_align: center
 ---
 
-# Conteúdos - Funções, Requisitos de Uso e Apresentação Gráfica
+# Aula 3 — Conteúdos
+
+## Funções, Requisitos de Uso e Apresentação Gráfica
 
 ## Objetivos
 

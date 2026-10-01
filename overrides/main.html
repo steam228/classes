@@ -12,25 +12,18 @@
     hero_subtitle: optional subtitle text
     hero_height: optional height (default: 60vh, can be: 40vh, 50vh, 60vh, 80vh, 100vh)
     hero_overlay: optional overlay opacity (default: 0.4, range 0-1)
-    hero_align: text alignment (default: center, can be: left, center, right)
+    hero_align: text alignment (default: left, can be: left, center, right)
+    hero_tone: optional "dark" for immersive mode (white text on dark image)
 #}
-
-{% block extrahead %}
-  {{ super() }}
-  {% if page and page.meta and (page.meta.hero_image or page.meta.hero_sketch) %}
-  <style>
-    :root {
-      --hero-overlay-opacity: {{ page.meta.hero_overlay | default(0.4) }};
-    }
-  </style>
-  {% endif %}
-{% endblock %}
 
 {% block hero %}
   {% if page and page.meta and (page.meta.hero_image or page.meta.hero_sketch) %}
   {% set _hero_is_video = page.meta.hero_image and ('.mp4' in page.meta.hero_image or '.webm' in page.meta.hero_image or '.ogg' in page.meta.hero_image or '.mov' in page.meta.hero_image) %}
   {% if page.meta.hero_image and ('.webm' in page.meta.hero_image) %}{% set _hero_mime = 'video/webm' %}{% elif page.meta.hero_image and ('.ogg' in page.meta.hero_image) %}{% set _hero_mime = 'video/ogg' %}{% elif page.meta.hero_image and ('.mov' in page.meta.hero_image) %}{% set _hero_mime = 'video/quicktime' %}{% else %}{% set _hero_mime = 'video/mp4' %}{% endif %}
-  <section class="md-hero" data-md-component="hero">
+  {% set _immersive = page.meta.hero_tone == 'dark' %}
+  {% set _is_100vh = page.meta.hero_height == '100vh' %}
+  {% set _is_home = not page.ancestors | length and not page.parent %}
+  <section class="md-hero{% if _immersive %} md-hero--immersive{% endif %}{% if _is_100vh %} md-hero--full{% endif %}{% if _is_home %} md-hero--home{% endif %}" data-md-component="hero">
     {% if _hero_is_video %}
     <div class="md-hero__image">
       <video class="md-hero__video" autoplay loop muted playsinline>
@@ -42,11 +35,28 @@
     <div class="md-hero__image">
     {% endif %}
       {% if page.meta.hero_sketch %}
-      <iframe class="md-hero__sketch" src="{{ page.meta.hero_sketch }}" loading="lazy" allowtransparency="true"></iframe>
+      <iframe class="md-hero__sketch h2i-dots" src="{{ page.meta.hero_sketch }}" loading="lazy" allowtransparency="true"></iframe>
       {% endif %}
-      <div class="md-hero__overlay"></div>
+
+      {# Slate-only dim layer #}
+      <div class="md-hero__dim"></div>
+
+      {% if _immersive %}
+      {# Immersive scrims for readability #}
+      <div class="md-hero__scrim md-hero__scrim--top"></div>
+      <div class="md-hero__scrim md-hero__scrim--bottom"></div>
+      {% endif %}
+
       <div class="md-hero__inner md-grid">
-        <div class="md-hero__content md-hero__content--{{ page.meta.hero_align | default('center') }}">
+        {% if _immersive %}
+        {# Immersive: content directly on image, no card #}
+        <div class="md-hero__content md-hero__content--{{ page.meta.hero_align | default('left') }}">
+          <nav class="md-hero__path" aria-label="Caminho">
+            <a href="{{ config.site_url | default('/') }}">Hack to Improve</a>
+            {% for ancestor in page.ancestors | reverse %}
+            <a href="{{ (ancestor.children | first).url | url if ancestor.children else '#' }}">{{ ancestor.title }}</a>
+            {% endfor %}
+          </nav>
           {% if page.meta.hero_title %}
           <h1 class="md-hero__title">{{ page.meta.hero_title }}</h1>
           {% endif %}
@@ -63,8 +73,37 @@
           </div>
           {% endif %}
         </div>
+        {% else %}
+        {# Default: legend card #}
+        <div class="md-hero__legend">
+          <nav class="md-hero__path" aria-label="Caminho">
+            <a href="{{ config.site_url | default('/') }}">Hack to Improve</a>
+            {% for ancestor in page.ancestors | reverse %}
+            <a href="{{ (ancestor.children | first).url | url if ancestor.children else '#' }}">{{ ancestor.title }}</a>
+            {% endfor %}
+          </nav>
+          <div class="md-hero__legend-body">
+            {% if page.meta.hero_title %}
+            <h1 class="md-hero__title">{{ page.meta.hero_title }}</h1>
+            {% endif %}
+            {% if page.meta.hero_subtitle %}
+            <p class="md-hero__subtitle">{{ page.meta.hero_subtitle }}</p>
+            {% endif %}
+            {% if page.meta.hero_buttons %}
+            <div class="md-hero__buttons">
+              {% for button in page.meta.hero_buttons %}
+              <a href="{{ button.link }}" class="md-button md-button--{{ button.type | default('primary') }}">
+                {{ button.text }}
+              </a>
+              {% endfor %}
+            </div>
+            {% endif %}
+          </div>
+        </div>
+        {% endif %}
       </div>
-      {% if page.meta.hero_height == "100vh" %}
+
+      {% if _is_100vh %}
       <button class="md-hero__scroll-arrow" aria-label="Scroll to content">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
           <polyline points="6 9 12 15 18 9"></polyline>
@@ -78,11 +117,14 @@
 
 {% block announce %}
   {{ super() }}
-  {# Add class to body when hero is present for CSS targeting #}
+  {# Add classes to html when hero is present for CSS targeting #}
   {% if page and page.meta and (page.meta.hero_image or page.meta.hero_sketch) %}
   <script>
     document.documentElement.classList.add('has-hero');
     document.documentElement.dataset.heroHeight = '{{ page.meta.hero_height | default("60vh") }}';
+    {% if page.meta.hero_tone == 'dark' %}
+    document.documentElement.classList.add('h2i-hero-dark');
+    {% endif %}
   </script>
   {% endif %}
 {% endblock %}

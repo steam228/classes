@@ -22,6 +22,9 @@ _templates/
 # Claude Code
 .claude/
 
+# Design reference files (local only)
+h2i-redesign/
+
 # Gallery templates live in their own GitHub repos; don't track here
 gallery-template/
 gallery-template-pd/

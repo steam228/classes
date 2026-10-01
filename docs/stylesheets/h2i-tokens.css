@@ -1,0 +1,195 @@
+/* ==========================================================================
+   H2I — design tokens (redesenho 2026)
+   Source of truth for colour, type and shape. Values are final — copy them,
+   don't round them. Load this BEFORE the rest of extra.css.
+
+   Selector note: Zensical's "modern" palette CSS defines these variables on
+   [data-md-color-scheme=…] / [data-md-color-primary=…]. If an override does
+   not win, check the compiled palette.*.min.css and match or raise its
+   specificity (e.g. `:root > *`, as in the Material "custom colors" docs).
+   ========================================================================== */
+
+/* Display face is not a TOML option → always loaded here.
+   Text + code faces: either keep them here (and set `font = false` in the
+   TOML) or set them in [project.theme.font] — pick ONE loading path.
+   Verify this URL returns 200 before shipping. */
+@import url("https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400..800&family=Atkinson+Hyperlegible+Next:wght@400..700&family=Atkinson+Hyperlegible+Mono:wght@400..700&display=swap");
+
+:root {
+  /* --- The four blues (identical in both schemes; roles change) -------- */
+  --h2i-blue-900: #2C5EAD; /* rgb(44, 94, 173)   light: links, buttons, active tab */
+  --h2i-blue-600: #1591DC; /* rgb(21, 145, 220)  indicators only — never small text on white (3.4:1) */
+  --h2i-blue-400: #4BB8FA; /* rgb(75, 184, 250)  slate: links, buttons, active tab */
+  --h2i-blue-100: #C4E2F5; /* rgb(196, 226, 245) highlight, selected, chips */
+
+  /* --- Type ------------------------------------------------------------ */
+  --md-text-font: "Atkinson Hyperlegible Next";
+  --md-code-font: "Atkinson Hyperlegible Mono";
+  --h2i-font-display: "Bricolage Grotesque", "Helvetica Neue", Helvetica, sans-serif;
+  --h2i-display-weight: 700;
+  --h2i-display-tracking: -0.025em;
+
+  /* Type scale (px at 1440; see HANDOFF §4 for mobile) */
+  --h2i-fs-hero: 60px;      /* hero title; home "H2I" = 128px; clamp(40px, 4.2vw, 60px) */
+  --h2i-fs-h1: 44px;        /* line-height 1.1 */
+  --h2i-fs-h2: 30px;        /* line-height 1.2 */
+  --h2i-fs-h3: 21px;        /* text face 700, line-height 1.3 */
+  --h2i-fs-body: 17px;      /* line-height 1.65, max ~72ch */
+  --h2i-fs-small: 14.5px;   /* breadcrumbs, nav, captions */
+  --h2i-fs-label: 11.5px;   /* mono 500, uppercase, +0.1em */
+  --h2i-fs-code: 14.5px;    /* line-height 23px */
+
+  /* --- Shape ------------------------------------------------------------ */
+  --h2i-radius-xs: 4px;     /* hero legend, badges, inline code */
+  --h2i-radius: 8px;        /* buttons, code, cards, admonitions, tables */
+  --h2i-radius-lg: 14px;    /* panels, Zé */
+  --h2i-radius-pill: 999px; /* chips, FAB */
+
+  /* --- Layout (desktop ≥ 1220px) ---------------------------------------- */
+  --h2i-gutter: 40px;
+  --h2i-sidebar-w: 248px;
+  --h2i-content-w: 760px;
+  --h2i-toc-w: 224px;
+  --h2i-col-gap: 64px;
+  --h2i-header-h: 64px;         /* + tabs row */
+  --h2i-tabs-h: 48px;
+  --h2i-header-h-mobile: 56px;  /* ≤ 719px; tablet 60px */
+  --h2i-hero-overhang: 48px;    /* legend overlaps the hero bottom; mobile 40px */
+}
+
+/* ==========================================================================
+   Light — scheme "default"
+   ========================================================================== */
+[data-md-color-scheme="default"] {
+  --md-default-bg-color:            #FAFBFC; /* paper */
+  --md-default-bg-color--light:     rgba(250, 251, 252, 0.7);
+  --md-default-fg-color:            #101318; /* headings — black, 18:1 */
+  --md-default-fg-color--light:     #525A66; /* secondary text, 6.8:1 */
+  --md-default-fg-color--lighter:   #7A8390; /* inactive icons only, 3.7:1 */
+  --md-default-fg-color--lightest:  #DDE2E8; /* lines, borders */
+  --md-typeset-color:               #272C33; /* body — dark grey, 13:1 */
+  --md-typeset-a-color:             #2C5EAD;
+
+  --md-primary-fg-color:            #2C5EAD;
+  --md-primary-fg-color--light:     #1591DC;
+  --md-primary-fg-color--dark:      #234C8E; /* derived: hover */
+  --md-primary-bg-color:            #FFFFFF;
+  --md-primary-bg-color--light:     rgba(255, 255, 255, 0.7);
+  --md-accent-fg-color:             #1591DC;
+  --md-accent-fg-color--transparent: rgba(21, 145, 220, 0.1);
+  --md-accent-bg-color:             #FFFFFF;
+
+  --md-code-bg-color:               #F1F4F7; /* surface: code, cards, Zé bubbles */
+  --md-code-fg-color:               #1D2229;
+  --md-code-hl-color:               #E2F0F9; /* highlighted line */
+  --md-code-hl-color--light:        rgba(196, 226, 245, 0.5);
+  --md-code-hl-keyword-color:       #2C5EAD;
+  --md-code-hl-number-color:        #2C5EAD;
+  --md-code-hl-constant-color:      #2C5EAD;
+  --md-code-hl-special-color:       #2C5EAD;
+  --md-code-hl-string-color:        #8A5300;
+  --md-code-hl-comment-color:       #66707C; /* italic; 4.6:1 on code bg */
+  --md-code-hl-function-color:      #101318; /* + font-weight 600 */
+  --md-code-hl-name-color:          #1D2229;
+  --md-code-hl-variable-color:      #1D2229;
+  --md-code-hl-operator-color:      #525A66;
+  --md-code-hl-punctuation-color:   #525A66;
+  --md-code-hl-generic-color:       #525A66;
+
+  --md-footer-bg-color:             #F1F4F7;
+  --md-footer-bg-color--dark:       #E8EDF2;
+  --md-footer-fg-color:             #101318;
+  --md-footer-fg-color--light:      #525A66;
+  --md-footer-fg-color--lighter:    #7A8390;
+
+  /* H2I extras */
+  --h2i-surface-2:    #E8EDF2;                 /* hover / pressed */
+  --h2i-tint:         #E2F0F9;                 /* selected nav item, note admonition */
+  --h2i-tint-strong:  #C4E2F5;                 /* note border, chips */
+  --h2i-tint-fg:      #2C5EAD;                 /* text on tint, 5.5:1 */
+  --h2i-hl:           #C4E2F5;                 /* link hover "marker"; #2C5EAD on it = 4.7:1 */
+  --h2i-glass:        rgba(250, 251, 252, 0.74); /* header over hero */
+  --h2i-glass-solid:  rgba(250, 251, 252, 0.94); /* header after scroll */
+  --h2i-glass-line:   rgba(16, 19, 24, 0.09);
+  --h2i-field:        rgba(16, 19, 24, 0.05);  /* search field on glass */
+  --h2i-dot:          #CCD4DD;                 /* dot-grid paper motif */
+  --h2i-hero-dim:     transparent;
+  --h2i-tip-bg:       #101318;                 /* tooltips */
+  --h2i-tip-fg:       #F2F5F8;
+  --h2i-warn-bg:      #FFF6E8;  --h2i-warn-fg:   #8A5300;  --h2i-warn-line:   #F1D9B0;
+  --h2i-danger-bg:    #FDEFEF;  --h2i-danger-fg: #A12A2A;  --h2i-danger-line: #F0CACA;
+  --h2i-shadow-sm:    0 1px 2px rgba(16,19,24,.06), 0 3px 10px rgba(16,19,24,.06);
+  --h2i-shadow:       0 1px 2px rgba(16,19,24,.06), 0 10px 30px rgba(16,19,24,.10);
+  --h2i-shadow-lg:    0 2px 4px rgba(16,19,24,.06), 0 24px 60px rgba(16,19,24,.16);
+}
+
+/* ==========================================================================
+   Dark — scheme "slate"
+   ========================================================================== */
+[data-md-color-scheme="slate"] {
+  --md-default-bg-color:            #0E1116;
+  --md-default-bg-color--light:     rgba(14, 17, 22, 0.7);
+  --md-default-fg-color:            #F2F5F8; /* 17:1 */
+  --md-default-fg-color--light:     #9AA4B0; /* 7.4:1 */
+  --md-default-fg-color--lighter:   #6E7885; /* icons, 4.1:1 */
+  --md-default-fg-color--lightest:  #262D36;
+  --md-typeset-color:               #CDD3DB; /* 12:1 */
+  --md-typeset-a-color:             #4BB8FA; /* 8.6:1 */
+
+  --md-primary-fg-color:            #4BB8FA;
+  --md-primary-fg-color--light:     #C4E2F5;
+  --md-primary-fg-color--dark:      #7ACBFB; /* derived: hover (lighter in dark) */
+  --md-primary-bg-color:            #07131F; /* text on primary, 8.5:1 */
+  --md-primary-bg-color--light:     rgba(7, 19, 31, 0.7);
+  --md-accent-fg-color:             #1591DC;
+  --md-accent-fg-color--transparent: rgba(21, 145, 220, 0.16);
+  --md-accent-bg-color:             #07131F;
+
+  --md-code-bg-color:               #151A21;
+  --md-code-fg-color:               #DDE3EA;
+  --md-code-hl-color:               #12263A;
+  --md-code-hl-color--light:        rgba(75, 184, 250, 0.12);
+  --md-code-hl-keyword-color:       #4BB8FA;
+  --md-code-hl-number-color:        #4BB8FA;
+  --md-code-hl-constant-color:      #4BB8FA;
+  --md-code-hl-special-color:       #4BB8FA;
+  --md-code-hl-string-color:        #F0C37E;
+  --md-code-hl-comment-color:       #8A95A2;
+  --md-code-hl-function-color:      #F2F5F8;
+  --md-code-hl-name-color:          #DDE3EA;
+  --md-code-hl-variable-color:      #DDE3EA;
+  --md-code-hl-operator-color:      #9AA4B0;
+  --md-code-hl-punctuation-color:   #9AA4B0;
+  --md-code-hl-generic-color:       #9AA4B0;
+
+  --md-footer-bg-color:             #151A21;
+  --md-footer-bg-color--dark:       #1C222B;
+  --md-footer-fg-color:             #F2F5F8;
+  --md-footer-fg-color--light:      #9AA4B0;
+  --md-footer-fg-color--lighter:    #6E7885;
+
+  --h2i-surface-2:    #1C222B;
+  --h2i-tint:         #12263A;
+  --h2i-tint-strong:  #1A3A57;
+  --h2i-tint-fg:      #4BB8FA;
+  --h2i-hl:           rgba(75, 184, 250, 0.2);
+  --h2i-glass:        rgba(14, 17, 22, 0.66);
+  --h2i-glass-solid:  rgba(14, 17, 22, 0.92);
+  --h2i-glass-line:   rgba(255, 255, 255, 0.08);
+  --h2i-field:        rgba(255, 255, 255, 0.07);
+  --h2i-dot:          #262E38;
+  --h2i-hero-dim:     rgba(14, 17, 22, 0.2);   /* light photos dimmed 20% in slate */
+  --h2i-tip-bg:       #F2F5F8;
+  --h2i-tip-fg:       #101318;
+  --h2i-warn-bg:      #231A0C;  --h2i-warn-fg:   #F0C37E;  --h2i-warn-line:   #46341A;
+  --h2i-danger-bg:    #261212;  --h2i-danger-fg: #F2A7A7;  --h2i-danger-line: #4A2323;
+  --h2i-shadow-sm:    0 1px 2px rgba(0,0,0,.4), 0 3px 10px rgba(0,0,0,.35);
+  --h2i-shadow:       0 1px 2px rgba(0,0,0,.4), 0 12px 32px rgba(0,0,0,.5);
+  --h2i-shadow-lg:    0 2px 4px rgba(0,0,0,.4), 0 24px 60px rgba(0,0,0,.6);
+}
+
+/* Dot-grid paper motif (hero while a sketch loads, empty states, footer bar) */
+.h2i-dots {
+  background-image: radial-gradient(var(--h2i-dot) 1px, transparent 1.3px);
+  background-size: 16px 16px;
+}

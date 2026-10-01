@@ -3,15 +3,11 @@ title: Aula 2 - Conteúdos
 icon: lucide/copy
 tags: exercicio
 status: not-started
-hero_image: https://fablabbenfica.pt/opencallDDP2025/images/IMG_2681.jpg
-hero_title: Conteúdos
-hero_subtitle: Introdução à Fabricação Digital
-hero_height: 60vh
-hero_overlay: 0.2
-hero_align: center
 ---
 
-# Conteúdos - Discussão do Enunciado e Introdução à Fabricação Digital
+# Aula 2 — Conteúdos
+
+## Discussão do Enunciado e Introdução à Fabricação Digital
 
 ### Objetivos
 
