@@ -839,7 +839,7 @@
   // ---- What Zé says between steps: short, a colleague's, never the same twice
   // in a row. {c} = how students call the course (alternating), {n} = the name.
   var COURSE_SHORT = { dpi: ["DPI", "DP"], di: ["DI"], dpiv: ["Produto IV"],
-                       pd: ["Prototipagem Digital", "Prototipagem"], recursos: ["Recursos"], geral: [""] };
+                       pd: ["Prototipagem Digital", "Prototipagem"], recursos: ["Recursos"], geral: [""], "": [""] };
   var SAY = {
     hello: [
       "Ah, \u00e9s tu, {n}! \ud83d\ude0a",
@@ -849,13 +849,13 @@
       "Ei, {n}."
     ],
     shareYes: [
-      "Fixe. Que cadeira?",
-      "Combinado. \u00c9 sobre que cadeira?",
-      "Ok! Ent\u00e3o, qual \u00e9 a cadeira?"
+      "Fixe.",
+      "Combinado.",
+      "Ok!"
     ],
     shareNo: [
-      "Tranquilo, fica entre n\u00f3s. Que cadeira?",
-      "Sem problema, fica entre n\u00f3s. \u00c9 sobre que cadeira?"
+      "Tranquilo, fica entre n\u00f3s.",
+      "Sem problema, fica entre n\u00f3s."
     ],
     open: [
       "Bora, {c}. Diz l\u00e1.",
@@ -916,7 +916,7 @@
   function opener(key) {
     var c = shortName(key);
     var here = (state.pageContext || detectCourseContext()).course === key;
-    var line = key === "geral" ? say("openGeral")
+    var line = (!key || key === "geral") ? say("openGeral")
       : here && Math.random() < 0.6 ? say("openHere")
       : key === "recursos" ? say("openRecursos")
       : (key === "dpiv" || key === "pd") ? say("openPast", { c: c })
@@ -1213,9 +1213,14 @@
     state.share = !!yes;
     appendMessage("user", yes ? "Pode ser" : "Prefiro que n\u00e3o");
     disableButtons("[data-share]");
-    state.phase = "ask-topic";
-    appendMessage("bot", say(yes ? "shareYes" : "shareNo"));
-    showTopicSelection();
+    // No "que cadeira?" any more: the backend follows the course from the
+    // page, from what the student names, and from the conversation itself.
+    var here = (state.pageContext || detectCourseContext()).course || "";
+    state.topic = here;
+    state.topicLabel = here && COURSES[here] ? COURSES[here].label : "";
+    state.phase = "chatting";
+    appendMessage("bot", say(yes ? "shareYes" : "shareNo") + " " + opener(here));
+    els.input.focus();
     saveSession();
   }
 
@@ -1363,7 +1368,7 @@
       name: state.name,
       gender: state.gender,
       message: text,
-      course_context: state.topic,
+      course_context: ctx.course || state.topic || "",
       page_slug: ctx.page || "",
       conversation_id: state.conversationId || "",
       token: state.token || "",
@@ -1526,11 +1531,13 @@
     } else if (state.phase === "ask-share") {
       showShareQuestion();
     } else if (state.phase === "ask-topic") {
-      appendMessage("bot", "Sobre que cadeira queres falar?");
-      showTopicSelection();
+      // sessions from before the course question was dropped
+      state.phase = "chatting";
+      appendMessage("bot", say("openGeral"));
     } else if (state.phase === "chatting") {
       // Brief context line, then replay messages
-      appendMessage("bot", say("back", { c: shortName(state.topic) }));
+      appendMessage("bot", state.topic ? say("back", { c: shortName(state.topic) })
+                                       : "Onde \u00e9 que \u00edamos\u2026");
       for (var i = 0; i < state.messages.length; i++) {
         var m = state.messages[i];
         if (m.role === "bot") renderBotText(appendMessage("bot", ""), m.text);
