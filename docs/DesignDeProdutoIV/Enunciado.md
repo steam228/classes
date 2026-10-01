@@ -83,7 +83,7 @@ A segurança é um aspeto crucial e regulamentado pela Diretiva de Segurança de
 
 A durabilidade do brinquedo deve ser considerada não apenas em termos físicos, mas também em termos do interesse que consegue manter ao longo do tempo, permitindo diferentes formas de utilização e descoberta. A manutenção e o eventual fim de vida do brinquedo devem também ser considerados, privilegiando soluções que permitam a reparação ou substituição de componentes, e garantindo que o fim de vida do objeto não representa um impacto ambiental significativo.
 
-![](imgs01/image3.png)
+![](attachments/image3.png)
 
 Toda a documentação do projeto deve incluir indicações claras sobre idade recomendada, advertências de segurança e instruções de montagem e manutenção, em conformidade com os requisitos europeus.
 

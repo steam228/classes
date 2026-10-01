@@ -11,10 +11,10 @@ hero_align: center
 ---
 # Bem-vindos à minha página de Recursos Abertos
 
-![](DSC05966.jpg)
-
 Olá. Sou **André Rocha**, Professor Adjunto em Design de Produto e Fabricação Digital na Escola Superior de Educação de Lisboa (ESELx/IPL) e na ESES/IPS, e cofundador e coordenador científico do [**Fablab Benfica**](https://fablabbenfica.pt). 
 Esta página é um repositório de recursos educativos que apoiam as **Unidades Curriculares que leciono** em ambas as instituições, combinando enquadramentos teóricos e práticas *hands-on* de fabricação digital.
+
+![](attachments/DSC05966.jpg)
 ### O que vais encontrar aqui:
 
 **Materiais das UCs**: Documentação completa para cada Unidade Curricular, incluindo objetivos de aprendizagem, enunciados de projetos, guias técnicos e critérios de avaliação.
