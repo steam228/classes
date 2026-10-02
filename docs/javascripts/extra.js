@@ -816,6 +816,9 @@
     turma: "",            // J | L | M — confirmed by the backend against the class list
     token: "",            // from POST /identify; /chat answers only with it
     share: false,         // consent: may Zé mention this chat to the turma?
+    estudo: "",           // study consent from the backend (X-Estudo): "1" | "0" | "?" (never asked)
+    studyAsked: false,    // asked in this session already
+    awaitingStudy: false,
     conversationId: "",
     messages: [],          // { role: "user"|"bot", text: string }
     pageContext: null,
@@ -892,7 +895,16 @@
     early: [
       "T\u00e3o cedo\u2026 \u2615 "
     ],
-    // after a 👍 chip: Zé, briefly — or nothing (see renderChips)
+    // answers to the once-ever study question (askStudy)
+    studyYes: [
+      "Fixe \ud83d\udc9b Se mudares de ideias, escreve \u00absai do estudo\u00bb.",
+      "Obrigado \ud83d\udc9b Para sair, \u00e9 s\u00f3 escreveres \u00absai do estudo\u00bb."
+    ],
+    studyNo: [
+      "Na boa \ud83d\ude42 Fica tudo igual.",
+      "Tranquilo, fica de fora \ud83d\ude42"
+    ],
+    // after a thumbs-up chip: Ze, briefly - or nothing (see renderChips)
     ack: [
       "\ud83d\udc4c",
       "Fixe \ud83d\ude42",
@@ -1303,6 +1315,21 @@
 
     if (state.phase !== "chatting") return;
 
+    // Typed instead of clicked, while the study question is open
+    if (state.awaitingStudy) {
+      var yes = /^\s*(sim|s|bora|pode|pode ser|ok|claro|ya|yes|aceito)\b/i.test(text);
+      var no = /^\s*(n[a\u00e3]o|nao|n|prefiro que n[a\u00e3]o|nop|nah|nope)\b/i.test(text);
+      if ((yes || no) && text.split(/\s+/).length <= 4) {
+        els.input.value = "";
+        els.input.style.height = "auto";
+        els.send.disabled = true;
+        handleStudy(yes);
+        return;
+      }
+      state.awaitingStudy = false;           // a real question: the buttons stay, inert
+      disableButtons("[data-estudo]");
+    }
+
     // Regular chat message — any pending chips are now moot
     disableChips();
     appendMessage("user", escapeHtml(text));
@@ -1375,6 +1402,47 @@
   // the X-Check header. A positive chip is recorded silently (POST /feedback);
   // a mixed/negative one is sent as the student's message, so Zé explains
   // again. Typing instead of tapping works too — the backend reads it.
+
+  // ---- The study, asked once ever (the backend remembers the answer) ----
+  // Zé's second message after his first real answer — light, in his voice.
+  // The greeting already says questions are kept without names; this asks
+  // only for the extra thing, the study, and makes "no" cost nothing: the
+  // "fez sentido?" check-ins only go to students who said yes.
+  var STUDY_QUESTION =
+    "Ah, coisa r\u00e1pida \ud83e\udd13 O prof est\u00e1 a fazer um estudo sobre como eu ajudo os colegas " +
+    "(ou n\u00e3o \ud83d\ude05). Posso juntar as nossas conversas, sem o teu nome? Se disseres que n\u00e3o, fica tudo igual.";
+
+  function askStudy() {
+    if (state.estudo !== "?" || state.studyAsked || state.phase !== "chatting") return;
+    state.studyAsked = true;
+    showTyping();
+    setTimeout(function () {
+      hideTyping();
+      if (state.isSending) { state.studyAsked = false; return; }   // they're already typing on
+      state.awaitingStudy = true;
+      appendMessage("bot", escapeHtml(STUDY_QUESTION) +
+        buttons("data-estudo", [["1", "Bora \ud83d\udc4d"], ["0", "Prefiro que n\u00e3o"]]));
+      bindButtons("data-estudo", function (v) { handleStudy(v === "1"); });
+      saveSession();
+    }, 1100);
+  }
+
+  function handleStudy(yes) {
+    if (!state.awaitingStudy) return;
+    state.awaitingStudy = false;
+    disableButtons("[data-estudo]");
+    appendMessage("user", yes ? "Bora \ud83d\udc4d" : "Prefiro que n\u00e3o");
+    state.estudo = yes ? "1" : "0";
+    fetch(H2I_CHAT_CONFIG.apiEndpoint + "/consent", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ token: state.token || "", estudo: !!yes })
+    }).catch(function () { state.estudo = "?"; state.studyAsked = false; });   // ask again later
+    var line = say(yes ? "studyYes" : "studyNo");
+    renderBotText(appendMessage("bot", ""), line);
+    state.messages.push({ role: "bot", text: line });
+    saveSession();
+  }
 
   function readCheck(response) {
     try {
@@ -1473,6 +1541,8 @@
       }
 
       var checkIn = readCheck(response);
+      var estudo = response.headers.get("X-Estudo");
+      if (estudo) state.estudo = estudo;      // absent = an older backend: never ask
       var reader = response.body.getReader();
       var decoder = new TextDecoder();
       var botText = "";
@@ -1526,6 +1596,7 @@
         else bubble.remove();   // Zé chose not to answer (off topic, again)
         saveSession();
         if (botText && checkIn) renderChips(checkIn);
+        else if (botText) askStudy();
       }
 
       return read();
@@ -1562,6 +1633,8 @@
       state.turma          = d.turma          || "";
       state.token          = d.token          || "";
       state.share          = !!d.share;
+      state.estudo         = d.estudo         || "";
+      state.studyAsked     = !!d.studyAsked;
       state.phase          = d.phase          || "idle";
       state.conversationId = d.conversationId || "";
       state.messages       = d.messages       || [];
@@ -1579,6 +1652,8 @@
         turma:          state.turma,
         token:          state.token,
         share:          state.share,
+        estudo:         state.estudo,
+        studyAsked:     state.studyAsked,
         phase:          state.phase,
         conversationId: state.conversationId,
         messages:       state.messages.slice(-50)
