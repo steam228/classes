@@ -22,14 +22,14 @@ hero_align: center
 
 ## Sumário
 
-- Revisão dos conceitos da aula anterior (setup/draw, formas primitivas)
-- Condicionais: `if` / `else`
-- Ciclos `for` — repetição e padrões
-- Variáveis e aleatoriedade (`random()`)
-- Exercício: reprodução de composição de Mondrian em código
+- Revisão dos conceitos da aula anterior (`setup`/`draw`, formas primitivas, interatividade)
+- Ciclo `for` — repetição e padrões
+- Lançamento do **Ex01 — Mondrian**
 - Referências: [The Coding Train](https://thecodingtrain.com/)
 
-## Notas da Aula
+---
+
+## Exemplos em aula
 
 ### Revisão — "Hello World" em P5.js
 
@@ -63,7 +63,7 @@ function draw() {
 }
 ```
 
-### Desenho 2D em P5.js
+### Desenho 2D — formas e cor
 
 ```js
 function setup() {
@@ -80,78 +80,148 @@ function draw() {
 }
 ```
 
-### Exercício 1 — Mondrian
+### Ciclo `for` — grelha interativa
 
-![Composição nº III — Mondrian](../attachments/mondrian_ref.png)
+Neste exemplo o `map()` converte a posição do rato no número de divisões da grelha — mover o rato altera a densidade de linhas em tempo real.
 
-Crie um sketch que reproduza com rigor as proporções, cores e linhas do quadro de Mondrian "Composição nº III":
+```js
+let valorY, valorX;
 
-- O canvas terá que ter uma proporção adequada e uma largura mínima de 800 px
-- As cores terão que reproduzir as cores usadas
-- Por fim, terão que introduzir um elemento `random` subtil que anime a composição
+function setup() {
+  createCanvas(windowWidth, windowHeight);
+  background(0);
+  stroke(255);
+  strokeWeight(2);
+  valorY = 0;
+  valorX = 0;
+}
 
-### Condicionais — `if` / `else`
+function draw() {
+  background(0);
+  valorY = map(mouseY, 0, height, 30, 4);
+  valorX = map(mouseX, 0, width, 30, 4);
 
-![Exemplo if/else com cores por quadrante](../attachments/aula5.jpg)
+  for (let i = 1; i < valorY; i++) {
+    line(0, (i * height) / valorY, width, (i * height) / valorY);
+  }
+
+  for (let j = 1; j < valorX; j++) {
+    line((j * width) / valorX, 0, (j * width) / valorX, height);
+  }
+}
+
+function windowResized() {
+  resizeCanvas(windowWidth, windowHeight);
+}
+```
+
+### Ciclo `for` — grelha de círculos
+
+Dois ciclos `for` encadeados criam uma matriz de círculos — a base para muitos padrões generativos.
+
+```js
+let valor;
+
+function setup() {
+  createCanvas(windowWidth, windowHeight);
+  background(0);
+  stroke(255);
+  noFill();
+  strokeWeight(2);
+  valor = 20;
+}
+
+function draw() {
+  background(0);
+  for (let i = 1; i < valor; i++) {
+    for (let j = 1; j < valor; j++) {
+      circle(i * (width / valor), j * (height / valor), 15);
+    }
+  }
+}
+
+function windowResized() {
+  resizeCanvas(windowWidth, windowHeight);
+}
+```
+
+### Experiência livre — splines aleatórias
+
+Exemplo de composição cumulativa: curvas spline com posição, rotação e escala aleatórias que se acumulam frame a frame.
 
 ```js
 function setup() {
   createCanvas(windowWidth, windowHeight);
-  frameRate(14);
+  background(0);
   noFill();
-  stroke(0);
+  angleMode(DEGREES);
+  stroke(255);
+  strokeWeight(1);
 }
 
 function draw() {
-  background(255);
+  push();
+  translate(random(0, width), random(0, height));
+  rotate(random(360));
+  scale(random(0.1 * random(1, 5)));
+  spline(
+    0, 0,
+    random(350, 400), random(150, 250),
+    random(500, 600), random(400, 500),
+    180, 300,
+  );
+  pop();
+}
 
-  if (mouseX < width/2) {
-    if (mouseY > height/2) {
-      fill(255, 0, 0);
-    } else {
-      fill(0, 255, 0);
-    }
-  } else {
-    if (mouseY > height/2) {
-      fill(0, 0, 255);
-    } else {
-      noFill();
-    }
-  }
-
-  strokeWeight(random(2, 20));
-  circle(width/2, height/2, height/4);
+function windowResized() {
+  resizeCanvas(windowWidth, windowHeight);
 }
 ```
 
-#### Variação — desenho cumulativo por quadrante
+---
 
-![Variação com desenho cumulativo](../attachments/Screenshot_2023-11-03_at_13.10.30.png)
+## Ex01 — Mondrian
 
-```js
-function setup() {
-  createCanvas(600, 600);
-  background(255);
-}
+![Composição nº III — Mondrian](../attachments/mondrian_ref.png)
 
-function draw() {
-  noStroke();
-  if (mouseX < width / 2) {
-    if (mouseY < height / 2) {
-      fill(255, 0, 0);
-    } else {
-      fill(0, 255, 0);
-    }
-  } else {
-    if (mouseY < height / 2) {
-      fill(0, 0, 255);
-    } else {
-      fill(0);
-    }
-  }
-  circle(mouseX, mouseY, 20);
-}
-```
+### Enunciado
+
+Partindo da obra *Composição nº III* de Piet Mondrian, este exercício pede dois sketches P5.js que exploram a tensão entre rigor compositivo e acaso generativo.
+
+#### Parte A — Reprodução fiel
+
+Reproduzir em código, com o maior rigor possível, a composição original:
+
+- **Proporções** — o canvas deve respeitar a proporção do quadro, com largura mínima de 800 px
+- **Cores** — utilizar as cores exactas da obra (branco, vermelho, azul, amarelo, preto)
+- **Formas e linhas** — replicar a espessura e posição das linhas pretas que delimitam os blocos de cor
+- **Texturas** — observar e tentar reproduzir subtilezas da superfície pintada (irregularidades, variação tonal)
+
+#### Parte B — Desestabilização
+
+A partir do sketch da Parte A, introduzir **um único elemento generativo** que desestabilize a composição — uma subtileza provocadora que ponha em causa a ordem rígida de Mondrian. Pode ser:
+
+- Uma cor que oscila imperceptivelmente
+- Uma linha que treme
+- Um bloco que se desloca lentamente
+- Um ruído que corrompe a geometria perfeita
+
+O `random()` deve ser usado de forma **contida e intencional** — não se trata de destruir a composição, mas de lhe injectar vida.
+
+### Entrega
+
+Via **Moodle**, submeter:
+
+| Ficheiro | Descrição |
+|----------|-----------|
+| `sketch_a.js` | Código da Parte A (apenas o sketch) |
+| `sketch_b.js` | Código da Parte B (apenas o sketch) |
+| `captura_a.png` | Captura de ecrã do resultado da Parte A |
+| `captura_b.png` | Captura de ecrã do resultado da Parte B |
+| `reflexao_a.txt` | Breve descrição das decisões tomadas na reprodução |
+| `reflexao_b.txt` | Descrição do elemento generativo escolhido e porquê |
+
+---
 
 ## Referências
 
