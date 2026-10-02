@@ -3,10 +3,10 @@ title: Aula 2 — Código Criativo II
 icon: lucide/book-open
 tags: aula
 status: not-started
-hero_image: ../attachments/heroAula2.png
+hero_image: attachments/heroAula2.png
 hero_title: Aula 2
 hero_subtitle: Design de Inovação
-hero_height: 60vh
+hero_height: 80vh
 hero_overlay: 0.2
 hero_align: center
 ---
@@ -228,6 +228,6 @@ Via **Moodle**, submeter:
 - [The Coding Train](https://thecodingtrain.com/) — tutoriais de código criativo
 - [The Coding Train — Conditional Statements](https://www.youtube.com/watch?v=YsGeMIpEcY4)
 
-### Articulação com DPI
+### Articulação com DPI (para começar a pensar!)
 
 As composições geradas podem explorar as mesmas lógicas de modularidade que o (com)FORMA pede: como uma unidade se repete, roda e combina para gerar configurações distintas.
