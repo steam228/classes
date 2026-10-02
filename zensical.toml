@@ -151,9 +151,17 @@ nav = [
     #   ] },
     { "Recursos" = [
         { "Página Inicial" = "Recursos/index.md" },
+        { "Código Criativo" = [
+            { "000 - Configuração Base" = "Recursos/CodigoCriativocomP5JS.md" },
+        ] },
+
+        { "000 - Desenho Paramétrico" = [
+            { "100 - Introdução ao Fusion 360" = "Recursos/100IntroFusion360.md" },
+            { "200 - Carpintaria Digital" = "Recursos/200CarpDigitalFusion360.md" },
+        ] },
+
         { "Markdown" = "Recursos/markdown.md" },
-        { "100 - Introdução ao Fusion 360" = "Recursos/100IntroFusion360.md" },
-        { "200 - Carpintaria Digital" = "Recursos/200CarpDigitalFusion360.md" },
+
         { "Diário de Experiências com AI" = "Recursos/AI_exps.md" },
     ] },
 ]

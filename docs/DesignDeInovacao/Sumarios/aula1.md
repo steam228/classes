@@ -26,17 +26,19 @@ hero_align: center
 - Introdução ao código criativo: o código como ferramenta de design
 - Primeiros passos com Processing / p5.js
 - Exercício: formas primitivas, repetição, cor
+- Interatividade com `mouseX` / `mouseY`
+- Desenho 2D em P5.js: `circle()`, `line()`, `quad()`, `fill()`, `stroke()`
 
 ## Notas da Aula
 
 ### Ferramentas
 
-- **p5.js** — [editor.p5js.org](https://editor.p5js.org/) (editor online, sem instalação)
+- **p5.js** — p5js.org [editor.p5js.org](https://editor.p5js.org/) (editor online, sem instalação)
 - **Processing** — [processing.org](https://processing.org/) (alternativa desktop)
 
 ### Conceitos introduzidos
 
 - `setup()` e `draw()` — estrutura base de um sketch
-- Formas primitivas: `ellipse()`, `rect()`, `line()`
-- Ciclos `for` — repetição e padrões
-- Variáveis e aleatoriedade (`random()`)
+- Interatividade com `mouseX` / `mouseY`
+- Desenho 2D em P5.js: `circle()`, `line()`, `quad()`, `fill()`, `stroke()`
+

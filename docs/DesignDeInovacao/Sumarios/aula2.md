@@ -20,9 +20,9 @@ hero_align: center
 ## Sumário
 
 - Revisão dos conceitos da aula anterior (setup/draw, formas primitivas)
-- Interatividade com `mouseX` / `mouseY`
-- Desenho 2D em P5.js: `circle()`, `line()`, `quad()`, `fill()`, `stroke()`
 - Condicionais: `if` / `else`
+- Ciclos `for` — repetição e padrões
+- Variáveis e aleatoriedade (`random()`)
 - Exercício: reprodução de composição de Mondrian em código
 - Referências: [The Coding Train](https://thecodingtrain.com/)
 
