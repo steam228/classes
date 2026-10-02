@@ -1,11 +1,11 @@
 ---
-title: "Aula 2 — Código Criativo II"
+title: Aula 2 — Código Criativo II
 icon: lucide/book-open
 tags: aula
 status: not-started
-hero_image: ../../attachments/DSC05966.jpg
-hero_title: "Aula 2"
-hero_subtitle: "Design de Inovação"
+hero_image: ../attachments/heroAula2.png
+hero_title: Aula 2
+hero_subtitle: Design de Inovação
 hero_height: 60vh
 hero_overlay: 0.2
 hero_align: center

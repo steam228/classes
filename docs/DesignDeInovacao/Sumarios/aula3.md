@@ -28,6 +28,71 @@ hero_align: center
 
 ### Conceitos introduzidos
 
+### Condicionais — `if` / `else`
+
+![Exemplo if/else com cores por quadrante](../attachments/aula5.jpg)
+
+```js
+function setup() {
+  createCanvas(windowWidth, windowHeight);
+  frameRate(14);
+  noFill();
+  stroke(0);
+}
+
+function draw() {
+  background(255);
+
+  if (mouseX < width/2) {
+    if (mouseY > height/2) {
+      fill(255, 0, 0);
+    } else {
+      fill(0, 255, 0);
+    }
+  } else {
+    if (mouseY > height/2) {
+      fill(0, 0, 255);
+    } else {
+      noFill();
+    }
+  }
+
+  strokeWeight(random(2, 20));
+  circle(width/2, height/2, height/4);
+}
+```
+
+#### Variação — desenho cumulativo por quadrante
+
+![Variação com desenho cumulativo](../attachments/Screenshot_2023-11-03_at_13.10.30.png)
+
+```js
+function setup() {
+  createCanvas(600, 600);
+  background(255);
+}
+
+function draw() {
+  noStroke();
+  if (mouseX < width / 2) {
+    if (mouseY < height / 2) {
+      fill(255, 0, 0);
+    } else {
+      fill(0, 255, 0);
+    }
+  } else {
+    if (mouseY < height / 2) {
+      fill(0, 0, 255);
+    } else {
+      fill(0);
+    }
+  }
+  circle(mouseX, mouseY, 20);
+}
+```
+
+
+
 - `mouseX`, `mouseY` — interação com o rato
 - `frameCount`, `sin()`, `cos()` — animação e movimento cíclico
 - `save()`, `saveCanvas()` — exportar imagens
