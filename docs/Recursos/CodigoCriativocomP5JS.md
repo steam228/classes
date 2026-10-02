@@ -12,8 +12,7 @@ hero_align: center
 # Configuração Base para primeiros exemplos
 
 
-
-
+![](attachments/01-howToConfigBasicP5js.mp4)
 ### 1. instalar vscode: https://code.visualstudio.com/
 ### 2. conta github.com: https://github.com/
 
