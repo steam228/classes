@@ -13,6 +13,9 @@ hero_align: center
 
 # Aula 2 — Código Criativo II
 
+!!! tip "Configuração Base"
+    Se ainda não configuraste o ambiente de trabalho, consulta o guia de [Configuração Base P5JS](../../Recursos/CodigoCriativocomP5JS.md).
+
 ## Data
 
 **2 de outubro de 2026** (6ª feira)

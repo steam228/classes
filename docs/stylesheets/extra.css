@@ -833,11 +833,10 @@ html[data-hero-height="100vh"] .md-hero__image {
   margin-top: 32px;
 }
 
-/* Content images & videos — full width of content column */
-.md-typeset img:not([width]),
+/* Content images & videos — natural size, capped at content column */
+.md-typeset img,
 .md-typeset video {
   max-width: 100%;
-  width: 100%;
   display: block;
   border-radius: 6px;
 }
