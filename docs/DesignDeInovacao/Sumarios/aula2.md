@@ -228,6 +228,73 @@ Via **Moodle**, submeter:
 - [The Coding Train](https://thecodingtrain.com/) — tutoriais de código criativo
 - [The Coding Train — Conditional Statements](https://www.youtube.com/watch?v=YsGeMIpEcY4)
 
+
+### Experiencia da Imagem de Capa
+
+```javascript
+
+function setup() {
+
+createCanvas(windowWidth, windowHeight);
+
+angleMode(DEGREES);
+
+background(0);
+
+noFill();
+
+strokeWeight(1);
+
+}
+
+  
+
+function draw() {
+
+push();
+
+stroke(255, random(255));
+
+translate(random(width), random(height));
+
+scale(0.8);
+
+rotate(random(360));
+
+spline(
+
+0,
+
+0,
+
+random(90, 150),
+
+random(0, 90),
+
+random(100, 200),
+
+random(200, 300),
+
+200,
+
+random(100, 400),
+
+);
+
+pop();
+
+}
+
+  
+
+function windowResized() {
+
+resizeCanvas(windowWidth, windowHeight);
+
+}
+
+
+```
 ### Articulação com DPI (para começar a pensar!)
 
 As composições geradas podem explorar as mesmas lógicas de modularidade que o (com)FORMA pede: como uma unidade se repete, roda e combina para gerar configurações distintas.
