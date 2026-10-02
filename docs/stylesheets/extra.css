@@ -2166,6 +2166,45 @@ html[data-hero-height="100vh"] .md-hero__image {
   font-weight: 600;
 }
 
+/* Check-in chips ("fez sentido?") — quieter than the onboarding pills:
+   a colleague's quick reaction, not a form. */
+.h2i-chat__chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin: -2px 0 6px;
+}
+
+.h2i-chat__chip {
+  height: 28px;
+  padding: 0 10px;
+  border: 1px solid var(--md-default-fg-color--lightest);
+  border-radius: 14px;
+  background: transparent;
+  color: var(--md-default-fg-color--light);
+  font-size: 13px;
+  font-family: inherit;
+  cursor: pointer;
+  transition: border-color 0.15s, background 0.15s, opacity 0.15s;
+}
+
+.h2i-chat__chip:hover:not(:disabled) {
+  border-color: var(--md-primary-fg-color);
+  background: var(--h2i-tint);
+}
+
+.h2i-chat__chip:disabled {
+  cursor: default;
+  opacity: 0.45;
+}
+
+.h2i-chat__chip--selected,
+.h2i-chat__chip--selected:disabled {
+  opacity: 1;
+  border-color: var(--md-primary-fg-color);
+  background: var(--h2i-tint);
+}
+
 /* Mobile — fullscreen panel, round FAB */
 @media screen and (max-width: 719px) {
   .h2i-chat {

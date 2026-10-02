@@ -892,6 +892,14 @@
     early: [
       "T\u00e3o cedo\u2026 \u2615 "
     ],
+    // after a 👍 chip: Zé, briefly — or nothing (see renderChips)
+    ack: [
+      "\ud83d\udc4c",
+      "Fixe \ud83d\ude42",
+      "Boa!",
+      "Bora.",
+      "Top."
+    ],
     back: [
       "Onde \u00e9 que \u00edamos\u2026",
       "Onde \u00e9 que \u00edamos\u2026 ah, {c}.",
@@ -1258,7 +1266,7 @@
   //  Messaging
   // =========================================================================
 
-  function sendMessage(text) {
+  function sendMessage(text, check) {
     text = text || els.input.value.trim();
     if (!text || state.isSending) return;
     if (text.length > H2I_CHAT_CONFIG.maxMessageLength) {
@@ -1295,7 +1303,8 @@
 
     if (state.phase !== "chatting") return;
 
-    // Regular chat message
+    // Regular chat message — any pending chips are now moot
+    disableChips();
     appendMessage("user", escapeHtml(text));
     els.input.value = "";
     els.input.style.height = "auto";
@@ -1303,7 +1312,7 @@
 
     state.messages.push({ role: "user", text: text });
     saveSession();
-    sendToBackend(text);
+    sendToBackend(text, check);
   }
 
   function appendMessage(role, html) {
@@ -1359,7 +1368,64 @@
   //  Backend communication (POST + SSE stream via ReadableStream)
   // =========================================================================
 
-  function sendToBackend(text) {
+  // =========================================================================
+  //  Check-ins ("fez sentido?") — chips under the message, for André's study
+  // =========================================================================
+  // The backend decides when Zé asks (ze/feedback.py) and sends the chips in
+  // the X-Check header. A positive chip is recorded silently (POST /feedback);
+  // a mixed/negative one is sent as the student's message, so Zé explains
+  // again. Typing instead of tapping works too — the backend reads it.
+
+  function readCheck(response) {
+    try {
+      var raw = response.headers.get("X-Check");
+      return raw ? JSON.parse(decodeURIComponent(raw)) : null;
+    } catch (e) { return null; }
+  }
+
+  function disableChips() {
+    els.messages.querySelectorAll(".h2i-chat__chip:not([disabled])").forEach(function (b) {
+      b.disabled = true;
+    });
+  }
+
+  function renderChips(check) {
+    if (!check || !check.chips || !check.chips.length) return;
+    var row = document.createElement("div");
+    row.className = "h2i-chat__chips";
+    check.chips.forEach(function (c) {
+      var b = document.createElement("button");
+      b.type = "button";
+      b.className = "h2i-chat__chip";
+      b.textContent = c[1];
+      b.addEventListener("click", function () {
+        if (b.disabled || state.isSending) return;
+        disableChips();
+        b.classList.add("h2i-chat__chip--selected");
+        if (c[2]) {           // mixed/negative: say it, Zé answers
+          sendMessage(c[1], { check: check.id, value: c[0] });
+          return;
+        }
+        fetch(H2I_CHAT_CONFIG.apiEndpoint + "/feedback", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ token: state.token || "", conversation_id: state.conversationId || "",
+                                 check: check.id, value: c[0], label: c[1] })
+        }).catch(function () { /* a lost 👍 is not worth an error */ });
+        if (Math.random() < 0.5) {
+          var ack = say("ack");
+          renderBotText(appendMessage("bot", ""), ack);
+          state.messages.push({ role: "bot", text: ack });
+          saveSession();
+        }
+      });
+      row.appendChild(b);
+    });
+    els.messages.appendChild(row);
+    scrollToBottom();
+  }
+
+  function sendToBackend(text, check) {
     state.isSending = true;
     showTyping();
 
@@ -1372,7 +1438,9 @@
       page_slug: ctx.page || "",
       conversation_id: state.conversationId || "",
       token: state.token || "",
-      partilhar: !!state.share
+      partilhar: !!state.share,
+      check: (check && check.check) || "",
+      check_value: (check && check.value) || ""
     };
 
     fetch(H2I_CHAT_CONFIG.apiEndpoint + "/chat", {
@@ -1404,6 +1472,7 @@
         state.topicLabel = COURSES[course].label;
       }
 
+      var checkIn = readCheck(response);
       var reader = response.body.getReader();
       var decoder = new TextDecoder();
       var botText = "";
@@ -1456,6 +1525,7 @@
         if (botText) state.messages.push({ role: "bot", text: botText });
         else bubble.remove();   // Zé chose not to answer (off topic, again)
         saveSession();
+        if (botText && checkIn) renderChips(checkIn);
       }
 
       return read();
