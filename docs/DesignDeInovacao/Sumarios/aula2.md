@@ -3,7 +3,7 @@ title: Aula 2 — Código Criativo II
 icon: lucide/book-open
 tags: aula
 status: not-started
-hero_image: attachments/heroAula2.png
+hero_image: ../attachments/heroAula2.png
 hero_title: Aula 2
 hero_subtitle: Design de Inovação
 hero_height: 80vh
