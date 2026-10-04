@@ -100,12 +100,4 @@ function draw() {
 
 ### Entrega — Bloco 1
 
-**Exercício: Composição Generativa**
-
-Criar uma composição visual baseada em regras de repetição, simetria ou modularidade.
-
-Entregar:
-
-- Ficheiro de código (.js ou .pde)
-- Imagem ou vídeo do resultado
-- Texto descritivo (máx. 200 palavras)
+A entrega do Bloco 1 é o **Ex01 — Mondrian** (enunciado na [Aula 2](aula2.md)). Nesta aula mostras o que tens para comentário; a entrega final é via **Moodle até à Aula 4 (16 de outubro)**: sketch, captura e reflexão das Partes A e B.

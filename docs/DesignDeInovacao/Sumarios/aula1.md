@@ -36,6 +36,8 @@ hero_align: center
 - **p5.js** — p5js.org [editor.p5js.org](https://editor.p5js.org/) (editor online, sem instalação)
 - **Processing** — [processing.org](https://processing.org/) (alternativa desktop)
 
+Nos exercícios e nas entregas usamos **p5.js no VSCode**, a partir do template base de p5.js — ver [Código Criativo com P5.js](../../Recursos/CodigoCriativocomP5JS.md).
+
 ### Conceitos introduzidos
 
 - `setup()` e `draw()` — estrutura base de um sketch

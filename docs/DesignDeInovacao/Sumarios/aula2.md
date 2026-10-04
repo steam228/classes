@@ -188,11 +188,16 @@ function windowResized() {
 
 Partindo da obra *Composição nº III* de Piet Mondrian, este exercício pede dois sketches P5.js que exploram a tensão entre rigor compositivo e acaso generativo.
 
+!!! info "Prazo e ferramenta"
+    **Entrega via Moodle até à Aula 4 (16 de outubro).** Na Aula 3 (9 de outubro) podes mostrar o que tens para comentário em aula.
+
+    Trabalha em **p5.js no VSCode**, a partir do template base de p5.js (ver [Código Criativo com P5.js](../../Recursos/CodigoCriativocomP5JS.md)).
+
 #### Parte A — Reprodução fiel
 
 Reproduzir em código, com o maior rigor possível, a composição original:
 
-- **Proporções** — o canvas deve respeitar a proporção do quadro, com largura mínima de 800 px
+- **Proporções** — o canvas deve respeitar a proporção do quadro, com largura mínima de 800 px. O quadro não é um quadrado perfeito: importa a imagem de referência para um programa vetorial (Illustrator ou Inkscape), mede as proporções e a posição das linhas, e traduz depois essas medidas para código
 - **Cores** — utilizar as cores exactas da obra (branco, vermelho, azul, amarelo, preto)
 - **Formas e linhas** — replicar a espessura e posição das linhas pretas que delimitam os blocos de cor
 - **Texturas** — observar e tentar reproduzir subtilezas da superfície pintada (irregularidades, variação tonal)
@@ -210,12 +215,12 @@ O `random()` deve ser usado de forma **contida e intencional** — não se trata
 
 ### Entrega
 
-Via **Moodle**, submeter:
+Via **Moodle**, até à Aula 4 (16 de outubro), submeter **estes seis ficheiros** — sketch, captura e reflexão de cada parte:
 
 | Ficheiro | Descrição |
 |----------|-----------|
-| `sketch_a.js` | Código da Parte A (apenas o sketch) |
-| `sketch_b.js` | Código da Parte B (apenas o sketch) |
+| `sketch_a.js` | Código da Parte A — só o ficheiro do sketch (o `sketch.js` do template, renomeado), sem `index.html` nem bibliotecas |
+| `sketch_b.js` | Código da Parte B — idem |
 | `captura_a.png` | Captura de ecrã do resultado da Parte A |
 | `captura_b.png` | Captura de ecrã do resultado da Parte B |
 | `reflexao_a.txt` | Breve descrição das decisões tomadas na reprodução |
