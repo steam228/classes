@@ -1,11 +1,11 @@
 ---
-title: "Aula 3 — Moldes Digitais II"
+title: Aula 3 — Moldes Digitais II
 icon: lucide/book-open
 tags: aula
 status: not-started
-hero_image: ../../attachments/DSC05966.jpg
-hero_title: "Aula 3"
-hero_subtitle: "Design de Produto e Interação I"
+hero_image: ../attachments/coverAula3.jpg
+hero_title: Aula 3
+hero_subtitle: Design de Produto e Interação I
 hero_height: 60vh
 hero_overlay: 0.2
 hero_align: center
@@ -38,7 +38,12 @@ Após o feedback, os estudantes poderão refinar os esboços e entregar a versã
 
 ### Demonstração — Moldes digitais em Fusion 360
 
-Demonstração ao vivo (com gravação de ecrã) do processo de modelação de peças e moldes hipotéticos em Fusion 360, complementada com vídeos de processos analógicos de moldagem.
+##### 001 - Intro aos Moldes
+
+https://youtu.be/QnZggaYwW-s
+
+Demonstração ao vivo do processo de modelação de peças e moldes hipotéticos em Fusion 360, complementada com vídeos de processos analógicos de moldagem.
+Video apresenta conceitos-chave de molde, através da modelação de uma pequena cupula, e respectivo molde. A cupula seria modelada em plasticina através de molde e contra-molde a imprimir em 3D. O video demonstra este processo simples e alguns cenários de falha de modo a introduzir os conceitos infra.
 
 ### Conceitos-chave
 

@@ -1,11 +1,11 @@
 ---
-title: "Aula 2 — Moldes Digitais I"
+title: Aula 2 — Moldes Digitais I
 icon: lucide/book-open
 tags: aula
 status: completed
-hero_image: ../../attachments/DSC05966.jpg
-hero_title: "Aula 2"
-hero_subtitle: "Design de Produto e Interação I"
+hero_image: ../attachments/coverAula2.jpg
+hero_title: Aula 2
+hero_subtitle: Design de Produto e Interação I
 hero_height: 60vh
 hero_overlay: 0.2
 hero_align: center

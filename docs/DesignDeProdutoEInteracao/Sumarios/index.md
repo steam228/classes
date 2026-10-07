@@ -20,9 +20,9 @@ hero_align: center
 | 1 | [Aula 1 — Apresentação](aula1.md) | 22 Set | :material-circle-outline: |
 | 2 | [Aula 2 — Moldes Digitais I](aula2.md) | 29 Set | :material-circle-outline: |
 | 3 | [Aula 3 — Moldes Digitais II](aula3.md) | 6 Out | :material-circle-outline: |
-| 4 | [Aula 4 — Propostas de Grupo I](aula4.md) | 13 Out | :material-circle-outline: |
-| 5 | [Aula 5 — Apresentação de Propostas](aula5.md) | 20 Out | :material-circle-outline: |
-| 6 | [Aula 6 — Desenvolvimento I](aula6.md) | 27 Out | :material-circle-outline: |
+| 4 | [Aula 4 — Moldes Digitais III](aula4.md) | 13 Out | :material-circle-outline: |
+| 5 | [Aula 5 — Propostas de Grupo](aula5.md) | 20 Out | :material-circle-outline: |
+| 6 | [Aula 6 — Apresentação de Propostas](aula6.md) | 27 Out | :material-circle-outline: |
 | 7 | [Aula 7 — Desenvolvimento II](aula7.md) | 3 Nov | :material-circle-outline: |
 | 8 | [Aula 8 — Desenvolvimento III](aula8.md) | 10 Nov | :material-circle-outline: |
 | 9 | [Aula 9 — Desenvolvimento IV](aula9.md) | 17 Nov | :material-circle-outline: |
