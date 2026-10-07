@@ -43,9 +43,8 @@ Demonstração ao vivo (com gravação de ecrã) do processo de modelação de p
 ### Conceitos-chave
 
 - **Draft angle** — ângulo de desmoldagem
-- **Undercut** — geometrias que impedem a desmoldagem
+- **Undercuts** ou "prisões" — geometrias que impedem a desmoldagem
 - **Parting line** — linha de separação do molde
-- **Negativo/Positivo** — a relação entre molde e peça
 
 ## Recursos
 
