@@ -1,5 +1,5 @@
 ---
-title: "Aula 5 — Computação Física II"
+title: "Aula 5 — Computação Física I"
 icon: lucide/book-open
 tags: aula
 status: not-started
@@ -11,7 +11,7 @@ hero_overlay: 0.2
 hero_align: center
 ---
 
-# Aula 5 — Computação Física II
+# Aula 5 — Computação Física I
 
 ## Data
 
@@ -19,93 +19,164 @@ hero_align: center
 
 ## Sumário
 
-- Conversão Analógico-Digital (ADC) — leitura de sensores analógicos
-- Comunicação pela porta série (`Serial`)
-- Potenciómetro: leitura e mapeamento de valores
-- LDR (sensor de luz): leitura e tomada de decisão
-- Introdução ao conceito de protótipo de interação
+- Introdução à computação física: do digital ao tangível
+- O que é um microcontrolador? Entradas e saídas
+- Instalação do [Arduino IDE](https://www.arduino.cc/en/software/#ide)
+- Primeiro programa: **Blink** — o "Hello World" do Arduino
+- Exercício: comunicação em Morse com LED
+- Desafio: escrever uma palavra em Morse legível pelo decoder digital
 
 ## Notas da Aula
 
-### Analog to Digital — ADC + Comunicação Porta Série
+### O que é Computação Física?
 
-![Esquema ADC](../attachments/Screenshot_2023-02-02_at_19.42.59.png)
+![How a Computer sees you — Tom Igoe](../attachments/tom_igoe_computer.png)
 
-### Potenciómetro
+*How a Computer sees you* por [Tom Igoe](https://tigoe.com/)
+
+[ArduinoComic.pdf](../attachments/index.pdf) — introdução ilustrada ao Arduino
+
+### Ferramentas
+
+- **Arduino IDE** — [arduino.cc/software](https://www.arduino.cc/en/software/#ide)
+- **Arduino Reference** — [arduino.cc/reference](https://www.arduino.cc/reference/en/)
+
+### Referências de artistas
+
+- [Neil Mendoza](https://vimeo.com/neilmendoza) — esculturas cinéticas e interativas
+
+---
+
+## 1. Blink — "Hello World"
+
+![Esquema Blink](../attachments/Smashing_Esboo.png)
 
 ```arduino
-#define ledPin 13
-
-int sensorValue = 0;
-int angulo = 0;
+#define led 13
 
 void setup() {
-  Serial.begin(9600);
-  pinMode(ledPin, OUTPUT);
-  digitalWrite(ledPin, LOW);
+  pinMode(led, OUTPUT);
+  digitalWrite(led, LOW);
 }
 
 void loop() {
-  sensorValue = analogRead(A0);
-  angulo = map(sensorValue, 0, 1023, 0, 360);
-  if (angulo >= 180) {
-    digitalWrite(ledPin, HIGH);
-  } else {
-    digitalWrite(ledPin, LOW);
-  }
-
-  Serial.println(angulo);
-  delay(1);
+  digitalWrite(led, HIGH);
+  delay(500);
+  digitalWrite(led, LOW);
+  delay(500);
 }
 ```
 
-![Esquema potenciómetro](../attachments/Screenshot_2023-02-07_at_19.22.09.png)
+---
 
-### LDR — Sensor de Luz
+## 2. Morse Blink
 
-Referências:
+[Creative Coding Classes](https://steam228.github.io/CreativeCodingClasses2025/) — projetos de referência
 
-- [How to use an LDR with Arduino](https://maker.pro/arduino/tutorial/how-to-use-an-ldr-sensor-with-arduino)
-- [Photocells — Adafruit](https://learn.adafruit.com/photocells/connecting-a-photocell)
+### Decoder e Encoder digitais de Morse
 
-![Esquema LDR com divisor de tensão](../attachments/Screenshot_2023-02-07_at_22.53.15.png)
+![QR Code — Morse Decoder](../attachments/adobe-express-qr-code.png)
 
-Versão simples — ler o sensor e acender LED quando escurece:
+**MORSE DECODER**: <https://steam228.github.io/CreativeCodingClasses2025/morseBlink/p5js/decoder/index.html>
 
-![Esquema LDR simples](../attachments/ldr_circuit_simple.png)
+![QR Code — Morse Encoder](../attachments/adobe-express-qr-code(1).png)
+
+**MORSE ENCODER**: <https://steam228.github.io/CreativeCodingClasses2025/morseBlink/p5js/encoder/index.html>
+
+### SOS — Exemplo simples
 
 ```arduino
-#define sensLuz A0
-#define ledPin 13
-
-int valorSensLuz = 0;
-int asEscuras = 200;
+#define batatas 13
 
 void setup() {
-  Serial.begin(9600);
-  pinMode(ledPin, OUTPUT);
-  digitalWrite(ledPin, LOW);
+  pinMode(batatas, OUTPUT);
+  digitalWrite(batatas, LOW);
 }
 
 void loop() {
-  valorSensLuz = analogRead(sensLuz);
-  Serial.println(valorSensLuz);
-  if (valorSensLuz < asEscuras) {
-    digitalWrite(ledPin, HIGH);
-  } else {
-    digitalWrite(ledPin, LOW);
-  }
-  delay(1);
+  // S (...)
+  digitalWrite(batatas, HIGH); delay(200);
+  digitalWrite(batatas, LOW);  delay(200);
+  digitalWrite(batatas, HIGH); delay(200);
+  digitalWrite(batatas, LOW);  delay(200);
+  digitalWrite(batatas, HIGH); delay(200);
+  digitalWrite(batatas, LOW);  delay(400);
+
+  // O (---)
+  digitalWrite(batatas, HIGH); delay(800);
+  digitalWrite(batatas, LOW);  delay(300);
+  digitalWrite(batatas, HIGH); delay(800);
+  digitalWrite(batatas, LOW);  delay(300);
+  digitalWrite(batatas, HIGH); delay(800);
+  digitalWrite(batatas, LOW);  delay(400);
+
+  // S (...)
+  digitalWrite(batatas, HIGH); delay(200);
+  digitalWrite(batatas, LOW);  delay(200);
+  digitalWrite(batatas, HIGH); delay(200);
+  digitalWrite(batatas, LOW);  delay(200);
+  digitalWrite(batatas, HIGH); delay(200);
+  digitalWrite(batatas, LOW);  delay(1000);
 }
 ```
 
-### Conceitos-chave
+### SOS — Versão com variáveis e ciclos
 
-- `analogRead()` — leitura de valor analógico (0–1023)
-- `map()` — traduzir um intervalo de sensor para um intervalo de atuador
-- `Serial.println()` — comunicação com o computador pela porta série
-- Divisor de tensão — princípio base dos sensores resistivos (LDR, termístor, FSR)
+```arduino
+#define coisa 13
 
-### Articulação com DPI
+int longTime = 800;
+int shortTime = 200;
+int intervalTime = 200;
+int interval = 0;
+int counter = 1;
 
-Pensar como os módulos do (com)FORMA poderiam incorporar eletrónica simples: um módulo com LED, um módulo sensível ao toque, um módulo que reage à luz.
+void setup() {
+  Serial.begin(9600);
+  pinMode(coisa, OUTPUT);
+  digitalWrite(coisa, LOW);
+}
+
+void loop() {
+  if (counter == 1 || counter == 3) {
+    interval = shortTime;
+    for (int j = 0; j < 3; j++) {
+      digitalWrite(coisa, HIGH);
+      delay(interval);
+      digitalWrite(coisa, LOW);
+      delay(intervalTime);
+    }
+    counter++;
+  }
+  else if (counter == 2) {
+    interval = longTime;
+    for (int i = 0; i < 3; i++) {
+      digitalWrite(coisa, HIGH);
+      delay(interval);
+      digitalWrite(coisa, LOW);
+      delay(intervalTime);
+    }
+    counter++;
+  }
+  else {
+    delay(2000);
+    counter = 1;
+  }
+  Serial.println(counter);
+}
+```
+
+### Temporização Morse — referência
+
+```
+DOT_DURATION    = 200ms
+DASH_DURATION   = 800ms
+SYMBOL_GAP_DOT  = 200ms   // intervalo após ponto
+SYMBOL_GAP_DASH = 300ms   // intervalo após traço
+LETTER_GAP      = 400ms   // intervalo entre letras
+WORD_GAP        = 1000ms  // intervalo entre palavras
+```
+
+### Desafio
+
+Escrevam uma palavra no Arduino que o **DECODER digital** consiga ler ao apontar a câmara para o LED a piscar.

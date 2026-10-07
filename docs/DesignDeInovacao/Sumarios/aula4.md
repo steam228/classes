@@ -1,5 +1,5 @@
 ---
-title: "Aula 4 — Computação Física I"
+title: "Aula 4 — Código Criativo IV"
 icon: lucide/book-open
 tags: aula
 status: not-started
@@ -11,7 +11,7 @@ hero_overlay: 0.2
 hero_align: center
 ---
 
-# Aula 4 — Computação Física I
+# Aula 4 — Código Criativo IV
 
 ## Data
 
@@ -19,164 +19,141 @@ hero_align: center
 
 ## Sumário
 
-- Introdução à computação física: do digital ao tangível
-- O que é um microcontrolador? Entradas e saídas
-- Instalação do [Arduino IDE](https://www.arduino.cc/en/software/#ide)
-- Primeiro programa: **Blink** — o "Hello World" do Arduino
-- Exercício: comunicação em Morse com LED
-- Desafio: escrever uma palavra em Morse legível pelo decoder digital
+- AI como ferramenta de código criativo: LLMs, Copilot e assistentes de código
+- Expandir a capacidade de expressão através do código com auxílio de AI
+- Introdução a bibliotecas em p5.js
+- Estrutura de projetos mais complexos: múltiplos ficheiros, classes e objetos
+- Sessão de trabalho: Trabalho Final do Bloco 1
 
 ## Notas da Aula
 
-### O que é Computação Física?
+### AI e Código Criativo
 
-![How a Computer sees you — Tom Igoe](../attachments/tom_igoe_computer.png)
+A inteligência artificial — em particular os modelos de linguagem (LLMs) como o ChatGPT, Claude ou Gemini — pode ser uma ferramenta poderosa para expandir a nossa capacidade de nos expressarmos através do código. Não se trata de substituir a aprendizagem, mas de amplificar o que conseguimos fazer com o conhecimento que já temos.
 
-*How a Computer sees you* por [Tom Igoe](https://tigoe.com/)
+#### Como usar AI no processo criativo
 
-[ArduinoComic.pdf](../attachments/index.pdf) — introdução ilustrada ao Arduino
+- **Geração de código a partir de descrições** — descrever em linguagem natural o que queremos e iterar sobre o resultado
+- **Exploração de variações** — pedir ao modelo para gerar variações de um sketch existente
+- **Debugging e compreensão** — colar código que não funciona e pedir explicação ou correção
+- **Aprendizagem acelerada** — perguntar "como faço X em p5.js?" e obter exemplos funcionais
 
-### Ferramentas
+#### Ferramentas
 
-- **Arduino IDE** — [arduino.cc/software](https://www.arduino.cc/en/software/#ide)
-- **Arduino Reference** — [arduino.cc/reference](https://www.arduino.cc/reference/en/)
+- **ChatGPT / Claude / Gemini** — conversação com modelos de linguagem para gerar e iterar código
+- **GitHub Copilot** — assistente de código integrado no editor (VSCode)
+- **Cursor / Windsurf** — editores de código com AI integrada
 
-### Referências de artistas
+#### Postura crítica
 
-- [Neil Mendoza](https://vimeo.com/neilmendoza) — esculturas cinéticas e interativas
-
----
-
-## 1. Blink — "Hello World"
-
-![Esquema Blink](../attachments/Smashing_Esboo.png)
-
-```arduino
-#define led 13
-
-void setup() {
-  pinMode(led, OUTPUT);
-  digitalWrite(led, LOW);
-}
-
-void loop() {
-  digitalWrite(led, HIGH);
-  delay(500);
-  digitalWrite(led, LOW);
-  delay(500);
-}
-```
+A AI é um acelerador, não um autor. O valor criativo está nas decisões — que parâmetros explorar, que regras definir, que estética perseguir. O código gerado por AI deve ser compreendido, testado e apropriado.
 
 ---
 
-## 2. Morse Blink
+### Bibliotecas em p5.js
 
-[Creative Coding Classes](https://steam228.github.io/CreativeCodingClasses2025/) — projetos de referência
+Uma **biblioteca** é um conjunto de funcionalidades adicionais que alguém escreveu e que podemos reutilizar nos nossos projetos. Em p5.js, as bibliotecas estendem as capacidades base do framework.
 
-### Decoder e Encoder digitais de Morse
+#### Como adicionar uma biblioteca
 
-![QR Code — Morse Decoder](../attachments/adobe-express-qr-code.png)
+No `index.html`, adicionar a referência antes do nosso `sketch.js`:
 
-**MORSE DECODER**: <https://steam228.github.io/CreativeCodingClasses2025/morseBlink/p5js/decoder/index.html>
-
-![QR Code — Morse Encoder](../attachments/adobe-express-qr-code(1).png)
-
-**MORSE ENCODER**: <https://steam228.github.io/CreativeCodingClasses2025/morseBlink/p5js/encoder/index.html>
-
-### SOS — Exemplo simples
-
-```arduino
-#define batatas 13
-
-void setup() {
-  pinMode(batatas, OUTPUT);
-  digitalWrite(batatas, LOW);
-}
-
-void loop() {
-  // S (...)
-  digitalWrite(batatas, HIGH); delay(200);
-  digitalWrite(batatas, LOW);  delay(200);
-  digitalWrite(batatas, HIGH); delay(200);
-  digitalWrite(batatas, LOW);  delay(200);
-  digitalWrite(batatas, HIGH); delay(200);
-  digitalWrite(batatas, LOW);  delay(400);
-
-  // O (---)
-  digitalWrite(batatas, HIGH); delay(800);
-  digitalWrite(batatas, LOW);  delay(300);
-  digitalWrite(batatas, HIGH); delay(800);
-  digitalWrite(batatas, LOW);  delay(300);
-  digitalWrite(batatas, HIGH); delay(800);
-  digitalWrite(batatas, LOW);  delay(400);
-
-  // S (...)
-  digitalWrite(batatas, HIGH); delay(200);
-  digitalWrite(batatas, LOW);  delay(200);
-  digitalWrite(batatas, HIGH); delay(200);
-  digitalWrite(batatas, LOW);  delay(200);
-  digitalWrite(batatas, HIGH); delay(200);
-  digitalWrite(batatas, LOW);  delay(1000);
-}
+```html
+<script src="https://cdn.jsdelivr.net/npm/p5@1/lib/p5.min.js"></script>
+<script src="https://unpkg.com/p5.pattern/dist/p5.pattern.js"></script>
+<script src="sketch.js"></script>
 ```
 
-### SOS — Versão com variáveis e ciclos
+#### Exemplos de bibliotecas úteis
 
-```arduino
-#define coisa 13
+- **[p5.sound](https://p5js.org/reference/p5.sound/)** — áudio, análise de frequência, microfone
+- **[p5.pattern](https://github.com/SYM380/p5.pattern)** — padrões geométricos e texturas
+- **[ml5.js](https://ml5js.org/)** — machine learning acessível (deteção de pose, classificação de imagens)
+- **[p5.SVG](https://github.com/zenozeng/p5.js-svg)** — exportar para SVG (útil para corte laser e vinil)
 
-int longTime = 800;
-int shortTime = 200;
-int intervalTime = 200;
-int interval = 0;
-int counter = 1;
+---
 
-void setup() {
-  Serial.begin(9600);
-  pinMode(coisa, OUTPUT);
-  digitalWrite(coisa, LOW);
-}
+### Estrutura de projetos mais complexos
 
-void loop() {
-  if (counter == 1 || counter == 3) {
-    interval = shortTime;
-    for (int j = 0; j < 3; j++) {
-      digitalWrite(coisa, HIGH);
-      delay(interval);
-      digitalWrite(coisa, LOW);
-      delay(intervalTime);
-    }
-    counter++;
+Até agora trabalhámos com um único ficheiro `sketch.js`. À medida que os projetos crescem, convém organizar o código.
+
+#### Múltiplos ficheiros
+
+Separar responsabilidades em ficheiros diferentes:
+
+```
+projeto/
+├── index.html
+├── sketch.js        ← setup() e draw()
+├── particula.js     ← classe Particula
+└── utils.js         ← funções auxiliares
+```
+
+No `index.html`, carregar todos os ficheiros:
+
+```html
+<script src="particula.js"></script>
+<script src="utils.js"></script>
+<script src="sketch.js"></script>
+```
+
+#### Classes e objetos
+
+As **classes** permitem criar "moldes" para entidades que partilham comportamentos:
+
+```js
+class Particula {
+  constructor(x, y) {
+    this.x = x;
+    this.y = y;
+    this.vel = createVector(random(-2, 2), random(-2, 2));
+    this.tamanho = random(5, 20);
   }
-  else if (counter == 2) {
-    interval = longTime;
-    for (int i = 0; i < 3; i++) {
-      digitalWrite(coisa, HIGH);
-      delay(interval);
-      digitalWrite(coisa, LOW);
-      delay(intervalTime);
-    }
-    counter++;
+
+  mover() {
+    this.x += this.vel.x;
+    this.y += this.vel.y;
   }
-  else {
-    delay(2000);
-    counter = 1;
+
+  desenhar() {
+    noStroke();
+    fill(255, 150);
+    circle(this.x, this.y, this.tamanho);
   }
-  Serial.println(counter);
 }
 ```
 
-### Temporização Morse — referência
+Utilização no `sketch.js`:
 
+```js
+let particulas = [];
+
+function setup() {
+  createCanvas(800, 600);
+  for (let i = 0; i < 100; i++) {
+    particulas.push(new Particula(random(width), random(height)));
+  }
+}
+
+function draw() {
+  background(0, 25);
+  for (let p of particulas) {
+    p.mover();
+    p.desenhar();
+  }
+}
 ```
-DOT_DURATION    = 200ms
-DASH_DURATION   = 800ms
-SYMBOL_GAP_DOT  = 200ms   // intervalo após ponto
-SYMBOL_GAP_DASH = 300ms   // intervalo após traço
-LETTER_GAP      = 400ms   // intervalo entre letras
-WORD_GAP        = 1000ms  // intervalo entre palavras
-```
 
-### Desafio
+---
 
-Escrevam uma palavra no Arduino que o **DECODER digital** consiga ler ao apontar a câmara para o LED a piscar.
+### Entrega — Bloco 1
+
+A entrega do Bloco 1 inclui três exercícios:
+
+| Exercício | Descrição | Entrega |
+|-----------|-----------|---------|
+| **Ex01 — Mondrian** | Reprodução fiel + destabilização generativa (enunciado na [Aula 2](aula2.md)) | sketch, captura e reflexão (Partes A e B) |
+| **Ex02 — if/else** | Composição interativa com condicionais (enunciado na [Aula 3](aula3.md)) | sketch + captura |
+| **Trabalho Final** | Output generativo com potencial de aplicação no projeto de DPI | sketch + imagem/vídeo + texto descritivo (máx. 200 palavras) |
+
+**Entrega via Moodle até à Aula 5 (23 de outubro).**
