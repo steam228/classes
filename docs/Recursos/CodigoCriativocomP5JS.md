@@ -8,6 +8,7 @@ hero_subtitle: Código Criativo
 hero_height: 80vh
 hero_overlay: 0.3
 hero_align: center
+hero_caption: ""
 ---
 # Configuração Base para primeiros exemplos
 

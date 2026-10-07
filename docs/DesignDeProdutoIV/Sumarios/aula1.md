@@ -9,6 +9,7 @@ hero_subtitle: 11/02/2026 → 13/02/2026
 hero_height: 80vh
 hero_overlay: 0.35
 hero_align: center
+hero_caption: ""
 ---
 
 # Aula de Apresentação

@@ -8,6 +8,7 @@ hero_subtitle:
 hero_height: 60vh
 hero_overlay: 0.2
 hero_align: center
+hero_caption: ""
 ---
 
 # Design de Produto - Projeto em Design III

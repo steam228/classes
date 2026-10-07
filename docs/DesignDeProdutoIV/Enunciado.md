@@ -8,6 +8,7 @@ hero_subtitle: Brinquedos de Madeira em Desperdício Zero - Trabalho Individual
 hero_height: 60vh
 hero_overlay: 0.5
 hero_align: center
+hero_caption: ""
 ---
 # Projeto Nestor - Produtos
 Brinquedos de Madeira em Desperdício Zero - Trabalho Individual

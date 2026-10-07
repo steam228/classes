@@ -9,6 +9,7 @@ hero_subtitle: Do Objeto Pessoal ao Módulo Replicável e Aberto
 hero_height: 70vh
 hero_overlay: 0.5
 hero_align: center
+hero_caption: ""
 ---
 
 # (com)FORMA

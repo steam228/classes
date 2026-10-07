@@ -9,6 +9,7 @@ hero_subtitle: "Unidade Curricular - Modelo"
 hero_height: 60vh
 hero_overlay: 0.2
 hero_align: center
+hero_caption: ""
 ---
 
 # Sumários e Resumos de Aula

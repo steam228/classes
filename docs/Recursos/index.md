@@ -8,6 +8,7 @@ hero_subtitle:
 hero_height: 100vh
 hero_overlay: 0.7
 hero_align: center
+hero_caption: ""
 ---
 
 # Página de Recursos de Apoio à Documentação de Projetos

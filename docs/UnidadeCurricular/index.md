@@ -7,6 +7,7 @@ hero_subtitle: Modelo de Estrutura Paralelar
 hero_height: 60vh
 hero_overlay: 0.2
 hero_align: center
+hero_caption: ""
 ---
 
 # Unidade Curricular

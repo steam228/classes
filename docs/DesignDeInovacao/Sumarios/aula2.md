@@ -9,6 +9,7 @@ hero_subtitle: Design de Inovação
 hero_height: 80vh
 hero_overlay: 0.2
 hero_align: center
+hero_caption: ""
 ---
 
 # Aula 2 — Código Criativo II

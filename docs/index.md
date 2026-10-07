@@ -8,6 +8,7 @@ hero_subtitle: Recursos Abertos de Aprendizagem em Design de Produto, Fabricaç�
 hero_height: 100vh
 hero_overlay: 0.4
 hero_align: center
+hero_caption: ""
 ---
 # Bem-vindos à minha página de Recursos Abertos
 

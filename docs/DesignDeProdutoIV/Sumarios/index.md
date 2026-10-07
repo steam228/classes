@@ -9,6 +9,7 @@ hero_subtitle: "Design de Produto IV - 2026"
 hero_height: 60vh
 hero_overlay: 0.2
 hero_align: center
+hero_caption: ""
 ---
 
 # Sumários e Resumos de Aula

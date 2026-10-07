@@ -9,6 +9,7 @@ hero_subtitle: 25/02/2026 → 27/02/2026
 hero_height: 80vh
 hero_overlay: 0.35
 hero_align: center
+hero_caption: ""
 ---
 
 # Funcionalidade e A(RE)presentação gráfica de projetos

@@ -9,6 +9,7 @@ hero_subtitle: Plano de Atividades e Entregas - 2026
 hero_height: 60vh
 hero_overlay: 0.2
 hero_align: center
+hero_caption: ""
 ---
 
 # Calendário

@@ -7,6 +7,7 @@ hero_subtitle: "Projeto em Design · 1º Semestre 2026-27"
 hero_height: 100vh
 hero_overlay: 0.7
 hero_align: center
+hero_caption: ""
 ---
 
 # Design de Produto e Interação I

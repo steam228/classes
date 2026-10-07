@@ -8,6 +8,7 @@ hero_subtitle:
 hero_height: 80vh
 hero_overlay: 0.3
 hero_align: center
+hero_caption: ""
 ---
 
 # Diário e partilha de experiencias com AI generativa e LLM's com potencial de aplicação em processos de Design de Produto e Fabricação Digital

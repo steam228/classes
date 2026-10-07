@@ -10,6 +10,7 @@ hero_subtitle: "Descrição breve"
 hero_height: 60vh
 hero_overlay: 0.2
 hero_align: center
+hero_caption: ""
 ---
 
 # [Título da Aula]

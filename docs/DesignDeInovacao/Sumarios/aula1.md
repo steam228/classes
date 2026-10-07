@@ -10,6 +10,7 @@ hero_subtitle: Design de Inovação
 hero_height: 80vh
 hero_overlay: 0.5
 hero_align: center
+hero_caption: ""
 ---
 
 # Aula 1 — Código Criativo I

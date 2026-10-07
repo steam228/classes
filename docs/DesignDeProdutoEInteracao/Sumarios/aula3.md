@@ -9,6 +9,7 @@ hero_subtitle: Design de Produto e Interação I
 hero_height: 60vh
 hero_overlay: 0.2
 hero_align: center
+hero_caption: ""
 ---
 
 # Aula 3 — Moldes Digitais II
@@ -51,25 +52,3 @@ Video apresenta conceitos-chave de molde, através da modelação de uma pequena
 - **Undercuts** ou "prisões" — geometrias que impedem a desmoldagem
 - **Parting line** — linha de separação do molde
 
-## Recursos
-
-### Guia — Molde em Resina (Fusion 360)
-
-[Resin mould 3D Model — Fusion 360 Guide v3.0 (PDF)](../attachments/Resin_mould_3D_Model(Fusion_360_guide)_v3.0.pdf)
-
-### Modelos 3D — Autodesk Viewer
-
-<https://a360.co/3CxJAef>
-
-<https://a360.co/3UO0P0X>
-
-### Esquemas do Quadro
-
-![Esquemas do quadro — moldes para injeção de plástico](../attachments/IMG_2679.jpeg)
-
-
-
-
-### Articulação com DI
-
-Na sexta-feira anterior (aula 2 de DI), os alunos trabalharam código criativo — padrões e repetições. Discutir como essas explorações podem informar a geometria modular do projeto.

@@ -8,6 +8,7 @@ hero_subtitle: Brinquedos de Madeira em Desperdício Zero - Trabalho de Grupo
 hero_height: 60vh
 hero_overlay: 0.5
 hero_align: center
+hero_caption: ""
 ---
 
 # Projeto NESTOR - Identidade e Embalagem

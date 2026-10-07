@@ -8,6 +8,7 @@ hero_subtitle:
 hero_height: 80vh
 hero_overlay: 0.3
 hero_align: center
+hero_caption: ""
 ---
 
 # Autodesk Fusion 360 para Carpintaria Digital

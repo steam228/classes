@@ -9,6 +9,7 @@ hero_subtitle: 18/02/2026 → 20/02/2026
 hero_height: 80vh
 hero_overlay: 0.35
 hero_align: center
+hero_caption: ""
 ---
 
 # A Tecnologia - Carpintaria Digital 

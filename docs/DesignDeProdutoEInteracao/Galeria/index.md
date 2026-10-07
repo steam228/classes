@@ -8,6 +8,7 @@ hero_subtitle: "Design de Produto e Interação I · 2026-27"
 hero_height: 60vh
 hero_overlay: 0.3
 hero_align: center
+hero_caption: ""
 ---
 
 # Galeria de Projetos

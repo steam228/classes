@@ -103,6 +103,10 @@
         {% endif %}
       </div>
 
+      {% if page.meta.hero_caption %}
+      <span class="md-hero__caption">{{ page.meta.hero_caption }}</span>
+      {% endif %}
+
       {% if _is_100vh %}
       <button class="md-hero__scroll-arrow" aria-label="Scroll to content">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">

@@ -8,6 +8,7 @@ hero_subtitle: "Design de Produto IV · 2025-26"
 hero_height: 60vh
 hero_overlay: 0.3
 hero_align: center
+hero_caption: ""
 ---
 
 # Galeria de Projetos

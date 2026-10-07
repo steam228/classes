@@ -7,6 +7,7 @@ hero_subtitle: Projeto NESTOR - Brinquedos de Madeira Sustentáveis
 hero_height: 100vh
 hero_overlay: 0.7
 hero_align: center
+hero_caption: ""
 ---
 
 # Design de Produto IV

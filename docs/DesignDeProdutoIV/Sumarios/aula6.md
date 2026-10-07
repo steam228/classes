@@ -9,6 +9,7 @@ hero_subtitle: 22/04/2026 → 05/06/2026
 hero_height: 80vh
 hero_overlay: 0.35
 hero_align: center
+hero_caption: ""
 ---
 
 # Processo de Prototipagem

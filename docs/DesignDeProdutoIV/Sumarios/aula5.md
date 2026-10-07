@@ -9,6 +9,7 @@ hero_subtitle: 08/04/2026 → 17/04/2026
 hero_height: 80vh
 hero_overlay: 0.35
 hero_align: center
+hero_caption: ""
 ---
 
 # Organização e metodologias de trabalho de projeto no Fablab
