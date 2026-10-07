@@ -1496,6 +1496,17 @@ html[data-hero-height="100vh"] .md-hero__image {
   color: var(--md-default-fg-color--lighter);
 }
 
+/* Hide TOC toggle in primary nav — TOC already shows in secondary sidebar.
+   Theme uses .md-nav--primary .md-nav__link[for=__toc]{display:flex} at some
+   breakpoints, which also hides the adjacent <a> link. Override both rules
+   so only the <a> link is ever visible and the label never duplicates it. */
+.md-nav--primary .md-nav__link[for="__toc"] {
+  display: none !important;
+}
+.md-nav--primary .md-nav__link[for="__toc"] + .md-nav__link {
+  display: flex !important;
+}
+
 /* Active page */
 .md-nav--primary .md-nav__item--active > .md-nav__link {
   background: var(--h2i-tint);

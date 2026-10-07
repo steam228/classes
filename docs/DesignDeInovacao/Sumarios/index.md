@@ -16,23 +16,23 @@ hero_caption: ""
 
 ## Calendário de Aulas
 
-| # | Aula | Data | Status |
-|---|------|------|--------|
-| 1 | [Aula 1 — Código Criativo I](aula1.md) | 25 Set | :material-circle-outline: |
-| 2 | [Aula 2 — Código Criativo II](aula2.md) | 2 Out | :material-circle-outline: |
-| 3 | [Aula 3 — Código Criativo III](aula3.md) | 9 Out | :material-circle-outline: |
-| 4 | [Aula 4 — Código Criativo IV](aula4.md) | 16 Out | :material-circle-outline: |
-| 5 | [Aula 5 — Computação Física I](aula5.md) | 23 Out | :material-circle-outline: |
-| 6 | [Aula 6 — Computação Física II](aula6.md) | 30 Out | :material-circle-outline: |
-| 7 | [Aula 7 — Computação Física III](aula7.md) | 6 Nov | :material-circle-outline: |
-| 8 | [Aula 8](aula8.md) | 13 Nov | :material-circle-outline: |
-| 9 | [Aula 9](aula9.md) | 20 Nov | :material-circle-outline: |
-| 10 | [Aula 10](aula10.md) | 27 Nov | :material-circle-outline: |
-| 11 | [Aula 11](aula11.md) | 4 Dez | :material-circle-outline: |
-| 12 | [Aula 12](aula12.md) | 11 Dez | :material-circle-outline: |
-| 13 | [Aula 13](aula13.md) | 18 Dez | :material-circle-outline: |
-| | | **Pausa de Natal** | :material-snowflake: |
-| 14 | [Aula 14](aula14.md) | 8 Jan | :material-circle-outline: |
+| Aula | Data | Temática |
+|------|------|----------|
+| [Aula 1](aula1.md) | **25 Set** | Código Criativo I |
+| [Aula 2](aula2.md) | **2 Out** | Código Criativo II |
+| [Aula 3](aula3.md) | **9 Out** | Código Criativo III |
+| [Aula 4](aula4.md) | **16 Out** | Código Criativo IV |
+| [Aula 5](aula5.md) | **23 Out** | Computação Física I |
+| [Aula 6](aula6.md) | **30 Out** | Computação Física II |
+| [Aula 7](aula7.md) | **6 Nov** | Computação Física III |
+| [Aula 8](aula8.md) | **13 Nov** | — |
+| [Aula 9](aula9.md) | **20 Nov** | — |
+| [Aula 10](aula10.md) | **27 Nov** | — |
+| [Aula 11](aula11.md) | **4 Dez** | — |
+| [Aula 12](aula12.md) | **11 Dez** | — |
+| [Aula 13](aula13.md) | **18 Dez** | — |
+| — | **Pausa de Natal** | :material-snowflake: |
+| [Aula 14](aula14.md) | **8 Jan** | — |
 
 !!! warning "Nota"
     A turma DI-TL não tem aulas nas 2 últimas semanas do semestre (8 e 15 de janeiro).

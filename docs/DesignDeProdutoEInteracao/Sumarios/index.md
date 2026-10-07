@@ -16,23 +16,23 @@ hero_caption: ""
 
 ## Calendário de Aulas
 
-| # | Aula | Data | Status |
-|---|------|------|--------|
-| 1 | [Aula 1 — Apresentação](aula1.md) | 22 Set | :material-circle-outline: |
-| 2 | [Aula 2 — Moldes Digitais I](aula2.md) | 29 Set | :material-circle-outline: |
-| 3 | [Aula 3 — Moldes Digitais II](aula3.md) | 6 Out | :material-circle-outline: |
-| 4 | [Aula 4 — Moldes Digitais III](aula4.md) | 13 Out | :material-circle-outline: |
-| 5 | [Aula 5 — Propostas de Grupo](aula5.md) | 20 Out | :material-circle-outline: |
-| 6 | [Aula 6 — Apresentação de Propostas](aula6.md) | 27 Out | :material-circle-outline: |
-| 7 | [Aula 7 — Desenvolvimento II](aula7.md) | 3 Nov | :material-circle-outline: |
-| 8 | [Aula 8 — Desenvolvimento III](aula8.md) | 10 Nov | :material-circle-outline: |
-| 9 | [Aula 9 — Desenvolvimento IV](aula9.md) | 17 Nov | :material-circle-outline: |
-| 10 | [Aula 10 — Desenvolvimento V](aula10.md) | 24 Nov | :material-circle-outline: |
-| 11 | [Aula 11](aula11.md) | 1 Dez | :material-alert-circle-outline: Feriado |
-| 12 | [Aula 12](aula12.md) | 8 Dez | :material-alert-circle-outline: Feriado |
-| 13 | [Aula 13 — Desenvolvimento VI](aula13.md) | 15 Dez | :material-circle-outline: |
-| | | **Pausa de Natal** | :material-snowflake: |
-| 14 | [Aula 14 — Entrega Final](aula14.md) | 5 Jan | :material-circle-outline: |
+| Aula | Data | Temática |
+|------|------|----------|
+| [Aula 1](aula1.md) | **22 Set** | Apresentação |
+| [Aula 2](aula2.md) | **29 Set** | Moldes Digitais I |
+| [Aula 3](aula3.md) | **6 Out** | Moldes Digitais II |
+| [Aula 4](aula4.md) | **13 Out** | Moldes Digitais III |
+| [Aula 5](aula5.md) | **20 Out** | Propostas de Grupo |
+| [Aula 6](aula6.md) | **27 Out** | Apresentação de Propostas |
+| [Aula 7](aula7.md) | **3 Nov** | Desenvolvimento II |
+| [Aula 8](aula8.md) | **10 Nov** | Desenvolvimento III |
+| [Aula 9](aula9.md) | **17 Nov** | Desenvolvimento IV |
+| [Aula 10](aula10.md) | **24 Nov** | Desenvolvimento V |
+| [Aula 11](aula11.md) | **1 Dez** | :material-alert-circle-outline: Feriado |
+| [Aula 12](aula12.md) | **8 Dez** | :material-alert-circle-outline: Feriado |
+| [Aula 13](aula13.md) | **15 Dez** | Desenvolvimento VI |
+| — | **Pausa de Natal** | :material-snowflake: |
+| [Aula 14](aula14.md) | **5 Jan** | Entrega Final |
 
 !!! info "Feriados nacionais"
     1 de dezembro (Restauração da Independência) e 8 de dezembro (Imaculada Conceição) são feriados nacionais. Estas aulas poderão não se realizar ou ter calendário alternativo.
