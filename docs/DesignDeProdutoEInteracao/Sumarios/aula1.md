@@ -37,5 +37,5 @@ Ver: [Enunciado do Projeto](../Enunciado.md)
 
 ### O que trazer para a próxima aula
 
-- Um objeto pessoal candidato (plástico ou cerâmica, escala da mão)
+- Um objeto pessoal candidato (plástico ou cerâmica, escala da mão) — escolhido pelo seu potencial de redesign (que problemas tem, o que nele poderia ser melhorado), não necessariamente pela sua forma
 

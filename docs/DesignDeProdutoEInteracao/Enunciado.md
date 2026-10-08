@@ -28,6 +28,9 @@ Esta proposta de projeto visa a exploração da relação entre objetos do quoti
 
 Partindo de **um objeto pessoal à escala da mão** — de plástico, cerâmica[^1] — cada grupo de trabalho desenvolverá um produto composto por uma ou mais peças modulares (até 3 componentes).
 
+!!! note "Objeto pessoal ≠ Objeto de referência"
+    A escolha do **objeto pessoal** é guiada pelo seu **potencial de redesign** — que problemas tem, o que não funciona, o que poderia ser melhorado. As qualidades formais (formas, texturas, detalhes a apropriar) são o critério de escolha do **objeto de referência**, não do pessoal. Um objeto pessoal pode ter pouco interesse formal — é precisamente esse o ponto: o projeto vai transformá-lo.
+
 O produto resultante deverá integrar literalmente um fragmento selecionado da forma de um objeto original (o mesmo objeto pessoal ou outro), também este escolhido pelas suas qualidades formais — por exemplo, um recorte de uma embalagem de plástico, uma pega de uma cafeteira, o gargalo de uma garrafa de vidro, etc.
 
 Pretende-se que deste processo de desenho resulte um sistema de peças replicáveis que podem ser compostas de múltiplas formas, servindo uma ou mais funções.

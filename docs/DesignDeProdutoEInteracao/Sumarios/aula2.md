@@ -29,7 +29,10 @@ hero_caption: image by TheSketchMonkey (https://www.youtube.com/watch?v=dTwuEwPz
 
 ### Apresentação dos objetos pessoais
 
-Cada estudante apresenta brevemente o objeto que trouxe, destacando as suas qualidades formais, funcionais e materiais.
+Cada estudante apresenta brevemente os objetos que trouxe:
+
+- **Objeto pessoal:** destacando as suas características funcionais e materiais, os seus problemas e potencial de redesign.
+- **Objeto de referência:** destacando as qualidades formais e o detalhe que propõe apropriar no projeto.
 
 ### Exercício individual — Estudos por esboço (sketching)
 
