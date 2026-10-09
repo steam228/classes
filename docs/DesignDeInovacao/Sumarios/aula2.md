@@ -218,14 +218,14 @@ O `random()` deve ser usado de forma **contida e intencional** — não se trata
 
 Via **Moodle**, até à Aula 5 (23 de outubro), submeter **estes seis ficheiros** — sketch, captura e reflexão de cada parte:
 
-| Ficheiro | Descrição |
-|----------|-----------|
-| `sketch_a.js` | Código da Parte A — só o ficheiro do sketch (o `sketch.js` do template, renomeado), sem `index.html` nem bibliotecas |
-| `sketch_b.js` | Código da Parte B — idem |
-| `captura_a.png` | Captura de ecrã do resultado da Parte A |
-| `captura_b.png` | Captura de ecrã do resultado da Parte B |
-| `reflexao_a.txt` | Breve descrição das decisões tomadas na reprodução |
-| `reflexao_b.txt` | Descrição do elemento generativo escolhido e porquê |
+| Ficheiro                                                    | Descrição                                                 |
+| ----------------------------------------------------------- | --------------------------------------------------------- |
+| Repositório github Parte A - link                           | explo: 'https://github.com/steam228/Ex01-floresNoQuintal' |
+| Repositório github Parte A - link para página (githubpages) | explo: 'https://hacktoimprove.com/Ex01-floresNoQuintal/'  |
+| Repositório github Parte B - link                           | idem                                                      |
+| Repositório github Parte B - link para página (githubpages) | idem                                                      |
+| readme.md - repo Parte A                                    | Breve descrição das decisões tomadas na reprodução        |
+| readme.md - repo Parte B                                    | Descrição do elemento generativo escolhido e porquê       |
 
 ---
 

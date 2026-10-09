@@ -10,6 +10,32 @@ hero_overlay: 0.3
 hero_align: center
 hero_caption: ""
 ---
+
+# update Configuração Base
+
+## Video
+
+![](attachments/WorkflowparaconfigdecadaRepo.mp4)
+
+## Passo-a-passo
+Cada vez que quero começar um novo projeto:
+1. ir ao repositório template
+   https://github.com/steam228/BasicP5jsExample
+   
+2. "use template"
+   ![](attachments/01.jpeg)![](attachments/02.jpeg)
+3. Criar Repositório
+   ![](attachments/3.jpeg)![](attachments/4.jpeg)
+4. Open with Github Desktop (ou clonar na pp app do Github Desktop)
+   ![450](attachments/Screenshot%202026-10-02%20at%2009.09.45.png)
+   ![](attachments/Screenshot%202026-10-02%20at%2009.11.46.png)
+   atenção à escolha da pasta de destino
+5. Abrir pasta no VsCode e editar
+   
+
+
+
+
 # Configuração Base para primeiros exemplos
 
 
