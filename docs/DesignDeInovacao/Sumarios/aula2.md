@@ -216,7 +216,7 @@ O `random()` deve ser usado de forma **contida e intencional** — não se trata
 
 ### Entrega
 
-Via **Moodle**, até à Aula 5 (23 de outubro), submeter **estes seis ficheiros** — sketch, captura e reflexão de cada parte:
+Via **[Moodle](https://moodle2627.ipl.pt/course/section.php?id=9701)**, até à Aula 5 (23 de outubro), submeter **estes seis ficheiros** — sketch, captura e reflexão de cada parte:
 
 | Ficheiro                                                    | Descrição                                                 |
 | ----------------------------------------------------------- | --------------------------------------------------------- |
@@ -226,6 +226,8 @@ Via **Moodle**, até à Aula 5 (23 de outubro), submeter **estes seis ficheiros*
 | Repositório github Parte B - link para página (githubpages) | idem                                                      |
 | readme.md - repo Parte A                                    | Breve descrição das decisões tomadas na reprodução        |
 | readme.md - repo Parte B                                    | Descrição do elemento generativo escolhido e porquê       |
+
+https://moodle2627.ipl.pt/course/section.php?id=9701
 
 ---
 
