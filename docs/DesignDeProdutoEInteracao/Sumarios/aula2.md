@@ -60,7 +60,7 @@ Através de **desenho estrutural** — usando elipses e/ou paralelepípedos como
 - **Não pintar**, não usar sombras nem artifícios gráficos
 
 !!! info "Entrega e avaliação"
-    Os estudos em esboço devem ser apresentados na **Aula 3 (6 de outubro)** para feedback oral. Após esse feedback, a entrega final será feita via **Moodle até à aula seguinte (Aula 4)**.
+    Os estudos em esboço devem ser apresentados na **Aula 3 (6 de outubro)** para feedback oral. Após esse feedback, a entrega final será feita [via **Moodle](https://moodle2627.ipl.pt/mod/assign/view.php?id=25253) até à aula seguinte (Aula 4)**.
 
     Esta é a **primeira avaliação** da unidade curricular e tem **valor de diagnóstico** — avalia-se a capacidade de observação e de representação por esboço. Os conteúdos de sketching remetem para a UC de Design de Produto IV (semestre anterior).
 

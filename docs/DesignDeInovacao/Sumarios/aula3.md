@@ -27,6 +27,48 @@ hero_caption: ""
 
 ## Notas da Aula
 
+
+## Revisão da Aula anterior
+
+```javascript
+
+let divs;
+
+function setup() {
+
+	createCanvas(windowWidth, windowHeight);
+	background(0);
+	frameRate(4);
+	divs = 10;
+	noStroke();
+	fill(255);
+
+}
+
+  
+
+function draw() {
+
+	background(0); 
+
+	for (let i = 1; i < divs; i++) {
+		for (let j = 1; j < divs; j++) {
+			let x = (i * width) / divs;
+			let y = (j * height) / divs;
+			let xC = random(x - 4, x + 4);
+			let yC = random(y - 4, y + 4);
+			circle(xC, yC, 20);
+		}
+	}
+}
+
+  
+
+function windowResized() {
+	resizeCanvas(windowWidth, windowHeight);
+}
+
+```
 ### Conceitos introduzidos
 
 ### Condicionais — `if` / `else`
