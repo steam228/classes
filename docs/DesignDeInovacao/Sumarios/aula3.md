@@ -143,47 +143,85 @@ function draw() {
 
 ---
 
-### Ex02 — if/else
+## Ex02 — if/else
+
+### Enunciado
 
 Criar uma **composição interativa** que use condicionais (`if`/`else`) para alterar o comportamento visual com base na posição do rato, teclas pressionadas ou outros inputs.
 
-**Objetivo:** Explorar a tomada de decisão no código — como o programa reage a diferentes condições e como isso gera variação visual.
+!!! info "Prazo e ferramenta"
+    **Entrega via Moodle até à Aula 7 (6 de novembro).**
 
-**Requisitos:**
+    Trabalha em **p5.js no VSCode**, a partir do template base (ver [Configuração Base P5JS](../../Recursos/CodigoCriativocomP5JS.md)).
+
+#### Objetivo
+
+Explorar a tomada de decisão no código — como o programa reage a diferentes condições e como isso gera variação visual.
+
+#### Requisitos
 
 - Usar pelo menos **duas condições** (`if`/`else`) que alterem cores, formas ou comportamentos
 - O resultado deve ser **visualmente interessante** — não basta funcionar, tem de comunicar
 - Pode partir dos exemplos da aula ou criar algo de raiz
 
-**Entrega:** Repositório GitHub (criado a partir do [template base](../../Recursos/CodigoCriativocomP5JS.md)) com o sketch e um `readme.md` descrevendo as decisões tomadas.
+### Entrega
+
+Via **[Moodle](https://moodle2627.ipl.pt/course/section.php?id=9701)**, até à Aula 7 (6 de novembro).
+
+O exercício é um **repositório GitHub**, criado a partir do template base. Submeter no Moodle:
+
+| O que submeter | Descrição |
+| -------------- | --------- |
+| Link do repositório | ex: `https://github.com/username/Ex02-nome` |
+| Link da página (GitHub Pages) | ex: `https://username.github.io/Ex02-nome/` |
+
+O repositório deve incluir um **`readme.md`** com uma breve memória descritiva: que condições usaste, como afetam o resultado visual, e o que exploraste.
 
 ---
 
-### Trabalho Final — Output Generativo para DPI
+## Trabalho Final — Output Generativo para DPI
+
+### Enunciado
 
 Criar um **output generativo** (imagem, padrão, forma ou animação) com potencial de aplicação no projeto de Design de Produto e Interação I ((com)FORMA).
 
-**Objetivo:** Usar o código como ferramenta de exploração formal — gerar computacionalmente formas, padrões ou modularidades que possam informar ou enriquecer o projeto de produto.
+!!! info "Prazo e ferramenta"
+    **Entrega via Moodle até à Aula 7 (6 de novembro).**
 
-**Possibilidades:**
+    Trabalha em **p5.js no VSCode**, a partir do template base (ver [Configuração Base P5JS](../../Recursos/CodigoCriativocomP5JS.md)).
+
+#### Objetivo
+
+Usar o código como ferramenta de exploração formal — gerar computacionalmente formas, padrões ou modularidades que possam informar ou enriquecer o projeto de produto.
+
+#### Possibilidades
 
 - Padrões modulares que se repetem, rotam e combinam em configurações distintas
 - Formas orgânicas ou geométricas geradas por algoritmos (noise, fractais, sistemas de partículas)
 - Composições paramétricas onde variáveis controlam proporções, escala ou densidade
 - Texturas ou grafismos gerados por código para aplicação em superfícies
 
-**Entrega:** Repositório GitHub (criado a partir do [template base](../../Recursos/CodigoCriativocomP5JS.md)) com o sketch + imagem/vídeo do resultado. O `readme.md` do repo serve como memória descritiva (máx. 200 palavras) explicando as decisões e a relação com o projeto de DPI.
+### Entrega
+
+Via **[Moodle](https://moodle2627.ipl.pt/course/section.php?id=9701)**, até à Aula 7 (6 de novembro).
+
+O exercício é um **repositório GitHub**, criado a partir do template base. Submeter no Moodle:
+
+| O que submeter | Descrição |
+| -------------- | --------- |
+| Link do repositório | ex: `https://github.com/username/TF-nome` |
+| Link da página (GitHub Pages) | ex: `https://username.github.io/TF-nome/` |
+
+O repositório deve incluir um **`readme.md`** como memória descritiva (máx. 200 palavras): decisões tomadas, relação com o projeto de DPI, e o que o output generativo propõe.
 
 ---
 
-### Entregas — Bloco 1
+### Entregas — Bloco 1 (resumo)
 
-O Bloco 1 tem três exercícios:
+| Exercício | Lançamento | Prazo | Descrição |
+|-----------|------------|-------|-----------|
+| **Ex01 — Mondrian** | [Aula 2](aula2.md) | Aula 5 (23 Out) | Reprodução fiel + desestabilização generativa |
+| **Ex02 — if/else** | Aula 3 | Aula 7 (6 Nov) | Composição interativa com condicionais |
+| **Trabalho Final** | Aula 3 | Aula 7 (6 Nov) | Output generativo com potencial para DPI |
 
-| Exercício | Lançamento | Descrição |
-|-----------|------------|-----------|
-| **Ex01 — Mondrian** | [Aula 2](aula2.md) | Reprodução fiel + destabilização generativa |
-| **Ex02 — if/else** | Aula 3 | Composição interativa com condicionais |
-| **Trabalho Final** | Aula 3 | Output generativo com potencial para DPI |
-
-Nesta aula mostras o que tens do Ex01 para comentário. A entrega final de todos os exercícios é via **Moodle até à Aula 5 (23 de outubro)** — submeter os links dos repositórios GitHub e das respetivas páginas (GitHub Pages). Cada repositório deve incluir um `readme.md` como memória descritiva. Ver [workflow de configuração](../../Recursos/CodigoCriativocomP5JS.md).
+Todas as entregas são via **[Moodle](https://moodle2627.ipl.pt/course/section.php?id=9701)** — submeter os links dos repositórios GitHub e das respetivas páginas (GitHub Pages). Cada repositório deve incluir um `readme.md` como memória descritiva. Ver [workflow de configuração](../../Recursos/CodigoCriativocomP5JS.md).

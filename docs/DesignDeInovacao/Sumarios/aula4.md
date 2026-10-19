@@ -362,13 +362,13 @@ Os sketches construídos ao vivo estão publicados:
 
 A entrega do Bloco 1 inclui três exercícios:
 
-| Exercício | Descrição | Entrega |
-|-----------|-----------|---------|
-| **Ex01 — Mondrian** | Reprodução fiel + desestabilização generativa (enunciado na [Aula 2](aula2.md)) | 2 repos GitHub (Parte A + Parte B), cada um com `readme.md` |
-| **Ex02 — if/else** | Composição interativa com condicionais (enunciado na [Aula 3](aula3.md)) | repo GitHub com `readme.md` |
-| **Trabalho Final** | Output generativo com potencial de aplicação no projeto de DPI | repo GitHub com `readme.md` (máx. 200 palavras) |
+| Exercício | Prazo | Entrega |
+|-----------|-------|---------|
+| **Ex01 — Mondrian** ([Aula 2](aula2.md)) | Aula 5 (23 Out) | 2 repos GitHub (Parte A + Parte B), cada um com `readme.md` |
+| **Ex02 — if/else** ([Aula 3](aula3.md)) | Aula 7 (6 Nov) | repo GitHub com `readme.md` |
+| **Trabalho Final** ([Aula 3](aula3.md)) | Aula 7 (6 Nov) | repo GitHub com `readme.md` (máx. 200 palavras) |
 
-**Entrega via [Moodle](https://moodle2627.ipl.pt/course/section.php?id=9701) até à Aula 5 (23 de outubro)** — submeter os links dos repositórios e das respetivas GitHub Pages. Cada repo é criado a partir do [template base](../../Recursos/CodigoCriativocomP5JS.md) e inclui um `readme.md` como memória descritiva.
+Todas as entregas são via **[Moodle](https://moodle2627.ipl.pt/course/section.php?id=9701)** — submeter os links dos repositórios e das respetivas GitHub Pages. Cada repo é criado a partir do [template base](../../Recursos/CodigoCriativocomP5JS.md) e inclui um `readme.md` como memória descritiva.
 
 ## Recursos
 
