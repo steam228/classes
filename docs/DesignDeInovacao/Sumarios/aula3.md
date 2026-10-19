@@ -179,49 +179,12 @@ O repositório deve incluir um **`readme.md`** com uma breve memória descritiva
 
 ---
 
-## Trabalho Final — Output Generativo para DPI
-
-### Enunciado
-
-Criar um **output generativo** (imagem, padrão, forma ou animação) com potencial de aplicação no projeto de Design de Produto e Interação I ((com)FORMA).
-
-!!! info "Prazo e ferramenta"
-    **Entrega via Moodle até à Aula 7 (6 de novembro).**
-
-    Trabalha em **p5.js no VSCode**, a partir do template base (ver [Configuração Base P5JS](../../Recursos/CodigoCriativocomP5JS.md)).
-
-#### Objetivo
-
-Usar o código como ferramenta de exploração formal — gerar computacionalmente formas, padrões ou modularidades que possam informar ou enriquecer o projeto de produto.
-
-#### Possibilidades
-
-- Padrões modulares que se repetem, rotam e combinam em configurações distintas
-- Formas orgânicas ou geométricas geradas por algoritmos (noise, fractais, sistemas de partículas)
-- Composições paramétricas onde variáveis controlam proporções, escala ou densidade
-- Texturas ou grafismos gerados por código para aplicação em superfícies
-
-### Entrega
-
-Via **[Moodle](https://moodle2627.ipl.pt/course/section.php?id=9701)**, até à Aula 7 (6 de novembro).
-
-O exercício é um **repositório GitHub**, criado a partir do template base. Submeter no Moodle:
-
-| O que submeter | Descrição |
-| -------------- | --------- |
-| Link do repositório | ex: `https://github.com/username/TF-nome` |
-| Link da página (GitHub Pages) | ex: `https://username.github.io/TF-nome/` |
-
-O repositório deve incluir um **`readme.md`** como memória descritiva (máx. 200 palavras): decisões tomadas, relação com o projeto de DPI, e o que o output generativo propõe.
-
----
-
 ### Entregas — Bloco 1 (resumo)
 
 | Exercício | Lançamento | Prazo | Descrição |
 |-----------|------------|-------|-----------|
 | **Ex01 — Mondrian** | [Aula 2](aula2.md) | Aula 5 (23 Out) | Reprodução fiel + desestabilização generativa |
 | **Ex02 — if/else** | Aula 3 | Aula 7 (6 Nov) | Composição interativa com condicionais |
-| **Trabalho Final** | Aula 3 | Aula 7 (6 Nov) | Output generativo com potencial para DPI |
+| **Trabalho Final** | [Aula 4](aula4.md) | Aula 7 (6 Nov) | Artefacto digital — framework Ingredientes |
 
 Todas as entregas são via **[Moodle](https://moodle2627.ipl.pt/course/section.php?id=9701)** — submeter os links dos repositórios GitHub e das respetivas páginas (GitHub Pages). Cada repositório deve incluir um `readme.md` como memória descritiva. Ver [workflow de configuração](../../Recursos/CodigoCriativocomP5JS.md).

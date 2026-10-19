@@ -154,17 +154,17 @@ A aula foi estruturada em torno de uma pergunta: **que ingredientes precisamos p
 
 ### Inputs — fontes de dados
 
-| # | Fonte | Exemplos |
-|---|-------|----------|
-| 1 | **Dados públicos** | Dados meteorológicos (históricos ou em tempo real) |
-| 2 | **Interação com o computador** | Rato, teclado, acelerómetro e sensores dos dispositivos móveis |
-| 3 | **Imagens estáticas** | Imagens médicas (ressonâncias, TACs), fotografias |
-| 4 | **Vídeo** | Capturado previamente ou em tempo real |
-| 5 | **Som** | Gravado ou em tempo real |
-| 6 | **Sensores** | Dependentes do próximo módulo (Computação Física) |
-| 7 | **Tempo** | O relógio como variável generativa |
-| 8 | **`random()` e progressões** | Funções matemáticas, simulações biológicas — ver [Nature of Code](https://natureofcode.com/) |
-| 9 | **Texto(s)** | Conteúdo escrito como matéria-prima |
+| #   | Fonte                          | Exemplos                                                                                                                        |
+| --- | ------------------------------ | ------------------------------------------------------------------------------------------------------------------------------- |
+| 1   | **Dados públicos**             | Dados meteorológicos (históricos ou em tempo real)                                                                              |
+| 2   | **Interação com o computador** | Rato, teclado, acelerómetro e sensores dos dispositivos móveis                                                                  |
+| 3   | **Imagens estáticas**          | qualquer imagem: (explo de interesse particular de aluna: trabalhar e animar Imagens médicas (ressonâncias, TACs), fotografias) |
+| 4   | **Vídeo**                      | Capturado previamente ou em tempo real                                                                                          |
+| 5   | **Som**                        | Gravado ou em tempo real (exeplo em aula: https://hacktoimprove.com/scully2midi/)                                               |
+| 6   | **Sensores**                   | Dependentes do próximo bloco (Computação Física)                                                                                |
+| 7   | **Tempo**                      | O relógio como variável generativa                                                                                              |
+| 8   | **`random()` e progressões**   | Funções matemáticas, simulações biológicas — ver [Nature of Code](https://natureofcode.com/)                                    |
+| 9   | **Texto(s)**                   | Conteúdo escrito como matéria-prima                                                                                             |
 
 ### Referências / Expressões
 
@@ -478,6 +478,63 @@ Os sketches construídos ao vivo estão publicados:
 
 ---
 
+## Trabalho Final — Artefacto Digital
+
+### Enunciado
+
+Criar um **artefacto digital interativo** em p5.js, aplicando o framework dos **Ingredientes** explorado nesta aula: escolher um ou mais **inputs** (fontes de dados), cruzá-los com **referências/expressões** visuais ou sonoras, e formular um **conceito** que resulte num artefacto digital com potencial de aplicação no projeto de Design de Produto e Interação I ((com)FORMA).
+
+!!! info "Prazo e ferramenta"
+    **Entrega via Moodle até à Aula 7 (6 de novembro).**
+
+    Trabalha em **p5.js no VSCode**, a partir do template base (ver [Configuração Base P5JS](../../Recursos/CodigoCriativocomP5JS.md)).
+
+#### Ingredientes
+
+Seguir a lógica dos ingredientes trabalhada em aula:
+
+1. **Input** — escolher pelo menos uma fonte de dados (ver [tabela de inputs](#inputs--fontes-de-dados)): acelerómetro, som, imagem, vídeo, dados públicos, tempo, `random()`, texto...
+2. **Referência / Expressão** — definir a forma de expressão: mapeamento ASCII, relação som ↔ imagem, visualização 3D, deteção de pose, animação generativa...
+3. **Output** — formular o conceito: **Input + Expressão = Artefacto Digital** — web app, instalação, visualização, experiência interativa...
+
+As demos construídas em aula podem servir de ponto de partida ou inspiração:
+
+- Turma J — acelerómetro → elipses sobrepostas
+- Turma L — imagens Openverse + pose detection → grelha de stickmen
+- Turma M — som → análise e síntese de áudio
+
+#### Uso de LLMs
+
+É permitido o recurso a LLMs (ChatGPT, Claude, Copilot, etc.) como ferramenta de aceleração, desde que:
+
+- O processo seja **transparente** — documentar no `readme.md` que partes foram geradas ou assistidas por AI
+- O processo seja **acompanhado** — o código gerado deve ser compreendido, testado e iterado (não basta copiar e colar)
+- O resultado fique em **p5.js** — não se aceitam outputs noutras plataformas ou linguagens
+
+#### Possibilidades
+
+- Padrões modulares que se repetem, rotam e combinam em configurações distintas
+- Formas orgânicas ou geométricas geradas por algoritmos (noise, fractais, sistemas de partículas)
+- Composições paramétricas onde variáveis controlam proporções, escala ou densidade
+- Texturas ou grafismos gerados por código para aplicação em superfícies
+- Visualizações de dados em tempo real
+- Experiências interativas que respondem a inputs do corpo ou do ambiente
+
+### Entrega
+
+Via **[Moodle](https://moodle2627.ipl.pt/course/section.php?id=9701)**, até à Aula 7 (6 de novembro).
+
+O exercício é um **repositório GitHub**, criado a partir do template base. Submeter no Moodle:
+
+| O que submeter | Descrição |
+| -------------- | --------- |
+| Link do repositório | ex: `https://github.com/username/TF-nome` |
+| Link da página (GitHub Pages) | ex: `https://username.github.io/TF-nome/` |
+
+O repositório deve incluir um **`readme.md`** como memória descritiva (máx. 200 palavras): conceito, ingredientes escolhidos (input, expressão, output), relação com o projeto de DPI, e eventuais recursos a LLMs utilizados.
+
+---
+
 ## Entrega — Bloco 1
 
 A entrega do Bloco 1 inclui três exercícios:
@@ -486,7 +543,7 @@ A entrega do Bloco 1 inclui três exercícios:
 |-----------|-------|---------|
 | **Ex01 — Mondrian** ([Aula 2](aula2.md)) | Aula 5 (23 Out) | 2 repos GitHub (Parte A + Parte B), cada um com `readme.md` |
 | **Ex02 — if/else** ([Aula 3](aula3.md)) | Aula 7 (6 Nov) | repo GitHub com `readme.md` |
-| **Trabalho Final** ([Aula 3](aula3.md)) | Aula 7 (6 Nov) | repo GitHub com `readme.md` (máx. 200 palavras) |
+| **Trabalho Final** (Aula 4) | Aula 7 (6 Nov) | repo GitHub com `readme.md` (máx. 200 palavras) |
 
 Todas as entregas são via **[Moodle](https://moodle2627.ipl.pt/course/section.php?id=9701)** — submeter os links dos repositórios e das respetivas GitHub Pages. Cada repo é criado a partir do [template base](../../Recursos/CodigoCriativocomP5JS.md) e inclui um `readme.md` como memória descritiva.
 
