@@ -216,18 +216,21 @@ O `random()` deve ser usado de forma **contida e intencional** — não se trata
 
 ### Entrega
 
-Via **[Moodle](https://moodle2627.ipl.pt/course/section.php?id=9701)**, até à Aula 5 (23 de outubro), submeter **estes seis ficheiros** — sketch, captura e reflexão de cada parte:
+Via **[Moodle](https://moodle2627.ipl.pt/course/section.php?id=9701)**, até à Aula 5 (23 de outubro).
 
-| Ficheiro                                                    | Descrição                                                 |
-| ----------------------------------------------------------- | --------------------------------------------------------- |
-| Repositório github Parte A - link                           | explo: 'https://github.com/steam228/Ex01-floresNoQuintal' |
-| Repositório github Parte A - link para página (githubpages) | explo: 'https://hacktoimprove.com/Ex01-floresNoQuintal/'  |
-| Repositório github Parte B - link                           | idem                                                      |
-| Repositório github Parte B - link para página (githubpages) | idem                                                      |
-| readme.md - repo Parte A                                    | Breve descrição das decisões tomadas na reprodução        |
-| readme.md - repo Parte B                                    | Descrição do elemento generativo escolhido e porquê       |
+Cada parte (A e B) é um **repositório GitHub próprio**, criado a partir do template base (ver [Configuração Base P5JS](../../Recursos/CodigoCriativocomP5JS.md)). Submeter no Moodle:
 
-https://moodle2627.ipl.pt/course/section.php?id=9701
+| O que submeter | Descrição |
+| -------------- | --------- |
+| Link do repositório — Parte A | ex: `https://github.com/steam228/Ex01-floresNoQuintal` |
+| Link da página (GitHub Pages) — Parte A | ex: `https://hacktoimprove.com/Ex01-floresNoQuintal/` |
+| Link do repositório — Parte B | idem |
+| Link da página (GitHub Pages) — Parte B | idem |
+
+Cada repositório deve incluir um **`readme.md`** com uma breve memória descritiva:
+
+- **Parte A** — decisões tomadas na reprodução (proporções, cores, medições)
+- **Parte B** — descrição do elemento generativo escolhido e porquê
 
 ---
 

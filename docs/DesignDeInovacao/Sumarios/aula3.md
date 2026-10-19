@@ -155,7 +155,7 @@ Criar uma **composição interativa** que use condicionais (`if`/`else`) para al
 - O resultado deve ser **visualmente interessante** — não basta funcionar, tem de comunicar
 - Pode partir dos exemplos da aula ou criar algo de raiz
 
-**Entrega:** `sketch_ex02.js` + `captura_ex02.png`
+**Entrega:** Repositório GitHub (criado a partir do [template base](../../Recursos/CodigoCriativocomP5JS.md)) com o sketch e um `readme.md` descrevendo as decisões tomadas.
 
 ---
 
@@ -172,7 +172,7 @@ Criar um **output generativo** (imagem, padrão, forma ou animação) com potenc
 - Composições paramétricas onde variáveis controlam proporções, escala ou densidade
 - Texturas ou grafismos gerados por código para aplicação em superfícies
 
-**Entrega:** Ficheiro de código + imagem/vídeo do resultado + breve texto descritivo (máx. 200 palavras) explicando as decisões e a relação com o projeto de DPI.
+**Entrega:** Repositório GitHub (criado a partir do [template base](../../Recursos/CodigoCriativocomP5JS.md)) com o sketch + imagem/vídeo do resultado. O `readme.md` do repo serve como memória descritiva (máx. 200 palavras) explicando as decisões e a relação com o projeto de DPI.
 
 ---
 
@@ -186,4 +186,4 @@ O Bloco 1 tem três exercícios:
 | **Ex02 — if/else** | Aula 3 | Composição interativa com condicionais |
 | **Trabalho Final** | Aula 3 | Output generativo com potencial para DPI |
 
-Nesta aula mostras o que tens do Ex01 para comentário. A entrega final de todos os exercícios é via **Moodle até à Aula 5 (23 de outubro)**.
+Nesta aula mostras o que tens do Ex01 para comentário. A entrega final de todos os exercícios é via **Moodle até à Aula 5 (23 de outubro)** — submeter os links dos repositórios GitHub e das respetivas páginas (GitHub Pages). Cada repositório deve incluir um `readme.md` como memória descritiva. Ver [workflow de configuração](../../Recursos/CodigoCriativocomP5JS.md).
