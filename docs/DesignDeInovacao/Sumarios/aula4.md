@@ -482,7 +482,7 @@ Os sketches construídos ao vivo estão publicados:
 
 ### Enunciado
 
-Criar um **artefacto digital interativo** em p5.js, aplicando o framework dos **Ingredientes** explorado nesta aula: escolher um ou mais **inputs** (fontes de dados), cruzá-los com **referências/expressões** visuais ou sonoras, e formular um **conceito** que resulte num artefacto digital com potencial de aplicação no projeto de Design de Produto e Interação I ((com)FORMA).
+Criar um **artefacto digital interativo** em p5.js, aplicando o framework dos **Ingredientes** explorado nesta aula: escolher um ou mais **inputs** (fontes de dados), cruzá-los com **referências/expressões** visuais ou sonoras, e formular um **conceito** que resulte num artefacto digital com potencial de aplicação no projeto de Design de Produto e Interação I ((com)FORMA), ou mesmo noutro projeto pessoal ou academico que tenham a correr ou queiram iniciar.
 
 !!! info "Prazo e ferramenta"
     **Entrega via Moodle até à Aula 7 (6 de novembro).**
