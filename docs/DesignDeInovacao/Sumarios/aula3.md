@@ -2,7 +2,7 @@
 title: Aula 3 — Código Criativo III
 icon: lucide/book-open
 tags: aula
-status: not-started
+status: completed
 hero_image: ../attachments/aula3.png
 hero_title: Aula 3
 hero_subtitle: Design de Inovação

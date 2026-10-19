@@ -2,7 +2,7 @@
 title: Aula 1 — Código Criativo I
 icon: lucide/book-open
 tags: aula
-status: not-started
+status: completed
 hero_image: ../../attachments/DSC05966.jpg
 hero_sketch: ../../../P5JS/blood/index.html
 hero_title: Aula 1

@@ -2,7 +2,7 @@
 title: Aula 4 — Código Criativo IV
 icon: lucide/book-open
 tags: aula
-status: in-progress
+status: completed
 hero_image: ../attachments/aula4.png
 hero_title: Aula 4
 hero_subtitle: Design de Inovação
