@@ -1,11 +1,11 @@
 ---
-title: "Aula 4 — Código Criativo IV"
+title: Aula 4 — Código Criativo IV
 icon: lucide/book-open
 tags: aula
 status: in-progress
-hero_image: ../../attachments/DSC05966.jpg
-hero_title: "Aula 4"
-hero_subtitle: "Design de Inovação"
+hero_image: ../attachments/aula4.png
+hero_title: Aula 4
+hero_subtitle: Design de Inovação
 hero_height: 60vh
 hero_overlay: 0.2
 hero_align: center

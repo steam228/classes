@@ -1,11 +1,11 @@
 ---
-title: "Aula 3 — Código Criativo III"
+title: Aula 3 — Código Criativo III
 icon: lucide/book-open
 tags: aula
 status: not-started
-hero_image: ../../attachments/DSC05966.jpg
-hero_title: "Aula 3"
-hero_subtitle: "Design de Inovação"
+hero_image: ../attachments/aula3.png
+hero_title: Aula 3
+hero_subtitle: Design de Inovação
 hero_height: 60vh
 hero_overlay: 0.2
 hero_align: center
