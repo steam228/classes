@@ -1,5 +1,5 @@
 ---
-title: "Aula 8"
+title: "Aula 8 — FabLab I"
 icon: lucide/book-open
 tags: aula
 status: not-started
@@ -12,7 +12,7 @@ hero_align: center
 hero_caption: ""
 ---
 
-# Aula 8
+# Aula 8 — FabLab I
 
 ## Data
 
@@ -20,6 +20,8 @@ hero_caption: ""
 
 ## Sumário
 
-## Referências Bibliográficas
+- Início do trabalho no FabLab
+- Fabrico de moldes: impressão 3D, maquinação CNC, ou construção manual
+- Primeiros testes de vazamento
 
 ## Notas da Aula

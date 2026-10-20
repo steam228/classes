@@ -1,5 +1,5 @@
 ---
-title: "Aula 6 — Apresentação de Propostas"
+title: "Aula 6 — Desenvolvimento I"
 icon: lucide/book-open
 tags: aula
 status: not-started
@@ -12,7 +12,7 @@ hero_align: center
 hero_caption: ""
 ---
 
-# Aula 6 — Apresentação de Propostas
+# Aula 6 — Desenvolvimento I
 
 ## Data
 
@@ -20,18 +20,27 @@ hero_caption: ""
 
 ## Sumário
 
-- Apresentação das propostas de grupo (10 min + 5 min discussão por grupo)
-- Feedback cruzado entre grupos e docente
-- Validação dos conceitos e ajustes
-- Planeamento das próximas fases: do conceito ao molde físico
-- Definição de entregas intermédias
+- Desenvolvimento da proposta de grupo: esboço, modelação 3D e primeiros modelos de teste
+- Feedback individual com o docente sobre viabilidade e direção
+- Preparação da entrega da [Proposta de Grupo](aula5.md) (prazo: Aula 7)
+
+---
 
 ## Notas da Aula
 
-### Critérios de avaliação da proposta
+### Sessão de desenvolvimento em grupo
 
-- Qualidade da análise do objeto pessoal
-- Coerência entre o fragmento escolhido e a peça modular
-- Viabilidade técnica da proposta de moldagem
-- Potencial de composição modular (variedade de configurações)
-- Moodboard e referências: clareza da direção formal
+Aula dedicada ao desenvolvimento prático do projeto. Os grupos devem avançar em paralelo nas seguintes frentes:
+
+- **Esboço e iteração** — explorar variações formais do conceito modular, testar composições, refinar proporções
+- **Modelação 3D** — iniciar ou avançar o modelo CAD da peça e/ou do molde
+- **Modelos de teste** — primeiras impressões 3D de estudo, maquetes à mão, ou mockups rápidos para validar dimensões, encaixes e ergonomia
+
+### Objetivos da sessão
+
+- Validar a direção do projeto com o docente (viabilidade técnica e formal)
+- Iterar sobre o conceito modular antes da entrega da proposta
+- Identificar dúvidas e obstáculos técnicos a resolver nas próximas sessões
+
+!!! tip "Entrega pendente"
+    A [Proposta de Grupo](aula5.md) (PDF) deve ser entregue via Moodle até à **Aula 7 (3 de novembro)**.

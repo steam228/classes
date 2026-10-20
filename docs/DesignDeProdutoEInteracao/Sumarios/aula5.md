@@ -36,12 +36,38 @@ Os grupos formam-se e iniciam o trabalho de projeto a partir desta aula. O traba
 3. **Modularidade / Design generativo** — Integrar as explorações de modularidade e design generativo desenvolvidas individualmente em DI (Design de Interação).
 4. **Interface** — Embora ainda em fase inicial, os grupos podem começar a definir o que pretendem desenvolver em termos de interface — físico ou gráfico — associado ao objeto/serviço.
 
-### O que preparar para a apresentação (aula 6)
+---
 
-Cada grupo deve apresentar (10 min + 5 min discussão):
+## Entrega — Proposta de Grupo
 
-1. Objeto(s) pessoal(is) selecionado(s) — fotografias, análise formal/funcional
-2. Fragmento a integrar — justificação da escolha
-3. Conceito modular — esboço das composições possíveis (mín. 3)
-4. Tecnologia — justificação da escolha de materiais e processo de moldagem
-5. Referências e moodboard — direção formal e conceptual
+### Enunciado
+
+Cada grupo deve comunicar visualmente a sua proposta de projeto, demonstrando com clareza os objetivos e as opções de partida.
+
+!!! info "Prazo e formato"
+    **Entrega via [Moodle](https://moodle2627.ipl.pt/course/section.php?id=9701) até à Aula 7 (3 de novembro).**
+
+    Formato: **PDF**, livre (poster, apresentação, prancha(s) resumo, ou misto).
+
+### Conteúdo obrigatório
+
+A proposta deve abordar os seguintes 5 pontos:
+
+1. **Objeto(s) pessoal(is) selecionado(s)** — fotografias, análise formal e funcional
+2. **Fragmento a integrar** — justificação da escolha (que detalhe, porquê, como se integra na peça)
+3. **Conceito modular** — esboço das composições possíveis (mínimo 3 configurações distintas)
+4. **Tecnologia** — justificação da escolha de materiais e processo de moldagem
+5. **Referências e moodboard** — direção formal e conceptual
+
+### Avaliação
+
+- Qualidade e pertinência das opções nos 5 pontos acima
+- **Clareza e qualidade da comunicação visual** — o documento deve apresentar com nitidez os objetivos do projeto e as decisões de partida
+
+### Entrega
+
+Via **[Moodle](https://moodle2627.ipl.pt/course/section.php?id=9701)**, até à Aula 7 (3 de novembro).
+
+| O que submeter | Descrição |
+| -------------- | --------- |
+| Ficheiro PDF | Proposta visual do grupo (poster, apresentação, pranchas, ou misto) |
