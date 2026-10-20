@@ -20,7 +20,7 @@ hero_caption: ""
 
 ## Sumário
 
-- Apresentação das propostas de grupo (10 min + 5 min discussão por grupo)
+- Apresentação das propostas de grupo (5 min + 5 min discussão por grupo)
 - Feedback cruzado entre grupos e docente
 - Validação dos conceitos e ajustes
 - Desenvolvimento em grupo: esboço, modelação 3D, primeiros modelos de teste
@@ -31,7 +31,7 @@ hero_caption: ""
 
 ### Apresentação das propostas
 
-Cada grupo apresenta o estado atual da sua proposta (10 min + 5 min discussão), cobrindo os 5 pontos do [enunciado](aula5.md#entrega--proposta-de-grupo):
+Cada grupo apresenta o estado atual da sua proposta (5 min + 5 min discussão), cobrindo os 5 pontos do [enunciado](aula5.md#entrega--proposta-de-grupo):
 
 1. Objeto(s) pessoal(is) selecionado(s)
 2. Fragmento a integrar
