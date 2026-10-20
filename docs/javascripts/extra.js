@@ -1075,12 +1075,13 @@
     saveSession();
   }
 
-  function handleNameResponse(name) {
-    state.name = name.trim();
-    state.gender = inferGender(state.name);
-    state.phase = "ask-turma";
-    showTurmaQuestion();
-    saveSession();
+  // The first line goes to the backend as typed: it takes out "olá, sou o…",
+  // and a turma or student number said in passing ("da turma J", "nº 2024…"),
+  // so Zé never asks what he was just told nor greets "olá rui bailão nº".
+  function handleNameResponse(text) {
+    state.name = text.trim();
+    state.turma = "";
+    identify("");
   }
 
   /**
@@ -1160,8 +1161,8 @@
     });
   }
 
-  function showTurmaQuestion() {
-    appendMessage("bot", "E de que turma \u00e9s?" +
+  function showTurmaQuestion(greet) {
+    appendMessage("bot", (greet ? "Ol\u00e1, " + escapeHtml(greet) + "! " : "") + "E de que turma \u00e9s?" +
       buttons("data-turma", TURMAS.map(function (t) { return [t, "Turma " + t]; })));
     bindButtons("data-turma", handleTurmaSelection);
   }
@@ -1190,10 +1191,16 @@
       if (d.ok) {
         state.token = d.token;
         state.name = d.name || state.name;
+        state.gender = inferGender(state.name);
         state.turma = d.turma || state.turma;
         appendMessage("bot", say("hello", { n: state.name }));
         state.phase = "ask-share";
         showShareQuestion();
+      } else if (d.status === "need_turma") {
+        state.name = d.name || state.name;
+        state.gender = inferGender(state.name);
+        state.phase = "ask-turma";
+        showTurmaQuestion(d.name);
       } else if (d.status === "need_number") {
         state.phase = "ask-numero";
         appendMessage("bot", escapeHtml(d.say));
