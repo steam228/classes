@@ -20,27 +20,34 @@ hero_caption: ""
 
 ## Sumário
 
-- Desenvolvimento da proposta de grupo: esboço, modelação 3D e primeiros modelos de teste
-- Feedback individual com o docente sobre viabilidade e direção
-- Preparação da entrega da [Proposta de Grupo](aula5.md) (prazo: Aula 7)
+- Apresentação das propostas de grupo (10 min + 5 min discussão por grupo)
+- Feedback cruzado entre grupos e docente
+- Validação dos conceitos e ajustes
+- Desenvolvimento em grupo: esboço, modelação 3D, primeiros modelos de teste
 
 ---
 
 ## Notas da Aula
 
-### Sessão de desenvolvimento em grupo
+### Apresentação das propostas
 
-Aula dedicada ao desenvolvimento prático do projeto. Os grupos devem avançar em paralelo nas seguintes frentes:
+Cada grupo apresenta o estado atual da sua proposta (10 min + 5 min discussão), cobrindo os 5 pontos do [enunciado](aula5.md#entrega--proposta-de-grupo):
 
-- **Esboço e iteração** — explorar variações formais do conceito modular, testar composições, refinar proporções
+1. Objeto(s) pessoal(is) selecionado(s)
+2. Fragmento a integrar
+3. Conceito modular
+4. Tecnologia
+5. Referências e moodboard
+
+O feedback do docente e dos colegas serve para validar ou reorientar as opções antes da entrega final.
+
+### Desenvolvimento em grupo
+
+Após as apresentações, os grupos devem avançar no desenvolvimento prático:
+
+- **Esboço e iteração** — explorar variações formais, testar composições, refinar proporções
 - **Modelação 3D** — iniciar ou avançar o modelo CAD da peça e/ou do molde
 - **Modelos de teste** — primeiras impressões 3D de estudo, maquetes à mão, ou mockups rápidos para validar dimensões, encaixes e ergonomia
-
-### Objetivos da sessão
-
-- Validar a direção do projeto com o docente (viabilidade técnica e formal)
-- Iterar sobre o conceito modular antes da entrega da proposta
-- Identificar dúvidas e obstáculos técnicos a resolver nas próximas sessões
 
 !!! tip "Entrega pendente"
     A [Proposta de Grupo](aula5.md) (PDF) deve ser entregue via Moodle até à **Aula 7 (3 de novembro)**.

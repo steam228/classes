@@ -20,10 +20,10 @@ hero_caption: ""
 
 ## Sumário
 
-- Continuação do desenvolvimento em grupo: esboço, modelação 3D, modelos de teste
+- **Entrega da [Proposta de Grupo](aula5.md)** via Moodle (prazo desta aula)
+- Desenvolvimento em grupo: esboço, modelação 3D, modelos de teste
 - Primeiras impressões de modelos de teste e/ou modelos feitos à mão
 - Levantamento de materiais necessários para aquisição
-- **Prazo: entrega da [Proposta de Grupo](aula5.md)** via Moodle
 
 ---
 
@@ -31,7 +31,7 @@ hero_caption: ""
 
 ### Sessão de desenvolvimento em grupo
 
-Continuação do trabalho iniciado na Aula 6. Os grupos devem chegar ao final desta sessão com:
+A [Proposta de Grupo](aula5.md) deve estar entregue via Moodle no início desta aula. Sessão dedicada ao desenvolvimento, com o feedback da Aula 6 já integrado. Os grupos devem chegar ao final desta sessão com:
 
 - **Conceito consolidado** — o modelo 3D e os esboços devem refletir as decisões tomadas e o feedback recebido
 - **Primeiros modelos físicos** — impressões 3D de estudo, maquetes à mão, ou mockups que permitam validar forma, escala e encaixes

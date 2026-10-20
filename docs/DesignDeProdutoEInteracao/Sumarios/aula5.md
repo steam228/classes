@@ -62,6 +62,8 @@ A proposta deve abordar os seguintes 5 pontos:
 ### Avaliação
 
 - Qualidade e pertinência das opções nos 5 pontos acima
+- **Profundidade da pesquisa e análise projetual**
+- **Alcance da implementação** — modularidade, interação, desenho/design generativo
 - **Clareza e qualidade da comunicação visual** — o documento deve apresentar com nitidez os objetivos do projeto e as decisões de partida
 
 ### Entrega
