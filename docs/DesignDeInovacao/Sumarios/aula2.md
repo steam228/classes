@@ -194,6 +194,14 @@ Partindo da obra *Composição nº III* de Piet Mondrian, este exercício pede d
 
     Trabalha em **p5.js no VSCode**, a partir do template base de p5.js (ver [Código Criativo com P5.js](../../Recursos/CodigoCriativocomP5JS.md)).
 
+!!! info "Criar novo projeto P5.js — passo a passo"
+    1. Abrir o [**template base**](https://github.com/steam228/BasicP5jsExample) no GitHub
+    2. **Use this template** → **Create a new repository** → dar um nome ao repo
+    3. **Open with GitHub Desktop** → clonar para o computador
+    4. Abrir a pasta no **VSCode** → editar `sketch.js` → **Go Live**
+
+    Guia completo com vídeo: [Código Criativo com P5JS](../../Recursos/CodigoCriativocomP5JS.md)
+
 #### Parte A — Reprodução fiel
 
 Reproduzir em código, com o maior rigor possível, a composição original:

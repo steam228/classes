@@ -154,6 +154,14 @@ Criar uma **composição interativa** que use condicionais (`if`/`else`) para al
 
     Trabalha em **p5.js no VSCode**, a partir do template base (ver [Configuração Base P5JS](../../Recursos/CodigoCriativocomP5JS.md)).
 
+!!! info "Criar novo projeto P5.js — passo a passo"
+    1. Abrir o [**template base**](https://github.com/steam228/BasicP5jsExample) no GitHub
+    2. **Use this template** → **Create a new repository** → dar um nome ao repo
+    3. **Open with GitHub Desktop** → clonar para o computador
+    4. Abrir a pasta no **VSCode** → editar `sketch.js` → **Go Live**
+
+    Guia completo com vídeo: [Código Criativo com P5JS](../../Recursos/CodigoCriativocomP5JS.md)
+
 #### Objetivo
 
 Explorar a tomada de decisão no código — como o programa reage a diferentes condições e como isso gera variação visual.
