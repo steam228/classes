@@ -70,6 +70,7 @@ nav = [
         ] },
         { "Avaliação" = "DesignDeProdutoEInteracao/Avaliacao.md" },
         { "Calendário" = "DesignDeProdutoEInteracao/Calendario.md" },
+        { "FAQ" = "DesignDeProdutoEInteracao/FAQ.md" },
         { "Galeria" = "DesignDeProdutoEInteracao/Galeria/index.md" },
     ] },
     { "Design de Inovação" = [
@@ -95,6 +96,7 @@ nav = [
         ] },
         { "Avaliação" = "DesignDeInovacao/Avaliacao.md" },
         { "Calendário" = "DesignDeInovacao/Calendario.md" },
+        { "FAQ" = "DesignDeInovacao/FAQ.md" },
         { "Galeria" = "DesignDeInovacao/Galeria/index.md" },
     ] },
     # ── Past courses (2nd semester 25/26) ──
