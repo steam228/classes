@@ -53,7 +53,7 @@ Cada grupo deve comunicar visualmente a sua proposta de projeto, demonstrando co
 
 A proposta deve abordar os seguintes 5 pontos:
 
-1. **Objeto(s) pessoal(is) selecionado(s)** — fotografias, análise formal e funcional
+1. **Objeto(s) pessoal(is) selecionado(s)** — fotografias, análise formal e funcional (cf. [morfogramas — Aula 2](aula2.md#morfogramas))
 2. **Fragmento a integrar** — justificação da escolha (que detalhe, porquê, como se integra na peça)
 3. **Conceito modular** — esboço das composições possíveis (mínimo 3 configurações distintas)
 4. **Tecnologia** — justificação da escolha de materiais e processo de moldagem
@@ -70,6 +70,6 @@ A proposta deve abordar os seguintes 5 pontos:
 
 Via **[Moodle](https://moodle2627.ipl.pt/course/section.php?id=9701)**, até à Aula 7 (3 de novembro).
 
-| O que submeter | Descrição |
-| -------------- | --------- |
-| Ficheiro PDF | Proposta visual do grupo (poster, apresentação, pranchas, ou misto) |
+| O que submeter | Descrição                                                           |
+| -------------- | ------------------------------------------------------------------- |
+| Ficheiro PDF   | Proposta visual do grupo (poster, apresentação, pranchas, ou misto) |

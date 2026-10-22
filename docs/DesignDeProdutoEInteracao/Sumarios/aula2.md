@@ -27,6 +27,18 @@ hero_caption: image by TheSketchMonkey (https://www.youtube.com/watch?v=dTwuEwPz
 
 ## Notas da Aula
 
+
+### Morfogramas
+
+![](attachments/Bonsiepe_morfogramaseanaliseprojectual.pdf)
+
+
+![](attachments/morfo1.png)
+
+![](attachments/morfo2.png)
+
+![](attachments/morfo3.png)
+
 ### Apresentação dos objetos pessoais
 
 Cada estudante apresenta brevemente os objetos que trouxe:

@@ -588,16 +588,53 @@
   }
 
   /**
-   * Convert <img> tags pointing to non-image, non-video, non-3D files
+   * Convert <img> tags pointing to PDF files into inline embedded viewers.
+   */
+  function embedPDFs() {
+    var selector = 'img[src$=".pdf"], img[src$=".PDF"]';
+
+    document.querySelectorAll(selector).forEach(function (img) {
+      var src = img.getAttribute("src");
+      if (!src) return;
+
+      var parts = src.split("/");
+      var fileName = decodeURIComponent(parts[parts.length - 1]);
+
+      var wrapper = document.createElement("div");
+      wrapper.className = "pdf-embed";
+
+      var iframe = document.createElement("iframe");
+      iframe.setAttribute("src", src);
+      iframe.setAttribute("loading", "lazy");
+      iframe.setAttribute("frameborder", "0");
+      wrapper.appendChild(iframe);
+
+      var link = document.createElement("a");
+      link.href = src;
+      link.className = "pdf-embed__download";
+      link.setAttribute("download", "");
+      link.innerHTML =
+        '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:inline;vertical-align:-2px;margin-right:4px">' +
+          '<path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>' +
+          '<polyline points="7 10 12 15 17 10"/>' +
+          '<line x1="12" y1="15" x2="12" y2="3"/>' +
+        "</svg>" + fileName;
+      wrapper.appendChild(link);
+
+      var parent = img.parentElement;
+      if (parent && parent.tagName === "P" && parent.children.length === 1) {
+        parent.replaceWith(wrapper);
+      } else {
+        img.replaceWith(wrapper);
+      }
+    });
+  }
+
+  /**
+   * Convert <img> tags pointing to non-image, non-video, non-3D, non-PDF files
    * into styled download links.
-   *
-   * When a file (e.g. PDF, ZIP, DOCX) is dragged into Obsidian it creates
-   * ![](attachments/file.pdf) which renders as a broken <img>. This function
-   * replaces those with a download card showing the file name, extension badge,
-   * and a download icon.
    */
   function convertAttachmentLinks() {
-    // Extensions already handled natively or by other functions
     var imageExts = [
       ".png", ".jpg", ".jpeg", ".gif", ".webp", ".svg", ".bmp", ".ico", ".avif",
     ];
@@ -605,7 +642,8 @@
     var modelExts = [
       ".stl", ".step", ".stp", ".obj", ".3ds", ".ply", ".gltf", ".glb",
     ];
-    var handled = [].concat(imageExts, videoExts, modelExts);
+    var pdfExts = [".pdf"];
+    var handled = [].concat(imageExts, videoExts, modelExts, pdfExts);
 
     document.querySelectorAll("img[src]").forEach(function (img) {
       var src = img.getAttribute("src");
@@ -758,6 +796,7 @@
       embedYouTubeLinks();
       embedAutodeskLinks();
       embed3DModels();
+      embedPDFs();
       convertAttachmentLinks();
       markArchivedCourses();
     });
@@ -770,6 +809,7 @@
     embedYouTubeLinks();
     embedAutodeskLinks();
     embed3DModels();
+    embedPDFs();
     convertAttachmentLinks();
     markArchivedCourses();
   }
@@ -784,6 +824,7 @@
       embedYouTubeLinks();
       embedAutodeskLinks();
       embed3DModels();
+      embedPDFs();
       convertAttachmentLinks();
       markArchivedCourses();
     });
