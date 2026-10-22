@@ -90,7 +90,7 @@ hero_caption: ""
     - Para que a usaste (gerar código, debugging, explorar variações, etc.)
     - O que alteraste ou iteraste sobre o resultado gerado
 
-    Não é preciso formato formal de citação — basta ser claro e honesto.
+    Não é preciso formato formal de citação — basta ser claro(a) e honesto(a).
 
 ## Grupos (DPI)
 

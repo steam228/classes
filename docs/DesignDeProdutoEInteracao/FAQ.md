@@ -26,7 +26,7 @@ hero_caption: ""
     Trabalhadores-estudantes devem informar o professor na primeira aula. Poderão ter condições específicas para acompanhamento e entregas — a situação é analisada caso a caso.
 
 ??? question "E quem entra na UC depois da fase de formação de grupos?"
-    Quem se inscreve tardiamente é integrado num grupo existente pelo professor. O objeto pessoal a usar será um dos que já estão em desenvolvimento no grupo — não se reinicia a fase de exploração.
+    Quem se inscreve tardiamente é integrado num grupo existente pelo professor. O objeto pessoal a usar será um dos que já estão em desenvolvimento no grupo — não se reinicia a fase de exploração a não ser por decisão de todo o grupo.
 
 ## Entregas no Moodle
 
@@ -48,9 +48,9 @@ hero_caption: ""
     Digitalizar (scan ou foto com boa qualidade e iluminação) as folhas A3 e submeter em **PDF** ou **imagens** (JPG/PNG). O importante é que o traço e os detalhes sejam legíveis.
 
 ??? question "Posso usar o mesmo objeto como pessoal e de referência?"
-    **Não.** O [enunciado do projeto](Enunciado.md) distingue claramente os dois: o **objeto pessoal** é escolhido pelo potencial de redesign (problemas, falhas, oportunidades), e o **objeto de referência** pelas suas qualidades formais (formas, texturas, detalhes a apropriar). Devem ser objetos diferentes. Se houver dúvidas sobre a escolha, consulta o professor.
+    **Sim, no entanto, deverás ter em conta que ** o [enunciado do projeto](Enunciado.md) distingue claramente os dois: o **objeto pessoal** é escolhido pelo potencial de redesign (problemas, falhas, oportunidades), e o **objeto de referência** pelas suas qualidades formais (formas, texturas, detalhes a apropriar). Se houver dúvidas sobre a escolha, consulta o professor.
 
-??? question "Quantas folhas A3 se faz para cada objeto?"
+??? question "Quantas folhas A3 se faz para cada objeto no primeiro exercício?"
     Até **3 folhas A3** para o objeto pessoal e até **3 folhas A3** para o objeto de referência, conforme o [enunciado da Aula 2](Sumarios/aula2.md#exercicio-individual-estudos-por-esboco-sketching).
 
 ## Projeto (com)FORMA
@@ -59,7 +59,7 @@ hero_caption: ""
     Morfogramas são uma ferramenta de análise projetual (Bonsiepe) que decompõe a forma de um objeto nos seus componentes. Exemplos e o texto original estão na secção [Morfogramas — Aula 2](Sumarios/aula2.md#morfogramas).
 
 ??? question "Os exemplos da BIC e da colher são onde?"
-    Foram demonstrados em aula como referência de decomposição e análise formal por sketching. Os princípios estão descritos no [exercício da Aula 2](Sumarios/aula2.md#exercicio-individual-estudos-por-esboco-sketching). Os morfogramas seguem a mesma lógica — decompor para compreender.
+    Foram demonstrados em aula como referência de decomposição e análise formal por sketching. Os princípios estão descritos no [exercício da Aula 2](Sumarios/aula2.md#exercicio-individual-estudos-por-esboco-sketching). Os morfogramas seguem a mesma lógica — decompor para compreender. Há imagens similares nessa mesma página.
 
 ??? question "O que é esperado na Proposta de Grupo?"
     A proposta é um documento visual (PDF, formato livre) que cobre 5 pontos: objeto pessoal, fragmento a integrar, conceito modular, tecnologia e referências/moodboard. Entrega via Moodle até à Aula 7. Ver o [enunciado completo na Aula 5](Sumarios/aula5.md#entrega-proposta-de-grupo).
