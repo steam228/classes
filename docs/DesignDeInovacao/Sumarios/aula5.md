@@ -3,7 +3,7 @@ title: Aula 5 — Computação Física I
 icon: lucide/book-open
 tags: aula
 status: not-started
-hero_image: ../attachments/hero5DPI
+hero_image: ../attachments/hero5DPI.png
 hero_title: Aula 5
 hero_subtitle: Design de Inovação
 hero_height: 80vh
@@ -51,7 +51,6 @@ hero_caption: 2012 - Spinner Final Prototype por Camille Moussete
 - [Neil Mendoza](https://vimeo.com/neilmendoza) — esculturas cinéticas e interativas
 - https://grouu.cc/ - design e hardware aberto para agricultura
 - [Simple Haptics por Camille Moussete](https://www.simplehaptics.se/) - processo de prototipagem de um interface táctil com recurso a arduino![](attachments/Screenshot%202026-10-23%20at%2016.42.42.png)
-- 
 
 ---
 
