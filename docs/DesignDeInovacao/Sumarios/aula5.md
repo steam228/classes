@@ -1,15 +1,15 @@
 ---
-title: "Aula 5 — Computação Física I"
+title: Aula 5 — Computação Física I
 icon: lucide/book-open
 tags: aula
 status: not-started
-hero_image: ../../attachments/DSC05966.jpg
-hero_title: "Aula 5"
-hero_subtitle: "Design de Inovação"
-hero_height: 60vh
+hero_image: ../attachments/hero5DPI
+hero_title: Aula 5
+hero_subtitle: Design de Inovação
+hero_height: 80vh
 hero_overlay: 0.2
 hero_align: center
-hero_caption: ""
+hero_caption: 2012 - Spinner Final Prototype por Camille Moussete
 ---
 
 # Aula 5 — Computação Física I
@@ -36,15 +36,22 @@ hero_caption: ""
 *How a Computer sees you* por [Tom Igoe](https://tigoe.com/)
 
 [ArduinoComic.pdf](../attachments/index.pdf) — introdução ilustrada ao Arduino
-
 ### Ferramentas
 
-- **Arduino IDE** — [arduino.cc/software](https://www.arduino.cc/en/software/#ide)
+- VSCODE . instalar a extensão PlatformIO: (criar passo a passo nos recursos e template no git)
+  
+![](attachments/Screenshot%202026-10-23%20at%2010.07.18.png)
+
+
+- Alternativa: **Arduino IDE** — [arduino.cc/software](https://www.arduino.cc/en/software/#ide)
 - **Arduino Reference** — [arduino.cc/reference](https://www.arduino.cc/reference/en/)
 
-### Referências de artistas
+### Referências
 
 - [Neil Mendoza](https://vimeo.com/neilmendoza) — esculturas cinéticas e interativas
+- https://grouu.cc/ - design e hardware aberto para agricultura
+- [Simple Haptics por Camille Moussete](https://www.simplehaptics.se/) - processo de prototipagem de um interface táctil com recurso a arduino![](attachments/Screenshot%202026-10-23%20at%2016.42.42.png)
+- 
 
 ---
 
@@ -53,6 +60,7 @@ hero_caption: ""
 ![Esquema Blink](../attachments/Smashing_Esboo.png)
 
 ```arduino
+#include <Arduino.h>
 #define led 13
 
 void setup() {
@@ -87,6 +95,7 @@ void loop() {
 ### SOS — Exemplo simples
 
 ```arduino
+#include <Arduino.h>
 #define batatas 13
 
 void setup() {
@@ -105,9 +114,9 @@ void loop() {
 
   // O (---)
   digitalWrite(batatas, HIGH); delay(800);
-  digitalWrite(batatas, LOW);  delay(300);
+  digitalWrite(batatas, LOW);  delay(200);
   digitalWrite(batatas, HIGH); delay(800);
-  digitalWrite(batatas, LOW);  delay(300);
+  digitalWrite(batatas, LOW);  delay(200);
   digitalWrite(batatas, HIGH); delay(800);
   digitalWrite(batatas, LOW);  delay(400);
 
@@ -181,3 +190,9 @@ WORD_GAP        = 1000ms  // intervalo entre palavras
 ### Desafio
 
 Escrevam uma palavra no Arduino que o **DECODER digital** consiga ler ao apontar a câmara para o LED a piscar.
+
+
+## Outras Referencias
+
+https://www.tinkercad.com/ - Prototipagem Visual e simulação
+
