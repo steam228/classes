@@ -40,7 +40,7 @@ hero_caption: 2012 - Spinner Final Prototype por Camille Moussete
 
 ### Ferramentas
 
-- VSCODE . instalar a extensão PlatformIO: (criar passo a passo nos recursos e template no git)
+- **VSCode + extensão PlatformIO** — ver o passo a passo em [Computação Física com Arduino](../../Recursos/ComputacaoFisicaArduino.md) (template: [arduinoStarterTemplate](https://github.com/steam228/arduinoStarterTemplate))
   
 ![](attachments/Screenshot%202026-10-23%20at%2010.07.18.png)
 

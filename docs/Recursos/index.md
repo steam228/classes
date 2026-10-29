@@ -27,6 +27,17 @@ hero_caption: ""
 [200CarpDigitalFusion360](200CarpDigitalFusion360.md)
 
 
+## Programação
+
+### Código Criativo com P5.js
+
+[Configuração base P5.js](CodigoCriativocomP5JS.md) — template, GitHub Desktop e VSCode
+
+### Computação Física com Arduino
+
+![](attachments/arduino_hero.jpg)
+[Configuração base Arduino (PlatformIO)](ComputacaoFisicaArduino.md) — extensão PlatformIO, template, clonar, abrir e editar o projeto
+
 ## Documentação
 
 #### [Markdown Resources][markdown](markdown.md)
