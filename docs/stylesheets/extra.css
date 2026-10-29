@@ -285,7 +285,7 @@
   color: var(--md-default-fg-color);
 }
 
-/* Hero caption — bottom-right credit tag */
+/* Hero caption — bottom-right credit tag (desktop only) */
 .md-hero__caption {
   position: absolute;
   bottom: 12px;
@@ -301,6 +301,11 @@
   line-height: 1;
   z-index: 2;
   border-radius: 2px;
+  display: none;
+}
+
+@media screen and (min-width: 960px) {
+  .md-hero__caption { display: block; }
 }
 
 /* Legend body (title, subtitle, buttons) */

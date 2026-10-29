@@ -1,5 +1,5 @@
 ---
-title: "Aula 7 — Computação Física III"
+title: "Aula 7 — Computação Física II"
 icon: lucide/book-open
 tags: aula
 status: not-started
@@ -12,7 +12,7 @@ hero_align: center
 hero_caption: ""
 ---
 
-# Aula 7 — Computação Física III
+# Aula 7 — Computação Física II
 
 ## Data
 
@@ -20,62 +20,106 @@ hero_caption: ""
 
 ## Sumário
 
-- Sensores digitais e utilização de bibliotecas Arduino
-- Exemplo: sensor DHT11 (temperatura e humidade)
-- Sessão de trabalho: finalização do protótipo de interação
-- Apresentação e demonstração dos protótipos em aula
-- Discussão: como a computação física se relaciona com o design de produto
+- Conversão Analógico-Digital (ADC) — leitura de sensores analógicos
+- Comunicação pela porta série (`Serial`)
+- Potenciómetro: leitura e mapeamento de valores
+- LDR (sensor de luz): leitura e tomada de decisão
+- Introdução ao conceito de protótipo de interação
+- Entrega dos exercícios do Bloco 1 (Código Criativo)
+
+!!! info "Criar novo projeto Arduino — passo a passo"
+    1. Abrir o [**template base**](https://github.com/steam228/arduinoStarterTemplate) no GitHub
+    2. **Use this template** → **Create a new repository** → dar um nome
+    3. **Open with GitHub Desktop** → clonar para o computador
+    4. No VSCode: **PIO Home** → **Projects** → **Add Existing** → abrir a pasta
+    5. Editar `src/main.cpp` → **Upload** para a placa
+
+    Guia completo com vídeo: [Computação Física com Arduino](../../Recursos/ComputacaoFisicaArduino.md)
 
 ## Notas da Aula
 
-### Sensores Digitais + Bibliotecas
+### Analog to Digital — ADC + Comunicação Porta Série
 
-#### Exemplo — Sensor DHT11 (Temperatura e Humidade)
+![Esquema ADC](../attachments/Screenshot_2023-02-02_at_19.42.59.png)
 
-Referências:
-
-- [DHT11/DHT22 com Arduino — Random Nerd Tutorials](https://randomnerdtutorials.com/complete-guide-for-dht11dht22-humidity-and-temperature-sensor-with-arduino/)
-- [DHT11, DHT22 and AM2302 — Adafruit](https://learn.adafruit.com/dht/using-a-dhtxx-sensor)
+### Potenciómetro
 
 ```arduino
-#include "DHT.h"
+#define ledPin 13
 
-float h, t;
-
-DHT dht(7, DHT11); // (pin, TIPO de SENSOR)
+int sensorValue = 0;
+int angulo = 0;
 
 void setup() {
   Serial.begin(9600);
-  dht.begin();
+  pinMode(ledPin, OUTPUT);
+  digitalWrite(ledPin, LOW);
 }
 
 void loop() {
-  h = dht.readHumidity();
-  t = dht.readTemperature();
-
-  if (isnan(h) || isnan(t)) {
-    Serial.println(F("Não consegui ler o sensor, bolas!"));
-    return;
+  sensorValue = analogRead(A0);
+  angulo = map(sensorValue, 0, 1023, 0, 360);
+  if (angulo >= 180) {
+    digitalWrite(ledPin, HIGH);
+  } else {
+    digitalWrite(ledPin, LOW);
   }
 
-  Serial.print("Humidade: ");
-  Serial.println(h);
-  Serial.print("Temperatura: ");
-  Serial.println(t);
-  Serial.println("||||||||||||||||");
-
-  delay(2000);
+  Serial.println(angulo);
+  delay(1);
 }
 ```
 
-### Ferramentas de simulação
+![Esquema potenciómetro](../attachments/Screenshot_2023-02-07_at_19.22.09.png)
 
-- [Tinkercad Circuits](https://www.tinkercad.com/) — simulação online de circuitos Arduino
+### LDR — Sensor de Luz
 
-### Referências adicionais
+Referências:
 
-- [Smooth Arduino 16x2 Gauge](https://youtu.be/cx9CoGqpsfg?si=0qlAnGIS-e132RMU) — exemplo LCD 16x2
-- [Arduino Home](https://www.arduino.cc/)
+- [How to use an LDR with Arduino](https://maker.pro/arduino/tutorial/how-to-use-an-ldr-sensor-with-arduino)
+- [Photocells — Adafruit](https://learn.adafruit.com/photocells/connecting-a-photocell)
+
+![Esquema LDR com divisor de tensão](../attachments/Screenshot_2023-02-07_at_22.53.15.png)
+
+Versão simples — ler o sensor e acender LED quando escurece:
+
+![Esquema LDR simples](../attachments/ldr_circuit_simple.png)
+
+```arduino
+#define sensLuz A0
+#define ledPin 13
+
+int valorSensLuz = 0;
+int asEscuras = 200;
+
+void setup() {
+  Serial.begin(9600);
+  pinMode(ledPin, OUTPUT);
+  digitalWrite(ledPin, LOW);
+}
+
+void loop() {
+  valorSensLuz = analogRead(sensLuz);
+  Serial.println(valorSensLuz);
+  if (valorSensLuz < asEscuras) {
+    digitalWrite(ledPin, HIGH);
+  } else {
+    digitalWrite(ledPin, LOW);
+  }
+  delay(1);
+}
+```
+
+### Conceitos-chave
+
+- `analogRead()` — leitura de valor analógico (0–1023)
+- `map()` — traduzir um intervalo de sensor para um intervalo de atuador
+- `Serial.println()` — comunicação com o computador pela porta série
+- Divisor de tensão — princípio base dos sensores resistivos (LDR, termístor, FSR)
+
+### Articulação com DPI
+
+Pensar como os módulos do (com)FORMA poderiam incorporar eletrónica simples: um módulo com LED, um módulo sensível ao toque, um módulo que reage à luz.
 
 ---
 

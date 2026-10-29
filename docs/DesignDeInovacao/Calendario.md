@@ -17,7 +17,7 @@ hero_caption: ""
 | **Bloco** | **Aulas** | **Período** | **Tema** | **Entrega** |
 |-----------|-----------|-------------|----------|-------------|
 | **1. Código Criativo** | 1–4 | 25 Set – 16 Out | Geração de formas e padrões com programação visual; AI e bibliotecas | Ex01 Mondrian até 23 Out; Ex02 if/else + Trabalho Final até 6 Nov |
-| **2. Computação Física** | 5–7 | 23 Out – 6 Nov | Sensores, atuadores e interações tangíveis | Protótipo + vídeo (máx. 60s) + texto |
+| **2. Computação Física** | 5, 7 | 23 Out, 6 Nov | Sensores, atuadores e interações tangíveis *(Aula 6: sessão de trabalho/apoio)* | Protótipo + vídeo (máx. 60s) + texto |
 | **3–5. A definir** | 8–14 | 13 Nov – 8 Jan | *Blocos a definir (ver programa da UC)* | *A definir* |
 
 ## Entregas

@@ -1,5 +1,5 @@
 ---
-title: Aula 6 — Computação Física II
+title: "Aula 6 — Trabalho de Projeto / Apoio"
 icon: lucide/book-open
 tags: aula
 status: not-started
@@ -12,7 +12,7 @@ hero_align: center
 hero_caption: img by https://github.com/katspaugh/arduino-modular-synth
 ---
 
-# Aula 6 — Computação Física II
+# Aula 6 — Trabalho de Projeto / Apoio
 
 ## Data
 
@@ -20,93 +20,26 @@ hero_caption: img by https://github.com/katspaugh/arduino-modular-synth
 
 ## Sumário
 
-- Conversão Analógico-Digital (ADC) — leitura de sensores analógicos
-- Comunicação pela porta série (`Serial`)
-- Potenciómetro: leitura e mapeamento de valores
-- LDR (sensor de luz): leitura e tomada de decisão
-- Introdução ao conceito de protótipo de interação
+- Sessão de trabalho de projeto em grupo
+- Apoio individual e em grupo a projetos em curso
+- Acompanhamento das entregas pendentes
+
+---
 
 ## Notas da Aula
 
-### Analog to Digital — ADC + Comunicação Porta Série
+### Sessão de trabalho
 
-![Esquema ADC](../attachments/Screenshot_2023-02-02_at_19.42.59.png)
+Aula dedicada ao **desenvolvimento dos projetos em curso** e ao apoio a entregas pendentes. Os estudantes devem aproveitar esta sessão para:
 
-### Potenciómetro
+- **Projeto (com)FORMA** (DPI) — desenvolvimento da proposta de grupo: conceito modular, modelação 3D, esboços, moodboard
+- **Entregas de Código Criativo** (DI) — finalização dos exercícios do Bloco 1, configuração de repositórios e GitHub Pages
+- **Esclarecimento de dúvidas** sobre prazos, formatos de entrega e critérios de avaliação
 
-```arduino
-#define ledPin 13
+!!! tip "Entregas pendentes"
+    - **Ex02 — if/else** e **Trabalho Final** (DI Bloco 1): via [Moodle](https://moodle2627.ipl.pt/course/section.php?id=9701) até à Aula 7 (6 Nov)
+    - **Proposta de Grupo** (DPI): via [Moodle](https://moodle2627.ipl.pt/course/section.php?id=9701) até à Aula 7 de DPI (3 Nov)
 
-int sensorValue = 0;
-int angulo = 0;
+### Computação Física
 
-void setup() {
-  Serial.begin(9600);
-  pinMode(ledPin, OUTPUT);
-  digitalWrite(ledPin, LOW);
-}
-
-void loop() {
-  sensorValue = analogRead(A0);
-  angulo = map(sensorValue, 0, 1023, 0, 360);
-  if (angulo >= 180) {
-    digitalWrite(ledPin, HIGH);
-  } else {
-    digitalWrite(ledPin, LOW);
-  }
-
-  Serial.println(angulo);
-  delay(1);
-}
-```
-
-![Esquema potenciómetro](../attachments/Screenshot_2023-02-07_at_19.22.09.png)
-
-### LDR — Sensor de Luz
-
-Referências:
-
-- [How to use an LDR with Arduino](https://maker.pro/arduino/tutorial/how-to-use-an-ldr-sensor-with-arduino)
-- [Photocells — Adafruit](https://learn.adafruit.com/photocells/connecting-a-photocell)
-
-![Esquema LDR com divisor de tensão](../attachments/Screenshot_2023-02-07_at_22.53.15.png)
-
-Versão simples — ler o sensor e acender LED quando escurece:
-
-![Esquema LDR simples](../attachments/ldr_circuit_simple.png)
-
-```arduino
-#define sensLuz A0
-#define ledPin 13
-
-int valorSensLuz = 0;
-int asEscuras = 200;
-
-void setup() {
-  Serial.begin(9600);
-  pinMode(ledPin, OUTPUT);
-  digitalWrite(ledPin, LOW);
-}
-
-void loop() {
-  valorSensLuz = analogRead(sensLuz);
-  Serial.println(valorSensLuz);
-  if (valorSensLuz < asEscuras) {
-    digitalWrite(ledPin, HIGH);
-  } else {
-    digitalWrite(ledPin, LOW);
-  }
-  delay(1);
-}
-```
-
-### Conceitos-chave
-
-- `analogRead()` — leitura de valor analógico (0–1023)
-- `map()` — traduzir um intervalo de sensor para um intervalo de atuador
-- `Serial.println()` — comunicação com o computador pela porta série
-- Divisor de tensão — princípio base dos sensores resistivos (LDR, termístor, FSR)
-
-### Articulação com DPI
-
-Pensar como os módulos do (com)FORMA poderiam incorporar eletrónica simples: um módulo com LED, um módulo sensível ao toque, um módulo que reage à luz.
+A computação física retoma na **[Aula 7](aula7.md)** com a continuação dos conteúdos de Arduino: leitura de sensores analógicos, comunicação série e prototipagem de interações.

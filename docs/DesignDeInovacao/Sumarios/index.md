@@ -23,8 +23,8 @@ hero_caption: ""
 | [Aula 3](aula3.md) | **9 Out** | Código Criativo III |
 | [Aula 4](aula4.md) | **16 Out** | Código Criativo IV |
 | [Aula 5](aula5.md) | **23 Out** | Computação Física I |
-| [Aula 6](aula6.md) | **30 Out** | Computação Física II |
-| [Aula 7](aula7.md) | **6 Nov** | Computação Física III |
+| [Aula 6](aula6.md) | **30 Out** | Trabalho de Projeto / Apoio |
+| [Aula 7](aula7.md) | **6 Nov** | Computação Física II |
 | [Aula 8](aula8.md) | **13 Nov** | — |
 | [Aula 9](aula9.md) | **20 Nov** | — |
 | [Aula 10](aula10.md) | **27 Nov** | — |

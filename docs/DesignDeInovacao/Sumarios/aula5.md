@@ -27,6 +27,15 @@ hero_caption: 2012 - Spinner Final Prototype por Camille Moussete
 - Exercício: comunicação em Morse com LED
 - Desafio: escrever uma palavra em Morse legível pelo decoder digital
 
+!!! info "Criar novo projeto Arduino — passo a passo"
+    1. Abrir o [**template base**](https://github.com/steam228/arduinoStarterTemplate) no GitHub
+    2. **Use this template** → **Create a new repository** → dar um nome
+    3. **Open with GitHub Desktop** → clonar para o computador
+    4. No VSCode: **PIO Home** → **Projects** → **Add Existing** → abrir a pasta
+    5. Editar `src/main.cpp` → **Upload** para a placa
+
+    Guia completo com vídeo: [Computação Física com Arduino](../../Recursos/ComputacaoFisicaArduino.md)
+
 ## Notas da Aula
 
 ### O que é Computação Física?

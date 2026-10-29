@@ -36,7 +36,7 @@ Fica disponível o ícone do PlatformIO (a "cabeça de formiga") na barra latera
 
 ## Workflow — criar um novo projeto
 
-![](attachments/ComputacaoFisica_01-ConfigBase.mp4)
+https://youtu.be/a2OlBPXn-xs
 
 Cada vez que queres começar uma nova experiência com Arduino:
 
@@ -71,8 +71,7 @@ Cada vez que queres começar uma nova experiência com Arduino:
 
 ## Editar o código
 
-![](attachments/ComputacaoFisica_02-ComoEditar.mp4)
-
+https://youtu.be/SJY6BROp03w
 ### `platformio.ini` — configuração do projeto
 
 É o primeiro ficheiro que abre. Define a placa e a velocidade de comunicação:
