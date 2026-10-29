@@ -1,15 +1,15 @@
 ---
-title: "Aula 7 — Computação Física II"
+title: Aula 7 — Computação Física II
 icon: lucide/book-open
 tags: aula
 status: not-started
-hero_image: ../../attachments/DSC05966.jpg
-hero_title: "Aula 7"
-hero_subtitle: "Design de Inovação"
+hero_image: ../attachments/coverAula6DI.jpg
+hero_title: Aula 7
+hero_subtitle: Design de Inovação
 hero_height: 60vh
 hero_overlay: 0.2
 hero_align: center
-hero_caption: ""
+hero_caption: img by https://github.com/katspaugh/arduino-modular-synth
 ---
 
 # Aula 7 — Computação Física II
