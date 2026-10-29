@@ -172,6 +172,19 @@ Explorar a tomada de decisão no código — como o programa reage a diferentes 
 - O resultado deve ser **visualmente interessante** — não basta funcionar, tem de comunicar
 - Pode partir dos exemplos da aula ou criar algo de raiz
 
+#### Critérios de avaliação
+
+| Critério | Peso | O que se avalia |
+| -------- | ---- | --------------- |
+| **Condicionais** | 40% | Pelo menos duas condições `if`/`else` que alteram cores, formas ou comportamentos, e que funcionam. |
+| **Input / interação** | 20% | Reação a rato, teclado ou outro input (`mouseX`/`mouseY`, `mouseIsPressed`, `keyIsPressed`, `key`, tempo…). |
+| **Comunicação visual** | 30% | O resultado é visualmente interessante e comunica — não basta funcionar. Composição, cor, ritmo e intenção. |
+| **readme** | 10% | Memória descritiva: que condições usaste, como afetam o resultado visual e o que exploraste. Fontes e uso de IA citados (ver [Markdown em 5min](../../Recursos/markdown.md)). |
+
+!!! warning "Depreciações"
+    - **Cópia** — −0,2 (em 5) quando o ficheiro é copiado literalmente de outro trabalho (o mesmo texto, estrutura e espaçamentos); copiar literalmente um bloco central pode ter um desconto simbólico. Partilhar ideias, medidas ou estratégias e escrever o próprio código é colaboração e não desconta.
+    - **Uso de IA não documentado** — −1 (em 5). Usar IA ou fontes externas não é errado; não as citar é. Documenta no `readme.md` as fontes, as funções que vão além do que foi dado em aula e, se usaste IA, como a usaste (podes incluir as prompts).
+
 ### Entrega
 
 Via **[Moodle](https://moodle2627.ipl.pt/course/section.php?id=9701)**, até à Aula 7 (6 de novembro).

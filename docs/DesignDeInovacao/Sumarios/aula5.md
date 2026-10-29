@@ -36,6 +36,8 @@ hero_caption: 2012 - Spinner Final Prototype por Camille Moussete
 *How a Computer sees you* por [Tom Igoe](https://tigoe.com/)
 
 [ArduinoComic.pdf](../attachments/index.pdf) — introdução ilustrada ao Arduino
+
+
 ### Ferramentas
 
 - VSCODE . instalar a extensão PlatformIO: (criar passo a passo nos recursos e template no git)
@@ -46,11 +48,15 @@ hero_caption: 2012 - Spinner Final Prototype por Camille Moussete
 - Alternativa: **Arduino IDE** — [arduino.cc/software](https://www.arduino.cc/en/software/#ide)
 - **Arduino Reference** — [arduino.cc/reference](https://www.arduino.cc/reference/en/)
 
+
+
+
 ### Referências
 
 - [Neil Mendoza](https://vimeo.com/neilmendoza) — esculturas cinéticas e interativas
 - https://grouu.cc/ - design e hardware aberto para agricultura
 - [Simple Haptics por Camille Moussete](https://www.simplehaptics.se/) - processo de prototipagem de um interface táctil com recurso a arduino![](attachments/Screenshot%202026-10-23%20at%2016.42.42.png)
+
 
 ---
 
@@ -74,6 +80,7 @@ void loop() {
   delay(500);
 }
 ```
+
 
 ---
 

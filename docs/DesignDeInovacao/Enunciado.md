@@ -57,7 +57,7 @@ Alguns exercícios poderão contribuir diretamente para o projeto final de **Des
 | **Ex02 — if/else** | Composição interativa com condicionais |
 | **Trabalho Final** | Output generativo com potencial de aplicação no projeto de DPI |
 
-**Entrega via Moodle até à Aula 5 (23 de outubro):** Ficheiros de código + imagens/vídeo dos resultados + textos descritivos.
+**Entrega via Moodle:** Ex01 até à Aula 5 (23 de outubro); Ex02 e Trabalho Final até à Aula 7 (6 de novembro). Cada exercício: repositório GitHub + GitHub Pages + `readme.md` como memória descritiva.
 
 ### Articulação com DPI
 

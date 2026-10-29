@@ -528,6 +528,22 @@ As demos construídas em aula podem servir de ponto de partida ou inspiração:
 - Visualizações de dados em tempo real
 - Experiências interativas que respondem a inputs do corpo ou do ambiente
 
+#### Critérios de avaliação
+
+| Critério | Peso | O que se avalia |
+| -------- | ---- | --------------- |
+| **Input** | 20% | Pelo menos uma fonte de dados (acelerómetro, som, imagem, vídeo, dados públicos, tempo, `random()`, texto…) bem integrada e a funcionar. |
+| **Referência / Expressão** | 25% | Forma de expressão (ASCII, som ↔ imagem, 3D, pose, generativo…) explorada com qualidade visual/sonora e com relação clara com o input. |
+| **Conceito / Output** | 25% | Input + Expressão = Artefacto: conceito claro e coerente, com potencial de aplicação no (com)FORMA ou noutro projeto pessoal/académico. |
+| **Execução e iteração** | 15% | Funciona online (GitHub Pages), em p5.js, a partir do template; código compreendido, testado e iterado. Outputs noutras plataformas ou linguagens não são aceites. |
+| **readme** (máx. 200 palavras) | 15% | Conceito, ingredientes (input, expressão, output), relação com o projeto de DPI e que partes foram geradas ou assistidas por IA (ver [Markdown em 5min](../../Recursos/markdown.md)). |
+
+!!! note "Uso de LLMs na avaliação"
+    Permitido se for **transparente** (o `readme.md` indica o que foi gerado ou assistido), **acompanhado** (código compreendido, testado e iterado) e em **p5.js**. Uso não documentado desconta 1 valor (em 5).
+
+!!! warning "Depreciações"
+    - **Cópia** — −0,2 (em 5) quando o ficheiro é copiado literalmente de outro trabalho (o mesmo texto, estrutura e espaçamentos); copiar literalmente um bloco central pode ter um desconto simbólico. Partilhar ideias, medidas ou estratégias e escrever o próprio código é colaboração e não desconta — podem e devem colaborar!
+
 ### Entrega
 
 Via **[Moodle](https://moodle2627.ipl.pt/course/section.php?id=9701)**, até à Aula 7 (6 de novembro).
