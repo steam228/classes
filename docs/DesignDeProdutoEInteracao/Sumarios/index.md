@@ -25,9 +25,9 @@ hero_caption: ""
 | [Aula 5](aula5.md) | **20 Out** | Propostas de Grupo |
 | [Aula 6](aula6.md) | **27 Out** | Apresentação + Desenvolvimento I |
 | [Aula 7](aula7.md) | **3 Nov** | Desenvolvimento II |
-| [Aula 8](aula8.md) | **10 Nov** | FabLab I |
-| [Aula 9](aula9.md) | **17 Nov** | Desenvolvimento IV |
-| [Aula 10](aula10.md) | **24 Nov** | Desenvolvimento V |
+| [Aula 8](aula8.md) | **10 Nov** | Desenvolvimento III — Apoio aos projetos |
+| [Aula 9](aula9.md) | **17 Nov** | Desenvolvimento IV — Esboço, modelação e processo produtivo |
+| [Aula 10](aula10.md) | **24 Nov** | FabLab I |
 | [Aula 11](aula11.md) | **1 Dez** | :material-alert-circle-outline: Feriado |
 | [Aula 12](aula12.md) | **8 Dez** | :material-alert-circle-outline: Feriado |
 | [Aula 13](aula13.md) | **15 Dez** | Desenvolvimento VI |

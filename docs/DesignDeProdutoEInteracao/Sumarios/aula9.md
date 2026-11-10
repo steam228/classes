@@ -1,5 +1,5 @@
 ---
-title: "Aula 9"
+title: "Aula 9 — Desenvolvimento IV"
 icon: lucide/book-open
 tags: aula
 status: not-started
@@ -12,7 +12,7 @@ hero_align: center
 hero_caption: ""
 ---
 
-# Aula 9
+# Aula 9 — Desenvolvimento IV
 
 ## Data
 
@@ -20,6 +20,14 @@ hero_caption: ""
 
 ## Sumário
 
+- Esboço: consolidação da forma do módulo e da integração do fragmento do objeto pessoal
+- Modelação 3D da peça e do molde
+- Adequação ao processo produtivo: tecnologia de moldação, linha de partição, ângulos de saída, espessuras, contração do material e registos do molde
+- Preparação dos ficheiros para fabrico (impressão 3D / CNC) e lista de materiais
+
 ## Referências Bibliográficas
 
 ## Notas da Aula
+
+!!! info "Objetivo da sessão"
+    Sair da aula com o modelo 3D da peça e do molde pensado para a tecnologia escolhida (barbotina em gesso, silicone ou injeção de baixa pressão), pronto a fechar para a **entrega do CAD do molde na [Aula 10](aula10.md) (24 Nov)**, quando o trabalho passa para o FabLab.

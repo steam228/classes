@@ -26,7 +26,7 @@ hero_caption: ""
 | Entrega | Data | Descrição |
 |---------|------|-----------|
 | Proposta de grupo | Aula 6 (27 Out) | Apresentação da proposta: objeto pessoal, fragmento formal, conceito modular |
-| CAD do molde | Aula 8 (10 Nov) | Modelo CAD do molde (digital e fabricável digitalmente, ou desenho técnico se for necessário para fabricação manual) |
+| CAD do molde | Aula 10 (24 Nov) | Modelo CAD do molde (digital e fabricável digitalmente, ou desenho técnico se for necessário para fabricação manual) |
 | Protótipo funcional | Aula 13 (15 Dez) | Primeiras peças produzidas a partir do molde |
 | Entrega final | Aula 14 (5 Jan) | Peças finais (mín. 6 unidades) + molde + documentação aberta |
 
