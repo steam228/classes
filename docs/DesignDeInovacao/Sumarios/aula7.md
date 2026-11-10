@@ -45,6 +45,7 @@ hero_caption: img by https://github.com/katspaugh/arduino-modular-synth
 ### Potenciómetro
 
 ```arduino
+#include <Arduino.h>
 #define ledPin 13
 
 int sensorValue = 0;
@@ -86,6 +87,7 @@ Versão simples — ler o sensor e acender LED quando escurece:
 ![Esquema LDR simples](../attachments/ldr_circuit_simple.png)
 
 ```arduino
+#include <Arduino.h>
 #define sensLuz A0
 #define ledPin 13
 
