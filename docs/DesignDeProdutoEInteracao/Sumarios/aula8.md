@@ -28,6 +28,8 @@ hero_caption: ""
 !!! note "Tempestade — turmas TJ e TL"
     Nas turmas TJ e TL muitos estudantes reportaram impossibilidade de se deslocarem à escola devido à tempestade, pelo que não foram registadas presenças. A turma TM decorreu com assiduidade normal.
 
+    **TJ:** a primeira hora desta aula será reposta online (Microsoft Teams) na semana de 16 de novembro, em sessão de acompanhamento de projetos. Data e hora a anunciar.
+
 ## Notas da Aula
 
 !!! warning "Ajuste ao calendário"

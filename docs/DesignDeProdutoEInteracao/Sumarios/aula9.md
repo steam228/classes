@@ -25,6 +25,9 @@ hero_caption: ""
 - Adequação ao processo produtivo: tecnologia de moldação, linha de partição, ângulos de saída, espessuras, contração do material e registos do molde
 - Preparação dos ficheiros para fabrico (impressão 3D / CNC) e lista de materiais
 
+!!! note "Reposição — turma TJ"
+    Nesta semana há uma sessão online (Microsoft Teams) de acompanhamento de projetos para a turma TJ, que repõe a primeira hora da [Aula 8](aula8.md). Data e hora a anunciar.
+
 ## Referências Bibliográficas
 
 ## Notas da Aula
