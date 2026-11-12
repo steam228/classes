@@ -49,6 +49,9 @@ Cada vez que queres começar uma nova experiência com Arduino:
 
 **3.** Dar um nome ao repositório (ex.: `exp01Arduino`) e, se quiseres, uma descrição. Visibilidade **Public**; "Include all branches" pode ficar desligado. Clicar **Create repository** — o repositório é uma cópia exata do template, já em teu nome.
 
+!!! tip "Trabalho em grupo — colaboradores"
+    Para que todo o grupo trabalhe no mesmo repositório: **Settings** → **Collaborators** → **Add people** → adicionar cada colega pelo username, nome ou email. Cada colega tem de aceitar o convite (chega por email e nas notificações do GitHub) e depois clona o repositório no seu computador.
+
 **4.** Em **Code** → **"Open with GitHub Desktop"** (ou, no GitHub Desktop, **File → Clone repository** e escolher o repositório na lista GitHub.com)
 
 ![](attachments/arduino_02_clone.jpg)

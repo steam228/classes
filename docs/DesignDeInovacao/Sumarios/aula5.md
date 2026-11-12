@@ -148,6 +148,7 @@ void loop() {
 ### SOS — Versão com variáveis e ciclos
 
 ```arduino
+#include <Arduino.h>
 #define coisa 13
 
 int longTime = 800;
