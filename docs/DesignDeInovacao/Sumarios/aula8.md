@@ -95,14 +95,15 @@ Projetos e soluções semelhantes, tutoriais e documentação que ajudam a resol
 ---
 
 ## 4. Partilha de referências em aula
+*Referências fornecidas aos diferentes grupos ao longo da aula (conceptuais, artísticas, de design e técnicas).*
 
-Referências fornecidas aos diferentes grupos ao longo da aula (conceptuais, artísticas, de design e técnicas).
-
+### Referencias conceptuais e visuais (artefactos artísticos, instalações, designs, etc...)
 #### Instalações Interativas
 
 - [Random International - Espelhos que seguem atentamente a audiencia]([https://www.instructables.com/Polargraph-Plotter/](https://www.random-international.com/audience))
   https://vimeo.com/9852175?fl=pl&fe=ti
 
+### Referencias Técnicas
 #### Polargraph
 
 *Técnicas — desenho com motores (plotter suspenso)*
@@ -111,8 +112,6 @@ Referências fornecidas aos diferentes grupos ao longo da aula (conceptuais, art
 - [Drawing Robot Board — Polargraph Plotter — Instructables](https://www.instructables.com/Drawing-Robot-Board-Polargraph-Plotter/)
 - [Drawing Robot Board — Polargraph Plotter — Hackster.io](https://www.hackster.io/mertarduino/drawing-robot-board-polargraph-plotter-240e14)
 - [Daniel Osika — Fab Academy 2025, Fablab Benfica (semanas 12–13)](https://fabacademy.org/2025/labs/benfica/students/daniel-osika/WEEK12-13/)
-
-### Referencias Técnicas
 
 #### Lcd Display + Arduino
 https://www.youtube.com/watch?v=Mq0WBPKGRew
