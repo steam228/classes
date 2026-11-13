@@ -77,11 +77,10 @@ Referências conceptuais, artísticas e de design que sustentam o conceito: obra
 - **Output** — o que o objeto faz: **atuadores** que controlam luz (LEDs), movimento (motores), som (colunas), …
 - **Computador — input e output.** Ligado ao Arduino pela **porta série** (cabo USB), o computador pode enviar dados ao objeto e receber dados dele. É aqui que o exercício se liga ao [Trabalho Final de Código Criativo](aula4.md) em p5.js: os mesmos *ingredientes* (input → expressão → output) passam a atravessar o objeto físico.
 
-| Sentido | Exemplos |
-|---------|----------|
-| **Computador → objeto** (input) | Rato, teclado ou cliques num sketch p5.js; volume do microfone; câmara (pose, cor, movimento); dados públicos ou APIs (meteorologia, tempo, texto) — cada valor enviado pela porta série aciona LEDs, motores ou som |
-| **Objeto → computador** (output) | Valores do LDR, potenciómetro ou outro sensor enviados com `Serial.println()` e lidos num sketch p5.js que gera imagem, animação ou som; o objeto como controlador físico de um artefacto digital |
-| **Nos dois sentidos** | Um sketch p5.js que reage ao objeto e lhe responde (ex.: o sensor altera a visualização e a visualização decide a cor dos LEDs) |
+| Sentido                          | Exemplos                                                                                                                                                                                                             |
+| -------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Computador → objeto** (input)  | Rato, teclado ou cliques num sketch p5.js; volume do microfone; câmara (pose, cor, movimento); dados públicos ou APIs (meteorologia, tempo, texto) — cada valor enviado pela porta série aciona LEDs, motores ou som |
+| **Objeto → computador** (output) | Valores do LDR, potenciómetro ou outro sensor enviados com `Serial.println()` e lidos num sketch p5.js que gera imagem, animação ou som; o objeto como controlador físico de um artefacto digital                    |
 
 ### d) MCU + Algoritmo
 
@@ -98,7 +97,6 @@ Projetos e soluções semelhantes, tutoriais e documentação que ajudam a resol
 ## 4. Partilha de referências em aula
 
 Referências fornecidas aos diferentes grupos ao longo da aula (conceptuais, artísticas, de design e técnicas).
-
 
 #### Instalações Interativas
 
