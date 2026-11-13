@@ -1,11 +1,11 @@
 ---
-title: "Aula 8 — Exercício Final de Computação Física"
+title: Aula 8 — Exercício Final de Computação Física
 icon: lucide/book-open
 tags: aula
 status: not-started
-hero_image: ../../attachments/DSC05966.jpg
-hero_title: "Aula 8"
-hero_subtitle: "Design de Inovação"
+hero_image: ../attachments/quadro.jpg
+hero_title: Aula 8
+hero_subtitle: Design de Inovação
 hero_height: 60vh
 hero_overlay: 0.2
 hero_align: center
