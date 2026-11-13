@@ -57,10 +57,12 @@ Em **dupla**, conceber e prototipar um objeto que **sente** o contexto ou o util
 
 ## 3. Matriz de trabalho
 
-![Matriz de trabalho do Exercício Final de Computação Física|629](../attachments/matrizExercicioFinalCF.svg)
+![673](attachments/matrizExercicioFinalCF.svg)
 
 A matriz organiza o projeto e corresponde às secções do `README.md`.
 
+**Para colaboração em grupo importem este canvas para um board de miro ou outra ferramenta que usem para colaborar, assim poderão associar imagens, links, post its para construir o vosso mapa de trabalho:**
+![](attachments/canvasExercicioFinalCF.png)
 ### a) Conceito / Motivação
 
 Porquê este objeto? Para quem? O que deve provocar? A motivação pode ser um propósito (resolver, ajudar, informar) ou uma intenção artística/expressiva. É o conceito que orienta todas as escolhas técnicas seguintes.
@@ -122,6 +124,11 @@ https://www.youtube.com/watch?v=Mq0WBPKGRew
 ##### Exemplo com i2C:
 https://www.youtube.com/watch?v=upE17NHrdPc
 [link para montagem e código](https://wokwi.com/projects/332701081024856658)
+
+
+#### Reconhecimento Facial (do lado do computador)
+[faceapi.js](https://fritz.ai/facial-recognition-system-with-javascript/)
+[outro exemplo de reconhecimento facial](https://github.com/justadudewhohacks/face-recognition.js/)
 
 ---
 
