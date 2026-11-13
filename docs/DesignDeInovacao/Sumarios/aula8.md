@@ -1,5 +1,5 @@
 ---
-title: "Aula 8"
+title: "Aula 8 — Exercício Final de Computação Física"
 icon: lucide/book-open
 tags: aula
 status: not-started
@@ -12,7 +12,7 @@ hero_align: center
 hero_caption: ""
 ---
 
-# Aula 8
+# Aula 8 — Exercício Final de Computação Física
 
 ## Data
 
@@ -20,36 +20,101 @@ hero_caption: ""
 
 ## Sumário
 
-- Continuação da Aula Anterior;
-- Lançamento do Exercício Final (entrega até 4 de Dezembro);
-- Matriz de Trabalho para o Exercício final e discussão de possibilidades
-	- Conceito/Motivação
-	- Referencias
-	- Inputs / Outputs
-	- MCU + Algoritmo
-	- Referencias Técnicas: Outros Projetos
-- Partilha de Referencias em Aula (conceptuais / artisticas / design e técnicas)
-- Clarificada a Integração entre DPI I e DI e respetiva avaliação:
-	- DPI I - Fase Individual + Projeto (com)FORMA (conforme critérios estabelecidos);
-	- DI - Computação Criativa (ind) + Computação Física (duplas) + Projecto (com)FORMA - avaliado quanto à documentação e integração dos processos, ferramentas abordados em DI (e à sua pertinencia). (grupo)
+1. Continuação da aula anterior
+2. Lançamento do Exercício Final de Computação Física (entrega até 4 de dezembro)
+3. Matriz de trabalho para o Exercício Final e discussão de possibilidades:
+    - a) Conceito / Motivação
+    - b) Referências
+    - c) Inputs / Outputs
+    - d) MCU + Algoritmo
+    - e) Referências técnicas: outros projetos
+4. Partilha de referências em aula (conceptuais, artísticas, de design e técnicas)
+5. Clarificação da integração entre DPI I e DI e respetiva avaliação
 
-## Referências Aula (fornecidas a diferentes grupos)
+---
 
-### Polargraph:
+## 1. Continuação da aula anterior
 
-https://www.instructables.com/Polargraph-Plotter/
-https://www.instructables.com/Drawing-Robot-Board-Polargraph-Plotter/
-https://www.hackster.io/mertarduino/drawing-robot-board-polargraph-plotter-240e14
-https://fabacademy.org/2025/labs/benfica/students/daniel-osika/WEEK12-13/
+Retoma dos conteúdos da [Aula 7](aula7.md): montagem do circuito do LDR na breadboard, leitura analógica, comunicação pela porta série e calibração do sensor com o Serial Monitor.
 
-## Notas da Aula
+- Vídeos e notas: [Aula 7 — Computação Física II](aula7.md)
+- Configuração do projeto (template, PlatformIO, GitHub): [Computação Física com Arduino](../../Recursos/ComputacaoFisicaArduino.md)
 
-!!! info "Calendário do (com)FORMA (Design de Produto e Interação I + em integração com DI)
+---
+
+## 2. Lançamento do Exercício Final
+
+Em **dupla**, conceber e prototipar um objeto que **sente** o contexto ou o utilizador (input), **decide** (MCU + algoritmo) e **responde** (output), com a eletrónica incorporada no próprio objeto.
+
+!!! info "Entrega até 4 de dezembro (Aula 11)"
+    - **Um repositório GitHub por dupla**, criado a partir do [arduinoStarterTemplate](https://github.com/steam228/arduinoStarterTemplate), com o colega adicionado como colaborador
+    - **Todos os entregáveis no repositório**, documentados no `README.md`: conceito, referências, inputs/outputs, esquema do circuito, algoritmo, código, referências técnicas, fotografias e vídeo
+    - Link do repositório submetido no Moodle
+
+    Enunciado completo: [Exercício Final de Computação Física](../Enunciado.md)
+
+---
+
+## 3. Matriz de trabalho
+
+![Matriz de trabalho do Exercício Final de Computação Física|629](../attachments/matrizExercicioFinalCF.svg)
+
+A matriz organiza o projeto e corresponde às secções do `README.md`.
+
+### a) Conceito / Motivação
+
+Porquê este objeto? Para quem? O que deve provocar? A motivação pode ser um propósito (resolver, ajudar, informar) ou uma intenção artística/expressiva. É o conceito que orienta todas as escolhas técnicas seguintes.
+
+### b) Referências
+
+Referências conceptuais, artísticas e de design que sustentam o conceito: obras, objetos, instalações, autores. Cada referência deve ter link ou imagem e uma frase sobre o que se retira dela.
+
+### c) Inputs / Outputs
+
+- **Input** — o que o objeto sente: **sensores** (luz, som, toque, distância, movimento, temperatura, …) ou o **computador** (dados, *data streams*, microfone, câmara, …)
+- **Output** — o que o objeto faz: **atuadores** que controlam luz (LEDs), movimento (motores), som (colunas), …
+
+### d) MCU + Algoritmo
+
+O **MCU** (o Arduino) é o cérebro: lê os inputs pelo **circuito**, corre o **algoritmo/programa** (`setup()` uma vez, `loop()` para sempre) e controla os outputs. Descrever a lógica: o que acontece a cada volta do `loop()`, que regras e limiares decidem o comportamento.
+
+Tudo isto fica **incorporado no objeto** (*embedded*): o circuito, o MCU e os componentes fazem parte do artefacto final.
+
+### e) Referências técnicas: outros projetos
+
+Projetos e soluções semelhantes, tutoriais e documentação que ajudam a resolver o circuito e o algoritmo. Indicar o que foi aproveitado de cada um.
+
+---
+
+## 4. Partilha de referências em aula
+
+Referências fornecidas aos diferentes grupos ao longo da aula (conceptuais, artísticas, de design e técnicas).
+
+### Polargraph
+
+*Técnicas — desenho com motores (plotter suspenso)*
+
+- [Polargraph Plotter — Instructables](https://www.instructables.com/Polargraph-Plotter/)
+- [Drawing Robot Board — Polargraph Plotter — Instructables](https://www.instructables.com/Drawing-Robot-Board-Polargraph-Plotter/)
+- [Drawing Robot Board — Polargraph Plotter — Hackster.io](https://www.hackster.io/mertarduino/drawing-robot-board-polargraph-plotter-240e14)
+- [Daniel Osika — Fab Academy 2025, Fablab Benfica (semanas 12–13)](https://fabacademy.org/2025/labs/benfica/students/daniel-osika/WEEK12-13/)
+
+---
+
+## 5. Integração entre DPI I e DI e avaliação
+
+| UC | Componente | Modalidade |
+|----|------------|------------|
+| **DPI I** | Fase individual | Individual |
+| | Projeto (com)FORMA, conforme os critérios estabelecidos | Grupo |
+| **DI** | Computação Criativa | Individual |
+| | Computação Física — Exercício Final | Duplas |
+| | Projeto (com)FORMA — avaliado quanto à documentação e à integração dos processos e ferramentas abordados em DI, e à sua pertinência | Grupo |
+
+!!! info "Calendário do (com)FORMA (DPI I, em integração com DI)"
     - **Aula 9 (17 Nov)** — esboçar, modelar e adequar ao processo produtivo
     - **Aula 10 (24 Nov)** — FabLab I e entrega do CAD do molde
     - **Aula 13 (15 Dez)** — protótipo funcional (primeiras peças a partir do molde)
     - **Aula 14 (5 Jan)** — entrega final
 
     Ver o [calendário completo](../../DesignDeProdutoEInteracao/Calendario.md).
-
-!!! info ""

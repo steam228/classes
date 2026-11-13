@@ -187,15 +187,7 @@ Pensar como os módulos do (com)FORMA poderiam incorporar eletrónica simples: u
 
 ### Entrega — Bloco 2
 
-**Exercício: Protótipo de Interação**
-
-Criar um protótipo funcional que responde a um estímulo do ambiente ou do utilizador.
-
-Entregar:
-
-- Protótipo funcional (apresentado em aula)
-- Vídeo de demonstração (máx. 60 segundos)
-- Texto descritivo (máx. 200 palavras)
+O exercício de Computação Física foi substituído pelo **Exercício Final de Computação Física**, em dupla, lançado na [Aula 8](aula8.md) e com entrega até 4 de dezembro. Ver o [enunciado](../Enunciado.md).
 
 ### Balanço dos blocos 1 e 2
 
