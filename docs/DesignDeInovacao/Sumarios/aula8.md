@@ -125,6 +125,7 @@ https://www.youtube.com/watch?v=upE17NHrdPc
 
 
 #### Reconhecimento Facial (do lado do computador)
+![](attachments/Pasted%20image%2020261113144735.png)
 [faceapi.js](https://fritz.ai/facial-recognition-system-with-javascript/)
 [outro exemplo de reconhecimento facial](https://github.com/justadudewhohacks/face-recognition.js/)
 
