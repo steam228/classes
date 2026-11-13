@@ -99,6 +99,11 @@ Referências fornecidas aos diferentes grupos ao longo da aula (conceptuais, art
 - [Drawing Robot Board — Polargraph Plotter — Hackster.io](https://www.hackster.io/mertarduino/drawing-robot-board-polargraph-plotter-240e14)
 - [Daniel Osika — Fab Academy 2025, Fablab Benfica (semanas 12–13)](https://fabacademy.org/2025/labs/benfica/students/daniel-osika/WEEK12-13/)
 
+refs Artísticas - Instalações
+
+- [Random International - Espelhos que seguem atentamente a audiencia]([https://www.instructables.com/Polargraph-Plotter/](https://www.random-international.com/audience))
+  https://vimeo.com/9852175?fl=pl&fe=ti
+
 ---
 
 ## 5. Integração entre DPI I e DI e avaliação

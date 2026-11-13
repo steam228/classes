@@ -548,6 +548,84 @@
   }
 
   /**
+   * Convert bare Vimeo links into embedded iframes.
+   *
+   * Supports:
+   *   https://vimeo.com/VIDEO_ID
+   *   https://vimeo.com/VIDEO_ID/HASH (unlisted)
+   *   https://player.vimeo.com/video/VIDEO_ID
+   *
+   * A bare URL on its own line becomes <p><a href="...">...</a></p>.
+   * This function replaces that paragraph with a 16:9 iframe embed.
+   */
+  function embedVimeoLinks() {
+    document
+      .querySelectorAll('a[href*="vimeo.com"]')
+      .forEach(function (link) {
+        var href = link.getAttribute("href");
+        if (!href) return;
+
+        var url;
+        try {
+          url = new URL(href);
+        } catch (e) {
+          return;
+        }
+
+        if (
+          url.hostname !== "vimeo.com" &&
+          url.hostname !== "www.vimeo.com" &&
+          url.hostname !== "player.vimeo.com"
+        )
+          return;
+
+        var pathParts = url.pathname.split("/").filter(Boolean);
+        var videoId = null;
+        var hash = null;
+
+        if (url.hostname === "player.vimeo.com") {
+          if (pathParts[0] === "video" && pathParts[1]) videoId = pathParts[1];
+        } else {
+          if (pathParts[0] && /^\d+$/.test(pathParts[0])) {
+            videoId = pathParts[0];
+            if (pathParts[1]) hash = pathParts[1];
+          }
+        }
+
+        if (!videoId) return;
+
+        var embedUrl = "https://player.vimeo.com/video/" + videoId;
+        if (hash) embedUrl += "?h=" + hash;
+
+        var wrapper = document.createElement("div");
+        wrapper.className = "vimeo-embed";
+
+        var iframe = document.createElement("iframe");
+        iframe.setAttribute("src", embedUrl);
+        iframe.setAttribute("allowfullscreen", "true");
+        iframe.setAttribute("loading", "lazy");
+        iframe.setAttribute("frameborder", "0");
+        iframe.setAttribute(
+          "allow",
+          "autoplay; fullscreen; picture-in-picture"
+        );
+        wrapper.appendChild(iframe);
+
+        var parent = link.parentElement;
+        if (
+          parent &&
+          parent.tagName === "P" &&
+          parent.children.length === 1 &&
+          parent.textContent.trim() === link.textContent.trim()
+        ) {
+          parent.replaceWith(wrapper);
+        } else {
+          link.replaceWith(wrapper);
+        }
+      });
+  }
+
+  /**
    * Convert bare Autodesk A360 links into full-width embedded viewers.
    *
    * Detects <a> tags whose href points to a360.co and replaces the
@@ -794,6 +872,7 @@
       setupSmoothScroll();
       convertVideoImages();
       embedYouTubeLinks();
+      embedVimeoLinks();
       embedAutodeskLinks();
       embed3DModels();
       embedPDFs();
@@ -807,6 +886,7 @@
     setupSmoothScroll();
     convertVideoImages();
     embedYouTubeLinks();
+    embedVimeoLinks();
     embedAutodeskLinks();
     embed3DModels();
     embedPDFs();
@@ -822,6 +902,7 @@
       initGanttZoom();
       convertVideoImages();
       embedYouTubeLinks();
+      embedVimeoLinks();
       embedAutodeskLinks();
       embed3DModels();
       embedPDFs();
