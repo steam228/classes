@@ -96,7 +96,7 @@ O projeto desenvolve-se a partir desta matriz, apresentada na [Aula 8](Sumarios/
 |---|---|---|
 | **a** | Conceito / Motivação | Porquê este objeto, para quem, o que deve provocar (propósito, intenção artística, …) |
 | **b** | Referências | Referências conceptuais, artísticas e de design que sustentam o conceito |
-| **c** | Inputs / Outputs | O que o objeto sente (sensores ou computador: dados, microfone, …) e o que faz (atuadores: LEDs, motores, colunas, …) |
+| **c** | Inputs / Outputs | O que o objeto sente (sensores: luz, som, toque, …) e o que faz (atuadores: LEDs, motores, colunas, …). O **computador** pode ser input e output, ligado pela porta série a um sketch p5.js — por exemplo, a partir do Trabalho Final de Código Criativo |
 | **d** | MCU + Algoritmo | A lógica do programa: o que acontece a cada volta do `loop()`, regras e limiares que decidem o comportamento |
 | **e** | Referências técnicas | Outros projetos e soluções semelhantes, tutoriais e documentação usados |
 
@@ -113,7 +113,7 @@ O **`README.md` é a memória descritiva** e contém, por esta ordem:
 1. Título do projeto e nomes dos dois elementos da dupla (com turma)
 2. **a) Conceito / Motivação**
 3. **b) Referências** — com links ou imagens e uma frase sobre o que se retira de cada uma
-4. **c) Inputs / Outputs** — lista de componentes e função de cada um
+4. **c) Inputs / Outputs** — lista de componentes e função de cada um; se houver ligação ao computador, o que circula pela porta série e em que sentido (com link para o sketch p5.js e respetiva GitHub Pages)
 5. **Esquema do circuito** — esquema desenhado (Tinkercad, Fritzing ou à mão) e/ou fotografia legível da montagem
 6. **d) MCU + Algoritmo** — explicação do funcionamento (texto, fluxograma ou pseudocódigo) e calibração: valores lidos no Serial Monitor e limiares escolhidos
 7. **e) Referências técnicas** — links e o que foi aproveitado de cada uma

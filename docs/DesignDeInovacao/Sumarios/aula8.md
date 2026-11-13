@@ -71,8 +71,15 @@ Referências conceptuais, artísticas e de design que sustentam o conceito: obra
 
 ### c) Inputs / Outputs
 
-- **Input** — o que o objeto sente: **sensores** (luz, som, toque, distância, movimento, temperatura, …) ou o **computador** (dados, *data streams*, microfone, câmara, …)
+- **Input** — o que o objeto sente: **sensores** (luz, som, toque, distância, movimento, temperatura, …)
 - **Output** — o que o objeto faz: **atuadores** que controlam luz (LEDs), movimento (motores), som (colunas), …
+- **Computador — input e output.** Ligado ao Arduino pela **porta série** (cabo USB), o computador pode enviar dados ao objeto e receber dados dele. É aqui que o exercício se liga ao [Trabalho Final de Código Criativo](aula4.md) em p5.js: os mesmos *ingredientes* (input → expressão → output) passam a atravessar o objeto físico.
+
+| Sentido | Exemplos |
+|---------|----------|
+| **Computador → objeto** (input) | Rato, teclado ou cliques num sketch p5.js; volume do microfone; câmara (pose, cor, movimento); dados públicos ou APIs (meteorologia, tempo, texto) — cada valor enviado pela porta série aciona LEDs, motores ou som |
+| **Objeto → computador** (output) | Valores do LDR, potenciómetro ou outro sensor enviados com `Serial.println()` e lidos num sketch p5.js que gera imagem, animação ou som; o objeto como controlador físico de um artefacto digital |
+| **Nos dois sentidos** | Um sketch p5.js que reage ao objeto e lhe responde (ex.: o sensor altera a visualização e a visualização decide a cor dos LEDs) |
 
 ### d) MCU + Algoritmo
 
@@ -90,7 +97,13 @@ Projetos e soluções semelhantes, tutoriais e documentação que ajudam a resol
 
 Referências fornecidas aos diferentes grupos ao longo da aula (conceptuais, artísticas, de design e técnicas).
 
-### Polargraph
+
+#### Instalações Interativas
+
+- [Random International - Espelhos que seguem atentamente a audiencia]([https://www.instructables.com/Polargraph-Plotter/](https://www.random-international.com/audience))
+  https://vimeo.com/9852175?fl=pl&fe=ti
+
+#### Polargraph
 
 *Técnicas — desenho com motores (plotter suspenso)*
 
@@ -99,11 +112,16 @@ Referências fornecidas aos diferentes grupos ao longo da aula (conceptuais, art
 - [Drawing Robot Board — Polargraph Plotter — Hackster.io](https://www.hackster.io/mertarduino/drawing-robot-board-polargraph-plotter-240e14)
 - [Daniel Osika — Fab Academy 2025, Fablab Benfica (semanas 12–13)](https://fabacademy.org/2025/labs/benfica/students/daniel-osika/WEEK12-13/)
 
+### Referencias Técnicas
 
-### Instalações Interativas
-
-- [Random International - Espelhos que seguem atentamente a audiencia]([https://www.instructables.com/Polargraph-Plotter/](https://www.random-international.com/audience))
-  https://vimeo.com/9852175?fl=pl&fe=ti
+#### Lcd Display + Arduino
+https://www.youtube.com/watch?v=Mq0WBPKGRew
+!!! Atenção: 
+	"*There are two "main" versions of the 16x2 display - based on the connection. It would either be a parallel connection or an I2C connection. The I2C connection is much easier to use because it only requires two wires (SDA - serial data and SCL - serial clock). With the LiquidCrystal_I2C library, it´s very easy to control the display.*"
+	
+##### Exemplo com i2C:
+https://www.youtube.com/watch?v=upE17NHrdPc
+[link para montagem e código](https://wokwi.com/projects/332701081024856658)
 
 ---
 
