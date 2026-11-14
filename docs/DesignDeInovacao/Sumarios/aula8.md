@@ -57,12 +57,18 @@ Em **dupla**, conceber e prototipar um objeto que **sente** o contexto ou o util
 
 ## 3. Matriz de trabalho
 
-![673](attachments/matrizExercicioFinalCF.svg)
+![Matriz de trabalho do Exercício Final de Computação Física](attachments/matrizExercicioFinalCF.svg)
 
-A matriz organiza o projeto e corresponde às secções do `README.md`.
+A matriz organiza o projeto e corresponde às secções do `README.md`. [Descarregar a matriz (SVG)](attachments/matrizExercicioFinalCF.svg)
 
-**Para colaboração em grupo importem este canvas para um board de miro ou outra ferramenta que usem para colaborar, assim poderão associar imagens, links, post its para construir o vosso mapa de trabalho:**
-![](attachments/canvasExercicioFinalCF.png)
+### Canvas para trabalho em dupla
+
+Para trabalhar a matriz em conjunto, importar este canvas para um board no **Miro** (ou FigJam, Mural, …) e preenchê-lo com post-its, imagens e links, começando pelo **Conceito**, ao centro. Cada bloco corresponde a uma secção do `README.md`, por isso o canvas preenchido é já o rascunho da documentação.
+
+![Canvas do objeto interativo](attachments/canvasExercicioFinalCF.png)
+
+[Descarregar o canvas (PNG, 4200 × 2970 px)](attachments/canvasExercicioFinalCF.png)
+
 ### a) Conceito / Motivação
 
 Porquê este objeto? Para quem? O que deve provocar? A motivação pode ser um propósito (resolver, ajudar, informar) ou uma intenção artística/expressiva. É o conceito que orienta todas as escolhas técnicas seguintes.
@@ -75,12 +81,12 @@ Referências conceptuais, artísticas e de design que sustentam o conceito: obra
 
 - **Input** — o que o objeto sente: **sensores** (luz, som, toque, distância, movimento, temperatura, …)
 - **Output** — o que o objeto faz: **atuadores** que controlam luz (LEDs), movimento (motores), som (colunas), …
-- **Computador — input e output.** Ligado ao Arduino pela **porta série** (cabo USB), o computador pode enviar dados ao objeto e receber dados dele. É aqui que o exercício se liga ao [Trabalho Final de Código Criativo](aula4.md) em p5.js: os mesmos *ingredientes* (input → expressão → output) passam a atravessar o objeto físico.
+- **Computador** — ligado ao Arduino pela **porta série** (cabo USB), pode entrar como input, sair como output, ou ambos. Os periféricos são os mesmos do [Trabalho Final de Código Criativo](aula4.md) em p5.js:
 
-| Sentido                          | Exemplos                                                                                                                                                                                                             |
-| -------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **Computador → objeto** (input)  | Rato, teclado ou cliques num sketch p5.js; volume do microfone; câmara (pose, cor, movimento); dados públicos ou APIs (meteorologia, tempo, texto) — cada valor enviado pela porta série aciona LEDs, motores ou som |
-| **Objeto → computador** (output) | Valores do LDR, potenciómetro ou outro sensor enviados com `Serial.println()` e lidos num sketch p5.js que gera imagem, animação ou som; o objeto como controlador físico de um artefacto digital                    |
+| | Periféricos | Exemplo |
+|---|---|---|
+| **Computador como input**<br>(porta série → Arduino) | teclado, rato, webcam, microfone, *trackpad*, dados da internet, … | uma tecla ou o volume do microfone, lidos num sketch p5.js, mudam a cor dos LEDs ou a velocidade de um motor |
+| **Computador como output**<br>(Arduino → porta série) | ecrã, projetor, saída de áudio (colunas, auscultadores), … | o valor do LDR, enviado com `Serial.println()`, controla uma animação projetada ou um som gerado em p5.js |
 
 ### d) MCU + Algoritmo
 
@@ -95,38 +101,50 @@ Projetos e soluções semelhantes, tutoriais e documentação que ajudam a resol
 ---
 
 ## 4. Partilha de referências em aula
+
 *Referências fornecidas aos diferentes grupos ao longo da aula (conceptuais, artísticas, de design e técnicas).*
 
-### Referencias conceptuais e visuais (artefactos artísticos, instalações, designs, etc...)
-#### Instalações Interativas
+### Referências conceptuais e visuais
 
-- [Random International - Espelhos que seguem atentamente a audiencia]([https://www.instructables.com/Polargraph-Plotter/](https://www.random-international.com/audience))
-  https://vimeo.com/9852175?fl=pl&fe=ti
+*Artefactos artísticos, instalações, design, …*
 
-### Referencias Técnicas
+#### Instalações interativas
+
+- [Random International — *Audience* (espelhos que seguem o público)](https://www.random-international.com/audience)
+
+https://vimeo.com/9852175
+
+### Referências técnicas
+
 #### Polargraph
 
-*Técnicas — desenho com motores (plotter suspenso)*
+*Desenho com motores (plotter suspenso)*
 
 - [Polargraph Plotter — Instructables](https://www.instructables.com/Polargraph-Plotter/)
 - [Drawing Robot Board — Polargraph Plotter — Instructables](https://www.instructables.com/Drawing-Robot-Board-Polargraph-Plotter/)
 - [Drawing Robot Board — Polargraph Plotter — Hackster.io](https://www.hackster.io/mertarduino/drawing-robot-board-polargraph-plotter-240e14)
 - [Daniel Osika — Fab Academy 2025, Fablab Benfica (semanas 12–13)](https://fabacademy.org/2025/labs/benfica/students/daniel-osika/WEEK12-13/)
 
-#### Lcd Display + Arduino
+#### Ecrã LCD 16x2 + Arduino
+
 https://www.youtube.com/watch?v=Mq0WBPKGRew
-!!! Atenção: 
-	"*There are two "main" versions of the 16x2 display - based on the connection. It would either be a parallel connection or an I2C connection. The I2C connection is much easier to use because it only requires two wires (SDA - serial data and SCL - serial clock). With the LiquidCrystal_I2C library, it´s very easy to control the display.*"
-	
-##### Exemplo com i2C:
+
+!!! tip "Paralelo ou I2C?"
+    Há duas versões principais do ecrã 16x2, conforme a ligação: **paralela** ou **I2C**. A versão I2C é muito mais simples, porque só precisa de dois fios de dados — SDA (*serial data*) e SCL (*serial clock*) — e com a biblioteca `LiquidCrystal_I2C` controla-se o ecrã com poucas linhas de código. No PlatformIO, a biblioteca adiciona-se em **PIO Home → Libraries**.
+
+##### Exemplo com I2C
+
 https://www.youtube.com/watch?v=upE17NHrdPc
-[link para montagem e código](https://wokwi.com/projects/332701081024856658)
 
+- [Montagem e código no simulador Wokwi](https://wokwi.com/projects/332701081024856658)
 
-#### Reconhecimento Facial (do lado do computador)
-![](attachments/Pasted%20image%2020261113144735.png)
-[faceapi.js](https://fritz.ai/facial-recognition-system-with-javascript/)
-[outro exemplo de reconhecimento facial](https://github.com/justadudewhohacks/face-recognition.js/)
+#### Reconhecimento facial (do lado do computador)
+
+![Reconhecimento facial no browser](attachments/Pasted%20image%2020261113144735.png)
+
+- [face-api.js — sistema de reconhecimento facial em JavaScript (Fritz AI)](https://fritz.ai/facial-recognition-system-with-javascript/)
+- [face-recognition.js — outro exemplo (GitHub)](https://github.com/justadudewhohacks/face-recognition.js/)
+- Em p5.js, a biblioteca [ml5.js](https://ml5js.org/) (*faceMesh*) deteta o rosto no browser; os valores podem seguir para o Arduino pela porta série
 
 ---
 

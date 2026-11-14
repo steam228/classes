@@ -88,7 +88,7 @@ Em **dupla**, conceber e prototipar um objeto que **sente** o contexto ou o util
 
 #### Matriz de trabalho
 
-O projeto desenvolve-se a partir desta matriz, apresentada na [Aula 8](Sumarios/aula8.md):
+O projeto desenvolve-se a partir desta matriz, apresentada na [Aula 8](Sumarios/aula8.md), onde está também o **canvas** para preencher em dupla no Miro:
 
 ![Matriz de trabalho do Exercício Final de Computação Física](attachments/matrizExercicioFinalCF.svg)
 
@@ -96,7 +96,7 @@ O projeto desenvolve-se a partir desta matriz, apresentada na [Aula 8](Sumarios/
 |---|---|---|
 | **a** | Conceito / Motivação | Porquê este objeto, para quem, o que deve provocar (propósito, intenção artística, …) |
 | **b** | Referências | Referências conceptuais, artísticas e de design que sustentam o conceito |
-| **c** | Inputs / Outputs | O que o objeto sente (sensores: luz, som, toque, …) e o que faz (atuadores: LEDs, motores, colunas, …). O **computador** pode ser input e output, ligado pela porta série a um sketch p5.js — por exemplo, a partir do Trabalho Final de Código Criativo |
+| **c** | Inputs / Outputs | O que o objeto sente (sensores: luz, som, toque, …) e o que faz (atuadores: LEDs, motores, colunas, …). Pela porta série, o **computador** pode ser input (teclado, rato, webcam, microfone, …) e output (ecrã, projetor, saída de áudio, …), como no Trabalho Final de Código Criativo em p5.js |
 | **d** | MCU + Algoritmo | A lógica do programa: o que acontece a cada volta do `loop()`, regras e limiares que decidem o comportamento |
 | **e** | Referências técnicas | Outros projetos e soluções semelhantes, tutoriais e documentação usados |
 
