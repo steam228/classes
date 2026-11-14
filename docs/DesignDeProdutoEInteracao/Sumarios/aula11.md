@@ -1,5 +1,5 @@
 ---
-title: "Aula 11"
+title: "Aula 11 — Feriado"
 icon: lucide/book-open
 tags: aula
 status: not-started
@@ -12,7 +12,7 @@ hero_align: center
 hero_caption: ""
 ---
 
-# Aula 11
+# Aula 11 — Feriado
 
 ## Data
 
@@ -20,6 +20,9 @@ hero_caption: ""
 
 ## Sumário
 
-## Referências Bibliográficas
+- Sem aula (feriado nacional)
 
 ## Notas da Aula
+
+!!! info "Sem aula"
+    A próxima oportunidade de apoio presencial aos projetos é a sessão de Design de Inovação de 4 de dezembro (entrega de Computação Física e apoio ao (com)FORMA). Continua o trabalho de grupo e, se precisares de materiais do FabLab, avisa com antecedência.

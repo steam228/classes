@@ -26,13 +26,11 @@ hero_caption: ""
 | [Aula 6](aula6.md) | **30 Out** | Trabalho de Projeto / Apoio |
 | [Aula 7](aula7.md) | **6 Nov** | Computação Física II |
 | [Aula 8](aula8.md) | **13 Nov** | Exercício Final de Computação Física |
-| [Aula 9](aula9.md) | **20 Nov** | — |
-| [Aula 10](aula10.md) | **27 Nov** | — |
-| [Aula 11](aula11.md) | **4 Dez** | — |
-| [Aula 12](aula12.md) | **11 Dez** | — |
-| [Aula 13](aula13.md) | **18 Dez** | — |
+| [Aula 9](aula9.md) | **20 Nov** | Laboratório de Projeto I |
+| [Aula 10](aula10.md) | **27 Nov** | Laboratório de Projeto II |
+| [Aula 11](aula11.md) | **4 Dez** | Entrega de Computação Física |
+| [Aula 12](aula12.md) | **11 Dez** | Laboratório de Projeto III |
+| [Aula 13](aula13.md) | **18 Dez** | Laboratório de Projeto IV |
 | — | **Pausa de Natal** | :material-snowflake: |
-| [Aula 14](aula14.md) | **8 Jan** | — |
+| [Aula 14](aula14.md) | **8 Jan** | Fecho do Semestre |
 
-!!! warning "Nota"
-    A turma DI-TL não tem aulas nas 2 últimas semanas do semestre (8 e 15 de janeiro).

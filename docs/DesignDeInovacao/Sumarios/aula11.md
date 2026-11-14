@@ -1,5 +1,5 @@
 ---
-title: "Aula 11"
+title: "Aula 11 — Entrega de Computação Física"
 icon: lucide/book-open
 tags: aula
 status: not-started
@@ -12,7 +12,7 @@ hero_align: center
 hero_caption: ""
 ---
 
-# Aula 11
+# Aula 11 — Entrega de Computação Física
 
 ## Data
 
@@ -20,6 +20,35 @@ hero_caption: ""
 
 ## Sumário
 
-## Referências Bibliográficas
+- Entrega do Exercício Final de Computação Física: apresentação dos protótipos em aula
+- Apoio aos projetos (com)FORMA e Exercício Final de Computação Física (modo laboratório)
 
 ## Notas da Aula
+
+!!! abstract "Modo laboratório — como funcionam estas aulas"
+    Nesta fase as aulas são práticas: toda a gente a trabalhar nos projetos, com o professor a circular pelos grupos.
+
+    - **Parte do que já foi dado.** Baseia as tuas abordagens nos conteúdos das aulas anteriores (ver os sumários e os recursos abaixo).
+    - **Dificuldades em encontrar conteúdos ou referências?** Fala com o **Zé** (o assistente deste site) ou com o professor. Têm propósitos diferentes, mas ambos são fontes de informação práticas.
+    - **Nas tarefas *hands-on* só tens o professor para ajudar.** Se o vires ocupado com outro grupo, espera a tua vez — mas não pares o trabalho por causa dessa espera: o tempo de aula é precioso.
+    - **Materiais:** se precisares de materiais que achas que o FabLab pode fornecer, avisa com antecedência.
+    - **Foco:** as tuas tarefas finais são agora o projeto **(com)FORMA** e o **Exercício Final de Computação Física**. Vais ter muitas dúvidas e muito que fazer em aula — aproveita. Depois da entrega de Computação Física (4 de dezembro), essa parte sai das aulas e o tempo fica dedicado ao (com)FORMA.
+
+
+!!! info "Entrega do Exercício Final de Computação Física"
+    - **Hoje:** apresentação do protótipo em aula, por dupla
+    - **Moodle:** link do repositório da dupla, com todos os entregáveis documentados no `README.md` — ver o [Enunciado](../Enunciado.md)
+    - A partir da próxima aula, o tempo fica dedicado ao **(com)FORMA**
+
+### Pontos de situação para esta semana
+
+- **(com)FORMA:** moldes e testes de vazamento. A aula de DPI I de 1 de dezembro coincide com um feriado, por isso esta sessão é a próxima oportunidade de apoio presencial
+
+### Recursos de apoio
+
+- [Aula 8 — matriz de trabalho e canvas](aula8.md) · [Enunciado do Exercício Final](../Enunciado.md)
+- [Aula 7 — LDR, porta série e calibração](aula7.md) · [Aula 5 — introdução à computação física](aula5.md)
+- [Computação Física com Arduino](../../Recursos/ComputacaoFisicaArduino.md) (template, PlatformIO, GitHub) · [Markdown](../../Recursos/markdown.md) para o README
+- [Enunciado do (com)FORMA](../../DesignDeProdutoEInteracao/Enunciado.md) · [Calendário de DPI I](../../DesignDeProdutoEInteracao/Calendario.md)
+- Moldes digitais: [Aula 2](../../DesignDeProdutoEInteracao/Sumarios/aula2.md) · [Aula 3](../../DesignDeProdutoEInteracao/Sumarios/aula3.md) · [Aula 4](../../DesignDeProdutoEInteracao/Sumarios/aula4.md) (DPI I)
+

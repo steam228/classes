@@ -25,8 +25,8 @@ Alguns exercícios poderão contribuir diretamente para o projeto final de **Des
 | Bloco | Aulas | Período | Tema |
 |-------|-------|---------|------|
 | **1. Código Criativo** | 1–4 | 25 Set – 16 Out | Geração de formas e padrões com programação visual; AI e bibliotecas |
-| **2. Computação Física** | 5–7 + Exercício Final (8–11) | 23 Out – 4 Dez | Sensores, atuadores e interações tangíveis; Exercício Final em dupla |
-| **3–5** | 8–14 | 13 Nov – 8 Jan | *Blocos a definir (ver programa da UC)* |
+| **2. Computação Física** | 5–8 | 23 Out – 13 Nov | Sensores, atuadores e interações tangíveis; Exercício Final em dupla (entrega a 4 Dez) |
+| **3. Laboratório de Projeto** | 9–14 | 20 Nov – 8 Jan | Apoio aos projetos (com)FORMA e Exercício Final de Computação Física (este até 4 Dez) |
 
 ---
 
@@ -141,14 +141,22 @@ A computação física pode acrescentar uma camada funcional/interativa às peç
 
 ---
 
-## Blocos Seguintes (a definir)
+## Bloco 3: Laboratório de Projeto
 
-Os blocos 3–5 serão definidos ao longo do semestre (Aulas 8–14), podendo abordar temas do programa como:
+**Aulas 9–14** · 20 Nov, 27 Nov, 4 Dez, 11 Dez, 18 Dez, 8 Jan
 
-- **Open Design e Distributed Design** — documentação, publicação e partilha de projetos
-- **Visualização de Informação** — representação de dados através de design
-- **Design de Serviços e Inovação Social** — intervenção em contextos reais
-- **Inovação Empresarial** — desenvolvimento de novos produtos e modelos de negócio
+As aulas passam a funcionar em **modo laboratório**: toda a gente a trabalhar nos projetos, com apoio do professor. Até à entrega de 4 de dezembro (Aula 11), o apoio divide-se entre o **Exercício Final de Computação Física** e o **(com)FORMA**; depois dessa data, as aulas ficam dedicadas ao (com)FORMA.
+
+Em DI, o (com)FORMA é avaliado quanto à **documentação** e à **integração dos processos e ferramentas** abordados em DI (código criativo, computação física, GitHub), e à sua pertinência. A documentação aberta do projeto liga-se a um dos temas do programa — **Open Design e Distributed Design**: documentação, publicação e partilha de projetos.
+
+| Marco | Data |
+|-------|------|
+| Entrega do CAD do molde (DPI I) | 24 Nov |
+| Entrega do Exercício Final de Computação Física (DI) | 4 Dez (Aula 11) |
+| Protótipo funcional do (com)FORMA (DPI I) | 15 Dez |
+| Entrega final do (com)FORMA (DPI I) | 5 Jan |
+
+As aulas de DPI I de 1 e 8 de dezembro coincidem com feriados; as sessões de DI de 4 e 11 de dezembro são as oportunidades de apoio presencial nessas semanas. Ver os [sumários](Sumarios/index.md) e o [calendário](Calendario.md).
 
 ## Avaliação
 

@@ -30,7 +30,7 @@ hero_caption: ""
 | [Aula 10](aula10.md) | **24 Nov** | FabLab I |
 | [Aula 11](aula11.md) | **1 Dez** | :material-alert-circle-outline: Feriado |
 | [Aula 12](aula12.md) | **8 Dez** | :material-alert-circle-outline: Feriado |
-| [Aula 13](aula13.md) | **15 Dez** | Desenvolvimento VI |
+| [Aula 13](aula13.md) | **15 Dez** | Protótipo Funcional |
 | — | **Pausa de Natal** | :material-snowflake: |
 | [Aula 14](aula14.md) | **5 Jan** | Entrega Final |
 

@@ -1,5 +1,5 @@
 ---
-title: "Aula 14"
+title: "Aula 14 — Entrega Final"
 icon: lucide/book-open
 tags: aula
 status: not-started
@@ -12,7 +12,7 @@ hero_align: center
 hero_caption: ""
 ---
 
-# Aula 14
+# Aula 14 — Entrega Final
 
 ## Data
 
@@ -20,6 +20,13 @@ hero_caption: ""
 
 ## Sumário
 
-## Referências Bibliográficas
+- Apresentação e entrega final do projeto (com)FORMA
 
 ## Notas da Aula
+
+!!! info "Entrega final"
+    - **Peças finais** (mín. 6 unidades) + **molde**
+    - **Documentação aberta** no repositório GitHub do grupo
+    - **Apresentação presencial** por grupo
+
+    Ver o [Enunciado](../Enunciado.md) e a [Avaliação](../Avaliacao.md).
