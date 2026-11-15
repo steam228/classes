@@ -50,7 +50,7 @@ O [enunciado do (com)FORMA](../../DesignDeProdutoEInteracao/Enunciado.md) coloca
 ##### Design na sociedade — já definido pelo enunciado e introduzido em DPI I
 
 - **Sustentabilidade e ecodesign.** Moldes reutilizáveis (gesso, silicone, resina, alumínio) para produzir em série curta e por encomenda, com menos stock e desperdício; modularidade que prolonga a vida do objeto — recombinar ou substituir um módulo em vez de deitar fora o todo. *Ver:* McDonough & Braungart (2002).
-- **Saberes e técnicas tradicionais.** As tecnologias de moldação introduzidas em DPI I com as necessidades de cada molde ([Aula 4](../../DesignDeProdutoEInteracao/Sumarios/aula4.md)) — cerâmica por via líquida (barbotina em moldes de gesso), silicone — são saberes materiais antigos que o projeto cruza com CAD e fabricação digital, ao serviço da técnica e não em sua substituição. *Ver:* Sennett (2008).
+- **Saberes e técnicas tradicionais.** As tecnologias de moldagem introduzidas em DPI I com as necessidades de cada molde ([Aula 4](../../DesignDeProdutoEInteracao/Sumarios/aula4.md)) — cerâmica por via líquida (barbotina em moldes de gesso), silicone — são saberes materiais antigos que o projeto cruza com CAD e fabricação digital, ao serviço da técnica e não em sua substituição. *Ver:* Sennett (2008).
 - **Open Design e Distributed Design.** A documentação aberta no repositório do grupo é um requisito do enunciado: qualquer pessoa ou fablab pode reproduzir o objeto. *Ver:* van Abel et al. (2011); Distributed Design Platform (s.d.).
 
 #### B. O que depende do caminho de cada projeto — a integrar na entrega

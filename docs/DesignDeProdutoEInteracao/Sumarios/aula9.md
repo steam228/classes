@@ -23,7 +23,7 @@ hero_caption: ""
 - Apoio aos projetos (com)FORMA e Exercício Final de Computação Física (modo laboratório)
 - Esboço: consolidação da forma do módulo e da integração do fragmento do objeto pessoal
 - Modelação 3D da peça e do molde
-- Adequação ao processo produtivo: tecnologia de moldação, linha de partição, ângulos de saída, espessuras, contração do material e registos do molde
+- Adequação ao processo produtivo: tecnologia de moldagem, linha de partição, ângulos de saída, espessuras, contração do material e registos do molde
 - Preparação dos ficheiros para fabrico (impressão 3D / CNC) e lista de materiais
 
 !!! note "Reposição — turma TJ"
