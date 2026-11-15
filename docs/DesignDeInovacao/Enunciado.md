@@ -90,7 +90,7 @@ Em **dupla**, conceber e prototipar um objeto que **sente** o contexto ou o util
 
 O projeto desenvolve-se a partir desta matriz, apresentada na [Aula 8](Sumarios/aula8.md), onde está também o **canvas** para preencher em dupla no Miro:
 
-![Matriz de trabalho do Exercício Final de Computação Física](attachments/matrizExercicioFinalCF.svg)
+![Matriz de trabalho do Exercício Final de Computação Física|665](attachments/matrizExercicioFinalCF.svg)
 
 | | Ponto da matriz | O que definir |
 |---|---|---|
@@ -147,14 +147,14 @@ A computação física pode acrescentar uma camada funcional/interativa às peç
 
 As aulas passam a funcionar em **modo laboratório**: toda a gente a trabalhar nos projetos, com apoio do professor. Até à entrega de 4 de dezembro (Aula 11), o apoio divide-se entre o **Exercício Final de Computação Física** e o **(com)FORMA**; depois dessa data, as aulas ficam dedicadas ao (com)FORMA.
 
-Em DI, o (com)FORMA é avaliado quanto à **documentação** e à **integração dos processos e ferramentas** abordados em DI (código criativo, computação física, GitHub), e à sua pertinência. A documentação aberta do projeto liga-se a um dos temas do programa — **Open Design e Distributed Design**: documentação, publicação e partilha de projetos.
+Em DI, o (com)FORMA é avaliado quanto ao **nível de integração de todos os temas e ferramentas abordados em DI** — usados de forma consequente, ao serviço do projeto — e à documentação. Na [Aula 13](Sumarios/aula13.md) (18 Dez), uma exposição breve sobre os temas do programa menos explorados (tipos de inovação, design na sociedade, informação, modelos de negócio) dá origem a uma **reflexão** a integrar na documentação e na apresentação final. A documentação aberta do projeto liga-se a um dos temas do programa — **Open Design e Distributed Design**: documentação, publicação e partilha de projetos.
 
-| Marco | Data |
-|-------|------|
-| Entrega do CAD do molde (DPI I) | 24 Nov |
+| Marco                                                | Data            |
+| ---------------------------------------------------- | --------------- |
+| "Entrega" do CAD do molde (DPI I)                    | 24 Nov          |
 | Entrega do Exercício Final de Computação Física (DI) | 4 Dez (Aula 11) |
-| Protótipo funcional do (com)FORMA (DPI I) | 15 Dez |
-| Entrega final do (com)FORMA (DPI I) | 5 Jan |
+| Protótipo funcional do (com)FORMA (DPI I)            | 15 Dez          |
+| Entrega final do (com)FORMA (DPI I)                  | 5 Jan           |
 
 As aulas de DPI I de 1 e 8 de dezembro coincidem com feriados; as sessões de DI de 4 e 11 de dezembro são as oportunidades de apoio presencial nessas semanas. Ver os [sumários](Sumarios/index.md) e o [calendário](Calendario.md).
 
@@ -167,6 +167,19 @@ A avaliação de DI integra três componentes:
 | **Computação Criativa** (Bloco 1) | Individual |
 | **Computação Física** — Exercício Final (Bloco 2) | Duplas |
 | **Projeto (com)FORMA** — documentação e integração dos processos e ferramentas abordados em DI, e a sua pertinência | Grupo |
+
+### Componente de grupo — (com)FORMA em DI
+
+Em DPI I, o (com)FORMA é avaliado segundo os [critérios de DPI I](../DesignDeProdutoEInteracao/Enunciado.md). Em DI, a mesma entrega (repositório, documentação e apresentação final de 5 de janeiro) é avaliada quanto à integração de DI:
+
+| Critério | Peso | O que se avalia |
+|----------|------|-----------------|
+| **Integração consequente das ferramentas de DI** | 35% | Código criativo (p5.js), computação física (Arduino), fabricação digital e GitHub usados de forma pertinente no projeto — ao serviço do conceito, não como adorno |
+| **Reflexão sobre inovação e design na sociedade** | 25% | Secção "Inovação e design na sociedade" no README e momento na apresentação: os enquadramentos que decorrem das escolhas do grupo (material, uso, interface, dados, produção e distribuição — [Aula 13, parte B](Sumarios/aula13.md)), documentados e referenciados |
+| **Documentação aberta** (Open / Distributed Design) | 25% | Processo, iterações, falhas e decisões registados; ficheiros reutilizáveis (CAD, código, esquemas); README claro; uso de IA citado |
+| **Comunicação** | 15% | Clareza com que a apresentação final mostra a integração entre DI e DPI I |
+
+### Componentes individuais e de dupla
 
 Em cada componente consideram-se:
 

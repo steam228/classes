@@ -30,7 +30,7 @@ hero_caption: ""
 | [Aula 10](aula10.md) | **27 Nov** | Laboratório de Projeto II |
 | [Aula 11](aula11.md) | **4 Dez** | Entrega de Computação Física |
 | [Aula 12](aula12.md) | **11 Dez** | Laboratório de Projeto III |
-| [Aula 13](aula13.md) | **18 Dez** | Laboratório de Projeto IV |
+| [Aula 13](aula13.md) | **18 Dez** | Inovação em Perspetiva · Laboratório de Projeto IV |
 | — | **Pausa de Natal** | :material-snowflake: |
 | [Aula 14](aula14.md) | **8 Jan** | Fecho do Semestre |
 

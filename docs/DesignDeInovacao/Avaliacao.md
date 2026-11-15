@@ -21,6 +21,16 @@ hero_caption: ""
 | Participação | 20% |
 | Projeto | 80% |
 
+## Componentes do projeto
+
+| Componente | Modalidade |
+|------------|------------|
+| Computação Criativa | Individual |
+| Computação Física — Exercício Final | Duplas |
+| Projeto (com)FORMA — integração de DI | Grupo |
+
+Os critérios de cada componente estão no [Enunciado](Enunciado.md).
+
 ## Escala
 
 | Classificação | Intervalo |

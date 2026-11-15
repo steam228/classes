@@ -37,7 +37,7 @@ hero_caption: ""
 
 ### Pontos de situação para esta semana
 
-- **(com)FORMA** entregue em DPI I a 5 de janeiro: rever a documentação quanto à integração dos processos e ferramentas de DI e à sua pertinência
+- **(com)FORMA** entregue em DPI I a 5 de janeiro: rever a documentação segundo os [critérios da componente de grupo de DI](../Enunciado.md) — integração consequente das ferramentas de DI, reflexão sobre inovação e design na sociedade ([Aula 13](aula13.md)) e documentação aberta
 
 ### Recursos de apoio
 

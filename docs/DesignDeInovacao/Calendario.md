@@ -18,7 +18,7 @@ hero_caption: ""
 |-----------|-----------|-------------|----------|-------------|
 | **1. Código Criativo** | 1–4 | 25 Set – 16 Out | Geração de formas e padrões com programação visual; AI e bibliotecas | Ex01 Mondrian até 23 Out; Ex02 if/else + Trabalho Final até 6 Nov |
 | **2. Computação Física** | 5–8 | 23 Out – 13 Nov | Sensores, atuadores e interações tangíveis *(Aula 6: sessão de trabalho/apoio)*; Exercício Final lançado na Aula 8 | Exercício Final (dupla) até 4 Dez |
-| **3. Laboratório de Projeto** | 9–14 | 20 Nov – 8 Jan | Modo laboratório: apoio ao (com)FORMA e ao Exercício Final de Computação Física (este até 4 Dez) | Documentação do (com)FORMA (componente de DI) |
+| **3. Laboratório de Projeto** | 9–14 | 20 Nov – 8 Jan | Modo laboratório: apoio ao (com)FORMA e ao Exercício Final de Computação Física (este até 4 Dez); Aula 13: exposição breve sobre inovação e design na sociedade | Documentação e reflexão no (com)FORMA (componente de grupo de DI) |
 
 ## Entregas
 
